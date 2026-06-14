@@ -1,410 +1,800 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Core Company — 스마트 오피스 통합 구축 | On-Premise AI, Rooted in Space</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Core Company · AI를 공간에 심습니다</title>
   <style>
+    /* ─── tokens: Linear-inspired B2B Tech ──────────────────────────────
+       Dark-mode-native, achromatic system with a single indigo accent.
+       Precision engineering voice.
+    ─────────────────────────────────────────────────────────────────── */
     :root {
-      --bg:         oklch(97.6% 0.004 91);
-      --surface:    oklch(100% 0.000 0);
-      --fg:         oklch(21.4% 0.004 85);
-      --muted:      oklch(45% 0.006 85);
-      --border:     oklch(90% 0.005 85);
-      --accent:     oklch(65.6% 0.185 45);
-      --accent2:    oklch(52.8% 0.211 307);
-      --accent3:    oklch(49.0% 0.187 262);
-      --font-display: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-      --font-body:    'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-      --font-mono:    'DM Mono', ui-monospace, 'IBM Plex Mono', Menlo, monospace;
-      --radius-sm: 8px;
-      --radius-md: 12px;
-      --radius-lg: 16px;
+      /* Surface - Deep Navy / Black */
+      --bg:           #08090a;   /* Linear marketing black */
+      --surface:      #111214;   /* panel dark */
+      --elevated:     #191a1b;   /* level 3 surface */
+      --fg:           #f7f8f8;   /* primary text (near-white) */
+      --muted:        #8a8f98;   /* secondary text */
+      --meta:         #62666d;   /* quaternary text */
+
+      /* Border */
+      --border:       rgba(255, 255, 255, 0.08); /* standard semi-transparent white */
+      --border-soft:  rgba(255, 255, 255, 0.05);
+
+      /* Accent - Brand Indigo / Violet */
+      --accent:       #5e6ad2;   /* Linear Brand Indigo */
+      --accent-on:    #ffffff;
+      --accent-hover: #828fff;
+
+      /* Derived */
+      --accent-glow:  rgba(94, 106, 210, 0.4);
+      --accent-soft:  rgba(94, 106, 210, 0.1);
+      --fg-soft:      rgba(247, 248, 248, 0.05);
+
+      /* Typography */
+      --font-display: "Inter Variable", "Inter", "Pretendard Variable", "Pretendard", -apple-system, sans-serif;
+      --font-body:    "Inter Variable", "Inter", "Pretendard Variable", "Pretendard", -apple-system, sans-serif;
+      --font-mono:    "Berkeley Mono", "JetBrains Mono", ui-monospace, monospace;
+
+      --fs-h1: clamp(40px, 6.5vw, 76px);
+      --fs-h2: clamp(32px, 4.5vw, 52px);
+      --fs-h3: 22px;
+      --fs-lead: clamp(16px, 2.2vw, 20px);
+      --fs-body: 16px;
+      --fs-meta: 13px;
+
+      --gap-xs: 8px;
+      --gap-sm: 12px;
+      --gap-md: 20px;
+      --gap-lg: 32px;
+      --gap-xl: 56px;
+      --gap-2xl: 96px;
+      --container: 1160px;
+      --gutter: 24px;
+
+      --radius: 6px;
+      --radius-lg: 14px;
+      --radius-pill: 9999px;
+
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+      --duration-fast: 200ms;
+      --duration-base: 400ms;
+      --duration-slow: 700ms;
     }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { font-size: 16px; -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
-    body { font-family: var(--font-body); color: var(--fg); background: var(--bg); line-height: 1.6; overflow-x: hidden; }
+
+    /* ─── reset & base ──────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; color-scheme: dark; scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--font-body);
+      font-size: var(--fs-body);
+      line-height: 1.6;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      font-feature-settings: "cv01", "ss03";
+    }
     img, svg { display: block; max-width: 100%; }
     a { color: inherit; text-decoration: none; }
-    button { cursor: pointer; font: inherit; }
-    .display-lg { font-family: var(--font-display); font-size: clamp(2.2rem, 4.5vw, 3.75rem); font-weight: 700; letter-spacing: -0.035em; line-height: 1.12; }
-    .display-md { font-family: var(--font-display); font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 700; letter-spacing: -0.025em; line-height: 1.2; }
-    .display-sm { font-family: var(--font-display); font-size: clamp(1.125rem, 1.5vw, 1.375rem); font-weight: 600; letter-spacing: -0.02em; line-height: 1.3; }
-    .body-lg { font-size: clamp(1rem, 1.2vw, 1.125rem); line-height: 1.7; color: var(--muted); }
-    .body-sm { font-size: 0.875rem; line-height: 1.6; color: var(--muted); }
-    .tagline-mono { font-family: var(--font-mono); font-weight: 400; font-size: 0.8125rem; letter-spacing: 0.06em; text-transform: uppercase; }
-    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-    @media (min-width: 768px) { .container { padding: 0 32px; } }
-    .section { padding: clamp(4rem, 10vw, 7rem) 0; }
-    .section-label { display: inline-block; font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; font-weight: 500; }
-    .gradient-divider { height: 3px; background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3)); border: none; margin: 0; }
-    .nav { position: sticky; top: 0; z-index: 100; background: rgba(248, 247, 244, 0.82); backdrop-filter: blur(14px) saturate(1.2); -webkit-backdrop-filter: blur(14px) saturate(1.2); border-bottom: 1px solid var(--border); }
-    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 80px; }
-    .nav-logo { font-family: var(--font-display); font-weight: 700; font-size: 1.0625rem; letter-spacing: -0.02em; display: flex; flex-direction: column; align-items: center; gap: 6px; flex-shrink: 0; }
-    .nav-logo img { height: 38px; width: auto; }
-    .nav-logo .logo-text { font-size: 0.75rem; letter-spacing: 0.02em; color: var(--fg); white-space: nowrap; }
-    .nav-links { display: none; align-items: center; gap: 28px; }
-    .nav-links a { font-size: 0.8125rem; font-weight: 500; color: var(--muted); transition: color 0.15s; }
-    .nav-links a:hover { color: var(--fg); }
-    .nav-actions { display: flex; align-items: center; gap: 12px; }
-    .nav-toggle { display: flex; background: none; border: none; padding: 8px; color: var(--fg); }
-    @media (min-width: 768px) { .nav-links { display: flex; } .nav-toggle { display: none; } }
-    .nav-drawer { display: none; position: fixed; inset: 0; z-index: 200; background: rgba(0,0,0,0.3); backdrop-filter: blur(4px); }
-    .nav-drawer.open { display: block; }
-    .nav-drawer-panel { position: absolute; top: 0; right: 0; width: 280px; height: 100%; background: var(--surface); border-left: 1px solid var(--border); padding: 24px; display: flex; flex-direction: column; gap: 20px; }
-    .nav-drawer-panel a { font-size: 1.125rem; font-weight: 500; color: var(--fg); padding: 8px 0; border-bottom: 1px solid var(--border); }
-    .nav-drawer-close { align-self: flex-end; background: none; border: none; padding: 8px; color: var(--fg); font-size: 1.5rem; line-height: 1; }
-    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px; border-radius: var(--radius-sm); font-size: 0.875rem; font-weight: 600; letter-spacing: -0.01em; border: 1px solid transparent; transition: all 0.15s; white-space: nowrap; }
-    .btn-primary { background: var(--accent); color: #fff; border-color: var(--accent); }
-    .btn-primary:hover { opacity: 0.88; }
-    .btn-ghost { background: transparent; color: var(--fg); border-color: var(--border); }
-    .btn-ghost:hover { border-color: var(--muted); background: rgba(0,0,0,0.02); }
-    .btn-lg { padding: 14px 32px; font-size: 1rem; }
-    .btn-contact { display: inline-flex; align-items: center; gap: 8px; padding: 14px 32px; border-radius: var(--radius-sm); font-size: 1rem; font-weight: 600; background: var(--accent); color: #fff; border: none; box-shadow: 0 4px 24px oklch(65.6% 0.185 45 / 0.30); transition: all 0.2s; letter-spacing: -0.01em; }
-    .btn-contact:hover { transform: translateY(-1px); box-shadow: 0 8px 32px oklch(65.6% 0.185 45 / 0.35); }
-    .hero { padding: clamp(3rem, 10vw, 7rem) 0 clamp(2rem, 5vw, 4rem); text-align: center; position: relative; overflow: hidden; }
-    .hero::before { content: ''; position: absolute; top: -35%; left: 50%; transform: translateX(-50%); width: 800px; height: 800px; background: radial-gradient(ellipse at center, oklch(65.6% 0.185 45 / 0.07) 0%, oklch(52.8% 0.211 307 / 0.05) 40%, oklch(49.0% 0.187 262 / 0.03) 70%, transparent 85%); pointer-events: none; animation: glowBreath 6s ease-in-out infinite; }
-    .hero .tagline-mono { display: inline-block; margin-bottom: 20px; padding: 6px 16px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface); color: var(--muted); }
-    .hero .display-lg { max-width: 850px; margin: 0 auto 20px; }
-    .hero .hero-desc { font-size: 1.125rem; line-height: 1.7; color: var(--muted); max-width: 620px; margin: 0 auto 36px; }
-    .hero-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px; margin-bottom: 48px; }
-    .hero-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; max-width: 900px; margin: 0 auto; text-align: left; }
-    .hero-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 28px 24px; }
-    .hero-card .display-sm { margin-bottom: 8px; }
-    .hero-card .body-sm { margin-bottom: 12px; }
-    .hero-card-price { font-family: var(--font-mono); font-size: 0.8125rem; font-weight: 500; color: var(--accent); }
-    .hero-card-icon { width: 36px; height: 36px; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
-    .hero-card-icon.orange { background: oklch(65.6% 0.185 45 / 0.1); color: var(--accent); }
-    .hero-card-icon.purple { background: oklch(52.8% 0.211 307 / 0.1); color: var(--accent2); }
-    .hero-card-icon svg { width: 20px; height: 20px; }
-    .company-section { position: relative; }
-    .company-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
-    .company-visual { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 48px 40px; display: flex; flex-direction: column; gap: 20px; }
-    .company-pillar { display: flex; align-items: flex-start; gap: 14px; padding: 16px; border-radius: var(--radius-sm); background: var(--bg); border: 1px solid var(--border); }
-    .company-pillar-icon { width: 40px; height: 40px; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .company-pillar-icon.o { background: oklch(65.6% 0.185 45 / 0.1); color: var(--accent); }
-    .company-pillar-icon.p { background: oklch(52.8% 0.211 307 / 0.1); color: var(--accent2); }
-    .company-pillar-icon.b { background: oklch(49.0% 0.187 262 / 0.1); color: var(--accent3); }
-    .company-pillar-icon svg { width: 20px; height: 20px; }
-    .company-pillar-text strong { display: block; font-size: 0.9375rem; margin-bottom: 2px; }
-    .company-pillar-text span { font-size: 0.8125rem; color: var(--muted); }
-    @media (max-width: 768px) { .company-grid { grid-template-columns: 1fr; gap: 32px; } }
-    .apps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-    .app-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 32px 24px; text-align: center; transition: box-shadow 0.2s, transform 0.2s; }
-    .app-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.04); transform: translateY(-2px); }
-    .app-card-icon { width: 48px; height: 48px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 16px; }
-    .app-card:nth-child(1) .app-card-icon { background: oklch(65.6% 0.185 45 / 0.1); color: var(--accent); }
-    .app-card:nth-child(2) .app-card-icon { background: oklch(52.8% 0.211 307 / 0.1); color: var(--accent2); }
-    .app-card:nth-child(3) .app-card-icon { background: oklch(49.0% 0.187 262 / 0.1); color: var(--accent3); }
-    .app-card:nth-child(4) .app-card-icon { background: oklch(65.6% 0.185 45 / 0.1); color: var(--accent); }
-    .app-card .display-sm { margin-bottom: 8px; font-size: 1rem; }
-    .app-card-icon svg { width: 22px; height: 22px; }
-    @media (max-width: 768px) { .apps-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 480px) { .apps-grid { grid-template-columns: 1fr; } }
-    .process-header { text-align: center; max-width: 640px; margin: 0 auto 56px; }
-    .process-header .display-md { margin-bottom: 16px; }
-    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; position: relative; }
-    .steps::before { content: ''; position: absolute; top: 24px; left: 12.5%; right: 12.5%; height: 2px; background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3)); z-index: 0; }
-    .step { text-align: center; position: relative; z-index: 1; }
-    .step-num { display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #fff; font-weight: 700; font-size: 1.125rem; margin-bottom: 20px; font-family: var(--font-mono); position: relative; }
-    .step .display-sm { margin-bottom: 8px; }
-    .step .body-sm { max-width: 220px; margin: 0 auto; }
-    @media (max-width: 768px) { .steps { grid-template-columns: repeat(2, 1fr); gap: 32px 16px; } .steps::before { display: none; } }
-    @media (max-width: 480px) { .steps { grid-template-columns: 1fr; } }
-    .tech-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; display: grid; grid-template-columns: 1fr 1fr; }
-    .tech-content { padding: 48px 40px; display: flex; flex-direction: column; justify-content: center; }
-    .tech-content .display-sm { margin-bottom: 16px; }
-    .tech-specs { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
-    .tech-spec { font-size: 0.75rem; font-family: var(--font-mono); padding: 5px 12px; border-radius: 999px; border: 1px solid var(--border); background: var(--bg); color: var(--muted); letter-spacing: 0.02em; }
-    .tech-visual { background: linear-gradient(135deg, oklch(65.6% 0.185 45 / 0.08), oklch(49.0% 0.187 262 / 0.08)); display: flex; align-items: center; justify-content: center; padding: 48px; position: relative; overflow: hidden; }
-    .tech-orb { width: 200px; height: 200px; border-radius: 50%; background: radial-gradient(circle at 40% 40%, oklch(65.6% 0.185 45 / 0.5), oklch(52.8% 0.211 307 / 0.3), oklch(49.0% 0.187 262 / 0.2), transparent 70%); filter: blur(30px); animation: pulse 4s ease-in-out infinite; }
-    @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 0.6; } 50% { transform: scale(1.15); opacity: 1; } }
-    @media (max-width: 768px) { .tech-box { grid-template-columns: 1fr; } .tech-visual { min-height: 200px; } }
-    .contact-section { text-align: center; position: relative; }
-    .contact-section::before { content: ''; position: absolute; bottom: -10%; left: 50%; transform: translateX(-50%); width: 500px; height: 500px; background: radial-gradient(ellipse at center, oklch(65.6% 0.185 45 / 0.06) 0%, oklch(52.8% 0.211 307 / 0.04) 50%, transparent 70%); pointer-events: none; }
-    .contact-section .display-md { max-width: 600px; margin: 0 auto 16px; }
-    .contact-section .body-lg { max-width: 520px; margin: 0 auto 32px; }
-    .contact-info { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin-top: 28px; }
-    .contact-chip { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface); font-size: 0.875rem; font-family: var(--font-mono); color: var(--muted); }
-    .footer { border-top: 1px solid var(--border); padding: 40px 0; }
-    .footer-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
-    .footer-links { display: flex; gap: 24px; }
-    .footer-links a { font-size: 0.8125rem; color: var(--muted); transition: color 0.15s; }
-    .footer-links a:hover { color: var(--fg); }
-    .footer-copy { font-size: 0.8125rem; color: var(--muted); }
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    @keyframes scaleIn { from { opacity: 0; transform: scale(0.94); } to { opacity: 1; transform: scale(1); } }
-    @keyframes glowBreath { 0%, 100% { opacity: 0.6; transform: translateX(-50%) scale(1); } 50% { opacity: 1; transform: translateX(-50%) scale(1.08); } }
-    .anim-fade-up, .anim-fade-in, .anim-scale-in { opacity: 0; }
-    .anim-running .anim-fade-up { animation: fadeUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-    .anim-running .anim-fade-in { animation: fadeIn 0.6s ease forwards; }
-    .anim-running .anim-scale-in { animation: scaleIn 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-    .anim-running .anim-delay-1 { animation-delay: 0.15s; } .anim-running .anim-delay-2 { animation-delay: 0.30s; }
-    .anim-running .anim-delay-3 { animation-delay: 0.45s; } .anim-running .anim-delay-4 { animation-delay: 0.60s; }
-    .anim-running .anim-delay-5 { animation-delay: 0.75s; } .anim-running .anim-delay-6 { animation-delay: 0.90s; }
-    .anim-running .anim-delay-7 { animation-delay: 1.05s; } .anim-running .anim-delay-8 { animation-delay: 1.20s; }
-    .anim-running .anim-delay-9 { animation-delay: 1.35s; } .anim-running .anim-delay-10 { animation-delay: 1.50s; }
-    .reveal-on-scroll { opacity: 0; transform: translateY(32px); transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
-    .reveal-on-scroll.visible { opacity: 1; transform: translateY(0); }
+    button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; outline: none; }
+    p { text-wrap: pretty; margin: 0; }
+    h1, h2, h3, h4 { text-wrap: balance; margin: 0; font-weight: 600; }
+
+    /* Animation markers */
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(24px) scale(0.99);
+      transition: opacity var(--duration-slow) var(--ease-out-expo), transform var(--duration-slow) var(--ease-out-expo);
+    }
+    [data-reveal].revealed {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    /* ─── layout primitives ─────────────────────────────────────────── */
+    .container {
+      max-width: var(--container);
+      margin-inline: auto;
+      padding-inline: var(--gutter);
+    }
+    .section {
+      padding-block: clamp(80px, 12vw, 160px);
+      position: relative;
+    }
+    .section-border { border-top: 1px solid var(--border-soft); }
+    
+    .stack { display: flex; flex-direction: column; }
+    .stack-xs > * + * { margin-top: var(--gap-xs); }
+    .stack-sm > * + * { margin-top: var(--gap-sm); }
+    .stack-md > * + * { margin-top: var(--gap-md); }
+    .stack-lg > * + * { margin-top: var(--gap-lg); }
+    
+    .row { display: flex; align-items: center; gap: var(--gap-md); }
+    .row-between { display: flex; align-items: center; justify-content: space-between; gap: var(--gap-md); }
+    
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--gap-lg); }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap-lg); }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap-md); }
+    
+    @media (max-width: 920px) {
+      .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+    }
+
+    /* ─── type ──────────────────────────────────────────────────────── */
+    h1 { font-size: var(--fs-h1); line-height: 1.05; letter-spacing: -0.055em; }
+    h2 { font-size: var(--fs-h2); line-height: 1.15; letter-spacing: -0.045em; }
+    h3 { font-size: var(--fs-h3); letter-spacing: -0.02em; }
+    
+    .lead { font-size: var(--fs-lead); line-height: 1.7; color: var(--muted); max-width: 60ch; font-weight: 400; }
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: var(--gap-md);
+      display: inline-block;
+      font-weight: 600;
+    }
+    .meta { font-family: var(--font-mono); font-size: var(--fs-meta); color: var(--meta); letter-spacing: 0.02em; }
+    .num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+
+    /* ─── topnav ────────────────────────────────────────────────────── */
+    .topnav {
+      position: sticky; top: 0; z-index: 1000;
+      background: rgba(8, 9, 10, 0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-soft);
+      height: 64px;
+      display: flex;
+      align-items: center;
+    }
+    .topnav-inner { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+    .logo-container { height: 28px; display: flex; align-items: center; gap: 8px; }
+    .logo-img { height: 100%; width: auto; object-fit: contain; }
+    .logo-text { 
+      font-family: var(--font-display);
+      font-size: 18px; 
+      font-weight: 700; 
+      letter-spacing: -0.04em; 
+      color: var(--fg);
+      line-height: 1;
+    }
+    
+    nav { display: flex; gap: var(--gap-lg); }
+    nav a { font-size: 14px; color: var(--muted); transition: color 0.2s var(--ease-out-expo); font-weight: 500; }
+    nav a:hover { color: var(--fg); }
+    
+    @media (max-width: 768px) { nav { display: none; } }
+
+    /* ─── Vision Rotator ─────────────────────────────────────────── */
+    .vision-rotator {
+      height: 160px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+      margin-block: var(--gap-sm);
+      width: 100%;
+    }
+    .vision-slide {
+      position: absolute;
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
+      text-align: center;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .vision-slide.active {
+      opacity: 1;
+      transform: translateY(0);
+      z-index: 2;
+    }
+    .vision-slide.exit {
+      opacity: 0;
+      transform: translateY(-24px);
+      z-index: 1;
+    }
+    .vision-h1 {
+      font-size: var(--fs-h1);
+      font-weight: 800;
+      letter-spacing: -0.065em;
+      line-height: 1.05;
+      margin: 0;
+      background: linear-gradient(to bottom, #fff 20%, rgba(255,255,255,0.4) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* ─── Video Pill ────────────────────────────────────────────────── */
+    .video-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 6px 18px 6px 8px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-pill);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--muted);
+      transition: all var(--duration-base) var(--ease-out-expo);
+      margin-bottom: var(--gap-xl);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      box-shadow: 0 0 0 1px transparent;
+    }
+    .video-pill:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--accent);
+      color: var(--fg);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3), 0 0 24px var(--accent-soft);
+    }
+    .video-pill-play {
+      width: 24px;
+      height: 24px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      box-shadow: 0 0 12px var(--accent-glow);
+    }
+    .video-pill-play svg {
+      width: 10px;
+      height: 10px;
+      margin-left: 2px;
+    }
+
+    /* ─── buttons ───────────────────────────────────────────────────── */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 10px 24px;
+      border-radius: var(--radius);
+      font-size: 14px;
+      font-weight: 600;
+      transition: all var(--duration-base) var(--ease-out-expo);
+      border: 1px solid transparent;
+      white-space: nowrap;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-primary { 
+      background: var(--accent); 
+      color: white; 
+      box-shadow: 0 4px 12px rgba(94, 106, 210, 0.2);
+    }
+    .btn-primary:hover { 
+      background: var(--accent-hover); 
+      transform: translateY(-2px); 
+      box-shadow: 0 8px 24px rgba(94, 106, 210, 0.4); 
+    }
+    .btn-primary:active { transform: translateY(0); }
+    
+    .btn-secondary { 
+      background: rgba(255, 255, 255, 0.02); 
+      border-color: var(--border); 
+      color: var(--fg); 
+    }
+    .btn-secondary:hover { 
+      background: rgba(255, 255, 255, 0.06); 
+      border-color: var(--accent); 
+    }
+
+    /* ─── visuals & placeholders ────────────────────────────────────── */
+    .hero-visual-wrapper {
+      width: 100%;
+      max-width: 1040px;
+      margin-top: clamp(60px, 10vw, 100px);
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%, rgba(255,255,255,0.05) 100%);
+      border-radius: 20px;
+    }
+    .hero-visual {
+      width: 100%; height: clamp(300px, 42vw, 540px);
+      border-radius: 19px;
+      background: #0c0d0f;
+      box-shadow: 0 40px 120px rgba(0,0,0,0.8);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .dashboard-container {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    
+    .dashboard-header {
+      height: 52px;
+      border-bottom: 1px solid var(--border-soft);
+      display: flex;
+      align-items: center;
+      padding: 0 24px;
+      gap: 12px;
+      background: rgba(18, 19, 21, 0.6);
+      backdrop-filter: blur(8px);
+    }
+    
+    .dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.1); }
+    .dot-accent { background: var(--accent); box-shadow: 0 0 10px var(--accent-glow); }
+    
+    .dashboard-body {
+      flex: 1;
+      padding: 32px;
+      display: flex;
+      gap: 32px;
+      background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    
+    .sidebar-widget {
+      width: 240px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    
+    .widget {
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-soft);
+      border-radius: 14px;
+      transition: all 0.3s var(--ease-out-expo);
+      position: relative;
+    }
+    .widget:hover { 
+      border-color: rgba(94, 106, 210, 0.3); 
+      background: rgba(255, 255, 255, 0.04);
+      transform: translateX(4px);
+    }
+    
+    .widget-label { font-size: 10px; color: var(--meta); font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 8px; }
+    .widget-value { font-family: var(--font-mono); font-size: 22px; color: var(--fg); font-weight: 600; }
+    
+    .main-panel {
+      flex: 1;
+      border: 1px solid var(--border-soft);
+      border-radius: 16px;
+      background: rgba(0,0,0,0.5);
+      padding: 28px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      box-shadow: inset 0 0 40px rgba(0,0,0,0.5);
+    }
+    
+    .chart-svg {
+      flex: 1;
+      width: 100%;
+      overflow: visible;
+    }
+    
+    .scanline {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.05) 50%);
+      background-size: 100% 4px;
+      pointer-events: none;
+      opacity: 0.2;
+      animation: scan 10s linear infinite;
+    }
+    @keyframes scan { from { background-position: 0 0; } to { background-position: 0 100%; } }
+
+    /* ─── sections ──────────────────────────────────────────────────── */
+    .hero { text-align: center; padding-block: clamp(100px, 10vw, 140px); position: relative; }
+    
+    /* Background Glow */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 5%; left: 50%;
+      width: 1000px; height: 500px;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      opacity: 0.25;
+      z-index: -1;
+    }
+    
+    .stat-large {
+      font-size: clamp(100px, 18vw, 200px);
+      line-height: 0.8;
+      letter-spacing: -0.09em;
+      color: var(--fg);
+      font-weight: 800;
+      font-family: var(--font-display);
+      display: inline-block;
+    }
+
+    .architecture-step {
+      padding: var(--gap-lg);
+      background: rgba(255, 255, 255, 0.015);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-lg);
+      transition: all var(--duration-base) var(--ease-out-expo);
+      position: relative;
+      overflow: hidden;
+    }
+    .architecture-step::before {
+      content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 0;
+      background: var(--accent);
+      transition: height var(--duration-base) var(--ease-out-expo);
+    }
+    .architecture-step:hover { 
+      border-color: var(--accent); 
+      background: rgba(255, 255, 255, 0.035);
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+    .architecture-step:hover::before { height: 100%; }
+    .step-num { font-family: var(--font-mono); font-size: 11px; color: var(--accent); margin-bottom: 14px; display: block; font-weight: 700; letter-spacing: 0.15em; }
+
+    .card {
+      background: rgba(255, 255, 255, 0.015);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-lg);
+      transition: all var(--duration-base) var(--ease-out-expo);
+      display: flex; flex-direction: column;
+    }
+    .card:hover { border-color: var(--accent); background: rgba(255, 255, 255, 0.035); transform: translateY(-4px); }
+
+    /* ─── fields grid ──────────────────────────────────────────── */
+    .field-card {
+      padding: var(--gap-lg);
+      background: rgba(255, 255, 255, 0.015);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-lg);
+      transition: all var(--duration-base) var(--ease-out-expo);
+      position: relative;
+      overflow: hidden;
+    }
+    .field-card::before {
+      content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px;
+      background: var(--accent);
+      transition: height var(--duration-base) var(--ease-out-expo);
+    }
+    .field-card:hover {
+      border-color: var(--accent);
+      background: rgba(255, 255, 255, 0.035);
+      transform: translateY(-6px);
+      box-shadow: 0 16px 32px rgba(0,0,0,0.4);
+    }
+    .field-card:hover::before { height: 6px; }
+    .field-card .icon {
+      font-size: 28px; margin-bottom: 16px; display: block; line-height: 1;
+    }
+    .field-card h3 { font-size: 18px; margin-bottom: 8px; }
+    .field-card p { font-size: 13px; color: var(--meta); line-height: 1.7; }
+
+    @media (max-width: 920px) {
+      .grid-4.fields-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 540px) {
+      .grid-4.fields-grid { grid-template-columns: 1fr; }
+    }
+
+    .pagefoot { padding-block: var(--gap-xl); border-top: 1px solid var(--border-soft); color: var(--meta); font-size: 12px; }
+
+    /* Custom Focus Ring */
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
+    }
+
+    @media (max-width: 768px) {
+      .vision-rotator { height: 180px; }
+      .dashboard-body { flex-direction: column; padding: 24px; }
+      .sidebar-widget { width: 100%; flex-direction: row; flex-wrap: wrap; }
+      .widget { flex: 1; min-width: 140px; }
+      .main-panel { height: 240px; }
+    }
+
   </style>
 </head>
-<body class="anim-running">
-  <nav class="nav">
-    <div class="container nav-inner">
-      <a href="#" class="nav-logo">
-        <img src="core_company_logo_transparent.png" alt="Core Company">
-        <span class="logo-text">Core Company</span>
-      </a>
-      <div class="nav-links">
-        <a href="#company">Company</a>
-        <a href="#solutions">Solutions</a>
-        <a href="#process">Process</a>
-        <a href="#applications">Applications</a>
-        <a href="#tech">Tech</a>
-        <a href="#contact">Contact</a>
+<body>
+
+  <!-- Navigation -->
+  <header class="topnav">
+    <div class="container topnav-inner">
+      <div class="logo-container">
+        <!-- Logo Text only since PNG might be tricky to align perfectly without specific CSS -->
+        <span class="logo-text">core company</span>
       </div>
-      <div class="nav-actions">
-        <a href="#contact" class="btn btn-primary">CONTACT US →</a>
-        <button class="nav-toggle" id="navToggle" aria-label="메뉴 열기">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-            <line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line>
-          </svg>
-        </button>
+      <nav>
+        <a href="#market">시장 분석</a>
+        <a href="#architecture">기술 원리</a>
+        <a href="#product">OnPress OS</a>
+        <a href="#fields">적용 분야</a>
+      </nav>
+      <div class="row" style="gap: var(--gap-md);">
+        <a href="#contact" class="btn btn-primary">무료 실사 신청</a>
       </div>
     </div>
-  </nav>
-  <div class="nav-drawer" id="navDrawer">
-    <div class="nav-drawer-panel">
-      <button class="nav-drawer-close" id="navDrawerClose" aria-label="메뉴 닫기">✕</button>
-      <a href="#company">Company</a><a href="#solutions">Solutions</a><a href="#process">Process</a>
-      <a href="#applications">Applications</a><a href="#tech">Tech</a><a href="#contact">Contact</a>
-    </div>
-  </div>
-  <section class="hero">
-    <div class="container">
-      <span class="tagline-mono anim-scale-in">On-Premise AI, Rooted in Space</span>
-      <h1 class="display-lg" style="margin-bottom:20px;">
-        <span style="display:inline-block;overflow:hidden;">
-          <span class="anim-fade-up" style="display:inline-block;animation-delay:0.2s;">공간</span>
-          <span class="anim-fade-up" style="display:inline-block;animation-delay:0.28s;">인테리어,</span>
-          <span class="anim-fade-up" style="display:inline-block;animation-delay:0.36s;">사내</span>
-          <span class="anim-fade-up" style="display:inline-block;animation-delay:0.44s;">AI,</span>
-          <span class="anim-fade-up" style="display:inline-block;animation-delay:0.52s;">IoT</span>
-          <span class="anim-fade-up" style="display:inline-block;animation-delay:0.60s;">네트워크</span>
-          <span class="anim-fade-up" style="display:inline-block;animation-delay:0.68s;">공사를</span>
-          <br>
-          <span class="anim-fade-up" style="display:inline-block;animation-delay:0.80s;">단</span>
-          <span class="anim-fade-up" style="display:inline-block;animation-delay:0.88s;">한</span>
-          <span class="anim-fade-up" style="display:inline-block;animation-delay:0.96s;">번에</span>
-        </span>
-      </h1>
-      <p class="hero-desc anim-fade-up anim-delay-8">
-        설계부터 스마트 오피스 구축까지 턴키(Turn-key) 일괄 시공.<br>
-        API 요금 폭탄 없는 무제한 토큰(Token-Free) 비즈니스 환경을 만나보세요.
-      </p>
-      <div class="hero-actions">
-        <a href="#contact" class="btn-contact anim-fade-up anim-delay-9">무료 현장 실사 신청 →</a>
-        <a href="#solutions" class="btn btn-ghost btn-lg anim-fade-up anim-delay-10">솔루션 알아보기</a>
-      </div>
-      <div class="hero-cards">
-        <div class="hero-card anim-fade-up anim-delay-9">
-          <div class="hero-card-icon orange">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="2" width="20" height="20" rx="3"></rect><path d="M9 10h6"></path><path d="M9 14h3"></path>
-            </svg>
-          </div>
-          <h3 class="display-sm">스마트 오피스 솔루션</h3>
-          <p class="body-sm">출퇴근·접근제어 자동화, 문서 보안, 스마트 회의실 예약, CCTV·NAS 통합 관제</p>
-          <span class="hero-card-price">6,000만 원 (Tier 2 턴키 시공)</span>
-        </div>
-        <div class="hero-card anim-fade-up anim-delay-10">
-          <div class="hero-card-icon purple">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 12l10 5 10-5"></path><path d="M2 17l10 5 10-5"></path>
-            </svg>
-          </div>
-          <h3 class="display-sm">스마트팜 솔루션</h3>
-          <p class="body-sm">오프라인 생육환경 분석·복합제어, 인터넷 불안정 지역도 중단 없는 독립형 가동</p>
-          <span class="hero-card-price">유지보수 약 350만 원 / 년</span>
-        </div>
-      </div>
-    </div>
-  </section>
-  <div class="gradient-divider"></div>
-  <section class="section company-section" id="company">
-    <div class="container reveal-on-scroll">
-      <span class="section-label">Company</span>
-      <div class="company-grid">
-        <div>
-          <h2 class="display-md" style="margin-bottom:20px;">기업 데이터 주권을 지키는<br>온프레미스 AI 기업</h2>
-          <p class="body-lg">
-            Core Company는 B2B 온프레미스 AI 전문 테크 기업입니다. 모든 AI 연산을 외부 클라우드가 아닌 고객의 물리적 오피스 공간 내에서 독립 구동하며 데이터 주권을 완벽하게 보호합니다.
-          </p>
-        </div>
-        <div class="company-visual">
-          <div class="company-pillar">
-            <div class="company-pillar-icon o">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+  </header>
+
+  <main id="content">
+    
+    <!-- 1. Hero with Vision Video at Top -->
+    <section class="section hero">
+      <div class="container">
+        <div class="stack-lg" style="align-items: center;">
+          
+          <!-- Vision Video Pill (Priority One) -->
+          <a href="onpress-vision-hyperframes-2.html" class="video-pill" data-reveal>
+            <div class="video-pill-play">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
             </div>
-            <div class="company-pillar-text"><strong>데이터 주권 보호</strong><span>외부망과 단절된 온프레미스 환경에서 완전한 데이터 통제권 확보</span></div>
-          </div>
-          <div class="company-pillar">
-            <div class="company-pillar-icon p">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M16 8h-6a2 2 0 100 4h4a2 2 0 010 4H8"></path></svg>
+            <span>OnPress OS: Vision Video 2026</span>
+          </a>
+
+          <div class="stack-sm" style="align-items: center; width: 100%;">
+            <p class="eyebrow" data-reveal>The Intelligence for Space</p>
+            
+            <div class="vision-rotator" data-reveal>
+              <!-- Slide 1 -->
+              <div class="vision-slide active">
+                <h1 class="vision-h1">AI를 공간에 심습니다</h1>
+              </div>
+              <!-- Slide 2 -->
+              <div class="vision-slide">
+                <h1 class="vision-h1" style="font-size: clamp(34px, 5.5vw, 64px);">센서가 감지하고, AI가 판단하며,<br>공간이 직접 움직입니다</h1>
+              </div>
+              <!-- Slide 3 -->
+              <div class="vision-slide">
+                <h1 class="vision-h1" style="font-size: clamp(34px, 5.5vw, 64px);">LLM과 온프레미스를 결합하여<br>물리적 현장을 지능화합니다</h1>
+              </div>
             </div>
-            <div class="company-pillar-text"><strong>Token-Free 환경</strong><span>API 요금 없이 무제한 AI 추론 — 토큰 비용 미터기를 완전히 제거</span></div>
+
+            <p class="lead" style="text-align: center; margin-top: 16px;" data-reveal>OnPress OS는 물리적 공간에 지능을 부여하는 최적의 시스템을 구축합니다.</p>
           </div>
-          <div class="company-pillar">
-            <div class="company-pillar-icon b">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 12l10 5 10-5"></path></svg>
+
+          <!-- Hero Visual (Impeccable Polish) -->
+          <div class="hero-visual-wrapper" data-reveal>
+            <div class="hero-visual">
+              <div class="dashboard-container">
+                <div class="dashboard-header">
+                  <div class="dot dot-accent"></div>
+                  <div class="dot"></div>
+                  <div class="dot"></div>
+                  <div style="margin-left: 20px; font-family: var(--font-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.1em;">ONPRESS-EDGE-NODE-01 // TELEMETRY STREAM</div>
+                  <div style="margin-left: auto; font-family: var(--font-mono); font-size: 11px; color: var(--accent); font-weight: 700;">LIVE CONNECTION</div>
+                </div>
+                <div class="dashboard-body">
+                  <!-- Sidebar -->
+                  <div class="sidebar-widget">
+                    <div class="widget">
+                      <div class="widget-label">System Status</div>
+                      <div class="widget-value" style="color: var(--accent); text-shadow: 0 0 10px var(--accent-glow);">STABLE</div>
+                    </div>
+                    <div class="widget">
+                      <div class="widget-label">Latency (Edge)</div>
+                      <div class="widget-value">4.2<span style="font-size: 12px; color: var(--meta); margin-left: 4px;">ms</span></div>
+                    </div>
+                    <div class="widget">
+                      <div class="widget-label">Throughput</div>
+                      <div class="widget-value">12.8<span style="font-size: 12px; color: var(--meta); margin-left: 4px;">Gb/s</span></div>
+                    </div>
+                  </div>
+                  <!-- Main Panel -->
+                  <div class="main-panel">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 24px;">
+                      <div class="meta" style="color: var(--accent); font-weight: 700;">ACTIVE INFERENCE LOOP</div>
+                      <div class="meta">REFRESH: 120Hz</div>
+                    </div>
+                    <div class="chart-svg">
+                      <svg width="100%" height="100%" viewBox="0 0 600 200" preserveAspectRatio="none">
+                        <defs>
+                          <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="var(--accent)" stop-opacity="0.3" />
+                            <stop offset="100%" stop-color="var(--accent)" stop-opacity="0" />
+                          </linearGradient>
+                        </defs>
+                        <path id="telemetry-path" d="M0,100 L50,80 L100,120 L150,90 L200,130 L250,70 L300,110 L350,85 L400,125 L450,65 L500,95 L550,115 L600,100" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                          <animate attributeName="d" 
+                            values="M0,100 L50,80 L100,120 L150,90 L200,130 L250,70 L300,110 L350,85 L400,125 L450,65 L500,95 L550,115 L600,100;
+                                    M0,110 L50,90 L100,110 L150,100 L200,120 L250,80 L300,120 L350,95 L400,115 L450,75 L500,105 L550,105 L600,110;
+                                    M0,100 L50,80 L100,120 L150,90 L200,130 L250,70 L300,110 L350,85 L400,125 L450,65 L500,95 L550,115 L600,100"
+                            dur="4s" repeatCount="indefinite" />
+                        </path>
+                        <path d="M0,100 L50,80 L100,120 L150,90 L200,130 L250,70 L300,110 L350,85 L400,125 L450,65 L500,95 L550,115 L600,100 V200 H0 Z" fill="url(#chartGradient)" opacity="0.5">
+                           <animate attributeName="d" 
+                            values="M0,100 L50,80 L100,120 L150,90 L200,130 L250,70 L300,110 L350,85 L400,125 L450,65 L500,95 L550,115 L600,100 V200 H0 Z;
+                                    M0,110 L50,90 L100,110 L150,100 L200,120 L250,80 L300,120 L350,95 L400,115 L450,75 L500,105 L550,105 L600,110 V200 H0 Z;
+                                    M0,100 L50,80 L100,120 L150,90 L200,130 L250,70 L300,110 L350,85 L400,125 L450,65 L500,95 L550,115 L600,100 V200 H0 Z"
+                            dur="4s" repeatCount="indefinite" />
+                        </path>
+                      </svg>
+                    </div>
+                    <div class="scanline"></div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="company-pillar-text"><strong>턴키 일괄 시공</strong><span>인테리어·네트워크·AI 시스템 설계부터 시공까지 한 번에</span></div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-  <section class="section" id="solutions">
-    <div class="container reveal-on-scroll">
-      <span class="section-label">Solutions</span>
-      <h2 class="display-md" style="margin-bottom:12px;">스마트 오피스 솔루션</h2>
-      <p class="body-lg" style="max-width:680px;margin-bottom:40px;">출퇴근 및 접근 제어 자동화, 문서 기밀 유출 방지 보안, 회의실 자원 스마트 예약, CCTV 및 로컬 NAS 통합 관제 인프라를 제공합니다.</p>
-      <div class="tech-box" style="margin-bottom:40px;">
-        <div class="tech-content">
-          <h3 class="display-sm">오피스 공간을 한 번에</h3>
-          <p class="body-sm" style="margin-top:8px;">설계부터 스마트 오피스 구축까지 턴키(Turn-key) 일괄 시공. API 요금 폭탄 없는 무제한 토큰 비즈니스 환경을 만나보세요.</p>
-          <div class="tech-specs">
-            <span class="tech-spec">CCTV ONVIF/RTSP</span><span class="tech-spec">IoT MQTT/Modbus</span><span class="tech-spec">AES-256</span>
+    </section>
+
+    <!-- 2. Market Impact -->
+    <section class="section section-border" id="market">
+      <div class="container">
+        <div class="grid-2" style="align-items: center;">
+          <div class="stack-md">
+            <p class="eyebrow" data-reveal>Market Reality</p>
+            <h2 data-reveal>우리는 그 위에 첫 줄을 씁니다.</h2>
+            <p class="lead" data-reveal>국내 제조사 16.3만 곳 중 AI를 도입한 곳은 단 0.1%뿐입니다. 잠들어 있는 데이터를 깨워 생산성으로 전환하는 여정, 그 시작에 코어컴퍼니가 있습니다.</p>
+            <p class="meta" style="margin-top: 8px; color: var(--meta); font-size: 13px;" data-reveal>출처: 2024 스마트제조혁신 실태조사 (중소벤처기업부·스마트제조혁신추진단)</p>
+          </div>
+          <div style="display: flex; justify-content: flex-end;" data-reveal>
+            <div style="text-align: right;">
+              <div class="stat-large num"><span data-count="0.1">0.1</span><span style="font-size: 0.35em; color: var(--accent); vertical-align: middle; margin-left: -0.05em;">%</span></div>
+              <p class="meta" style="letter-spacing: 0.35em; color: var(--accent); margin-top: 16px; font-weight: 700;">AI ADOPTION RATE</p>
+            </div>
           </div>
         </div>
-        <div class="tech-visual" style="background:linear-gradient(135deg, oklch(65.6% 0.185 45 / 0.08), oklch(49.0% 0.187 262 / 0.06));"><div class="tech-orb"></div></div>
       </div>
-      <h2 class="display-md" style="margin-bottom:12px;">스마트팜 솔루션</h2>
-      <p class="body-lg" style="max-width:680px;margin-bottom:40px;">오프라인 생육 환경 분석 및 복합 제어 프로토콜. 인터넷망이 불안정한 농가 및 오지 환경에서도 중단 없는 독립형 제어를 가동합니다.</p>
-      <div class="tech-box">
-        <div class="tech-content">
-          <h3 class="display-sm">인터넷 없이도, AI 농업</h3>
-          <p class="body-sm" style="margin-top:8px;">온도·습도·CO₂ 센서 데이터를 로컬 AI로 실시간 분석하고 복합 제어. 오프라인 상태에서도 중단 없이 작동합니다.</p>
-          <div class="tech-specs"><span class="tech-spec">환경 센서</span><span class="tech-spec">자동 제어</span><span class="tech-spec">오프라인 가동</span></div>
+    </section>
+
+    <!-- 3. Working Principle -->
+    <section class="section section-border" id="architecture">
+      <div class="container stack-lg">
+        <div style="max-width: 550px;" data-reveal>
+          <p class="eyebrow">Architecture</p>
+          <h2>물리 통합 아키텍처</h2>
+          <p class="lead">데이터가 외부로 유출되지 않고 현장에서 즉각 실행으로 이어지는 폐쇄형 지능화 루프를 구축합니다.</p>
         </div>
-        <div class="tech-visual" style="background:linear-gradient(135deg, oklch(52.8% 0.211 307 / 0.06), oklch(49.0% 0.187 262 / 0.06));"><div class="tech-orb" style="background:radial-gradient(circle at 40% 40%, oklch(52.8% 0.211 307 / 0.4), oklch(49.0% 0.187 262 / 0.3), transparent 60%);"></div></div>
-      </div>
-    </div>
-  </section>
-  <section class="section" id="process">
-    <div class="container reveal-on-scroll">
-      <span class="section-label">Process</span>
-      <div class="process-header">
-        <h2 class="display-md">도입 프로세스</h2>
-        <p class="body-lg">문의 접수 시 1일 이내 전문 엔지니어가 대응하며, 무료 오피스 현장 실사를 통해 기업 맞춤형 통합 견적을 도출합니다.</p>
-      </div>
-      <div class="steps">
-        <div class="step"><div class="step-num">01</div><h3 class="display-sm">현장 실사</h3><p class="body-sm">전문 엔지니어가 직접 방문하여 공간, 네트워크, AI 도입 요건을 진단합니다.</p></div>
-        <div class="step"><div class="step-num">02</div><h3 class="display-sm">통합 견적</h3><p class="body-sm">인테리어·네트워크·AI 시스템을 포함한 맞춤형 통합 견적을 도출합니다.</p></div>
-        <div class="step"><div class="step-num">03</div><h3 class="display-sm">턴키 시공</h3><p class="body-sm">설계부터 시공까지 일괄 진행. 공간 인테리어부터 AI 구동까지 한 번에 완성합니다.</p></div>
-        <div class="step"><div class="step-num">04</div><h3 class="display-sm">운영·유지보수</h3><p class="body-sm">지속적인 시스템 점검과 업데이트로 안정적인 온프레미스 AI 환경을 유지합니다.</p></div>
-      </div>
-    </div>
-  </section>
-  <section class="section" id="applications">
-    <div class="container reveal-on-scroll">
-      <span class="section-label">Applications</span>
-      <h2 class="display-md" style="margin-bottom:12px;">적용 분야</h2>
-      <p class="body-lg" style="max-width:680px;margin-bottom:40px;">Core Company의 온프레미스 AI는 다양한 산업 현장에서 활용됩니다.</p>
-      <div class="apps-grid">
-        <div class="app-card">
-          <div class="app-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="3"></rect><path d="M9 10h6"></path><path d="M9 14h3"></path></svg></div>
-          <h3 class="display-sm">스마트 오피스</h3><p class="body-sm">출입 통제, 문서 보안, 회의실 예약, CCTV 관제를 온프레미스 AI로 통합 운영</p>
-        </div>
-        <div class="app-card">
-          <div class="app-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path></svg></div>
-          <h3 class="display-sm">스마트팜</h3><p class="body-sm">인터넷 불안정 지역에서도 온도·습도·CO₂ 센서 데이터를 로컬 AI로 분석·제어</p>
-        </div>
-        <div class="app-card">
-          <div class="app-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"></path></svg></div>
-          <h3 class="display-sm">제조 현장</h3><p class="body-sm">PLC·SCADA 등 레거시 설비 데이터를 외부 전송 없이 로컬에서 AI 분석, 예측 진단</p>
-        </div>
-        <div class="app-card">
-          <div class="app-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
-          <h3 class="display-sm">보안 시설</h3><p class="body-sm">국방·연구소 등 망분리 환경에서 외부망 연결 없이 독립형 AI 인프라 구축</p>
+        <div class="grid-3">
+          <div class="architecture-step" data-reveal>
+            <span class="step-num">01</span>
+            <h3>감지 (Sensing)</h3>
+            <p class="meta" style="margin-top: 14px; line-height: 1.7;">정밀 센서와 비전 시스템을 통해 물리적 변화를 실시간 데이터로 수집합니다.</p>
+          </div>
+          <div class="architecture-step" data-reveal style="transition-delay: 100ms;">
+            <span class="step-num">02</span>
+            <h3>판단 (Judging)</h3>
+            <p class="meta" style="margin-top: 14px; line-height: 1.7;">보안이 보장된 온프레미스 AI가 외부 통신 없이 현장에서 즉시 판단을 내립니다.</p>
+          </div>
+          <div class="architecture-step" data-reveal style="transition-delay: 200ms;">
+            <span class="step-num">03</span>
+            <h3>실행 (Executing)</h3>
+            <p class="meta" style="margin-top: 14px; line-height: 1.7;">판단 결과는 자동화 설비와 즉시 연동되어 물리적 움직임으로 구현됩니다.</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-  <section class="section" id="tech">
-    <div class="container reveal-on-scroll">
-      <span class="section-label">Technology</span>
-      <div class="tech-box">
-        <div class="tech-content">
-          <h2 class="display-md" style="margin-bottom:16px;">OnPress OS</h2>
-          <h3 class="display-sm" style="margin-bottom:8px;">온프레미스 AI 운영체제</h3>
-          <p class="body-lg" style="margin-bottom:20px;">8B~14B 파라미터 규모의 한국어 최적화 경량 sLLM 엔진을 탑재했습니다. 값비싼 GPU 인프라 도입 없이, 기존 사내 서버의 CPU 연산 및 단 한 대의 로컬 NAS 장비만으로 유연하게 구동되어 토큰 비용 미터기를 완전히 제거했습니다.</p>
-          <div class="tech-specs"><span class="tech-spec">CCTV ONVIF/RTSP</span><span class="tech-spec">IoT MQTT</span><span class="tech-spec">Modbus</span><span class="tech-spec">AES-256</span></div>
+    </section>
+
+    <!-- 3b. 활용 가능 분야 -->
+    <section class="section section-border" id="fields">
+      <div class="container stack-lg">
+        <div style="max-width: 550px;" data-reveal>
+          <p class="eyebrow">Applications</p>
+          <h2>활용 가능 분야</h2>
+          <p class="lead">OnPress OS는 다양한 물리적 공간에 적용 가능한 유연한 아키텍처를 제공합니다.</p>
         </div>
-        <div class="tech-visual"><div class="tech-orb"></div></div>
+        <div class="grid-4 fields-grid" data-reveal>
+          <div class="field-card">
+            <span class="icon">🏢</span>
+            <h3>스마트 오피스</h3>
+            <p>사무 공간의 출입 통제, 에너지 최적화, 회의실 자동화 등 업무 효율을 극대화합니다.</p>
+          </div>
+          <div class="field-card">
+            <span class="icon">🌾</span>
+            <h3>스마트팜</h3>
+            <p>온실·축사의 환경 센서 데이터를 기반으로 관수·환기·양광을 자동 제어합니다.</p>
+          </div>
+          <div class="field-card">
+            <span class="icon">🏭</span>
+            <h3>제조 현장</h3>
+            <p>생산 라인의 설비 데이터를 실시간 수집·분석하여 불량률 감소와 설계 보전을 지원합니다.</p>
+          </div>
+          <div class="field-card">
+            <span class="icon">🔒</span>
+            <h3>보안 시설</h3>
+            <p>망분리 환경에서 CCTV 영상 분석, 이상 징후 감지, 출입 통제를 온프레미스로 처리합니다.</p>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
-  <section class="section contact-section" id="contact">
-    <div class="container reveal-on-scroll">
-      <span class="section-label">Contact</span>
-      <h2 class="display-md">무료 현장 실사 및<br>도입 문의</h2>
-      <p class="body-lg">문의 접수 시 1일 이내 전문 엔지니어가 대응하며, 무료 오피스 현장 실사를 통해<br>기업 맞춤형 공간 인테리어 및 네트워크 공사 통합 견적을 도출해 드립니다.</p>
-      <a href="mailto:contact@corecompany.net" class="btn-contact">무료 현장 실사 신청 →</a>
-      <div class="contact-info">
-        <span class="contact-chip">📧 contact@corecompany.net</span>
-        <span class="contact-chip">📞 0507-1401-5128</span>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="section section-border" id="contact">
+      <div class="container stack-lg" style="text-align: center;">
+        <div class="stack-md" data-reveal>
+          <h2>현장의 AI, 첫 걸음부터 함께합니다.</h2>
+          <p class="lead" style="margin-inline: auto;">지금 신청하시면 전문 엔지니어가 직접 방문하여 물리 통합 타당성 검토를 제공해 드립니다.</p>
+        </div>
+        <div class="stack-md" style="align-items: center;" data-reveal>
+          <a href="mailto:contact@corecompany.net" class="btn btn-primary" style="padding: 18px 56px; font-size: 16px;">무료 현장 실사 신청</a>
+          <div style="margin-top: 80px;">
+            <p class="num" style="font-size: 32px; color: var(--fg); font-weight: 600; letter-spacing: -0.02em;">0507-1401-5128</p>
+            <p class="meta" style="margin-top: 14px; font-size: 14px; opacity: 0.6;">contact@corecompany.net</p>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
-  <footer class="footer">
-    <div class="container footer-inner">
-      <div class="footer-copy">© 2026 Core Company. All rights reserved.</div>
-      <div class="footer-links">
-        <a href="privacy.html">개인정보처리방침</a>
-        <a href="mailto:contact@corecompany.net">contact@corecompany.net</a>
-        <span style="font-size:0.8125rem;color:var(--muted);">0507-1401-5128</span>
+    </section>
+
+  </main>
+
+  <footer class="pagefoot">
+    <div class="container row-between">
+      <div class="stack-sm">
+        <div class="logo-container" style="height: 22px;">
+          <span class="logo-text" style="font-size: 15px;">core company</span>
+        </div>
+        <p style="margin-top: 12px; opacity: 0.4;">© 2026 Core Company. All rights reserved.</p>
+      </div>
+      <div class="row" style="gap: 32px;">
+        <span class="meta" style="cursor: pointer;">Privacy Policy</span>
+        <span class="meta" style="cursor: pointer;">Terms of Service</span>
       </div>
     </div>
   </footer>
+
   <script>
-    (function () {
-      var toggle = document.getElementById('navToggle');
-      var drawer = document.getElementById('navDrawer');
-      var closeBtn = document.getElementById('navDrawerClose');
-      if (toggle && drawer) {
-        function openDrawer() { drawer.classList.add('open'); }
-        function closeDrawer() { drawer.classList.remove('open'); }
-        toggle.addEventListener('click', openDrawer);
-        if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
-        drawer.addEventListener('click', function (e) { if (e.target === drawer) closeDrawer(); });
-        document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && drawer.classList.contains('open')) closeDrawer(); });
-        drawer.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', closeDrawer); });
-      }
-      var hero = document.querySelector('.hero');
-      if (hero && hero.querySelector('.anim-fade-up, .anim-fade-in, .anim-scale-in')) {
-        requestAnimationFrame(function () { requestAnimationFrame(function () { document.body.classList.add('anim-running'); }); });
-      }
-      var revealEls = document.querySelectorAll('.reveal-on-scroll');
-      if ('IntersectionObserver' in window && revealEls.length) {
-        var revealObserver = new IntersectionObserver(function (entries) {
-          entries.forEach(function (entry) { if (entry.isIntersecting) { entry.target.classList.add('visible'); revealObserver.unobserve(entry.target); } });
-        }, { threshold: 0.08 });
-        revealEls.forEach(function (el) { revealObserver.observe(el); });
-      } else {
-        revealEls.forEach(function (el) { el.classList.add('visible'); });
-      }
-      document.querySelectorAll('a[href^="#"]').forEach(function (a) {
-        a.addEventListener('click', function (e) {
-          var target = document.querySelector(a.getAttribute('href'));
-          if (target) { e.preventDefault(); var top = target.getBoundingClientRect().top + window.pageYOffset - 76; window.scrollTo({ top: top, behavior: 'smooth' }); }
-        });
+    // Vision Rotator Logic
+    const slides = document.querySelectorAll('.vision-slide');
+    let currentSlide = 0;
+
+    function nextSlide() {
+      slides[currentSlide].classList.remove('active');
+      slides[currentSlide].classList.add('exit');
+      
+      const prevSlide = currentSlide;
+      currentSlide = (currentSlide + 1) % slides.length;
+      
+      slides[currentSlide].classList.remove('exit');
+      slides[currentSlide].classList.add('active');
+      
+      setTimeout(() => {
+        slides[prevSlide].classList.remove('exit');
+      }, 800);
+    }
+
+    setInterval(nextSlide, 4500);
+
+    // Intersection Observer for scroll animations
+    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -100px 0px' };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          const counter = entry.target.querySelector('[data-count]');
+          if (counter && !counter.dataset.done) {
+            animateCounter(counter);
+          }
+        }
       });
-    })();
+    }, observerOptions);
+
+    function animateCounter(el) {
+      el.dataset.done = "true";
+      const target = parseFloat(el.dataset.count);
+      const duration = 2500;
+      const start = performance.now();
+      function step(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 5); // Stronger easeOut
+        el.textContent = (target * ease).toFixed(1);
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    document.querySelectorAll('[data-reveal]').forEach((el) => {
+      observer.observe(el);
+    });
   </script>
+
 </body>
 </html>

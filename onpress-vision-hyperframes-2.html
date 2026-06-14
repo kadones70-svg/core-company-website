@@ -1,0 +1,259 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<title>OnPress OS · Vision Hyperframes</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;510;590;900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #08090a;
+    --surface: #191a1b;
+    --fg: #f7f8f8;
+    --fg-2: #d0d6e0;
+    --accent: #5e6ad2;
+    --accent-hover: #828fff;
+    --font-display: "Inter", sans-serif;
+  }
+  body { 
+    margin: 0; 
+    background: var(--bg); 
+    font-family: var(--font-display); 
+    color: var(--fg); 
+    -webkit-font-smoothing: antialiased; 
+    overflow: hidden;
+  }
+  .frame { 
+    position: fixed; 
+    inset: 0; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    padding: 96px; 
+    opacity: 0; 
+    transition: opacity 0.8s cubic-bezier(0.2, 0, 0, 1), transform 0.8s cubic-bezier(0.2, 0, 0, 1); 
+    pointer-events: none; 
+    transform: scale(0.98);
+  }
+  .frame.active { 
+    opacity: 1; 
+    pointer-events: auto; 
+    transform: scale(1);
+  }
+  .grid-bg::before { 
+    content: ""; 
+    position: absolute; 
+    inset: 0; 
+    opacity: 0.05; 
+    background-image: linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px); 
+    background-size: 64px 64px; 
+  }
+  .glow { 
+    position: absolute; 
+    width: 800px; 
+    height: 800px; 
+    border-radius: 50%; 
+    filter: blur(160px); 
+    pointer-events: none; 
+    opacity: 0.15;
+  }
+  .num { 
+    position: absolute; 
+    top: 48px; 
+    left: 48px; 
+    font-family: 'JetBrains Mono', monospace; 
+    font-size: 12px; 
+    letter-spacing: 0.2em; 
+    color: var(--fg-2);
+    opacity: 0.4; 
+  }
+  .controls { 
+    position: fixed; 
+    bottom: 32px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    display: flex; 
+    align-items: center; 
+    gap: 16px; 
+    padding: 8px 16px; 
+    border-radius: 999px; 
+    background: rgba(255,255,255,0.03); 
+    backdrop-filter: blur(20px); 
+    border: 1px solid rgba(255,255,255,0.08); 
+    font-family: 'JetBrains Mono', monospace; 
+    font-size: 11px; 
+    z-index: 50; 
+    color: var(--fg-2);
+  }
+  .controls button { 
+    background: none; 
+    border: none; 
+    color: var(--fg); 
+    cursor: pointer; 
+    opacity: 0.6; 
+    transition: opacity 0.2s;
+  }
+  .controls button:hover { opacity: 1; }
+  .progress { 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    height: 2px; 
+    background: var(--accent); 
+    transition: width 0.1s linear; 
+    z-index: 50; 
+  }
+  h1 { 
+    font-weight: 900; 
+    line-height: 1.1; 
+    letter-spacing: -0.04em; 
+    margin: 0; 
+    text-align: center; 
+    font-feature-settings: 'cv01', 'ss03';
+  }
+  .text-gradient {
+    background: linear-gradient(to bottom, #fff, #8a8f98);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .label { 
+    font-size: 13px; 
+    font-weight: 510; 
+    letter-spacing: 0.3em; 
+    text-transform: uppercase; 
+    color: var(--accent);
+    margin-bottom: 40px; 
+  }
+  .accent-box {
+    border: 1px solid var(--accent);
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    color: var(--accent);
+    margin-bottom: 24px;
+  }
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress" style="width:0%"></div>
+
+<!-- FRAME 01: Hook -->
+<section class="frame active grid-bg" data-duration="4000">
+  <div class="num">01 / 05 · VISION</div>
+  <div class="glow" style="background:var(--accent); top:-200px; right:-200px"></div>
+  <div class="label">OnPress OS</div>
+  <h1 class="text-7xl md:text-9xl text-gradient">AI를 공간에<br/>심습니다.</h1>
+</section>
+
+<!-- FRAME 02: Process -->
+<section class="frame" data-duration="5000">
+  <div class="num">02 / 05 · CORE</div>
+  <div class="glow" style="background:#27a644; bottom:-300px; left:-200px; opacity:0.1"></div>
+  <div class="accent-box">DYNAMIC SPACE</div>
+  <h1 class="text-5xl md:text-7xl leading-tight">
+    센서가 <span style="color:var(--accent)">감지</span>하고,<br/>
+    AI가 <span style="color:var(--accent)">판단</span>하며,<br/>
+    공간이 직접 <span style="color:var(--accent)">움직</span>입니다.
+  </h1>
+</section>
+
+<!-- FRAME 03: Solution -->
+<section class="frame grid-bg" data-duration="5000">
+  <div class="num">03 / 05 · TECH</div>
+  <div class="glow" style="background:var(--accent); top:50%; left:50%; transform:translate(-50%,-50%); width:1200px; height:1200px; opacity:0.05"></div>
+  <div class="label" style="color:var(--fg-2)">INTELLIGENT INFRA</div>
+  <h1 class="text-5xl md:text-7xl">
+    LLM과 온프레미스 인프라를 결합하여<br/>
+    <span class="text-gradient">물리적 현장을 지능화</span>합니다.
+  </h1>
+</section>
+
+<!-- FRAME 04: Brand -->
+<section class="frame" data-duration="3000">
+  <div class="num">04 / 05 · BRAND</div>
+  <div class="glow" style="background:var(--accent); top:-100px; left:-100px"></div>
+  <h1 class="text-9xl font-black italic tracking-tighter" style="font-family:'JetBrains Mono',monospace">OnPress OS</h1>
+  <p class="mt-8 text-xl text-gray-500 uppercase tracking-widest">Edge Computing for Human Space</p>
+</section>
+
+<!-- FRAME 05: CTA -->
+<section class="frame" data-duration="4000">
+  <div class="num">05 / 05 · NEXT</div>
+  <div class="glow" style="background:var(--accent); bottom:-200px; right:-200px"></div>
+  <h1 class="text-6xl md:text-8xl mb-12">물리적 공간의<br/>새로운 운영체제</h1>
+  <button class="px-8 py-4 bg-[#5e6ad2] hover:bg-[#828fff] text-white rounded-md text-xl font-medium transition-colors">
+    지금 시작하기 →
+  </button>
+</section>
+
+<div class="controls">
+  <button id="prev">PREV</button>
+  <button id="play">PAUSE</button>
+  <button id="next">NEXT</button>
+  <span id="counter">01 / 05</span>
+</div>
+
+<!-- HYPERFRAMES_META: {"frames":[
+  {"i":1,"duration":4000,"transition":"fade","scene":"AI를 공간에 심습니다"},
+  {"i":2,"duration":5000,"transition":"fade","scene":"감지, 판단, 움직임의 순환"},
+  {"i":3,"duration":5000,"transition":"fade","scene":"LLM + 온프레미스 지능화"},
+  {"i":4,"duration":3000,"transition":"fade","scene":"OnPress OS 브랜드"},
+  {"i":5,"duration":4000,"transition":"fade","scene":"CTA: 새로운 운영체제"}
+]} -->
+
+<script>
+const frames = Array.from(document.querySelectorAll('.frame'));
+const total = frames.length;
+const counter = document.getElementById('counter');
+const playBtn = document.getElementById('play');
+const progress = document.getElementById('progress');
+let i = 0;
+let playing = true;
+let frameStart = Date.now();
+let timer;
+
+function show(n) {
+  i = (n + total) % total;
+  frames.forEach((f,k)=> {
+    f.classList.toggle('active', k===i);
+  });
+  counter.textContent = String(i+1).padStart(2,'0') + ' / ' + String(total).padStart(2,'0');
+  frameStart = Date.now();
+  if (playing) schedule();
+}
+
+function schedule() {
+  clearTimeout(timer);
+  const d = Number(frames[i].dataset.duration) || 3000;
+  timer = setTimeout(()=> show(i+1), d);
+}
+
+function tick() {
+  const d = Number(frames[i].dataset.duration) || 3000;
+  const pct = Math.min(1, (Date.now()-frameStart)/d) * 100;
+  progress.style.width = pct + '%';
+  requestAnimationFrame(tick);
+}
+
+document.getElementById('prev').onclick = ()=>show(i-1);
+document.getElementById('next').onclick = ()=>show(i+1);
+playBtn.onclick = ()=> { 
+  playing=!playing; 
+  playBtn.textContent = playing?'PAUSE':'PLAY'; 
+  if(playing){schedule(); frameStart=Date.now();} else clearTimeout(timer); 
+};
+
+document.addEventListener('keydown', e => {
+  if (e.key==='ArrowRight') show(i+1);
+  else if (e.key==='ArrowLeft') show(i-1);
+  else if (e.key===' ') { e.preventDefault(); playBtn.click(); }
+});
+
+show(0);
+tick();
+</script>
+</body>
+</html>
