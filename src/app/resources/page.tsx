@@ -29,20 +29,20 @@ export default function ResourcesPage() {
     setIsSending(true);
 
     try {
-      // 1. Fetch the actual PDF file as a blob
+      // 1. Fetch PDF file as a blob for attachment
       const pdfRes = await fetch(selectedDoc.pdfUrl);
       const pdfBlob = await pdfRes.blob();
-
       const fileName = selectedDoc.pdfUrl.split('/').pop() || 'whitepaper.pdf';
       const pdfFile = new File([pdfBlob], fileName, { type: 'application/pdf' });
 
-      // 2. Prepare FormData with actual PDF file attachment
+      // 2. Prepare FormData - Subject line clearly shows applicant email
       const formData = new FormData();
-      formData.append('_subject', `[Core Company] ${selectedDoc.title} (PDF 파일 첨부)`);
-      formData.append('_replyto', email);
-      formData.append('이메일', email);
-      formData.append('요청문서', selectedDoc.title);
-      formData.append('attachment', pdfFile); // Actual PDF file attached to email!
+      formData.append('_subject', `[신규 백서 신청] 고객 이메일: ${email} (${selectedDoc.title})`);
+      formData.append('_replyto', email); // Direct reply to applicant email
+      formData.append('★_신청고객_이메일', email);
+      formData.append('★_요청백서_제목', selectedDoc.title);
+      formData.append('★_신청시각_KST', new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' }));
+      formData.append('attachment', pdfFile);
 
       // 3. Post to FormSubmit
       await fetch('https://formsubmit.co/ajax/kadones70@gmail.com', {
