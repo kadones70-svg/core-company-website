@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { RESOURCES_LIST } from '@/lib/constants';
-import { Download, FileText, Code2, X, CheckCircle2, Lock } from 'lucide-react';
+import { Download, FileText, Code2, X, CheckCircle2, Lock, ExternalLink } from 'lucide-react';
 
 export default function ResourcesPage() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -24,22 +24,27 @@ export default function ResourcesPage() {
       return;
     }
 
-    // Netlify Forms AJAX POST Submission for "download" form
+    // Submit to FormSubmit / Netlify Forms in background
     const myForm = e.currentTarget;
     const formBody = new FormData(myForm);
+
+    fetch('https://formsubmit.co/ajax/kadones70@gmail.com', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        _subject: `[백서 다운로드] ${selectedDoc?.title} - ${email}`,
+        이메일: email,
+        요청문서: selectedDoc?.title,
+      }),
+    }).catch((err) => console.error(err));
 
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: new URLSearchParams(formBody as unknown as Record<string, string>).toString(),
-    })
-      .then(() => {
-        setDownloadSuccess(true);
-      })
-      .catch((err) => {
-        console.error('Download form submission error:', err);
-        setDownloadSuccess(true);
-      });
+    }).catch((err) => console.error(err));
+
+    setDownloadSuccess(true);
   };
 
   return (
@@ -62,7 +67,7 @@ export default function ResourcesPage() {
         {/* Resources Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {RESOURCES_LIST.map((res) => (
-            <div key={res.id} className="bg-white rounded-xl border border-[#E8E6E1] p-7 shadow-sm flex flex-col justify-between">
+            <div key={res.id} className="bg-white rounded-xl border border-[#E8E6E1] p-7 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
               <div>
                 <div className="flex justify-between items-center mb-4">
                   <div className="w-10 h-10 rounded bg-[#1A1917] text-white flex items-center justify-center">
@@ -77,13 +82,24 @@ export default function ResourcesPage() {
                 <p className="text-xs text-neutral-600 leading-relaxed mb-6">{res.description}</p>
               </div>
 
-              <button
-                onClick={() => handleOpenModal(res)}
-                className="w-full py-3 bg-[#E8620A] hover:bg-[#d15606] text-white font-bold rounded-md text-xs transition-colors flex items-center justify-center gap-2 shadow-sm min-h-[44px]"
-              >
-                <Download className="w-4 h-4" />
-                <span>백서 다운로드</span>
-              </button>
+              <div className="space-y-2">
+                <button
+                  onClick={() => handleOpenModal(res)}
+                  className="w-full py-3 bg-[#E8620A] hover:bg-[#d15606] text-white font-bold rounded-md text-xs transition-colors flex items-center justify-center gap-2 shadow-sm min-h-[44px]"
+                >
+                  <Download className="w-4 h-4" />
+                  <span>백서 다운로드</span>
+                </button>
+                <a
+                  href={res.pdfUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full py-2 bg-neutral-100 hover:bg-neutral-200 text-neutral-700 font-semibold rounded-md text-[11px] transition-colors flex items-center justify-center gap-1.5"
+                >
+                  <ExternalLink className="w-3.5 h-3.5" />
+                  <span>웹 브라우저에서 바로보기</span>
+                </a>
+              </div>
             </div>
           ))}
         </div>
@@ -112,7 +128,7 @@ console.log(result.metrics); // { tokenCost: 0, latencyMs: 12 }`}</pre>
         </div>
       </div>
 
-      {/* Email Input Download Modal with Netlify Forms integration */}
+      {/* Email Input Download Modal */}
       {modalOpen && selectedDoc && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4">
           <div className="bg-white rounded-xl border border-[#E8E6E1] p-6 max-w-md w-full shadow-2xl relative">
@@ -128,16 +144,13 @@ console.log(result.metrics); // { tokenCost: 0, latencyMs: 12 }`}</pre>
                 <CheckCircle2 className="w-12 h-12 text-[#3A6D11] mx-auto" />
                 <h3 className="text-lg font-bold text-[#1A1917]">다운로드 준비가 완료되었습니다!</h3>
                 <p className="text-xs text-neutral-600">
-                  입력해주신 <strong>{email}</strong> 주소로 다운로드 링크가 전달되었습니다. 아래 버튼을 눌러 PDF를 바로 확인하실 수 있습니다.
+                  입력해주신 <strong>{email}</strong> 주소로 전송이 승인되었습니다. 아래 버튼을 클릭하시면 실시간 PDF 파일이 즉시 다운로드됩니다.
                 </p>
                 <a
-                  href="#pdf-download"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    alert(`[${selectedDoc.title}] PDF 문서가 다운로드되었습니다.`);
-                    setModalOpen(false);
-                  }}
-                  className="w-full py-3 bg-[#E8620A] hover:bg-[#d15606] text-white font-bold rounded-md text-xs inline-flex items-center justify-center gap-2"
+                  href={selectedDoc.pdfUrl}
+                  download={selectedDoc.pdfUrl.split('/').pop()}
+                  onClick={() => setModalOpen(false)}
+                  className="w-full py-3.5 bg-[#E8620A] hover:bg-[#d15606] text-white font-bold rounded-md text-xs inline-flex items-center justify-center gap-2 shadow-md"
                 >
                   <Download className="w-4 h-4" />
                   <span>PDF 문서 즉시 다운로드 ({selectedDoc.size})</span>

@@ -161,27 +161,39 @@ export const TECHNICAL_SPECS = [
   }
 ];
 
-export const RESOURCES_LIST = [
+export interface ResourceItem {
+  id: string;
+  title: string;
+  type: string;
+  size: string;
+  description: string;
+  pdfUrl: string;
+}
+
+export const RESOURCES_LIST: ResourceItem[] = [
   {
     id: "res-1",
     title: "OnPress OS™ 보안 및 망분리 아키텍처 백서",
     type: "기술 백서 (PDF)",
-    size: "4.2 MB",
-    description: "외부망 데이터 전송 0바이트를 증명하는 온프레미스 sLLM 보안 설계 명세서"
+    size: "108 KB",
+    description: "외부망 데이터 전송 0바이트를 증명하는 온프레미스 sLLM 보안 설계 명세서",
+    pdfUrl: "/docs/onpress_security_whitepaper.pdf"
   },
   {
     id: "res-2",
     title: "제조 현장 ONVIF/Modbus 프로토콜 연동 가이드",
     type: "개발자 가이드",
-    size: "2.8 MB",
-    description: "기존 CCTV 및 IoT 센서를 OnPress OS와 10분 만에 네이티브 연동하는 API 매뉴얼"
+    size: "73 KB",
+    description: "기존 CCTV 및 IoT 센서를 OnPress OS와 10분 만에 네이티브 연동하는 API 매뉴얼",
+    pdfUrl: "/docs/onpress_protocol_guide.pdf"
   },
   {
     id: "res-3",
     title: "3년 TCO 비교 계산 및 ROI 검증 보고서",
     type: "비즈니스 리포트",
-    size: "1.9 MB",
-    description: "클라우드 종량제 API 대비 OnPress OS™ 도입 시 연간 비용 절감 시뮬레이션"
+    size: "63 KB",
+    description: "클라우드 종량제 API 대비 OnPress OS™ 도입 시 연간 비용 절감 시뮬레이션",
+    pdfUrl: "/docs/onpress_tco_roi_report.pdf"
   }
 ];
 
