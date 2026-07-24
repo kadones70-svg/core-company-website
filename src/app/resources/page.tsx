@@ -24,27 +24,43 @@ export default function ResourcesPage() {
       return;
     }
 
-    // Submit to FormSubmit / Netlify Forms in background
-    const myForm = e.currentTarget;
-    const formBody = new FormData(myForm);
+    // Submit to FormSubmit with auto-reply containing the PDF download link
+    const pdfFullUrl = `https://corecompany.net${selectedDoc?.pdfUrl}`;
 
     fetch('https://formsubmit.co/ajax/kadones70@gmail.com', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify({
-        _subject: `[백서 다운로드] ${selectedDoc?.title} - ${email}`,
+        _subject: `[Core Company 백서] ${selectedDoc?.title} 다운로드 파일`,
+        _replyto: email,
+        _autoresponse: `안녕하세요, Core Company입니다.\n\n요청해주신 백서 [${selectedDoc?.title}] PDF 다운로드 링크입니다:\n\n👉 다운로드 링크: ${pdfFullUrl}\n\n감사합니다.\nCore Company 팀 드림\nhttps://corecompany.net`,
         이메일: email,
         요청문서: selectedDoc?.title,
+        다운로드링크: pdfFullUrl,
       }),
     }).catch((err) => console.error(err));
 
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(formBody as unknown as Record<string, string>).toString(),
+      body: new URLSearchParams(new FormData(e.currentTarget) as unknown as Record<string, string>).toString(),
     }).catch((err) => console.error(err));
 
     setDownloadSuccess(true);
+  };
+
+  const handleTriggerDownload = () => {
+    if (selectedDoc) {
+      // Force instant browser download and open PDF
+      const link = document.createElement('a');
+      link.href = selectedDoc.pdfUrl;
+      link.download = selectedDoc.pdfUrl.split('/').pop() || 'whitepaper.pdf';
+      link.target = '_blank';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      setModalOpen(false);
+    }
   };
 
   return (
@@ -144,17 +160,16 @@ console.log(result.metrics); // { tokenCost: 0, latencyMs: 12 }`}</pre>
                 <CheckCircle2 className="w-12 h-12 text-[#3A6D11] mx-auto" />
                 <h3 className="text-lg font-bold text-[#1A1917]">다운로드 준비가 완료되었습니다!</h3>
                 <p className="text-xs text-neutral-600">
-                  입력해주신 <strong>{email}</strong> 주소로 전송이 승인되었습니다. 아래 버튼을 클릭하시면 실시간 PDF 파일이 즉시 다운로드됩니다.
+                  입력해주신 <strong>{email}</strong> 주소로 다운로드 링크 메일이 발송되었으며, 아래 버튼을 누르면 브라우저에서 PDF 파일이 즉시 다운로드됩니다.
                 </p>
-                <a
-                  href={selectedDoc.pdfUrl}
-                  download={selectedDoc.pdfUrl.split('/').pop()}
-                  onClick={() => setModalOpen(false)}
-                  className="w-full py-3.5 bg-[#E8620A] hover:bg-[#d15606] text-white font-bold rounded-md text-xs inline-flex items-center justify-center gap-2 shadow-md"
+                <button
+                  type="button"
+                  onClick={handleTriggerDownload}
+                  className="w-full py-3.5 bg-[#E8620A] hover:bg-[#d15606] text-white font-bold rounded-md text-xs inline-flex items-center justify-center gap-2 shadow-md min-h-[48px]"
                 >
                   <Download className="w-4 h-4" />
-                  <span>PDF 문서 즉시 다운로드 ({selectedDoc.size})</span>
-                </a>
+                  <span>PDF 파일 즉시 다운로드 ({selectedDoc.size})</span>
+                </button>
               </div>
             ) : (
               <form
@@ -173,7 +188,7 @@ console.log(result.metrics); // { tokenCost: 0, latencyMs: 12 }`}</pre>
                 </div>
                 <h3 className="text-lg font-bold text-[#1A1917]">{selectedDoc.title}</h3>
                 <p className="text-xs text-neutral-500">
-                  백서 및 기술 자료 수신을 위한 이메일 주소를 입력해 주시면 PDF 다운로드 링크가 즉시 제공됩니다.
+                  백서 및 기술 자료 수신을 위한 이메일 주소를 입력해 주시면 PDF 파일 및 이메일 링크가 동시에 전달됩니다.
                 </p>
 
                 <div className="space-y-1">
