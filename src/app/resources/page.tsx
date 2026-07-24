@@ -9,6 +9,7 @@ export default function ResourcesPage() {
   const [selectedDoc, setSelectedDoc] = useState<typeof RESOURCES_LIST[0] | null>(null);
   const [email, setEmail] = useState('');
   const [downloadSuccess, setDownloadSuccess] = useState(false);
+  const [isSending, setIsSending] = useState(false);
 
   const handleOpenModal = (doc: typeof RESOURCES_LIST[0]) => {
     setSelectedDoc(doc);
@@ -17,41 +18,56 @@ export default function ResourcesPage() {
     setModalOpen(true);
   };
 
-  const handleModalSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleModalSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!email || !email.includes('@')) {
       alert('올바른 회사 이메일을 입력해 주세요.');
       return;
     }
 
-    // Submit to FormSubmit with auto-reply containing the PDF download link
-    const pdfFullUrl = `https://corecompany.net${selectedDoc?.pdfUrl}`;
+    if (!selectedDoc) return;
+    setIsSending(true);
 
-    fetch('https://formsubmit.co/ajax/kadones70@gmail.com', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({
-        _subject: `[Core Company 백서] ${selectedDoc?.title} 다운로드 파일`,
-        _replyto: email,
-        _autoresponse: `안녕하세요, Core Company입니다.\n\n요청해주신 백서 [${selectedDoc?.title}] PDF 다운로드 링크입니다:\n\n👉 다운로드 링크: ${pdfFullUrl}\n\n감사합니다.\nCore Company 팀 드림\nhttps://corecompany.net`,
-        이메일: email,
-        요청문서: selectedDoc?.title,
-        다운로드링크: pdfFullUrl,
-      }),
-    }).catch((err) => console.error(err));
+    try {
+      // 1. Fetch the actual PDF file as a blob
+      const pdfRes = await fetch(selectedDoc.pdfUrl);
+      const pdfBlob = await pdfRes.blob();
 
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(new FormData(e.currentTarget) as unknown as Record<string, string>).toString(),
-    }).catch((err) => console.error(err));
+      const fileName = selectedDoc.pdfUrl.split('/').pop() || 'whitepaper.pdf';
+      const pdfFile = new File([pdfBlob], fileName, { type: 'application/pdf' });
 
-    setDownloadSuccess(true);
+      // 2. Prepare FormData with actual PDF file attachment
+      const formData = new FormData();
+      formData.append('_subject', `[Core Company] ${selectedDoc.title} (PDF 파일 첨부)`);
+      formData.append('_replyto', email);
+      formData.append('이메일', email);
+      formData.append('요청문서', selectedDoc.title);
+      formData.append('attachment', pdfFile); // Actual PDF file attached to email!
+
+      // 3. Post to FormSubmit
+      await fetch('https://formsubmit.co/ajax/kadones70@gmail.com', {
+        method: 'POST',
+        body: formData,
+      });
+
+      // Also register to Netlify Forms
+      const netlifyData = new FormData(e.currentTarget);
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(netlifyData as unknown as Record<string, string>).toString(),
+      }).catch((err) => console.error(err));
+
+    } catch (err) {
+      console.error('PDF attachment send error:', err);
+    } finally {
+      setIsSending(false);
+      setDownloadSuccess(true);
+    }
   };
 
   const handleTriggerDownload = () => {
     if (selectedDoc) {
-      // Force instant browser download and open PDF
       const link = document.createElement('a');
       link.href = selectedDoc.pdfUrl;
       link.download = selectedDoc.pdfUrl.split('/').pop() || 'whitepaper.pdf';
@@ -158,9 +174,9 @@ console.log(result.metrics); // { tokenCost: 0, latencyMs: 12 }`}</pre>
             {downloadSuccess ? (
               <div className="py-6 text-center space-y-4">
                 <CheckCircle2 className="w-12 h-12 text-[#3A6D11] mx-auto" />
-                <h3 className="text-lg font-bold text-[#1A1917]">다운로드 준비가 완료되었습니다!</h3>
+                <h3 className="text-lg font-bold text-[#1A1917]">PDF 파일 발송이 완료되었습니다!</h3>
                 <p className="text-xs text-neutral-600">
-                  입력해주신 <strong>{email}</strong> 주소로 다운로드 링크 메일이 발송되었으며, 아래 버튼을 누르면 브라우저에서 PDF 파일이 즉시 다운로드됩니다.
+                  입력해주신 <strong>{email}</strong> 이메일로 <strong>실물 PDF 첨부파일이 직접 포함되어 발송</strong>되었습니다. 아래 버튼을 누르시면 브라우저에서도 바로 다운로드됩니다.
                 </p>
                 <button
                   type="button"
@@ -188,7 +204,7 @@ console.log(result.metrics); // { tokenCost: 0, latencyMs: 12 }`}</pre>
                 </div>
                 <h3 className="text-lg font-bold text-[#1A1917]">{selectedDoc.title}</h3>
                 <p className="text-xs text-neutral-500">
-                  백서 및 기술 자료 수신을 위한 이메일 주소를 입력해 주시면 PDF 파일 및 이메일 링크가 동시에 전달됩니다.
+                  회사 이메일을 입력하시면 실물 PDF 파일이 첨부문서로 직접 발송됩니다.
                 </p>
 
                 <div className="space-y-1">
@@ -206,10 +222,11 @@ console.log(result.metrics); // { tokenCost: 0, latencyMs: 12 }`}</pre>
 
                 <button
                   type="submit"
-                  className="w-full py-3 bg-[#E8620A] hover:bg-[#d15606] text-white font-bold rounded-md text-xs transition-colors flex items-center justify-center gap-2 shadow-sm min-h-[44px]"
+                  disabled={isSending}
+                  className="w-full py-3 bg-[#E8620A] hover:bg-[#d15606] text-white font-bold rounded-md text-xs transition-colors flex items-center justify-center gap-2 shadow-sm min-h-[44px] disabled:opacity-50"
                 >
                   <Download className="w-4 h-4" />
-                  <span>이메일 확인 및 PDF 받기</span>
+                  <span>{isSending ? 'PDF 첨부파일 전송 중...' : '이메일 확인 및 PDF 받기'}</span>
                 </button>
               </form>
             )}
