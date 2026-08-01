@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="제조, 오피스, 숙박, 주거, 스마트팜을 위한 AI·센서·자동화 통합 설계 및 PM. 공간의 조건부터 진단하고, 범위 제한 PoC와 운영 검토까지 함께 설계합니다.">
+<meta name="theme-color" content="#F8F7F4">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="AI·센서·자동화 통합 설계 | Core Company">
+<meta property="og:description" content="공간의 조건부터 진단하고, AI·센서·자동화를 운영 가능한 방식으로 연결합니다.">
+<title>AI·센서·자동화 통합 설계 | Core Company</title>
+<style>
+:root{--paper:#F8F7F4;--ink:#1A1917;--line:#D9D4CB;--muted:#69635B;--orange:#E8620A;--purple:#7340C8;--blue:#1E56C8;--teal:#0F7A5A;--amber:#B86A00;--coral:#C43A1A;--green:#3A6D11;--max:1200px;--sans:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;--mono:"DM Mono","SFMono-Regular",Consolas,monospace}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.75 var(--sans);-webkit-font-smoothing:antialiased}a{color:inherit}button,input,select,textarea{font:inherit}.skip{position:absolute;left:-9999px}.skip:focus{left:12px;top:12px;z-index:100;background:#fff;padding:10px}.wrap{width:min(var(--max),calc(100% - 48px));margin:auto}.tag{margin:0;color:var(--muted);font:500 11px/1.2 var(--mono);letter-spacing:.11em;text-transform:uppercase}.tag b{color:var(--orange)}h1,h2,h3,p{margin:0}h1,h2,h3{letter-spacing:-.05em;text-wrap:balance}h1{font-size:clamp(43px,6.1vw,78px);line-height:1.1}h2{font-size:clamp(30px,3.8vw,52px);line-height:1.2}h3{font-size:20px;line-height:1.35}.copy{max-width:650px;margin-top:22px;color:var(--muted);font-size:18px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 22px;border:1px solid var(--ink);background:var(--ink);color:#fff;font-weight:700;text-decoration:none;transition:.2s;cursor:pointer}.btn:hover{background:var(--orange);border-color:var(--orange)}.btn.light{background:#fff;color:var(--ink);border-color:#fff}.btn.light:hover{background:var(--orange);color:#fff;border-color:var(--orange)}.header{position:sticky;top:0;z-index:20;background:rgba(248,247,244,.94);border-bottom:1px solid var(--line);backdrop-filter:blur(13px)}.headin{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:11px;text-decoration:none;min-width:170px}.brand img{width:38px;height:38px;object-fit:contain}.brand span{font-weight:700;letter-spacing:-.04em}.brand small{display:block;color:var(--muted);font:10px/1.2 var(--mono);letter-spacing:.04em}.navlinks{display:flex;align-items:center;gap:23px}.navlinks>a:not(.btn){text-decoration:none;color:#5c564f;font-size:13px}.menu{display:none;border:0;background:transparent;font-size:24px}.hero{padding:46px 0 0;border-bottom:1px solid var(--line)}.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:60px;align-items:end}.hero-copy{padding:82px 0 86px}.hero-copy .btn{margin-top:34px}.hero-note{margin-top:16px;color:var(--muted);font-size:12px}.space-map{position:relative;min-height:575px;overflow:hidden;background:var(--ink);color:#fff;border-top:1px solid #3d3935}.space-map:before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(232,98,10,.22),transparent 36%),radial-gradient(circle at 76% 18%,rgba(30,86,200,.34),transparent 37%)}.map-head{position:relative;z-index:2;display:flex;justify-content:space-between;padding:22px 24px;border-bottom:1px solid rgba(255,255,255,.18);font:11px var(--mono);color:#d7d1c8;letter-spacing:.08em}.map-head strong{color:#fff}.map-grid{position:absolute;inset:68px 0 0;background-image:linear-gradient(rgba(255,255,255,.075) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.075) 1px,transparent 1px);background-size:44px 44px}.core{position:absolute;z-index:4;top:42%;left:50%;width:144px;height:144px;transform:translate(-50%,-50%);display:grid;place-items:center;border:1px solid rgba(255,255,255,.5);background:#292522;text-align:center;font:11px/1.55 var(--mono);letter-spacing:.08em}.core:before{content:"";position:absolute;inset:8px;border:2px solid transparent;border-image:linear-gradient(135deg,var(--orange),var(--purple),var(--blue)) 1}.link{position:absolute;z-index:2;left:50%;top:42%;height:1px;background:linear-gradient(90deg,var(--orange),var(--purple),var(--blue));transform-origin:left center}.link.l1{width:210px;transform:rotate(-143deg)}.link.l2{width:185px;transform:rotate(-35deg)}.link.l3{width:205px;transform:rotate(37deg)}.link.l4{width:170px;transform:rotate(145deg)}.link.l5{width:170px;transform:rotate(90deg)}.node{position:absolute;z-index:5;padding:10px 12px;border:1px solid rgba(255,255,255,.28);background:#302c28;font-size:12px}.node small{display:block;color:#d7d1c8;font:9px var(--mono);letter-spacing:.1em}.node.n1{top:17%;left:8%}.node.n2{top:16%;right:7%}.node.n3{right:4%;bottom:25%}.node.n4{left:9%;bottom:15%}.node.n5{left:42%;bottom:6%}.map-foot{position:absolute;z-index:5;bottom:20px;left:24px;right:24px;display:flex;justify-content:space-between;font:10px var(--mono);letter-spacing:.08em;color:#d7d1c8}.section{padding:122px 0;border-bottom:1px solid var(--line)}.leadhead{display:grid;grid-template-columns:190px 1fr;gap:45px;margin-bottom:54px}.leadhead .copy{margin-top:14px}.sectors{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--ink)}.sector{min-height:276px;padding:23px 20px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--paper)}.sector:last-child{border-right:0}.sector:nth-child(1){border-top:4px solid var(--teal)}.sector:nth-child(2){border-top:4px solid var(--blue)}.sector:nth-child(3){border-top:4px solid var(--amber)}.sector:nth-child(4){border-top:4px solid var(--purple)}.sector:nth-child(5){border-top:4px solid var(--green)}.sector .num{font:11px var(--mono);color:var(--muted);letter-spacing:.08em}.sector h3{margin-top:40px}.sector p{margin-top:12px;color:var(--muted);font-size:13px}.sector span{display:block;margin-top:20px;color:#4f4942;font:11px var(--mono);letter-spacing:.05em}.method{background:#fff}.steps{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ink)}.step{min-height:295px;padding:25px 26px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}.step:last-child{border-right:0}.step:nth-child(1) .no{color:var(--teal)}.step:nth-child(2) .no{color:var(--amber)}.step:nth-child(3) .no{color:var(--purple)}.step:nth-child(4) .no{color:var(--blue)}.no{font:500 13px var(--mono);letter-spacing:.1em}.step h3{margin-top:54px}.step p{margin-top:12px;color:var(--muted);font-size:14px}.deliver{margin-top:21px;padding-top:12px;border-top:1px solid var(--line);color:#4f4942;font-size:12px}.dark{background:var(--ink);color:#fff}.dark .tag,.dark .copy{color:#d7d1c8}.arch{display:grid;grid-template-columns:1fr 1.18fr;gap:70px;align-items:center}.arch-diagram{position:relative;min-height:410px;border:1px solid #5c5650;background:linear-gradient(135deg,#282421,#1a1917);padding:28px;overflow:hidden}.arch-diagram:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 76% 20%,rgba(30,86,200,.23),transparent 32%)}.arch-row{position:relative;z-index:1;display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:center;margin:28px 0}.arch-card{padding:17px;border:1px solid #635d56;background:rgba(255,255,255,.045)}.arch-card small{display:block;color:#cfc7bd;font:10px var(--mono);letter-spacing:.1em}.arch-card strong{display:block;margin-top:6px;font-size:15px}.arch-arrow{color:#ff9c55;font-size:22px}.arch-rule{position:relative;z-index:1;height:1px;background:linear-gradient(90deg,var(--orange),var(--purple),var(--blue));margin:32px 0}.arch-note{position:relative;z-index:1;color:#d7d1c8;font-size:13px}.poc-grid{display:grid;grid-template-columns:.83fr 1.17fr;gap:70px}.kpi{border-top:1px solid var(--ink)}.kpi div{display:grid;grid-template-columns:152px 1fr;gap:22px;padding:18px 0;border-bottom:1px solid var(--line)}.kpi strong{font-size:14px}.kpi p{color:var(--muted)}.callout{margin-top:28px;padding:22px;border-left:3px solid var(--amber);background:#fffaf4;color:#57422c}.guardrails{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}.guard{padding:34px;background:var(--paper)}.guard:nth-child(1){border-top:4px solid var(--amber)}.guard:nth-child(2){border-top:4px solid var(--coral)}.guard p{margin-top:14px;color:var(--muted)}.faq{display:grid;grid-template-columns:1fr 1fr;gap:0 44px;border-top:1px solid var(--ink)}details{border-bottom:1px solid var(--line)}summary{padding:20px 28px 20px 0;font-weight:700;cursor:pointer;list-style:none}summary:after{content:"+";float:right;font:22px/1 var(--mono);font-weight:400}details[open] summary:after{content:"–"}details p{padding:0 0 21px;color:var(--muted)}.contact{background:#fff;padding-bottom:0}.contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;padding-bottom:110px}.prepare{margin-top:32px;padding:23px;background:var(--paper);border-top:3px solid var(--teal)}.prepare ul{margin:12px 0 0;padding-left:18px;color:var(--muted)}form{padding:0}label{display:block;margin-bottom:16px;font-size:13px;font-weight:700}input,select,textarea{display:block;width:100%;margin-top:7px;padding:13px;border:1px solid #bbb4ab;border-radius:0;background:#fff;color:var(--ink)}textarea{resize:vertical}.formrow{display:grid;grid-template-columns:1fr 1fr;gap:16px}.consent{display:flex;gap:9px;margin:20px 0 10px;align-items:flex-start;font-weight:400}.consent input{width:auto;margin:5px 0 0}.formnote{margin:0 0 19px;color:var(--muted);font-size:12px}.status{min-height:20px;margin-top:12px;color:var(--teal);font-size:13px}.contact-band{padding:20px 0;background:var(--ink);color:#fff}.contact-band .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px}.contact-band p{font:500 11px var(--mono);letter-spacing:.07em;color:#d7d1c8}.footer{padding:40px 0;background:var(--ink);color:#fff;border-top:1px solid #4b4540}.footin{display:flex;align-items:flex-start;justify-content:space-between;gap:30px}.footbrand{display:flex;gap:12px;align-items:flex-start}.footbrand img{width:43px;height:43px;object-fit:contain}.footbrand strong{display:block;letter-spacing:-.04em}.footbrand small{display:block;margin-top:4px;color:#d7d1c8;font:10px var(--mono)}.footlinks{font-size:13px;color:#d7d1c8}.footlinks a{margin-left:18px}@media(max-width:1000px){.sectors{grid-template-columns:repeat(3,1fr)}.sector:nth-child(3){border-right:0}.sector:nth-child(4){border-top:4px solid var(--purple)}.sector:nth-child(5){border-top:4px solid var(--green)}}@media(max-width:900px){.navlinks>a:not(.btn){display:none}.hero-grid,.arch,.poc-grid,.contact-grid{grid-template-columns:1fr}.hero-copy{padding:66px 0}.space-map{min-height:460px}.leadhead{grid-template-columns:1fr;gap:18px}.steps{grid-template-columns:1fr 1fr}.step:nth-child(2){border-right:0}.step:nth-child(3){border-right:1px solid var(--line)}.faq{grid-template-columns:1fr}.contact-band .wrap{align-items:flex-start;flex-direction:column}.arch{gap:38px}}@media(max-width:560px){.wrap{width:min(var(--max),calc(100% - 30px))}.header .btn{display:none}.menu{display:block}.header.open .navlinks{position:absolute;top:76px;left:0;right:0;display:flex;align-items:stretch;flex-direction:column;padding:16px;background:var(--paper);border-bottom:1px solid var(--line)}.header.open .navlinks>a:not(.btn){display:block}.header.open .navlinks .btn{display:inline-flex}.space-map{min-height:420px;margin-inline:-15px}.hero-copy{padding:55px 0}.section{padding:82px 0}.sectors,.steps,.formrow{grid-template-columns:1fr}.sector,.sector:nth-child(3),.step,.step:nth-child(3){min-height:auto;border-right:0}.arch-row{grid-template-columns:1fr}.arch-arrow{transform:rotate(90deg);text-align:center}.node.n5{left:36%}.footin{flex-direction:column}.footlinks a{margin:0 14px 0 0}}
+.hero-art{isolation:isolate;background:#161513}.hero-art:before{z-index:2;background:linear-gradient(180deg,rgba(0,0,0,.04),rgba(0,0,0,.26))}.hero-art>*{display:none}.hero-art>.hero-image{position:absolute;inset:0;z-index:1;display:block;width:100%;height:100%;object-fit:cover;object-position:center}.hero-art>.hero-image-caption{position:absolute;z-index:3;right:22px;bottom:22px;display:block;margin:0;padding:10px 12px;border:1px solid rgba(255,255,255,.28);background:rgba(26,25,23,.72);color:#fff;font:10px/1.45 var(--mono);letter-spacing:.08em;text-align:right}.hero-art>.hero-image-caption b{color:#ff9c55;font-weight:500}@media(max-width:560px){.hero-art>.hero-image{object-position:center}.hero-art>.hero-image-caption{right:15px;bottom:15px;font-size:9px}}
+.sector{display:flex;min-height:0;padding:0;overflow:hidden;flex-direction:column}.sector-media{position:relative;display:block;height:156px;overflow:hidden;background:#211f1d}.sector-media:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.03),rgba(26,25,23,.26))}.sector-media img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .45s ease}.sector:hover .sector-media img{transform:scale(1.035)}.sector-body{display:flex;min-height:236px;padding:20px;flex:1;flex-direction:column}.sector h3{margin-top:30px}.sector span{margin-top:auto;padding-top:20px}@media(max-width:1000px){.sector-media{height:174px}}@media(max-width:560px){.sector-media{height:205px}.sector-body{min-height:0;padding:21px 20px 23px}.sector h3{margin-top:25px}}
+.catalog{background:#f2f0eb}.catalog-intro{display:grid;grid-template-columns:1fr .92fr;gap:58px;align-items:end;margin-bottom:44px}.catalog-intro .copy{max-width:620px}.catalog-visual{overflow:hidden;border:1px solid var(--line);border-radius:18px;background:#fff}.catalog-visual img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}.catalog-badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:25px}.catalog-badges span{padding:7px 10px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.65);font:500 10px var(--mono);letter-spacing:.035em}.catalog-note{margin:20px 0 28px;color:var(--muted);font-size:12px}.catalog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.catalog-card{display:flex;min-height:500px;overflow:hidden;border:1px solid var(--line);border-radius:18px;background:#fff;flex-direction:column}.catalog-card:nth-child(1){border-top:4px solid var(--teal)}.catalog-card:nth-child(2){border-top:4px solid var(--amber)}.catalog-card:nth-child(3){border-top:4px solid var(--coral)}.catalog-card:nth-child(4){border-top:4px solid var(--blue)}.catalog-card:nth-child(5){border-top:4px solid var(--purple)}.catalog-card:nth-child(6){border-top:4px solid var(--green)}.catalog-media{height:168px;overflow:hidden;background:#ede9e2}.catalog-media img{display:block;width:100%;height:100%;object-fit:cover}.catalog-icon{position:relative;display:grid;height:168px;place-items:center;overflow:hidden;background:linear-gradient(135deg,#f7f4ef,#eeeae1)}.catalog-icon:before,.catalog-icon:after{content:"";position:absolute;border:1px solid #b7afa4;border-radius:8px;background:#fff}.catalog-icon:before{width:72px;height:91px;transform:translate(-20px,-6px)}.catalog-icon:after{width:72px;height:91px;transform:translate(20px,8px);background:linear-gradient(135deg,#fff,#eee9df)}.catalog-icon i{position:relative;z-index:2;width:84px;height:2px;background:linear-gradient(90deg,var(--orange),var(--purple),var(--blue));box-shadow:0 -20px 0 #c9c2b7,0 20px 0 #c9c2b7}.catalog-body{display:flex;padding:20px 21px 22px;flex:1;flex-direction:column}.catalog-top{display:flex;align-items:center;justify-content:space-between;gap:12px}.catalog-top .num{color:var(--muted);font:10px var(--mono);letter-spacing:.08em}.state{padding:5px 8px;border-radius:999px;font:500 10px var(--mono);letter-spacing:.04em}.state.base{background:#e0f0e8;color:#125d45}.state.option{background:#ebe3f7;color:#63399d}.catalog-card h3{margin-top:20px;font-size:20px}.stack{margin-top:8px;color:#4f4942;font:10px/1.55 var(--mono);letter-spacing:.025em}.catalog-card p{margin-top:14px;color:var(--muted);font-size:13px}.catalog-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:17px}.catalog-tags span{padding:5px 7px;border:1px solid var(--line);border-radius:999px;color:#4f4942;font:10px var(--mono)}.catalog-emphasis,.catalog-caution{margin-top:auto;padding-top:16px;font-size:12px;line-height:1.6}.catalog-emphasis{color:var(--teal);font-weight:700}.catalog-caution{color:#725531}.catalog-foundation{margin-top:50px;padding:28px;border:1px solid var(--line);border-radius:18px;background:#1a1917;color:#fff}.catalog-foundation h3{font-size:24px}.foundation-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:25px;border-top:1px solid rgba(255,255,255,.22)}.foundation-item{padding:18px 19px;border-right:1px solid rgba(255,255,255,.22)}.foundation-item:last-child{border-right:0}.foundation-item b{display:block;color:#ffad6d;font:11px var(--mono);letter-spacing:.08em}.foundation-item strong{display:block;margin-top:12px;font-size:15px}.foundation-item p{margin-top:7px;color:#d7d1c8;font-size:12px}.catalog-flow{display:grid;grid-template-columns:repeat(3,1fr);margin-top:16px;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff}.flow-item{position:relative;padding:23px 25px;border-right:1px solid var(--line)}.flow-item:last-child{border-right:0}.flow-item small{color:var(--muted);font:10px var(--mono);letter-spacing:.08em}.flow-item strong{display:block;margin-top:10px;font-size:17px}.flow-item p{margin-top:6px;color:var(--muted);font-size:12px}.catalog-cta{display:flex;align-items:center;justify-content:space-between;gap:30px;margin-top:36px;padding:28px;border-top:3px solid var(--orange);border-radius:18px;background:#fff}.catalog-cta p{margin-top:8px;color:var(--muted)}.catalog-cta-actions{display:flex;gap:10px;flex-wrap:wrap}.btn.secondary{background:#fff;color:var(--ink);border-color:var(--ink)}.btn.secondary:hover{background:var(--orange);border-color:var(--orange);color:#fff}@media(max-width:1000px){.catalog-grid{grid-template-columns:repeat(2,1fr)}.catalog-intro{grid-template-columns:1fr;gap:28px}.foundation-grid{grid-template-columns:1fr 1fr}.foundation-item:nth-child(2){border-right:0}.foundation-item:nth-child(-n+2){border-bottom:1px solid rgba(255,255,255,.22)}}@media(max-width:560px){.catalog-grid,.catalog-flow,.foundation-grid{grid-template-columns:1fr}.catalog-card{min-height:0}.catalog-media,.catalog-icon{height:190px}.foundation-item,.foundation-item:nth-child(2){border-right:0;border-bottom:1px solid rgba(255,255,255,.22)}.foundation-item:last-child{border-bottom:0}.flow-item{border-right:0;border-bottom:1px solid var(--line)}.flow-item:last-child{border-bottom:0}.catalog-cta{align-items:flex-start;flex-direction:column}.catalog-cta-actions{width:100%}.catalog-cta-actions .btn{width:100%}}
+.catalog-nav{position:relative}.catalog-nav>button{padding:0;border:0;background:transparent;color:#5c564f;font:inherit;font-size:13px;cursor:pointer}.catalog-submenu{position:absolute;top:24px;left:-14px;display:none;width:190px;padding:8px;border:1px solid var(--line);background:#fff;box-shadow:0 12px 24px rgba(26,25,23,.14)}.catalog-nav:hover .catalog-submenu,.catalog-nav:focus-within .catalog-submenu{display:block}.catalog-submenu a{display:block;padding:7px 9px;text-decoration:none;font-size:13px}.catalog-submenu a:hover{background:#f2f0eb}@media(max-width:560px){.catalog-nav>button{display:none}.header.open .catalog-nav{display:block}.header.open .catalog-nav>button{display:none}.header.open .catalog-submenu{position:static;display:block;width:auto;margin-top:8px;padding:6px;border:0;box-shadow:none;background:#f2f0eb}}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"어떤 공간에 적용할 수 있나요?","acceptedAnswer":{"@type":"Answer","text":"제조 현장, 오피스, 숙박·민박, 주거, 스마트팜 등 공간별 조건과 운영 목적을 진단한 뒤 적합성을 검토합니다."}},{"@type":"Question","name":"PoC에서는 무엇을 검증하나요?","acceptedAnswer":{"@type":"Answer","text":"한 공정 또는 한 업무에 범위를 한정하고 기간·데이터·책임·성공 기준을 사전에 합의합니다. 생산성·품질·안전·에너지·서비스 운영 중 고객이 선택한 기준을 비교합니다."}},{"@type":"Question","name":"정부지원은 어떻게 확인하나요?","acceptedAnswer":{"@type":"Answer","text":"지원사업은 보조 수단입니다. 공고별 자격·일정·자부담·Pool 등록·인정비목을 확인한 뒤 해당 시 적합성을 검토합니다. 선정이나 지원금은 사전에 약속하지 않습니다."}}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+<header class="header" id="siteHeader">
+<div class="wrap headin">
+<a href="#top" class="brand">
+<img src="assets/logo/logo_color.svg" alt="Core Company">
+<span>CORE COMPANY<small>On-Premise AI, Rooted in Space.</small>
+</span>
+</a>
+<button class="menu" type="button" aria-label="메뉴 열기" aria-expanded="false">☰</button>
+<nav class="navlinks" aria-label="주요 메뉴">
+<a href="#spaces">적용 공간</a>
+<div class="catalog-nav"><button type="button" aria-haspopup="true">카탈로그 ▾</button><div class="catalog-submenu"><a href="#catalog">로컬 AI 카탈로그</a><a href="catalog-office.html">오피스</a><a href="catalog-hospitality.html">숙박·펜션</a><a href="catalog-home.html">스마트홈</a><a href="catalog-farm.html">스마트팜</a><a href="catalog-manufacturing.html">제조</a></div></div>
+<a href="#method">진행 방식</a>
+<a href="#architecture">아키텍처</a>
+<a href="#faq">FAQ</a>
+<a class="btn" href="#contact">도입 진단 문의</a>
+</nav>
+</div>
+</header>
+<main id="main">
+<section class="hero" id="top">
+<div class="wrap hero-grid">
+<div class="hero-copy">
+<p class="tag">
+<b>01 /</b> Physical AI Integration</p>
+<h1>AI·센서·자동화를<br>공간에 연결합니다.</h1>
+<p class="copy">제조 현장부터 오피스, 숙박, 주거, 스마트팜까지. 공간의 조건과 운영 목적을 먼저 진단하고, AI·센서·자동화를 운영 가능한 방식으로 통합 설계합니다.</p>
+<a class="btn" href="#contact">도입 진단 문의</a>
+<p class="hero-note">적용 범위, 기술 구성, 비용과 계약은 각 공간의 조건을 바탕으로 개별 검토합니다.</p>
+</div>
+<figure class="space-map hero-art" aria-label="제조, 오피스, 숙박, 주거, 스마트팜을 하나의 공간 통합 체계로 연결하는 건축적 비주얼">
+<img class="hero-image" src="assets/images/space-integration-hero-v2.png" alt="제조·오피스·숙박·주거·스마트팜을 연결한 3D 공간 통합 렌더링">
+<figcaption class="hero-image-caption">
+<b>PHYSICAL AI</b>
+<br>SPACE · DATA · OPERATION
+</figcaption>
+<div class="map-head">
+<span>SPACE INTEGRATION / 01</span>
+<strong>CORE COMPANY</strong>
+</div>
+<div class="map-grid">
+</div>
+<div class="link l1">
+</div>
+<div class="link l2">
+</div>
+<div class="link l3">
+</div>
+<div class="link l4">
+</div>
+<div class="link l5">
+</div>
+<div class="core">AI · SENSOR<br>· AUTOMATION</div>
+<div class="node n1">
+<small>SPACE 01</small>제조 현장</div>
+<div class="node n2">
+<small>SPACE 02</small>스마트 오피스</div>
+<div class="node n3">
+<small>SPACE 03</small>숙박·민박</div>
+<div class="node n4">
+<small>SPACE 04</small>주거</div>
+<div class="node n5">
+<small>SPACE 05</small>스마트팜</div>
+<div class="map-foot">
+<span>ON-PREMISE AI, ROOTED IN SPACE</span>
+<span>FIELD · DATA · OPERATION</span>
+</div>
+</figure>
+</div>
+</section>
+<section class="section" id="spaces">
+<div class="wrap">
+<div class="leadhead">
+<p class="tag">
+<b>02 /</b> Application spaces</p>
+<div>
+<h2>공간마다 다른 조건을,<br>하나의 설계 언어로 봅니다.</h2>
+<p class="copy">같은 기술이라도 설비, 데이터, 사람, 안전과 운영 기준이 다르면 설계도 달라져야 합니다. 적용 분야별 카탈로그는 이 구조를 바탕으로 확장합니다.</p>
+</div>
+</div>
+<div class="sectors">
+<article class="sector">
+<div class="sector-media"><img src="assets/images/space-manufacturing-v2.png" alt="정밀 제조 설비와 작업 흐름을 표현한 3D 렌더링" loading="lazy"></div>
+<div class="sector-body"><p class="num">SPACE 01</p>
+<h3>제조 현장</h3>
+<p>공정, 설비, 센서와 작업 데이터를 연결할 수 있는 범위를 검토합니다.</p>
+<span>공정 · 품질 · 안전</span></div>
+</article>
+<article class="sector">
+<div class="sector-media"><img src="assets/images/space-office-v2.png" alt="업무와 회의 공간을 표현한 3D 렌더링" loading="lazy"></div>
+<div class="sector-body"><p class="num">SPACE 02</p>
+<h3>스마트 오피스</h3>
+<p>업무 공간의 문서, 출입, 환경과 운영 흐름을 함께 살펴봅니다.</p>
+<span>업무 · 접근 · 공간 운영</span></div>
+</article>
+<article class="sector">
+<div class="sector-media"><img src="assets/images/space-hospitality-v2.png" alt="숙박 공간과 시설 운영을 표현한 3D 렌더링" loading="lazy"></div>
+<div class="sector-body"><p class="num">SPACE 03</p>
+<h3>숙박·민박</h3>
+<p>고객 경험과 시설 운영의 접점을 공간 조건에 맞춰 검토합니다.</p>
+<span>시설 · 안내 · 운영</span></div>
+</article>
+<article class="sector">
+<div class="sector-media"><img src="assets/images/space-residential-v2.png" alt="주거 환경을 표현한 3D 렌더링" loading="lazy"></div>
+<div class="sector-body"><p class="num">SPACE 04</p>
+<h3>주거</h3>
+<p>생활 환경과 기기 연동을 사용자와 공간의 조건에서 검토합니다.</p>
+<span>생활 · 환경 · 접근</span></div>
+</article>
+<article class="sector">
+<div class="sector-media"><img src="assets/images/space-smartfarm-v2.png" alt="생육 환경과 설비 흐름을 표현한 3D 렌더링" loading="lazy"></div>
+<div class="sector-body"><p class="num">SPACE 05</p>
+<h3>스마트팜</h3>
+<p>생육 환경과 설비 데이터를 관찰하고 운영 기준을 확인합니다.</p>
+<span>환경 · 설비 · 원격 운영</span></div>
+</article>
+</div>
+</div>
+</section>
+<section class="section catalog" id="catalog">
+<div class="wrap">
+<div class="catalog-intro">
+<div>
+<p class="tag"><b>CATALOG /</b> LOCAL AI INSTALL</p>
+<h2>업무에 맞는 AI만,<br>고객 환경 안에 설치합니다.</h2>
+<p class="copy">Core Company는 하나의 거대 모델을 모든 업무에 적용하지 않습니다. 문서, 이미지, 음성, 자동화 업무에 맞는 로컬 AI 모듈을 고객의 인트라넷과 온프레미스 환경에 맞춰 구성합니다.</p>
+<div class="catalog-badges"><span>외부 API 전송 없이 구성</span><span>고객 환경 내 설치·운영</span><span>업무별 선택형 모듈</span></div>
+</div>
+<figure class="catalog-visual"><img src="assets/images/local-ai-catalog-hero-v1.png" alt="로컬 AI 서버와 문서, 설비, 업무 공간이 연결된 3D 개념 렌더링" loading="lazy"></figure>
+</div>
+<p class="catalog-note">표기된 모델·도구는 설치 예시 또는 후보입니다. 최종 모델, 라이선스, 자원 구성은 고객 환경과 검증 범위를 확인한 뒤 확정합니다.</p>
+<div class="catalog-grid">
+<article class="catalog-card">
+<div class="catalog-media"><img src="assets/images/local-ai-rag-v1.png" alt="사내 문서와 지식 검색 노드가 로컬 서버에 연결된 3D 개념 이미지" loading="lazy"></div>
+<div class="catalog-body"><div class="catalog-top"><span class="num">MODULE 01</span><span class="state base">기본 패키지</span></div><h3>사내 문서 지식 AI</h3><p class="stack">예시 구성 · Qwen2.5-7B + BGE-M3 + BGE reranker</p><p>작업표준서, 품질문서, 설비 매뉴얼, 사내 규정을 근거 문서와 함께 검색하고 답변합니다.</p><div class="catalog-tags"><span>문서 RAG</span><span>권한 기반 검색</span><span>근거 인용</span></div><div class="catalog-emphasis">가장 먼저 구축하는 사내 지식 검색 기반</div></div>
+</article>
+<article class="catalog-card">
+<div class="catalog-icon" aria-hidden="true"><i></i></div>
+<div class="catalog-body"><div class="catalog-top"><span class="num">MODULE 02</span><span class="state base">기본 패키지</span></div><h3>문서 전처리·지식화 AI</h3><p class="stack">예시 구성 · Docling + Marker</p><p>반입 문서를 구조화하고 청크와 원문을 연결해, 검색 가능한 사내 지식 기반으로 정리합니다.</p><div class="catalog-tags"><span>PDF·DOCX 처리</span><span>변환 이력</span><span>원문 연결</span></div><div class="catalog-caution">HWP, 스캔 PDF, 표, 도면은 고객 문서 샘플 검증 후 적용 범위를 정합니다.</div></div>
+</article>
+<article class="catalog-card">
+<div class="catalog-media"><img src="assets/images/local-ai-imagegen-v1.png" alt="제품 콘셉트가 로컬 환경에서 시각화되는 3D 개념 이미지" loading="lazy"></div>
+<div class="catalog-body"><div class="catalog-top"><span class="num">MODULE 03</span><span class="state option">선택 확장</span></div><h3>온프레미스 이미지 생성 AI</h3><p class="stack">설치 후보 · FLUX.1 schnell</p><p>제안서 시안, 제품 콘셉트, 교육·홍보용 이미지를 고객 내부 환경에서 생성합니다.</p><div class="catalog-tags"><span>제안서 시각화</span><span>제품 콘셉트</span><span>교육·홍보 이미지</span></div><div class="catalog-caution">GPU 환경과 생성물 활용 정책을 확인한 뒤 구성합니다.</div></div>
+</article>
+<article class="catalog-card">
+<div class="catalog-media"><img src="assets/images/local-ai-vision-v1.png" alt="설비와 시각 자료가 지식 노드와 연결되는 3D 개념 이미지" loading="lazy"></div>
+<div class="catalog-body"><div class="catalog-top"><span class="num">MODULE 04</span><span class="state option">선택 확장</span></div><h3>이미지·문서 시각 이해 AI</h3><p class="stack">설치 후보 · Qwen2.5-VL 7B</p><p>현장 사진과 스캔 문서를 업무 문서와 연결해, 이미지 기반 검색과 설명 초안을 지원합니다.</p><div class="catalog-tags"><span>문서 이미지</span><span>현장 사진</span><span>Vision RAG</span></div><div class="catalog-caution">품질검사나 안전판정을 자동으로 대체하지 않으며 담당자 검토를 보조합니다.</div></div>
+</article>
+<article class="catalog-card">
+<div class="catalog-media"><img src="assets/images/local-ai-voice-v1.png" alt="음성 흐름이 문서와 로컬 서버에 연결되는 3D 개념 이미지" loading="lazy"></div>
+<div class="catalog-body"><div class="catalog-top"><span class="num">MODULE 05</span><span class="state option">선택 확장</span></div><h3>현장 음성 기록·회의록 AI</h3><p class="stack">예시 구성 · Whisper</p><p>회의와 현장 음성 기록을 텍스트로 정리해 문서 검색 체계와 연결합니다.</p><div class="catalog-tags"><span>음성 전사</span><span>회의록 초안</span><span>현장 기록</span></div><div class="catalog-caution">현장 용어와 소음 환경은 실제 샘플로 확인합니다.</div></div>
+</article>
+<article class="catalog-card">
+<div class="catalog-media"><img src="assets/images/local-ai-automation-v1.png" alt="업무 자동화 흐름이 로컬 서버를 통해 연결되는 3D 개념 이미지" loading="lazy"></div>
+<div class="catalog-body"><div class="catalog-top"><span class="num">MODULE 06</span><span class="state option">선택 확장</span></div><h3>사내 개발·업무 자동화 AI</h3><p class="stack">설치 후보 · Qwen2.5-Coder-7B</p><p>내부 자동화 스크립트, 데이터 처리 로직, 코드 리뷰 초안을 개발팀 환경 안에서 지원합니다.</p><div class="catalog-tags"><span>코드 보조</span><span>스크립트 초안</span><span>업무 자동화</span></div><div class="catalog-caution">생성된 코드는 담당자 검토와 승인 후 적용합니다.</div></div>
+</article>
+</div>
+<div class="catalog-foundation"><h3>모든 AI 모듈은 고객 보안 기준 안에서 설치합니다.</h3><div class="foundation-grid"><div class="foundation-item"><b>01</b><strong>사전 반입</strong><p>설치 패키지와 모델 파일을 사전 검증 후 반입합니다.</p></div><div class="foundation-item"><b>02</b><strong>무결성 검증</strong><p>SHA-256 해시, 버전 목록, SBOM 관리 범위를 설정합니다.</p></div><div class="foundation-item"><b>03</b><strong>접근 통제</strong><p>관리자 권한 분리와 내부 API 접근 제어를 검토합니다.</p></div><div class="foundation-item"><b>04</b><strong>감사 로그</strong><p>운영 이력과 로그 보존 정책을 고객 기준에 맞춰 설정합니다.</p></div></div></div>
+<div class="catalog-flow"><div class="flow-item"><small>STEP 01</small><strong>문서 전처리</strong><p>고객 문서를 안전하게 정리합니다.</p></div><div class="flow-item"><small>STEP 02</small><strong>사내 문서 RAG</strong><p>검색·근거 답변 기반을 구축합니다.</p></div><div class="flow-item"><small>STEP 03</small><strong>선택 모듈 확장</strong><p>이미지·음성·자동화 기능을 추가 검토합니다.</p></div></div>
+<div class="catalog-cta"><div><h3>우리 업무에 필요한 AI부터 시작하세요.</h3><p>문서 유형, 사용자 수, 보안 환경, 이미지·음성 처리 필요 여부를 기준으로 설치 구성을 제안합니다.</p></div><div class="catalog-cta-actions"><a class="btn" href="#contact">로컬 AI 도입 상담</a><a class="btn secondary" href="#poc">문서 RAG PoC 보기</a></div></div>
+</div>
+</section>
+<section class="section method" id="method">
+<div class="wrap">
+<div class="leadhead">
+<p class="tag">
+<b>03 /</b> Working method</p>
+<div>
+<h2>공간을 이해하고,<br>작게 검증한 뒤 확장합니다.</h2>
+<p class="copy">제조만의 절차가 아닌, 모든 적용 공간에서 사용할 수 있는 통합 설계와 PM의 기본 흐름입니다.</p>
+</div>
+</div>
+<div class="steps">
+<article class="step">
+<span class="no">01 / DIAGNOSE</span>
+<h3>공간 진단</h3>
+<p>운영 목적, 설비·기기, 데이터, 사용자와 책임 주체의 현재 상태를 확인합니다.</p>
+<div class="deliver">산출물: 현황 요약과 우선 과제</div>
+</article>
+<article class="step">
+<span class="no">02 / PROVE</span>
+<h3>범위 제한 PoC</h3>
+<p>한 공정 또는 한 업무에 한정해 기간·데이터·기준·책임을 합의합니다.</p>
+<div class="deliver">산출물: PoC 범위와 성공 기준</div>
+</article>
+<article class="step">
+<span class="no">03 / DESIGN</span>
+<h3>통합 설계</h3>
+<p>AI, 센서, 자동화, 연동과 안전 기준을 공간 조건에 맞춰 설계합니다.</p>
+<div class="deliver">산출물: 아키텍처·역할·비용 검토안</div>
+</article>
+<article class="step">
+<span class="no">04 / REVIEW</span>
+<h3>운영·확장 검토</h3>
+<p>검증 결과와 운영 부담을 비교하고 다음 범위와 교육 계획을 검토합니다.</p>
+<div class="deliver">산출물: 결과 검토와 다음 의사결정</div>
+</article>
+</div>
+</div>
+</section>
+<section class="section dark" id="architecture">
+<div class="wrap arch">
+<div>
+<p class="tag">
+<b>04 /</b> OnPress OS & architecture</p>
+<h2>구성은 하나로 정하지 않고,<br>환경에 맞춰 선택합니다.</h2>
+<p class="copy">OnPress OS는 공간 통합을 위한 선택지입니다. 데이터 등급, 연결성, 사용량, 지연 허용치, 운영 인력과 예산을 함께 검토해 온프레미스·클라우드·하이브리드 구성을 설계합니다.</p>
+</div>
+<div class="arch-diagram">
+<div class="arch-row">
+<div class="arch-card">
+<small>SOURCE</small>
+<strong>공간의 데이터와 신호</strong>
+</div>
+<div class="arch-arrow">→</div>
+<div class="arch-card">
+<small>CONTEXT</small>
+<strong>문서·설비·센서·업무 기록</strong>
+</div>
+</div>
+<div class="arch-rule">
+</div>
+<div class="arch-row">
+<div class="arch-card">
+<small>REASON</small>
+<strong>RAG: 최신 문서와 근거 탐색</strong>
+</div>
+<div class="arch-arrow">→</div>
+<div class="arch-card">
+<small>FORMAT</small>
+<strong>파인튜닝: 안정적 반복 업무와 형식</strong>
+</div>
+</div>
+<p class="arch-note">장비·전력·운영·유지보수 비용과 현장 적합성은 PoC와 견적으로 검토합니다. 특정 모델의 성능이나 비용 구조를 단정하지 않습니다.</p>
+</div>
+</div>
+</section>
+<section class="section" id="poc">
+<div class="wrap poc-grid">
+<div>
+<p class="tag">
+<b>05 /</b> PoC & decision</p>
+<h2>성과를 약속하기보다,<br>판단 기준을 먼저 만듭니다.</h2>
+<p class="copy">PoC는 한 공정 또는 한 업무에 한정합니다. 공간별로 다른 운영 목적을 기준선과 비교할 수 있도록 시작 전에 합의합니다.</p>
+<a class="btn" style="margin-top:30px" href="#contact">도입 진단 문의</a>
+</div>
+<div>
+<div class="kpi">
+<div>
+<strong>범위</strong>
+<p>대상 공간, 공정 또는 업무, 연결 데이터와 제외 범위를 문서화합니다.</p>
+</div>
+<div>
+<strong>책임</strong>
+<p>고객과 수행 주체의 역할, 승인과 안전 책임을 사전에 검토합니다.</p>
+</div>
+<div>
+<strong>성공 기준</strong>
+<p>생산성·품질·안전·에너지·서비스 운영 중 고객이 선택한 기준을 비교합니다.</p>
+</div>
+<div>
+<strong>결과</strong>
+<p>성과와 확장 여부는 PoC 종료 후 고객별 결과로 판단합니다.</p>
+</div>
+</div>
+<p class="callout">PoC 기간, 비용, 데이터 접근, 결과의 활용 범위는 공간 진단과 계약 협의 후 개별 확정합니다.</p>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="wrap">
+<div class="leadhead">
+<p class="tag">
+<b>06 /</b> Guardrails</p>
+<div>
+<h2>지원사업과 계약도<br>투명하게 검토합니다.</h2>
+</div>
+</div>
+<div class="guardrails">
+<article class="guard">
+<p class="tag">Support program</p>
+<h3>도입의 전제가 아닌 보조 수단입니다.</h3>
+<p>공고별 자격·일정·자부담·Pool 등록·인정비목을 확인한 뒤, 해당 시 적합성을 검토합니다. 선정이나 지원 조건은 사전에 약속하지 않습니다.</p>
+</article>
+<article class="guard">
+<p class="tag">Contract structure</p>
+<h3>역할과 계약 범위를 분명히 합니다.</h3>
+<p>정보통신공사·건설공사 등이 필요한 범위는 적격 파트너와 고객 간 별도 계약이 필요할 수 있습니다. 법률·면허·계약 책임은 사전 검토합니다.</p>
+</article>
+</div>
+</div>
+</section>
+<section class="section" id="faq">
+<div class="wrap">
+<div class="leadhead">
+<p class="tag">
+<b>07 /</b> FAQ</p>
+<div>
+<h2>도입 전에 확인할 질문</h2>
+</div>
+</div>
+<div class="faq">
+<details>
+<summary>어떤 공간에 적용할 수 있나요?</summary>
+<p>제조 현장, 오피스, 숙박·민박, 주거, 스마트팜 등 공간별 조건과 운영 목적을 진단한 뒤 적합성을 검토합니다.</p>
+</details>
+<details>
+<summary>온프레미스와 클라우드는 어떻게 선택하나요?</summary>
+<p>데이터 등급, 연결성, 사용량, 지연 허용치, 운영 인력과 예산을 함께 검토해 적합한 구성을 제안합니다.</p>
+</details>
+<details>
+<summary>비용은 어떻게 산정하나요?</summary>
+<p>진단 범위, 연동 대상, 장비, 운영 방식, 유지보수와 계약 구조를 바탕으로 고객별로 검토합니다. 일률 가격이나 개선 효과를 사전에 제시하지 않습니다.</p>
+</details>
+<details>
+<summary>데이터·개인정보·현장 안전은 어떻게 다루나요?</summary>
+<p>데이터 흐름과 접근 권한, 개인정보 처리 필요성, 현장 안전 책임을 PoC 범위와 계약 협의 단계에서 확인합니다.</p>
+</details>
+</div>
+</div>
+</section>
+<section class="section contact" id="contact">
+<div class="wrap contact-grid">
+<div>
+<p class="tag">
+<b>08 /</b> Space integration readiness</p>
+<h2>공간의 AI 도입 진단을<br>시작해 보세요.</h2>
+<p class="copy">아래 자료가 있으면 공간과 운영 목적을 더 빠르게 이해할 수 있습니다.</p>
+<div class="prepare">
+<strong>문의 전 준비 자료</strong>
+<ul>
+<li>우선 검토할 공간, 공정 또는 업무</li>
+<li>현재 사용 중인 설비·센서·업무 시스템</li>
+<li>확인하고 싶은 운영 기준</li>
+<li>데이터 위치와 외부 전송 관련 제약</li>
+</ul>
+</div>
+</div>
+<form id="inquiryForm" novalidate>
+<div class="formrow">
+<label>회사명<input name="company" autocomplete="organization" required>
+</label>
+<label>이름 / 직책<input name="name_role" autocomplete="name" required>
+</label>
+</div>
+<label>연락 가능한 이메일<input type="email" name="email" autocomplete="email" required>
+</label>
+<label>우선 검토할 공간<select name="area" required>
+<option value="">선택해 주세요</option>
+<option>제조 현장</option>
+<option>스마트 오피스</option>
+<option>숙박·민박</option>
+<option>주거</option>
+<option>스마트팜</option>
+<option>기타 공간</option>
+</select>
+</label>
+<label>공간 상황 또는 문의 내용<textarea name="message" rows="5" required placeholder="우선 검토할 공간·업무, 현재 설비·데이터 상태, 확인하고 싶은 운영 기준을 적어주세요.">
+</textarea>
+</label>
+<label class="consent">
+<input type="checkbox" name="consent" required>
+<span>[필수] 개인정보 수집·이용에 동의합니다. <a href="privacy.html" target="_blank">개인정보처리방침</a>을 확인했습니다.</span>
+</label>
+<p class="formnote">수집 항목: 회사명, 이름·직책, 이메일, 문의 내용 / 목적: 공간 AI 도입 진단 문의 응대 / 보유 기간: 문의 처리 완료 후 3년. 동의하지 않으면 문의를 접수할 수 없습니다.</p>
+<button class="btn" type="submit">도입 진단 문의</button>
+<p class="status" id="formStatus" aria-live="polite">
+</p>
+</form>
+</div>
+<div class="contact-band">
+<div class="wrap">
+<p>CORE COMPANY · ON-PREMISE AI, ROOTED IN SPACE</p>
+<a class="btn light" href="#top">맨 위로</a>
+</div>
+</div>
+</section>
+</main>
+<footer class="footer">
+<div class="wrap footin">
+<div class="footbrand">
+<img src="assets/logo/logo_white.svg" alt="Core Company">
+<div>
+<strong>CORE COMPANY</strong>
+<small>On-Premise AI, Rooted in Space.</small>
+</div>
+</div>
+<div class="footlinks">
+<a href="privacy.html">개인정보처리방침</a>
+<a href="#contact">도입 진단 문의</a>
+<p>© 2026 Core Company. All rights reserved.</p>
+</div>
+</div>
+</footer>
+<script>const h=document.getElementById('siteHeader'),m=document.querySelector('.menu');m.addEventListener('click',()=>{const o=h.classList.toggle('open');m.setAttribute('aria-expanded',o);m.textContent=o?'×':'☰'});document.querySelectorAll('.navlinks a').forEach(a=>a.addEventListener('click',()=>h.classList.remove('open')));document.getElementById('inquiryForm').addEventListener('submit',function(e){e.preventDefault();if(!this.checkValidity()){this.reportValidity();return}const d=new FormData(this),rows=[['회사명','company'],['이름 / 직책','name_role'],['이메일','email'],['검토 공간','area'],['문의 내용','message']].map(([k,v])=>`${k}: ${d.get(v)||'-'}`).join('\n');const subject=encodeURIComponent('[공간 AI 도입 진단 문의] '+d.get('company'));const body=encodeURIComponent('공간 AI 도입 진단 문의\n\n'+rows+'\n\n개인정보 수집·이용 동의: 예');document.getElementById('formStatus').textContent='메일 앱을 열어 문의 내용을 준비했습니다. 발송을 완료해 주세요.';window.location.href='mailto:contact@corecompany.net?subject='+subject+'&body='+body});</script>
+</body>
+</html>
+
