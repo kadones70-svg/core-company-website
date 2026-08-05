@@ -359,7 +359,7 @@
 </ul>
 </div>
 </div>
-<form id="inquiryForm" novalidate>
+<form id="inquiryForm" method="POST" action="https://formsubmit.co/4e552d0f23a67f50a19913a1f19264da" accept-charset="UTF-8">`n  <input type="hidden" name="_subject" value="[Core Company] 공간 AI 도입 진단 문의">`n  <input type="hidden" name="_template" value="table">`n  <p hidden aria-hidden="true"><label>웹사이트 <input name="_honey" tabindex="-1" autocomplete="off"></label></p>
 <div class="formrow">
 <label>회사명<input name="company" autocomplete="organization" required>
 </label>
@@ -416,7 +416,7 @@
 </div>
 </div>
 </footer>
-<script>const h=document.getElementById('siteHeader'),m=document.querySelector('.menu');m.addEventListener('click',()=>{const o=h.classList.toggle('open');m.setAttribute('aria-expanded',o);m.textContent=o?'×':'☰'});document.querySelectorAll('.navlinks a').forEach(a=>a.addEventListener('click',()=>h.classList.remove('open')));document.getElementById('inquiryForm').addEventListener('submit',function(e){e.preventDefault();if(!this.checkValidity()){this.reportValidity();return}const d=new FormData(this),rows=[['회사명','company'],['이름 / 직책','name_role'],['이메일','email'],['검토 공간','area'],['문의 내용','message']].map(([k,v])=>`${k}: ${d.get(v)||'-'}`).join('\n');const subject=encodeURIComponent('[공간 AI 도입 진단 문의] '+d.get('company'));const body=encodeURIComponent('공간 AI 도입 진단 문의\n\n'+rows+'\n\n개인정보 수집·이용 동의: 예');document.getElementById('formStatus').textContent='메일 앱을 열어 문의 내용을 준비했습니다. 발송을 완료해 주세요.';window.location.href='mailto:contact@corecompany.net?subject='+subject+'&body='+body});</script>
+<script>const h=document.getElementById('siteHeader'),m=document.querySelector('.menu');m.addEventListener('click',()=>{const o=h.classList.toggle('open');m.setAttribute('aria-expanded',o);m.textContent=o?'×':'☰'});document.querySelectorAll('.navlinks a').forEach(a=>a.addEventListener('click',()=>h.classList.remove('open')));document.getElementById('inquiryForm').addEventListener('submit',function(){document.getElementById('formStatus').textContent='문의가 전송 중입니다.'});</script>
 </body>
 </html>
 
