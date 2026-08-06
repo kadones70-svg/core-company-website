@@ -1,0 +1,149 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import { CATEGORIES } from '@/config/content';
+import { withBase } from '@/lib/paths';
+---
+
+<BaseLayout title="검색 | Core Company Blog" description="Core Company 블로그의 AI, IoT, 자동화 실무 글 검색" canonicalPath={withBase('/search/')}>
+  <main id="main-content" data-pagefind-ignore>
+    <header class="search-header section-shell">
+      <Breadcrumbs items={[{ label: '블로그', href: withBase('/') }, { label: '검색' }]} />
+      <p>SEARCH / EDITORIAL ARCHIVE</p>
+      <h1>필요한 기준을 찾아보세요.</h1>
+      <form role="search" action={withBase('/search/')} method="get" data-search-form>
+        <label for="search-query">블로그 검색어</label>
+        <div><input id="search-query" name="q" type="search" placeholder="예: 무인 체크인, 문서 AI, 구축 비용" autocomplete="off" /><button type="submit">검색</button></div>
+      </form>
+    </header>
+
+    <section class="search-body section-shell" aria-labelledby="search-results-heading" data-search-root data-pagefind-url={withBase('/pagefind/pagefind.js')}>
+      <div class="search-body__heading"><div><p>SEARCH RESULTS</p><h2 id="search-results-heading">검색 결과</h2></div><p id="search-status" data-testid="search-status" role="status" aria-live="polite">검색어를 입력하면 관련 글을 찾아드립니다.</p></div>
+      <div id="search-results" data-testid="search-results" class="search-results"></div>
+      <div id="search-empty" data-testid="search-empty" class="search-empty" hidden>
+        <span aria-hidden="true">0</span><h3>검색 결과가 없습니다.</h3><p>띄어쓰기를 바꾸거나 더 짧은 단어로 검색해 보세요.</p>
+        <nav aria-label="카테고리에서 찾기">{CATEGORIES.slice(0, 4).map((category) => <a href={withBase(`/category/${category.slug}/`)}>{category.name}</a>)}</nav>
+      </div>
+      <noscript><p class="search-empty">검색 기능을 사용하려면 브라우저에서 JavaScript를 활성화해 주세요.</p></noscript>
+    </section>
+  </main>
+</BaseLayout>
+
+<script is:inline>
+  (() => {
+    const root = document.querySelector('[data-search-root]');
+    const form = document.querySelector('[data-search-form]');
+    const input = form?.querySelector('input[type="search"]');
+    const status = document.getElementById('search-status');
+    const resultsNode = document.getElementById('search-results');
+    const emptyNode = document.getElementById('search-empty');
+    if (!root || !form || !input || !status || !resultsNode || !emptyNode) return;
+
+    const params = new URLSearchParams(location.search);
+    const initialQuery = (params.get('q') || '').trim();
+    input.value = initialQuery;
+
+    const setStatus = (message) => { status.textContent = message; };
+    const clearResults = () => { resultsNode.replaceChildren(); emptyNode.hidden = true; };
+
+    const renderResult = (item) => {
+      const article = document.createElement('article');
+      const meta = document.createElement('p');
+      meta.className = 'search-result__meta';
+      meta.textContent = [item.meta.category, item.meta.updated, item.meta.readingTime].filter(Boolean).join(' · ');
+      const title = document.createElement('h3');
+      const link = document.createElement('a');
+      link.href = item.url.startsWith('/blog/') ? item.url : `/blog${item.url.startsWith('/') ? '' : '/'}${item.url}`;
+      link.textContent = item.meta.title || item.url;
+      link.addEventListener('click', () => window.dispatchEvent(new CustomEvent('core:analytics', { detail: { event: 'search_result_click' } })));
+      title.append(link);
+      const excerpt = document.createElement('p');
+      excerpt.className = 'search-result__excerpt';
+      excerpt.innerHTML = item.excerpt || item.meta.summary || '';
+      article.append(meta, title, excerpt);
+      return article;
+    };
+
+    const runSearch = async (query) => {
+      clearResults();
+      if (!query) { setStatus('검색어를 입력하면 관련 글을 찾아드립니다.'); return; }
+      setStatus(`“${query}” 검색 중…`);
+      try {
+        const pagefind = await import(root.dataset.pagefindUrl);
+        const response = await Promise.race([
+          pagefind.search(query),
+          new Promise((_, reject) => setTimeout(() => reject(new Error('Pagefind search timeout')), 5000))
+        ]);
+        const items = (await Promise.all(response.results.map((result) => result.data())))
+          .filter((item) => !item.url.includes('__pagefind-empty-index'));
+        if (!items.length) {
+          emptyNode.hidden = false;
+          setStatus(`“${query}” 검색 결과가 없습니다.`);
+          return;
+        }
+        const fragment = document.createDocumentFragment();
+        items.forEach((item) => fragment.append(renderResult(item)));
+        resultsNode.append(fragment);
+        setStatus(`“${query}” 검색 결과 ${items.length}개`);
+        window.dispatchEvent(new CustomEvent('core:analytics', { detail: { event: 'search', count: items.length } }));
+      } catch (error) {
+        console.error(error);
+        emptyNode.hidden = false;
+        setStatus('검색 색인을 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.');
+      }
+    };
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const query = input.value.trim();
+      const url = new URL(location.href);
+      query ? url.searchParams.set('q', query) : url.searchParams.delete('q');
+      history.pushState({}, '', url);
+      runSearch(query);
+    });
+    window.addEventListener('popstate', () => {
+      const query = new URLSearchParams(location.search).get('q') || '';
+      input.value = query;
+      runSearch(query.trim());
+    });
+    runSearch(initialQuery);
+  })();
+</script>
+
+<style>
+  .search-header { padding-top: 32px; padding-bottom: 74px; border-bottom: 4px solid var(--color-orange); }
+  .search-header > p { margin: 62px 0 14px; font: 700 .78rem var(--font-mono); letter-spacing: .08em; color: var(--color-orange-accessible); }
+  .search-header h1 { max-width: 900px; margin: 0 0 38px; font-size: clamp(3.3rem, 6vw, 5rem); line-height: 1.08; letter-spacing: -.055em; }
+  .search-header form { max-width: 900px; }
+  .search-header label { display: block; margin-bottom: 9px; font: 700 .78rem var(--font-mono); }
+  .search-header form > div { display: grid; grid-template-columns: 1fr auto; }
+  .search-header input { height: 66px; min-width: 0; padding: 0 20px; border: 1px solid var(--color-ink); border-right: 0; border-radius: 0; font: inherit; font-size: 1rem; background: var(--color-surface); }
+  .search-header button { min-width: 118px; border: 1px solid var(--color-ink); border-radius: 0; color: #fff; background: var(--color-ink); font: 700 .9rem var(--font-mono); cursor: pointer; }
+  .search-body { min-height: 540px; padding-top: 74px; padding-bottom: 110px; }
+  .search-body__heading { display: flex; justify-content: space-between; align-items: end; gap: 30px; margin-bottom: 34px; }
+  .search-body__heading > div > p { margin: 0; font: 700 .75rem var(--font-mono); color: var(--color-orange-accessible); }
+  .search-body__heading h2 { margin: 10px 0 0; font-size: clamp(2rem, 3vw, 2.8rem); }
+  .search-body__heading > p { margin: 0; color: var(--color-muted); }
+  .search-results { border-top: 1px solid var(--color-ink); }
+  .search-results :global(article) { padding: 30px 0; border-bottom: 1px solid var(--color-border); }
+  .search-results :global(.search-result__meta) { margin: 0 0 12px; font: 700 .75rem var(--font-mono); color: var(--color-orange-accessible); }
+  .search-results :global(h3) { margin: 0 0 10px; font-size: 1.45rem; }
+  .search-results :global(h3 a) { color: inherit; text-decoration-color: var(--color-orange); text-underline-offset: 5px; }
+  .search-results :global(.search-result__excerpt) { max-width: 820px; margin: 0; line-height: 1.65; color: var(--color-muted); }
+  .search-results :global(mark) { padding: 0 2px; color: var(--color-ink); background: #ffd9b8; }
+  .search-empty { padding: 52px; border: 1px solid var(--color-border); background: var(--color-surface); }
+  .search-empty > span { font: 3rem var(--font-mono); color: var(--color-orange); }
+  .search-empty h3 { margin: 14px 0 8px; font-size: 1.6rem; }
+  .search-empty p { color: var(--color-muted); }
+  .search-empty nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+  .search-empty nav a { display: inline-flex; min-height: 44px; align-items: center; padding: 0 13px; border: 1px solid var(--color-border); color: var(--color-blue); text-decoration: none; }
+  @media (max-width: 700px) {
+    .search-header > p { margin-top: 42px; }
+    .search-header h1 { font-size: 2.65rem; }
+    .search-header form > div { grid-template-columns: 1fr; gap: 10px; }
+    .search-header input { border-right: 1px solid var(--color-ink); }
+    .search-header button { min-height: 52px; }
+    .search-body__heading { align-items: start; flex-direction: column; }
+    .search-empty { padding: 34px 24px; }
+  }
+</style>

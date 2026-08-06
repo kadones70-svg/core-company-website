@@ -1,0 +1,152 @@
+CORE COMPANY BLOG 로컬 테스트 보고서
+작성일: 2026-08-06
+환경: Windows, Node v26.5.1, npm 12.0.2
+배포 권장 환경: Node 24 LTS
+
+1. 전체 결과
+
+Astro type check: 성공, 46 files, error 0, warning 0, hint 0
+Unit: 성공, 8/8
+Playwright: 성공, 29/29
+axe 자동 접근성: 성공, 검사 범위에서 WCAG A/AA violation 0
+production build: 성공, 25 pages, sample/draft article 0개
+review build: 성공, 31 pages, sample article 3개 포함
+Pagefind review: 성공, 한국어 3 pages, 696 words, filters 2
+390px document overflow: 없음
+검수 스크린샷: 13/13 생성
+Lighthouse: 목표 통과
+
+2. 실행한 주요 명령
+
+npm install
+성공. 534 packages 감사, 취약점 0.
+경고: npm 12가 esbuild 0.28.1 postinstall을 allowScripts 미등록으로 알렸으나 이후 모든 build와 검사에 성공했습니다.
+
+npm run check
+성공. Astro diagnostics 0 errors, 0 warnings, 0 hints.
+
+npm run test
+성공. 8/8.
+검사 내용: Astro static/base/site 설정, npm 명령 존재, 13개 screenshot 계획, Lighthouse threshold, canonical, Pagefind/RSS/sitemap/404 산출물, 잘못된 frontmatter 차단, 중복 slug 차단.
+
+npm run content:validate
+성공. Markdown 3개, draft 0, sample 3, 오류 0, 경고 0.
+
+npm run content:list
+성공. 3개 sample 글의 slug, 제목, 카테고리, 상태, 날짜, featured를 출력했습니다.
+
+npm run image:optimize
+성공한 no-op. public/images/posts에 변환 대상 원본이 없어 파일을 변경하지 않았습니다.
+
+npm run build:review
+성공. 31 pages. sample article 3개 포함. Pagefind가 한국어 3 pages, 696 words를 색인했습니다. review build는 운영 배포용이 아닙니다.
+
+npm run test:e2e
+성공. 29/29. Playwright Chromium을 사용했습니다.
+
+npm run lighthouse
+성공. 이 명령은 production build를 먼저 생성한 뒤 Windows에서 안정적인 Chromium remote debugging 방식으로 Lighthouse를 실행했습니다.
+
+npm run build
+최종 production 산출물 생성을 위해 모든 검수 후 다시 실행했습니다. 25 pages가 생성됐고 Pagefind 번들이 포함됐습니다. 결과와 제외 상태는 아래 항목에 기록합니다.
+
+3. Playwright 검사 범위
+
+/blog/ 메인 렌더링, canonical, Organization JSON-LD, landmark
+/blog/articles/[sample-slug]/ 글 상세, Article/Breadcrumb JSON-LD
+6개 category route 중 대표 경로와 빈 상태
+tag route와 빈 상태
+/blog/search/ 검색과 결과 없음
+/blog/editorial-policy/
+/blog/404.html
+RSS, sitemap, robots, Pagefind asset
+문의 CTA source/article/category/cta query parameter
+390px 메인과 글 상세 document-level 가로 overflow
+모바일 메뉴 aria-expanded, 첫 포커스, Escape, 포커스 복귀
+모바일 details 목차와 데스크톱 sticky 목차 내용 일치
+표와 코드 블록 내부 가로 스크롤
+
+4. 접근성 결과
+
+axe 자동 검사 대상: 메인, 글 상세, 검색, 편집 원칙, 404.
+결과: WCAG A/AA 자동 탐지 위반 0.
+
+별도 동작 검사: skip link와 landmark 구조, focus-visible CSS, 44px 타깃, 모바일 메뉴 키보드 동작, breadcrumb label, time datetime, details 목차, 표/코드 스크롤, reduced-motion.
+
+주의: 자동 검사와 제한된 수동 구조 검사는 실제 사용자 보조기기 테스트 전체를 대체하지 않습니다.
+
+5. Lighthouse 결과
+
+production 홈 /blog/
+Performance 98
+Accessibility 100
+Best Practices 100
+SEO 100
+CLS 0.000
+
+production 편집 원칙 /blog/editorial-policy/
+Performance 98
+Accessibility 100
+Best Practices 100
+SEO 100
+CLS 0.000
+
+보고서 위치:
+review/lighthouse/home.html
+review/lighthouse/home.json
+review/lighthouse/editorial-policy.html
+review/lighthouse/editorial-policy.json
+review/lighthouse/summary.json
+
+측정 범위는 위 두 production 페이지뿐입니다. production에 공개 글이 없어 article Lighthouse 점수는 측정하지 않았습니다.
+
+6. Pagefind 한글 검색
+
+review build에서 한글 게시글 검색어가 결과를 반환하는 E2E가 통과했습니다. 결과 제목, summary/excerpt, category, 수정일, 읽기 시간을 렌더링하고 결과 없음 상태의 role=status와 카테고리 링크를 검사했습니다.
+
+경고: Pagefind 1.5.2는 한국어 stemming을 지원하지 않습니다. 정확한 단어 검색은 정상이나 어근 변화에 따른 확장 검색은 제공하지 않습니다.
+
+production에는 sample:false 공개 글이 0개입니다. 빌드 안정성을 위해 내부 빈 색인 번들은 존재하지만 임시 HTML은 제거되고 내부 센티널 결과는 UI에서 제외됩니다.
+
+7. production 제외 규칙
+
+현재 콘텐츠 상태: draft 0개, sample 3개.
+production build 결과: sample article 0개, draft article 0개.
+review build 결과: sample article 3개, draft article 0개.
+
+잘못된 frontmatter와 중복 slug는 임시 콘텐츠 폴더를 사용한 단위 테스트에서 검증 실패가 발생하는 것을 확인했습니다. npm run build의 prebuild도 content:validate 오류 시 종료됩니다.
+
+8. 모바일과 반응형
+
+검사 viewport: 1440px, 1024px, 390px.
+390px 메인과 글 상세에서 document.scrollWidth가 viewport를 넘지 않았습니다. 표와 코드는 콘텐츠를 삭제하지 않고 각 컨테이너 안에서 가로 스크롤됩니다.
+
+9. 검수 스크린샷
+
+review/main-desktop-1440.png
+review/main-tablet-1024.png
+review/main-mobile-390.png
+review/article-desktop-fold.png
+review/article-desktop-full.png
+review/article-mobile-fold.png
+review/article-mobile-full.png
+review/category-desktop.png
+review/category-mobile.png
+review/search-desktop.png
+review/search-mobile.png
+review/editorial-policy-desktop.png
+review/404-desktop.png
+
+13개 모두 생성되고 육안으로 레이아웃, 줄바꿈, 모바일 순서와 overflow를 확인했습니다. 승인 디자인 파일이 없어 승인 원본과 픽셀 비교는 할 수 없었습니다.
+
+10. 실패와 경고 이력
+
+최종 결과에 남은 테스트 실패는 없습니다.
+
+중간에 Lighthouse CI의 Windows 임시 Chrome 폴더 정리 EPERM 오류가 있어 공식 Lighthouse 패키지를 유지한 채 로컬 Chromium remote debugging 실행 스크립트로 교체했습니다. 교체 후 실제 audit와 threshold 검사가 성공했습니다.
+
+중간 type check에서 테스트 파일의 불필요한 @ts-expect-error 1건이 발견되어 제거했습니다. 수정 후 check 0 errors와 전체 회귀 검사를 재실행했습니다.
+
+11. 자동 검사 범위 밖 주의사항
+
+실제 운영 네트워크, Cloudflare Pages 결합, DNS, 캐시, Web Analytics는 로컬 범위 밖이며 Hermes가 배포 후 확인해야 합니다. 운영 배포와 외부 설정 변경은 수행하지 않았습니다.

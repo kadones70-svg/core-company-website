@@ -1,0 +1,127 @@
+CORE COMPANY BLOG HERMES 배포 인계
+작성일: 2026-08-06
+
+1. 배포 대상과 URL
+
+소스 폴더: blog-app/
+배포 대상 산출물: blog-app/dist/
+공개 URL prefix: https://corecompany.net/blog/
+
+dist 폴더의 내용을 실제 /blog/ 경로에 배치해야 합니다. blog-app 소스 전체나 review build를 배포하지 마십시오. Codex는 운영 /blog/로 복사하거나 배포하지 않았습니다.
+
+2. 빌드 환경과 명령
+
+권장 Node: Node.js 24 LTS
+패키지 관리자: npm
+
+blog-app 폴더에서:
+npm ci
+npm run content:validate
+npm run check
+npm run build
+npm run test
+
+Astro 설정:
+site=https://corecompany.net
+base=/blog
+output=static
+trailingSlash=always
+
+npm run build는 draft와 sample을 제외하고 Astro build 후 Pagefind 색인을 생성합니다. npm run build:review 결과는 sample을 포함하므로 운영 배포에 사용하면 안 됩니다.
+
+3. 환경 변수
+
+필수 환경 변수: 없음.
+
+production build는 INCLUDE_SAMPLES=false, REVIEW_BUILD=false를 npm script가 Windows 호환 cross-env로 설정합니다. 별도로 Cloudflare 토큰, GA4 Measurement ID, 개인정보 관련 환경 변수를 넣지 마십시오.
+
+선택적 GA4/데이터레이어 어댑터 타입은 있으나 GA4 스크립트나 Measurement ID는 포함하지 않았습니다. GA4가 없어도 사이트는 정상 작동합니다.
+
+4. Cloudflare Web Analytics
+
+Cloudflare Pages 프로젝트 또는 해당 zone의 Analytics 설정에서 Web Analytics를 배포 담당자가 활성화할 수 있습니다. Codex 소스에는 Cloudflare 토큰과 beacon 설정을 하드코딩하지 않았습니다.
+
+활성화 후 Network와 Cloudflare dashboard에서 /blog/ 페이지 요청이 수집되는지만 확인하십시오. 공개 조회수 숫자는 UI에 표시하지 않습니다.
+
+5. 기존 V25와 결합할 때 주의사항
+
+기존 홈페이지 루트 index, CSS, JavaScript, GNB, DNS는 수정하지 마십시오.
+기존 운영 /blog/가 있다면 배포 전에 전체 백업을 만드십시오.
+dist/index.html은 사이트 루트가 아니라 /blog/index.html에 대응합니다.
+dist/_astro, dist/pagefind, dist/brand, dist/rss 등 자산도 /blog/ 아래의 상대 구조를 유지해야 합니다.
+기존 reverse proxy 또는 Pages route가 /blog/* 요청을 루트 홈페이지로 fallback하지 않는지 확인하십시오.
+404.html은 /blog/ 전용 오류 파일입니다. 플랫폼의 전체 사이트 404 정책과 충돌하지 않도록 /blog/ 범위에 연결하십시오.
+파일을 업로드한 뒤 /blog/pagefind/pagefind.js, /blog/rss.xml, /blog/sitemap-index.xml이 text/html fallback이 아니라 올바른 파일을 반환하는지 확인하십시오.
+
+6. 배포 전 확인 항목
+
+Node 24 LTS에서 npm ci 성공
+npm run content:validate 성공
+npm run check 성공
+npm run build 성공
+dist에 REVIEW BUILD 문구 없음
+dist/articles 아래 sample slug HTML 없음
+dist/__pagefind-empty-index.html 없음
+dist/pagefind/pagefind.js 존재
+dist/rss.xml 존재
+dist/sitemap-index.xml 또는 sitemap-0.xml 존재
+dist/404.html 존재
+canonical이 https://corecompany.net/blog/... 형식
+현재 운영 /blog/ 백업 완료
+
+중요: 현재 실제 게시글 3개는 모두 sample:true입니다. 따라서 production dist에는 공개 article, RSS item, 사용자 검색 결과가 0개입니다. 배포 전에 실제 검수된 sample:false 글을 추가할지 콘텐츠 담당자와 확인하십시오. 빈 블로그 UI 자체는 정상 동작합니다.
+
+7. 배포 후 확인 URL
+
+https://corecompany.net/blog/
+https://corecompany.net/blog/search/
+https://corecompany.net/blog/category/hospitality/
+https://corecompany.net/blog/category/office/
+https://corecompany.net/blog/category/document-data-ai/
+https://corecompany.net/blog/category/ai-adoption-cost/
+https://corecompany.net/blog/category/ai-infrastructure-security/
+https://corecompany.net/blog/category/automation-iot/
+https://corecompany.net/blog/editorial-policy/
+https://corecompany.net/blog/404.html
+https://corecompany.net/blog/rss.xml
+https://corecompany.net/blog/sitemap-index.xml
+https://corecompany.net/blog/pagefind/pagefind.js
+https://corecompany.net/blog/robots.txt
+
+sample:false 게시글이 추가되면 해당 article URL, category, tag, 검색어와 Article/Breadcrumb JSON-LD도 확인하십시오.
+
+8. 배포 후 기능 확인
+
+데스크톱과 모바일에서 Header, 메뉴, 검색, 카테고리, 태그, 편집 원칙, 404를 확인합니다.
+390px에서 document-level 가로 overflow가 없는지 확인합니다.
+키보드로 skip link와 모바일 메뉴를 조작하고 Escape와 focus 복귀를 확인합니다.
+문의 버튼 URL이 ?source=blog&...#contact 순서로 생성되고 기존 문의 앵커로 이동하는지 확인합니다.
+canonical, Open Graph, robots, sitemap, RSS의 공개 절대 URL을 확인합니다.
+Cloudflare cache가 이전 /blog/ fallback HTML을 반환하지 않는지 확인합니다.
+
+9. rollback
+
+배포 전 확보한 기존 /blog/ 백업의 파일 목록, 체크섬 또는 Pages deployment ID를 기록하십시오. 문제가 생기면 새 dist를 부분 수정하지 말고 직전 정상 deployment 또는 백업된 /blog/ 전체로 되돌린 뒤 관련 캐시를 정리합니다.
+
+rollback은 Hermes의 운영 권한과 절차로 수행합니다. Codex는 기존 /blog/ 백업을 만들거나 운영 파일을 변경하지 않았습니다.
+
+10. 알려진 경고
+
+로컬 검증 환경은 Node v26.5.1이었습니다. Hermes는 요구 기준인 Node 24 LTS에서 재빌드해야 합니다.
+Pagefind는 한국어 stemming을 지원하지 않지만 정확한 한글 검색 E2E는 통과했습니다.
+승인 디자인 PNG/HTML, 로컬 V25 소스, 기존 운영 /blog/ 폴더가 작업 폴더에 없어 직접 비교하지 못했습니다.
+Lighthouse는 production 홈과 편집 원칙 두 페이지만 측정했고 각각 Performance 98, Accessibility 100, Best Practices 100, SEO 100, CLS 0이었습니다.
+
+11. Codex 작업 경계 확인
+
+Git 명령 사용 안 함.
+GitHub 작업 안 함.
+ZIP 생성 안 함.
+Cloudflare 설정 변경 안 함.
+DNS 변경 안 함.
+운영 사이트 수정 안 함.
+기존 V25 수정 안 함.
+기존 /blog/ 수정 안 함.
+실제 배포 안 함.
+
+배포와 운영 반영은 Hermes가 담당합니다.

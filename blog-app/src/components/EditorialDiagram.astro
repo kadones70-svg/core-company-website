@@ -1,0 +1,31 @@
+---
+interface Props {
+  compact?: boolean;
+}
+
+const { compact = false } = Astro.props;
+---
+
+<div class:list={['editorial-diagram', { 'editorial-diagram--compact': compact }]} aria-label="운영 문제에서 실행 기준까지 이어지는 세 단계 흐름" role="img">
+  <div><span>01</span><strong>운영 문제</strong><small>현재 흐름 확인</small></div>
+  <i aria-hidden="true"></i>
+  <div><span>02</span><strong>판단 기준</strong><small>비용·보안·관리</small></div>
+  <i aria-hidden="true"></i>
+  <div><span>03</span><strong>적용 순서</strong><small>작게 검증</small></div>
+</div>
+
+<style>
+  .editorial-diagram { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; align-items: center; gap: 14px; min-height: 238px; padding: 32px; border: 1px solid var(--color-border); border-radius: 18px; background: #f1efea; }
+  .editorial-diagram > div { display: grid; align-content: center; gap: 7px; min-height: 126px; padding: 18px; border-top: 4px solid var(--color-orange); background: var(--color-surface); }
+  .editorial-diagram span, .editorial-diagram small { font-family: var(--font-mono); font-size: .75rem; color: var(--color-muted); }
+  .editorial-diagram strong { font-size: 1rem; }
+  .editorial-diagram i { width: 22px; height: 1px; background: var(--color-orange); position: relative; }
+  .editorial-diagram i::after { content: ''; position: absolute; right: 0; top: -3px; width: 7px; height: 7px; border-top: 1px solid var(--color-orange); border-right: 1px solid var(--color-orange); transform: rotate(45deg); }
+  .editorial-diagram--compact { min-height: 180px; padding: 22px; }
+  @media (max-width: 700px) {
+    .editorial-diagram { grid-template-columns: 1fr; min-height: 0; padding: 20px; }
+    .editorial-diagram > div { min-height: 92px; }
+    .editorial-diagram i { width: 1px; height: 18px; justify-self: center; }
+    .editorial-diagram i::after { right: -3px; top: auto; bottom: 0; transform: rotate(135deg); }
+  }
+</style>

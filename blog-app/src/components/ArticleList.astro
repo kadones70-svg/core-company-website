@@ -1,0 +1,108 @@
+---
+import { articlePath, categoryPath } from '../config/site';
+
+interface ArticleData {
+  title?: string;
+  summary?: string;
+  category?: string;
+  contentType?: string;
+  publishedAt?: string | Date;
+  updatedAt?: string | Date;
+  readingTime?: string | number;
+}
+
+export interface ArticlePost {
+  id?: string;
+  slug?: string;
+  href?: string;
+  data?: ArticleData;
+  title?: string;
+  summary?: string;
+  category?: string;
+  contentType?: string;
+  publishedAt?: string | Date;
+  updatedAt?: string | Date;
+  readingTime?: string | number;
+}
+
+export interface Props {
+  posts: readonly ArticlePost[];
+  emptyMessage?: string;
+  headingLevel?: 'h2' | 'h3';
+}
+
+const {
+  posts,
+  emptyMessage = '아직 발행된 글이 없습니다.',
+  headingLevel = 'h3'
+} = Astro.props;
+
+const Heading = headingLevel;
+const dateFormatter = new Intl.DateTimeFormat('ko-KR', {
+  year: 'numeric',
+  month: '2-digit',
+  day: '2-digit'
+});
+
+const normalizeSlug = (post: ArticlePost) => {
+  const raw = post.slug ?? post.id ?? '';
+  return raw.replace(/\\/g, '/').split('/').pop()?.replace(/\.(md|mdx)$/i, '') ?? '';
+};
+
+const normalizeDate = (value?: string | Date) => {
+  if (!value) return undefined;
+  const date = value instanceof Date ? value : new Date(value);
+  return Number.isNaN(date.getTime()) ? undefined : date;
+};
+
+const normalizedPosts = posts.map((post) => {
+  const data = post.data ?? {};
+  const slug = normalizeSlug(post);
+  const readingTime = post.readingTime ?? data.readingTime;
+  return {
+    href: post.href ?? articlePath(slug),
+    title: post.title ?? data.title ?? slug,
+    summary: post.summary ?? data.summary ?? '',
+    category: post.category ?? data.category,
+    contentType: post.contentType ?? data.contentType,
+    updatedAt: normalizeDate(post.updatedAt ?? data.updatedAt ?? post.publishedAt ?? data.publishedAt),
+    readingTime:
+      typeof readingTime === 'number'
+        ? `약 ${Math.max(1, Math.round(readingTime))}분`
+        : readingTime
+  };
+});
+---
+
+{
+  normalizedPosts.length > 0 ? (
+    <ul class="article-list">
+      {normalizedPosts.map((post) => (
+        <li class="article-list__item">
+          <article>
+            <div class="article-list__meta">
+              {post.category && <a href={categoryPath(post.category)}>{post.category}</a>}
+              {post.contentType && <span>{post.contentType}</span>}
+            </div>
+            <Heading><a href={post.href}>{post.title}</a></Heading>
+            {post.summary && <p>{post.summary}</p>}
+            <div class="article-list__details">
+              {post.updatedAt && (
+                <span>
+                  수정 <time datetime={post.updatedAt.toISOString().slice(0, 10)}>{dateFormatter.format(post.updatedAt)}</time>
+                </span>
+              )}
+              {post.readingTime && <span>{post.readingTime} 읽기</span>}
+            </div>
+          </article>
+        </li>
+      ))}
+    </ul>
+  ) : (
+    <div class="empty-state" role="status">
+      <p class="eyebrow">NO ARTICLES YET</p>
+      <p>{emptyMessage}</p>
+    </div>
+  )
+}
+

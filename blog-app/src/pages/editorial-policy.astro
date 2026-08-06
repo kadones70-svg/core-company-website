@@ -1,0 +1,50 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import ContactCta from '@/components/ContactCta.astro';
+import { withBase } from '@/lib/paths';
+---
+
+<BaseLayout title="저자·편집 원칙 | Core Company Blog" description="Core Company 블로그의 작성, 기술 검수, 출처, 수정 및 AI 활용 공개 원칙" canonicalPath={withBase('/editorial-policy/')}>
+  <main id="main-content" data-pagefind-ignore>
+    <header class="policy-header section-shell">
+      <Breadcrumbs items={[{ label: '블로그', href: withBase('/') }, { label: '저자·편집 원칙' }]} />
+      <p>EDITORIAL POLICY / VERSION 1.0</p><h1>쉽게 읽히되,<br />근거는 가볍게 다루지 않습니다.</h1><span>마지막 검토: <time datetime="2026-08-06">2026. 08. 06.</time></span>
+    </header>
+    <div class="policy-layout section-shell">
+      <aside aria-label="이 페이지 목차"><p>ON THIS PAGE</p><nav><a href="#purpose">목적</a><a href="#roles">작성과 검수</a><a href="#sources">출처 원칙</a><a href="#changes">수정 원칙</a><a href="#ai">AI 활용 공개</a><a href="#contact">오류 제보</a></nav></aside>
+      <article class="policy-content">
+        <section id="purpose"><span>01</span><h2>목적</h2><p>Core Company 블로그는 숙박·오피스·중소기업 운영자가 AI, IoT, 자동화를 검토할 때 필요한 판단 기준을 제공합니다. 특정 기술을 먼저 권하기보다 현재 업무 흐름, 관리 책임, 비용과 보안을 함께 살핍니다.</p></section>
+        <section id="roles"><span>02</span><h2>작성과 검수</h2><p>각 글에는 작성자와 검수자를 표시합니다. 기술 설명은 적용 조건과 한계를 함께 적고, 법률·정책처럼 전문 판단이 필요한 내용은 일반 정보와 개별 자문을 구분합니다.</p><dl><div><dt>작성</dt><dd>문제 구조, 선택 기준, 실행 순서를 독자가 이해할 수 있는 언어로 정리합니다.</dd></div><div><dt>기술 검토</dt><dd>사실 관계, 기술 용어, 적용 조건, 과도한 일반화 여부를 확인합니다.</dd></div></dl></section>
+        <section id="sources"><span>03</span><h2>출처 원칙</h2><p>확인이 필요한 사실과 기준에는 원문 URL, 확인 날짜, 자료 유형을 함께 남깁니다. 출처가 없거나 확인할 수 없는 수치와 단정적인 법률 결론은 공개하지 않습니다.</p></section>
+        <section id="changes"><span>04</span><h2>수정 원칙</h2><p>핵심 결론, 수치, 적용 조건이 바뀌면 수정일과 변경 내용을 기록합니다. 단순한 맞춤법 교정은 변경 이력에서 생략할 수 있습니다.</p></section>
+        <section id="ai"><span>05</span><h2>AI 활용 공개</h2><p>초안 정리나 문장 교정에 AI 보조를 사용한 경우 글 하단에 공개할 수 있습니다. AI가 제안한 사실과 수치는 담당자가 다시 확인하며, 검수 책임은 사람에게 있습니다.</p></section>
+        <section id="contact"><span>06</span><h2>오류 제보</h2><p>사실 오류, 깨진 출처, 보완이 필요한 적용 조건을 발견하셨다면 문의를 통해 알려 주세요. 확인 후 필요한 경우 수정 이력을 남깁니다.</p></section>
+      </article>
+    </div>
+    <ContactCta position="editorial-bottom" heading="검토가 필요한 내용이 있나요?" description="사실 오류나 보완 의견을 보내주시면 편집 원칙에 따라 확인합니다." />
+  </main>
+</BaseLayout>
+
+<style>
+  .policy-header { padding-top: 32px; padding-bottom: 78px; border-bottom: 4px solid var(--color-orange); }
+  .policy-header > p { margin: 62px 0 14px; font: 700 .78rem var(--font-mono); letter-spacing: .08em; color: var(--color-orange-accessible); }
+  .policy-header h1 { max-width: 980px; margin: 0 0 26px; font-size: clamp(3.4rem, 6vw, 5rem); line-height: 1.08; letter-spacing: -.055em; }
+  .policy-header > span { font: .8rem var(--font-mono); color: var(--color-muted); }
+  .policy-layout { display: grid; grid-template-columns: 220px minmax(0, 720px); justify-content: center; gap: 100px; padding-top: 80px; padding-bottom: 110px; }
+  .policy-layout > aside { position: sticky; top: 110px; align-self: start; padding-left: 20px; border-left: 1px solid var(--color-border); }
+  .policy-layout aside > p { margin: 0 0 18px; font: 700 .72rem var(--font-mono); color: var(--color-muted); }
+  .policy-layout nav { display: grid; }
+  .policy-layout nav a { display: flex; min-height: 44px; align-items: center; color: var(--color-muted); font-size: .84rem; }
+  .policy-content section { scroll-margin-top: 120px; padding: 0 0 70px; }
+  .policy-content section + section { padding-top: 64px; border-top: 1px solid var(--color-border); }
+  .policy-content section > span { font: 700 .75rem var(--font-mono); color: var(--color-orange-accessible); }
+  .policy-content h2 { margin: 12px 0 22px; font-size: clamp(2rem, 3vw, 2.7rem); }
+  .policy-content p { font-size: 1.0625rem; line-height: 1.82; }
+  .policy-content dl { margin: 28px 0 0; border-top: 1px solid var(--color-ink); }
+  .policy-content dl div { display: grid; grid-template-columns: 120px 1fr; gap: 24px; padding: 20px 0; border-bottom: 1px solid var(--color-border); }
+  .policy-content dt { font: 700 .78rem var(--font-mono); }
+  .policy-content dd { margin: 0; line-height: 1.7; color: var(--color-muted); }
+  @media (max-width: 850px) { .policy-layout { grid-template-columns: 1fr; gap: 40px; } .policy-layout > aside { position: static; } }
+  @media (max-width: 700px) { .policy-header > p { margin-top: 42px; } .policy-header h1 { font-size: 2.65rem; } .policy-header h1 br { display: none; } .policy-content p { font-size: 1rem; } .policy-content dl div { grid-template-columns: 1fr; gap: 8px; } }
+</style>

@@ -1,0 +1,43 @@
+---
+import { buildContactUrl, type CtaPosition } from '../lib/tracking';
+
+export interface Props {
+  article?: string;
+  category?: string;
+  position?: CtaPosition | (string & {});
+  heading?: string;
+  description?: string;
+}
+
+const {
+  article,
+  category,
+  position = 'article-bottom',
+  heading = '우리 환경에도 적용할 수 있을까요?',
+  description = '현재 운영 방식과 필요한 범위를 먼저 정리해 드립니다.'
+} = Astro.props;
+
+const contactUrl = buildContactUrl({ article, category, cta: position });
+---
+
+<section class="contact-cta" aria-labelledby={`contact-cta-${position}`} data-pagefind-ignore="all">
+  <div class="container contact-cta__inner">
+    <div>
+      <p class="eyebrow contact-cta__label">CORE COMPANY / READINESS</p>
+      <h2 id={`contact-cta-${position}`}>{heading}</h2>
+      <p>{description}</p>
+    </div>
+    <a
+      class="button button--light"
+      href={contactUrl}
+      data-analytics-event="contact_cta_click"
+      data-analytics-cta={position}
+      data-analytics-article={article}
+      data-analytics-category={category}
+      data-testid="contact-cta"
+      data-cta-position={position}
+    >
+      도입 진단 문의
+    </a>
+  </div>
+</section>

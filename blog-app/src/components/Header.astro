@@ -1,0 +1,162 @@
+---
+import { CATEGORY_DEFINITIONS, SITE, categoryPath } from '../config/site';
+import { buildContactUrl } from '../lib/tracking';
+
+export interface Props {
+  activePath?: string;
+}
+
+const { activePath = Astro.url.pathname } = Astro.props;
+
+const categoryNames = [
+  '숙박·민박 운영',
+  '오피스·사무실 운영',
+  '문서·데이터 AI',
+  'AI 도입·비용',
+  '자동화·IoT'
+] as const;
+
+const navigation = [
+  { label: '블로그 홈', href: `${SITE.basePath}/` },
+  ...categoryNames.map((name) => {
+    const category = CATEGORY_DEFINITIONS.find((item) => item.name === name)!;
+    return { label: category.shortLabel, href: categoryPath(category.name) };
+  }),
+  { label: '검색', href: `${SITE.basePath}/search/` }
+];
+
+const normalizePath = (path: string) => (path.endsWith('/') ? path : `${path}/`);
+const currentPath = normalizePath(activePath);
+const isCurrent = (href: string) => {
+  const path = normalizePath(new URL(href, SITE.siteUrl).pathname);
+  if (path === `${SITE.basePath}/`) return currentPath === path;
+  return currentPath.startsWith(path);
+};
+---
+
+<header class="site-header" data-site-header data-pagefind-ignore="all">
+  <div class="container site-header__inner">
+    <a class="site-brand" href={SITE.homeUrl} aria-label="Core Company 공식 홈페이지로 이동">
+      <img
+        class="site-brand__logo"
+        src={SITE.logoPath}
+        width="44"
+        height="44"
+        alt=""
+        loading="eager"
+        decoding="async"
+      />
+      <span class="site-brand__wordmark">
+        <strong>CORE COMPANY</strong>
+        <span>BLOG / EDITORIAL</span>
+      </span>
+    </a>
+
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="primary-navigation"
+      aria-label="블로그 메뉴 열기"
+      data-menu-toggle
+      data-testid="mobile-menu-toggle"
+    >
+      <span aria-hidden="true" class="menu-toggle__icon"></span>
+      <span class="menu-toggle__label">메뉴</span>
+    </button>
+
+    <nav
+      id="primary-navigation"
+      class="site-nav"
+      aria-label="블로그 주 메뉴"
+      data-menu-panel
+      data-open="false"
+      data-testid="mobile-menu"
+    >
+      <ul class="site-nav__list">
+        {navigation.map((item) => (
+          <li>
+            <a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+      <a
+        class="button button--small site-nav__contact"
+        href={buildContactUrl({ cta: 'header' })}
+        data-analytics-event="contact_cta_click"
+        data-analytics-cta="header"
+        data-testid="contact-cta"
+        data-cta-position="header"
+      >
+        도입 문의
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script is:inline>
+  (() => {
+    const header = document.querySelector('[data-site-header]');
+    if (!(header instanceof HTMLElement) || header.dataset.menuReady === 'true') return;
+
+    const button = header.querySelector('[data-menu-toggle]');
+    const panel = header.querySelector('[data-menu-panel]');
+    if (!(button instanceof HTMLButtonElement) || !(panel instanceof HTMLElement)) return;
+
+    header.dataset.menuReady = 'true';
+    const mobileQuery = window.matchMedia('(max-width: 70rem)');
+    const focusSelector = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+    const isOpen = () => button.getAttribute('aria-expanded') === 'true';
+    const setOpen = (open, returnFocus = false) => {
+      button.setAttribute('aria-expanded', String(open));
+      button.setAttribute('aria-label', open ? '블로그 메뉴 닫기' : '블로그 메뉴 열기');
+      panel.dataset.open = String(open);
+      header.dataset.menuOpen = String(open);
+
+      if (open) {
+        const firstItem = panel.querySelector(focusSelector);
+        if (firstItem instanceof HTMLElement) firstItem.focus();
+      } else if (returnFocus) {
+        button.focus();
+      }
+    };
+
+    button.addEventListener('click', () => setOpen(!isOpen(), false));
+
+    panel.addEventListener('click', (event) => {
+      if (event.target instanceof Element && event.target.closest('a')) setOpen(false, false);
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (!isOpen() || !mobileQuery.matches) return;
+
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        setOpen(false, true);
+        return;
+      }
+
+      if (event.key !== 'Tab') return;
+      const items = [...panel.querySelectorAll(focusSelector)].filter(
+        (item) => item instanceof HTMLElement && item.offsetParent !== null
+      );
+      if (!items.length) return;
+
+      const first = items[0];
+      const last = items[items.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
+
+    mobileQuery.addEventListener('change', () => setOpen(false, false));
+    window.addEventListener('pageshow', () => setOpen(false, false));
+  })();
+</script>

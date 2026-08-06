@@ -1,0 +1,145 @@
+CORE COMPANY BLOG 콘텐츠 운영 가이드
+작성일: 2026-08-06
+
+1. 기본 원칙
+
+게시글은 DB나 CMS가 아니라 Markdown 파일과 이미지 파일로 관리합니다.
+게시글 위치: src/content/posts/<slug>.md
+게시글 이미지 위치: public/images/posts/<slug>/
+공통 브랜드 자산 위치: public/brand/
+
+운영 환경은 Node.js 24 LTS와 npm을 사용합니다. 처음 받은 소스에서는 blog-app 폴더에서 npm ci를 실행합니다.
+
+2. 새 글 만들기
+
+blog-app 폴더에서 다음 명령을 실행합니다.
+
+npm run content:new
+
+명령은 제목, slug, 요약, description, 카테고리, 태그, 콘텐츠 유형, 작성자, 검수자, 게시일, 초안 여부, 대표 글 여부, 썸네일 경로와 alt, AI 활용 공개 문구를 차례로 묻습니다.
+
+slug는 영문 소문자, 숫자, 하이픈만 허용합니다. 공백은 사용할 수 없고 기존 slug와 중복될 수 없습니다. slug를 비우면 날짜 기반의 안전한 값을 생성하며, 한글 제목을 임의로 로마자화하지 않습니다.
+
+생성 결과는 src/content/posts/<slug>.md입니다. 생성 직후 npm run content:validate를 실행하십시오.
+
+3. 글 본문 작성
+
+일반 Markdown 제목, 목록, 번호 목록, 체크리스트, 표, 코드 블록, 인용문, 이미지, 링크를 사용할 수 있습니다. 페이지 제목은 frontmatter title이 담당하므로 본문 첫 제목은 보통 H2(##)부터 시작합니다. heading 단계를 건너뛰지 마십시오.
+
+정보 박스:
+> [!INFO]
+> 참고 내용
+
+주의 박스:
+> [!WARNING]
+> 주의 내용
+
+오류 또는 금지 박스:
+> [!DANGER]
+> 오류 또는 금지 내용
+
+표는 caption, thead, th scope가 필요한 경우 Markdown 안에 접근 가능한 HTML 표를 직접 작성할 수 있습니다. 모바일에서는 열을 제거하지 않고 표 영역만 가로 스크롤됩니다.
+
+4. frontmatter 필수 항목
+
+title, summary, description, category, tags, contentType, author, reviewer, publishedAt, updatedAt, draft, featured, thumbnail, thumbnailAlt, sources, changeLog, aiDisclosure, relatedPosts, sample을 모두 입력합니다.
+
+날짜는 YYYY-MM-DD ISO 형식입니다. updatedAt은 publishedAt보다 빠를 수 없습니다. thumbnail이 비어 있지 않으면 thumbnailAlt도 반드시 입력합니다. sources와 relatedPosts는 빈 배열을 허용합니다.
+
+5. 카테고리와 태그
+
+허용 카테고리는 다음 6개뿐입니다.
+숙박·민박 운영
+오피스·사무실 운영
+문서·데이터 AI
+AI 도입·비용
+AI 인프라·보안
+자동화·IoT
+
+태그는 중복 없이 입력합니다. 권장 태그에는 제조, 정부지원, 정책·법률, 체크리스트, 비교, 비용 분석, RAG, 온프레미스, 클라우드, 도어락, 출입 관리, 센서, 개인정보, 스마트팜, 스마트홈이 있습니다.
+
+허용 콘텐츠 유형은 기둥 글, 비교 글, 체크리스트, 도입 가이드, 적용 검토, 가상 시나리오, 기술 해설, 정책·법률 해설, 비용 분석, 운영 가이드, FAQ, 뉴스 해설입니다.
+
+실제 고객 작업이 아닌 글을 사례라고 부르지 마십시오. 이 경우 적용 검토 또는 가상 시나리오를 사용합니다.
+
+6. 출처와 변경 이력
+
+sources의 각 항목에는 title, url, checkedAt, type을 입력합니다. URL은 비어 있지 않은 http 또는 https 원문 주소여야 합니다.
+
+예:
+sources:
+  - title: "자료명"
+    url: "https://example.com"
+    checkedAt: "2026-08-06"
+    type: "공식 문서"
+
+changeLog의 각 항목에는 date, description, reviewer를 입력합니다. 글의 사실, 수치, 결론 또는 구조를 수정했다면 updatedAt과 변경 이력을 함께 갱신합니다.
+
+예:
+changeLog:
+  - date: "2026-08-06"
+    description: "초안 작성"
+    reviewer: "기술 책임자"
+
+7. AI 활용 공개
+
+AI를 사용했다면 aiDisclosure에 사용 범위와 사람의 확인 범위를 간결하게 적습니다.
+
+예:
+aiDisclosure: "초안 정리에 AI 보조를 사용했으며 사실과 수치는 담당자가 확인합니다."
+
+사용하지 않았다면 빈 문자열을 사용할 수 있습니다. 확인하지 않은 수치나 법률 결론을 AI 문장 그대로 게시하지 마십시오.
+
+8. 이미지
+
+이미지는 public/images/posts/<slug>/에 저장하고 WebP 또는 AVIF를 우선 사용합니다. 일반 콘텐츠 이미지는 300KB 이하, 기본 비율 16:9, 명시적 width와 height, 의미 있는 alt를 목표로 합니다. 2MB를 넘는 PNG는 검증에서 차단됩니다.
+
+큰 PNG 또는 JPEG의 변환본을 만들려면 다음 명령을 사용합니다.
+
+npm run image:optimize
+
+이 명령은 원본을 삭제하지 않고 별도 WebP 변환본을 생성하며 파일 크기를 보고합니다.
+
+9. 초안과 검수용 샘플
+
+draft: true인 글은 production과 review build에서 모두 제외됩니다.
+sample: true인 글은 production build에서 제외되고 review build에만 포함됩니다.
+
+샘플 본문 상단에는 반드시 실제 고객 사례가 아니라는 문구를 넣어야 합니다. 확인되지 않은 수치와 법률 결론을 사용하지 마십시오. review build 결과는 운영에 배포하면 안 됩니다.
+
+10. 글 수정과 관련 글
+
+기존 src/content/posts/<slug>.md를 수정하고 updatedAt과 changeLog를 갱신합니다. relatedPosts에는 실제로 존재하는 slug만 입력할 수 있으며 현재 글 자신이나 중복 slug는 허용되지 않습니다.
+
+11. 검증과 목록
+
+npm run content:validate
+frontmatter, slug, 카테고리, 태그 중복, 날짜, 이미지, alt, 관련 글, 출처 URL, draft/sample 상태, Markdown heading 구조를 검사합니다. 오류가 있으면 production build도 prebuild 단계에서 중단됩니다.
+
+npm run content:list
+slug, 제목, 카테고리, draft, sample, 게시일, 수정일, featured 상태를 표 형태로 확인합니다.
+
+12. 미리보기와 빌드
+
+개발 미리보기:
+npm run dev
+
+production build 후 미리보기:
+npm run build
+npm run preview
+
+샘플을 포함한 디자인 검수:
+npm run build:review
+npm run preview
+
+production 결과는 dist/에 생성되며 draft와 sample을 제외합니다. review 결과도 같은 dist/를 사용하므로 검수 후 배포 인계 전에는 반드시 npm run build를 다시 실행해야 합니다.
+
+13. 게시 전 권장 순서
+
+1) npm run content:validate
+2) npm run check
+3) npm run build
+4) npm run test
+5) dist/에서 게시글, RSS, sitemap, canonical, 검색 색인을 확인
+
+배포는 Hermes 담당입니다. 이 가이드는 운영 사이트 수정이나 Cloudflare 배포를 수행하지 않습니다.

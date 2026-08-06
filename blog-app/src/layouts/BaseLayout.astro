@@ -1,0 +1,89 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE } from '../config/site';
+import '../styles/global.css';
+
+export interface Props {
+  title: string;
+  description: string;
+  canonicalPath?: string;
+  type?: 'website' | 'article';
+  image?: string;
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description,
+  canonicalPath,
+  type = 'website',
+  image,
+  jsonLd,
+  noindex = false
+} = Astro.props;
+
+const metaTitle = title.includes('Core Company') ? title : `${title} | Core Company 블로그`;
+const canonicalUrl = new URL(canonicalPath ?? Astro.url.pathname, SITE.siteUrl);
+canonicalUrl.search = '';
+canonicalUrl.hash = '';
+const imageUrl = image ? new URL(image, SITE.siteUrl).toString() : undefined;
+
+const organizationJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': SITE.organizationId,
+  name: SITE.name,
+  url: SITE.homeUrl,
+  logo: new URL(SITE.logoPath, SITE.siteUrl).toString(),
+  sameAs: [SITE.naverBlogUrl]
+};
+
+const pageJsonLd = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
+const jsonLdDocuments = [organizationJsonLd, ...pageJsonLd].map((document) =>
+  JSON.stringify(document).replace(/</g, '\\u003c')
+);
+---
+
+<!doctype html>
+<html lang={SITE.language}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#F8F7F4" />
+    <meta name="description" content={description} />
+    <meta
+      name="robots"
+      content={noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large'}
+    />
+    <link rel="canonical" href={canonicalUrl.toString()} />
+    <link rel="icon" href={SITE.logoPath} type="image/webp" />
+
+    <meta property="og:type" content={type} />
+    <meta property="og:locale" content={SITE.locale} />
+    <meta property="og:site_name" content={SITE.blogName} />
+    <meta property="og:title" content={metaTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl.toString()} />
+    {imageUrl && <meta property="og:image" content={imageUrl} />}
+
+    <meta name="twitter:card" content={imageUrl ? 'summary_large_image' : 'summary'} />
+    <meta name="twitter:title" content={metaTitle} />
+    <meta name="twitter:description" content={description} />
+    {imageUrl && <meta name="twitter:image" content={imageUrl} />}
+
+    <title>{metaTitle}</title>
+    {jsonLdDocuments.map((document) => (
+      <script type="application/ld+json" set:html={document} is:inline />
+    ))}
+    <slot name="head" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">본문 바로가기</a>
+    <Header />
+    <slot />
+    <Footer />
+  </body>
+</html>

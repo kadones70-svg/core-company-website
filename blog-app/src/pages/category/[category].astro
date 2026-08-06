@@ -1,0 +1,58 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import ContactCta from '@/components/ContactCta.astro';
+import PostRows from '@/components/PostRows.astro';
+import { CATEGORIES, tagToSlug } from '@/config/content';
+import { withBase } from '@/lib/paths';
+import { getVisiblePosts } from '@/lib/posts';
+
+export async function getStaticPaths() {
+  return CATEGORIES.map((category) => ({ params: { category: category.slug }, props: { category } }));
+}
+
+const { category } = Astro.props;
+const posts = (await getVisiblePosts()).filter((post) => post.data.category === category.name);
+const tags = [...new Set(posts.flatMap((post) => post.data.tags))].slice(0, 12);
+---
+
+<BaseLayout title={`${category.name} | Core Company Blog`} description={category.description} canonicalPath={withBase(`/category/${category.slug}/`)}>
+  <main id="main-content" data-pagefind-ignore>
+    <header class="archive-header section-shell" style={`--archive-accent:${category.accent}`}>
+      <Breadcrumbs items={[{ label: '블로그', href: withBase('/') }, { label: category.name }]} />
+      <p class="archive-index">CATEGORY / {category.slug.toUpperCase()}</p>
+      <h1>{category.name}</h1>
+      <p>{category.description}</p>
+      <dl><div><dt>공개 글</dt><dd>{posts.length}</dd></div><div><dt>주요 형식</dt><dd>{[...new Set(posts.map((post) => post.data.contentType))].join(' · ') || '준비 중'}</dd></div></dl>
+    </header>
+    <section class="archive-body section-shell" aria-labelledby="article-list-title">
+      <div class="archive-heading"><div><p>ARTICLES</p><h2 id="article-list-title">{category.name} 글</h2></div>{tags.length > 0 && <nav aria-label="관련 태그">{tags.map((tag) => <a href={withBase(`/tag/${tagToSlug(tag)}/`)}>#{tag}</a>)}</nav>}</div>
+      <PostRows posts={posts} />
+    </section>
+    <ContactCta position="category-bottom" category={category.slug} />
+  </main>
+</BaseLayout>
+
+<style>
+  .archive-header { padding-top: 32px; padding-bottom: 74px; border-bottom: 4px solid var(--archive-accent); }
+  .archive-index { margin: 62px 0 14px; font: 700 .78rem var(--font-mono); letter-spacing: .08em; color: var(--color-orange-accessible); }
+  .archive-header h1 { margin: 0; font-size: clamp(3.4rem, 6vw, 5rem); line-height: 1.08; letter-spacing: -.055em; }
+  .archive-header > p:not(.archive-index) { max-width: 720px; margin: 24px 0 36px; font-size: 1.16rem; line-height: 1.75; color: var(--color-muted); }
+  .archive-header dl { display: flex; flex-wrap: wrap; gap: 18px 42px; margin: 0; }
+  .archive-header dl div { display: flex; gap: 10px; }
+  .archive-header dt { font: 700 .75rem var(--font-mono); color: var(--color-muted); }
+  .archive-header dd { margin: 0; }
+  .archive-body { padding-top: 80px; padding-bottom: 110px; }
+  .archive-heading { display: flex; justify-content: space-between; align-items: end; gap: 30px; margin-bottom: 36px; }
+  .archive-heading p { margin: 0; font: 700 .75rem var(--font-mono); color: var(--color-orange-accessible); }
+  .archive-heading h2 { margin: 10px 0 0; font-size: clamp(2rem, 3vw, 2.8rem); }
+  .archive-heading nav { display: flex; flex-wrap: wrap; justify-content: end; gap: 8px; }
+  .archive-heading nav a { display: inline-flex; min-height: 44px; align-items: center; padding: 0 12px; border: 1px solid var(--color-border); border-radius: 999px; color: var(--color-blue); font-size: .78rem; text-decoration: none; }
+  @media (max-width: 700px) {
+    .archive-header { padding-bottom: 54px; }
+    .archive-index { margin-top: 42px; }
+    .archive-header h1 { font-size: 2.7rem; }
+    .archive-heading { align-items: start; flex-direction: column; }
+    .archive-heading nav { justify-content: start; }
+  }
+</style>

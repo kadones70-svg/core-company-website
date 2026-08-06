@@ -1,0 +1,60 @@
+---
+import { CATEGORY_DEFINITIONS, SITE, categoryPath } from '../config/site';
+import { buildContactUrl } from '../lib/tracking';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer" data-pagefind-ignore="all">
+  <div class="container site-footer__grid">
+    <div class="site-footer__brand">
+      <a href={SITE.homeUrl} class="site-footer__brand-link">
+        <img src={SITE.logoPath} width="48" height="48" alt="" loading="lazy" decoding="async" />
+        <span>
+          <strong>CORE COMPANY</strong>
+          <small>On-Premise AI, Rooted in Space.</small>
+        </span>
+      </a>
+      <p>현장의 문제를 먼저 살피고, 필요한 기술의 범위와 운영 기준을 함께 정리합니다.</p>
+    </div>
+
+    <nav class="site-footer__nav" aria-label="블로그 카테고리">
+      <h2>블로그 카테고리</h2>
+      <ul>
+        {CATEGORY_DEFINITIONS.map((category) => (
+          <li><a href={categoryPath(category.name)}>{category.name}</a></li>
+        ))}
+      </ul>
+    </nav>
+
+    <nav class="site-footer__nav" aria-label="Core Company 관련 링크">
+      <h2>Core Company</h2>
+      <ul>
+        <li><a href={SITE.homeUrl}>공식 홈페이지</a></li>
+        <li><a href={`${SITE.basePath}/editorial-policy/`}>저자·편집 원칙</a></li>
+        <li><a href={`${SITE.basePath}/search/`}>블로그 검색</a></li>
+        <li><a href={SITE.privacyUrl}>개인정보처리방침</a></li>
+        <li>
+          <a href={SITE.naverBlogUrl} target="_blank" rel="noopener noreferrer">
+            네이버 블로그 <span class="visually-hidden">(새 창)</span>
+          </a>
+        </li>
+        <li>
+          <a
+            href={buildContactUrl({ cta: 'footer' })}
+            data-analytics-event="contact_cta_click"
+            data-analytics-cta="footer"
+            data-testid="contact-cta"
+            data-cta-position="footer"
+          >
+            도입 문의
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="container site-footer__legal">
+    <p>© {year} Core Company. All rights reserved.</p>
+    <p>CORE COMPANY EDITORIAL / PRACTICAL &amp; VERIFIED</p>
+  </div>
+</footer>

@@ -1,0 +1,43 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import ContactCta from '@/components/ContactCta.astro';
+import PostRows from '@/components/PostRows.astro';
+import { POPULAR_TAGS, tagToSlug } from '@/config/content';
+import { withBase } from '@/lib/paths';
+import { getVisiblePosts } from '@/lib/posts';
+
+export async function getStaticPaths() {
+  const posts = await getVisiblePosts();
+  const tags = [...new Set([...POPULAR_TAGS, ...posts.flatMap((post) => post.data.tags)])];
+  return tags.map((tag) => ({ params: { tag: tagToSlug(tag) }, props: { tag } }));
+}
+
+const { tag } = Astro.props;
+const posts = (await getVisiblePosts()).filter((post) => post.data.tags.includes(tag));
+const canonicalPath = withBase(`/tag/${tagToSlug(tag)}/`);
+---
+
+<BaseLayout title={`#${tag} | Core Company Blog`} description={`${tag} 주제의 Core Company 실무 글`} canonicalPath={canonicalPath}>
+  <main id="main-content" data-pagefind-ignore>
+    <header class="tag-header section-shell">
+      <Breadcrumbs items={[{ label: '블로그', href: withBase('/') }, { label: `#${tag}` }]} />
+      <p>TAG / TOPIC</p><h1>#{tag}</h1><span>{posts.length}개의 공개 글</span>
+    </header>
+    <section class="tag-body section-shell" aria-labelledby="tag-list-title">
+      <h2 id="tag-list-title">{tag} 관련 글</h2>
+      <PostRows posts={posts} emptyTitle={`#${tag} 글을 준비하고 있습니다.`} />
+    </section>
+    <ContactCta position="tag-bottom" />
+  </main>
+</BaseLayout>
+
+<style>
+  .tag-header { padding-top: 32px; padding-bottom: 70px; border-bottom: 4px solid var(--color-purple); }
+  .tag-header > p { margin: 62px 0 12px; font: 700 .78rem var(--font-mono); letter-spacing: .08em; color: var(--color-orange-accessible); }
+  .tag-header h1 { margin: 0 0 22px; font-size: clamp(3.2rem, 6vw, 4.8rem); letter-spacing: -.05em; }
+  .tag-header > span { color: var(--color-muted); }
+  .tag-body { padding-top: 76px; padding-bottom: 110px; }
+  .tag-body h2 { margin: 0 0 34px; font-size: clamp(2rem, 3vw, 2.7rem); }
+  @media (max-width: 700px) { .tag-header > p { margin-top: 42px; } .tag-header h1 { font-size: 2.7rem; } }
+</style>
