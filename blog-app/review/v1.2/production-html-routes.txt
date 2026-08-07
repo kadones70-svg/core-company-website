@@ -1,0 +1,10 @@
+/blog/404.html
+/blog/category/ai-adoption-cost/
+/blog/category/ai-infrastructure-security/
+/blog/category/automation-iot/
+/blog/category/document-data-ai/
+/blog/category/hospitality/
+/blog/category/office/
+/blog/editorial-policy/
+/blog/
+/blog/search/

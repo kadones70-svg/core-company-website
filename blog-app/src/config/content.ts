@@ -4,7 +4,7 @@ export const CATEGORIES = [
     slug: 'hospitality',
     short: '숙박',
     description: '예약부터 입실, 안내와 비상 대응까지 숙박 운영 흐름을 살펴봅니다.',
-    accent: '#7340C8',
+    accent: '#8B3AC8',
   },
   {
     name: '오피스·사무실 운영',
@@ -86,6 +86,22 @@ export type CategorySlug = (typeof CATEGORIES)[number]['slug'];
 export type ContentType = (typeof CONTENT_TYPES)[number];
 export type PopularTag = (typeof POPULAR_TAGS)[number];
 
+export interface TagRouteReference {
+  tag: string;
+  source: string;
+}
+
+export interface TagRoute {
+  tag: string;
+  slug: string;
+  sources: string[];
+}
+
+export interface TagRouteAnalysis {
+  routes: TagRoute[];
+  errors: string[];
+}
+
 const TAG_SLUG_ENTRIES = [
   ['제조', 'manufacturing'],
   ['정부지원', 'government-support'],
@@ -131,6 +147,61 @@ export function tagToSlug(tag: string): string {
     .toLocaleLowerCase('ko-KR')
     .replace(/[^\p{Letter}\p{Number}]+/gu, '-')
     .replace(/^-+|-+$/g, '');
+}
+
+/**
+ * 빌드 대상 콘텐츠의 태그와 URL을 일대일로 검증합니다.
+ * 같은 표기의 태그가 여러 글에 있는 것은 허용하지만, 다른 표기가 같은 slug가 되면 실패합니다.
+ */
+export function analyzeTagRoutes(references: readonly TagRouteReference[]): TagRouteAnalysis {
+  const groups = new Map<string, Map<string, { tag: string; sources: Set<string> }>>();
+  const errors: string[] = [];
+
+  for (const reference of references) {
+    const normalizedTag = reference.tag.trim().normalize('NFKC');
+    const source = reference.source.trim() || '(파일 경로 없음)';
+    const slug = tagToSlug(normalizedTag);
+
+    if (!slug) {
+      errors.push(`태그 "${reference.tag}"은(는) URL slug가 비어 있습니다. 글 파일: ${source}`);
+      continue;
+    }
+
+    const labels = groups.get(slug) ?? new Map<string, { tag: string; sources: Set<string> }>();
+    const existing = labels.get(normalizedTag) ?? { tag: normalizedTag, sources: new Set<string>() };
+    existing.sources.add(source);
+    labels.set(normalizedTag, existing);
+    groups.set(slug, labels);
+  }
+
+  const routes: TagRoute[] = [];
+  for (const [slug, labels] of groups) {
+    if (labels.size > 1) {
+      const collisions = [...labels.values()]
+        .map(({ tag, sources }) => `"${tag}" (${[...sources].sort().join(', ')})`)
+        .join(' / ');
+      errors.push(`태그 slug 충돌 "${slug}": ${collisions}`);
+      continue;
+    }
+
+    const [{ tag, sources }] = [...labels.values()];
+    routes.push({ tag, slug, sources: [...sources].sort() });
+  }
+
+  const routeSlugs = routes.map((route) => route.slug);
+  if (new Set(routeSlugs).size !== routeSlugs.length) {
+    errors.push('태그 경로가 고유하지 않습니다. 태그 slug 생성 규칙을 확인하세요.');
+  }
+
+  return { routes, errors };
+}
+
+export function assertUniqueTagRoutes(references: readonly TagRouteReference[]): TagRoute[] {
+  const analysis = analyzeTagRoutes(references);
+  if (analysis.errors.length > 0) {
+    throw new Error(`태그 경로 검증 실패:\n- ${analysis.errors.join('\n- ')}`);
+  }
+  return analysis.routes;
 }
 
 export function tagFromSlug(slug: string): string | undefined {

@@ -2,6 +2,11 @@ import path from 'node:path';
 import { expect, test, type Page } from '@playwright/test';
 import { discoverRoute, gotoApp } from '../e2e/helpers';
 
+const screenshotRoot = path.resolve(
+  process.env.QA_EVIDENCE_DIR ?? path.join('review', 'v1.2'),
+  'regression-screenshots',
+);
+
 type CaptureOptions = {
   filename: string;
   route?: string;
@@ -9,6 +14,7 @@ type CaptureOptions = {
   fullPage: boolean;
   discover?: 'article' | 'category';
   allowNotFound?: boolean;
+  expectText?: string;
 };
 
 async function capture(page: Page, options: CaptureOptions) {
@@ -18,8 +24,11 @@ async function capture(page: Page, options: CaptureOptions) {
     : options.route ?? '';
   await gotoApp(page, route, { allowNotFound: options.allowNotFound });
   await expect(page.locator('main').first()).toBeVisible();
+  if (options.expectText) {
+    await expect(page.getByText(options.expectText, { exact: true })).toBeVisible();
+  }
   await page.screenshot({
-    path: path.resolve(process.cwd(), 'review', options.filename),
+    path: path.join(screenshotRoot, options.filename),
     fullPage: options.fullPage,
     animations: 'disabled',
     caret: 'hide',
@@ -78,6 +87,13 @@ const screenshots: CaptureOptions[] = [
     discover: 'category',
     viewport: { width: 390, height: 844 },
     fullPage: true
+  },
+  {
+    filename: 'empty-state-desktop.png',
+    route: 'category/automation-iot/',
+    viewport: { width: 1440, height: 1000 },
+    fullPage: true,
+    expectText: '아직 공개된 글이 없습니다.'
   },
   {
     filename: 'search-desktop.png',

@@ -121,9 +121,3 @@ logging:
 ## 정리
 
 인프라 선택은 데이터 흐름과 운영 책임을 설명할 수 있을 때 비교 가능합니다. 먼저 경계를 정리하면 필요한 보안 통제와 비용 항목도 더 명확해집니다.
-
-## 출처
-
-- [NIST Cybersecurity Framework 2.0](https://www.nist.gov/cyberframework) — 사이버보안 위험 관리의 공식 참고 경로
-- [한국인터넷진흥원](https://www.kisa.or.kr/) — 국내 보안 관련 최신 공식 안내 확인 경로
-

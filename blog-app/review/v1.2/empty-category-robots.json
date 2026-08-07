@@ -1,0 +1,26 @@
+[
+  {
+    "route": "/blog/category/ai-adoption-cost/",
+    "robots": "noindex, follow"
+  },
+  {
+    "route": "/blog/category/ai-infrastructure-security/",
+    "robots": "noindex, follow"
+  },
+  {
+    "route": "/blog/category/automation-iot/",
+    "robots": "noindex, follow"
+  },
+  {
+    "route": "/blog/category/document-data-ai/",
+    "robots": "noindex, follow"
+  },
+  {
+    "route": "/blog/category/hospitality/",
+    "robots": "noindex, follow"
+  },
+  {
+    "route": "/blog/category/office/",
+    "robots": "noindex, follow"
+  }
+]

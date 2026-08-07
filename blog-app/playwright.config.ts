@@ -1,12 +1,16 @@
 import { defineConfig, devices } from '@playwright/test';
 
 const host = '127.0.0.1';
-const port = 4321;
+const port = Number(process.env.PLAYWRIGHT_PORT ?? 4331);
+const evidenceRoot = process.env.QA_EVIDENCE_DIR ?? 'review/v1.2';
+const buildCommand = process.env.PLAYWRIGHT_BUILD_MODE === 'production'
+  ? 'npm run build'
+  : 'npm run build:review';
 
 export default defineConfig({
   testDir: './tests',
   testIgnore: ['**/unit/**'],
-  outputDir: './test-results',
+  outputDir: `${evidenceRoot}/test-results`,
   fullyParallel: true,
   forbidOnly: Boolean(process.env.CI),
   retries: process.env.CI ? 2 : 0,
@@ -15,7 +19,7 @@ export default defineConfig({
   expect: { timeout: 10_000 },
   reporter: [
     ['line'],
-    ['html', { outputFolder: 'review/playwright-report', open: 'never' }]
+    ['html', { outputFolder: `${evidenceRoot}/playwright-report`, open: 'never' }]
   ],
   use: {
     baseURL: `http://${host}:${port}`,
@@ -37,7 +41,7 @@ export default defineConfig({
     }
   ],
   webServer: {
-    command: `npm run build:review && npm run preview -- --host ${host} --port ${port}`,
+    command: `${buildCommand} && npm run preview -- --host ${host} --port ${port}`,
     url: `http://${host}:${port}/blog/`,
     reuseExistingServer: !process.env.CI,
     timeout: 180_000,

@@ -1,0 +1,127 @@
+CORE COMPANY BLOG — HERMES DEPLOYMENT HANDOFF V1.1
+작성일: 2026-08-07
+
+이 문서는 기존 HERMES_DEPLOYMENT_HANDOFF.txt를 덮어쓰지 않은 2차 QA 인계 추가본입니다.
+Codex는 Git, GitHub, 배포, Cloudflare, DNS 작업을 수행하지 않았습니다.
+
+1. 로컬 위치
+
+프로젝트:
+C:\Users\kadones\orca\projects\codex\blog-app
+
+배포 대상:
+C:\Users\kadones\orca\projects\codex\blog-app\dist
+
+공개 URL 기준:
+https://corecompany.net/blog/
+
+2. 필수 빌드
+
+권장 운영 환경: Node.js 24 LTS, npm
+
+npm ci
+npm run content:validate
+npm run check
+npm run test
+npm run build
+
+배포에는 npm run build 결과만 사용하십시오.
+npm run build:review 결과는 샘플 콘텐츠와 REVIEW BUILD 표식을 포함하므로 배포 금지입니다.
+
+3. 현재 최종 로컬 production 결과
+
+- Astro: 7.1.6
+- output: static
+- base: /blog
+- Astro HTML 페이지: 10
+- 공개 글: 0
+- 생성 카테고리: 6, 모두 noindex, follow
+- 생성 태그: 0
+- sitemap-0.xml URL: 2
+- Pagefind 자산 포함
+- RSS, robots, sitemap-index.xml, sitemap-0.xml, 404.html 포함
+- sample:true 3개는 production 제외
+
+현재 sitemap URL:
+- https://corecompany.net/blog/
+- https://corecompany.net/blog/editorial-policy/
+
+공개 글이 추가되면 해당 글, 글이 있는 카테고리, 실제 태그만 sitemap에 자동 추가됩니다.
+
+4. 2차 QA 주요 변경
+
+- 글 상세 TOC 구조 중복 제거
+- frontmatter sources 단일 출처 렌더링
+- 공개 글 sources/changeLog 최소 1개 강제
+- 빈 태그 경로 미생성, 빈 카테고리 noindex
+- 콘텐츠 기반 맞춤 sitemap
+- gtag/dataLayer 분석 이벤트 브리지
+- Article/BreadcrumbList/Organization JSON-LD 중복 제거
+- 역할명 reviewer Person 제거
+- 공식 보라색 #8B3AC8 적용
+- 공식 문구 "On-Premise AI, Rooted in Space" 적용
+
+5. 분석
+
+사이트 자체는 토큰이나 Measurement ID를 포함하지 않습니다.
+공통 브리지는 window.gtag가 있으면 gtag를 사용하고, 없으면 기존 window.dataLayer 배열을 사용합니다.
+둘 다 없으면 조용히 종료합니다.
+
+허용 이벤트 데이터는 article slug, category slug, CTA 종류, 위치, 결과 수 같은 비식별 값입니다.
+검색어 원문과 자유 입력 텍스트는 전달하지 않습니다.
+
+Cloudflare Web Analytics 또는 GA 로더 활성화는 Hermes의 배포 단계 책임입니다.
+
+6. 환경 변수
+
+필수 환경 변수: 없음
+
+INCLUDE_SAMPLES와 REVIEW_BUILD는 npm 스크립트가 로컬 검수 빌드에서만 설정합니다.
+운영 빌드에서 수동으로 true를 지정하지 마십시오.
+
+7. 설치 참고
+
+현재 검수 환경은 Node 26.5.1, npm 12.0.2였습니다.
+package.json 엔진 범위는 >=24 <27이며, 배포 기준은 Node 24 LTS입니다.
+Hermes는 Node 24의 깨끗한 환경에서 npm ci와 전체 검증을 다시 실행해야 합니다.
+
+npm install 중 npm 12가 esbuild@0.28.1 postinstall 차단 경고를 1건 표시했지만,
+현재 설치에서는 check/build/Pagefind/Playwright/Lighthouse가 모두 성공했습니다.
+깨끗한 Node 24 환경에서 동일 경고가 빌드를 막는지 확인하고 조직의 install-script 정책에 따라 처리하십시오.
+
+8. 배포 전 확인
+
+- dist에 REVIEW BUILD, 검수용 샘플, 운영 배포 금지 문구가 없는지 검사
+- dist/articles HTML 0개, dist/tag HTML 0개가 현재 상태에서 정상임을 이해
+- 여섯 빈 category meta robots가 noindex, follow인지 확인
+- sitemap-0.xml URL이 현재 2개인지 확인
+- /blog/pagefind/pagefind.js 응답 확인
+- 기존 V25 및 운영 /blog/ 백업 확보
+- /blog base를 유지하고 자산 경로를 루트로 재작성하지 않기
+
+9. 배포 후 확인 URL
+
+- https://corecompany.net/blog/
+- https://corecompany.net/blog/search/
+- https://corecompany.net/blog/editorial-policy/
+- https://corecompany.net/blog/category/hospitality/
+- https://corecompany.net/blog/404.html
+- https://corecompany.net/blog/rss.xml
+- https://corecompany.net/blog/robots.txt
+- https://corecompany.net/blog/sitemap-index.xml
+- https://corecompany.net/blog/sitemap-0.xml
+- https://corecompany.net/blog/pagefind/pagefind.js
+
+10. rollback
+
+실제 /blog/ 반영 전 기존 운영 /blog/ 전체를 복구 가능한 위치에 백업하십시오.
+문제가 있으면 새 결과를 덮어쓰는 방식이 아니라 기존 백업을 복원하십시오.
+Codex는 기존 운영 /blog/, V25, Cloudflare, DNS를 수정하지 않았습니다.
+
+11. 함께 읽을 자료
+
+- SECONDARY_QA_FIX_REPORT_V1_1.md
+- TEST_REPORT_V1_1.md
+- CONTENT_OPERATIONS_GUIDE_V1_1.txt
+- 기존 원본 보고서와 인계 문서는 보존되어 있음
+

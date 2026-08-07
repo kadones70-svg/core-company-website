@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 
 import matter from 'gray-matter';
 
-import { CATEGORIES, CONTENT_TYPES } from '../src/config/content.ts';
+import { CATEGORIES, CONTENT_TYPES, analyzeTagRoutes } from '../src/config/content.ts';
 
 const PROJECT_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const POSTS_DIRECTORY = path.join(PROJECT_ROOT, 'src', 'content', 'posts');
@@ -202,8 +202,12 @@ function validateHeadingStructure(record, errors, warnings) {
     warnings.push(`${record.relative}: 본문 heading이 없습니다.`);
     return;
   }
+  const h1 = headings.find((heading) => heading.level === 1);
+  if (h1) {
+    errors.push(`${record.relative}:${h1.line}: 글 제목은 frontmatter title이 담당하므로 본문 heading은 H2부터 사용하세요.`);
+  }
   if (headings[0].level > 2) {
-    errors.push(`${record.relative}:${headings[0].line}: 첫 본문 heading은 H1 또는 H2여야 합니다.`);
+    errors.push(`${record.relative}:${headings[0].line}: 첫 본문 heading은 H2여야 합니다.`);
   }
 
   for (let index = 1; index < headings.length; index += 1) {
@@ -311,6 +315,17 @@ async function validateRecord(record, allSlugs, errors, warnings) {
   }
 
   if (!isNonEmptyString(body)) errors.push(`${prefix}: Markdown 본문이 비어 있습니다.`);
+  if (data.draft === false && data.sample === false) {
+    if (Array.isArray(data.sources) && data.sources.length === 0) {
+      errors.push(`${prefix}: 공개 글에는 확인한 출처를 sources에 최소 1개 입력하세요.`);
+    }
+    if (Array.isArray(data.changeLog) && data.changeLog.length === 0) {
+      errors.push(`${prefix}: 공개 글에는 작성·수정 기록을 changeLog에 최소 1개 입력하세요.`);
+    }
+  }
+  if (/^#{1,6}\s+출처\s*#*\s*$/mu.test(body)) {
+    errors.push(`${prefix}: 본문에 출처 heading을 만들지 말고 frontmatter sources만 사용하세요.`);
+  }
   if (data.sample === true && !body.includes('실제 고객 사례가 아닙니다')) {
     errors.push(`${prefix}: sample 글 본문 상단에 실제 고객 사례가 아님을 표시하세요.`);
   }
@@ -341,6 +356,11 @@ export async function validateContent({ print = true, directory = POSTS_DIRECTOR
 
   const allSlugs = new Set(records.map((record) => record.slug));
   for (const record of records) await validateRecord(record, allSlugs, errors, warnings);
+
+  const tagReferences = records
+    .filter((record) => !record.parseError && record.data.draft !== true && Array.isArray(record.data.tags))
+    .flatMap((record) => record.data.tags.map((tag) => ({ tag: String(tag), source: record.relative })));
+  errors.push(...analyzeTagRoutes(tagReferences).errors);
 
   if (print) {
     console.log(`콘텐츠 검증: ${records.length}개 Markdown 파일`);

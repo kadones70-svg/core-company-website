@@ -1,0 +1,11 @@
+
+> core-company-blog@1.0.0 content:validate
+> node scripts/content-validate.mjs
+
+콘텐츠 검증: 3개 Markdown 파일
+- ai-infrastructure-security-checklist (draft:false sample:true)
+- office-document-ai-review (draft:false sample:true)
+- pension-self-checkin-guide (draft:false sample:true)
+
+상태 요약: draft 0개, sample 3개
+검증 성공

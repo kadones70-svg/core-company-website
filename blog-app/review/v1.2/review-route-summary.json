@@ -1,0 +1,31 @@
+{
+  "html": 22,
+  "articles": 3,
+  "categories": 6,
+  "tags": 9,
+  "uniqueTagRoutes": 9,
+  "routes": [
+    "/blog/404.html",
+    "/blog/articles/ai-infrastructure-security-checklist/",
+    "/blog/articles/office-document-ai-review/",
+    "/blog/articles/pension-self-checkin-guide/",
+    "/blog/category/ai-adoption-cost/",
+    "/blog/category/ai-infrastructure-security/",
+    "/blog/category/automation-iot/",
+    "/blog/category/document-data-ai/",
+    "/blog/category/hospitality/",
+    "/blog/category/office/",
+    "/blog/editorial-policy/",
+    "/blog/",
+    "/blog/search/",
+    "/blog/tag/checklist/",
+    "/blog/tag/cloud/",
+    "/blog/tag/document-search/",
+    "/blog/tag/door-lock/",
+    "/blog/tag/on-premises/",
+    "/blog/tag/operations-automation/",
+    "/blog/tag/privacy/",
+    "/blog/tag/rag/",
+    "/blog/tag/security/"
+  ]
+}

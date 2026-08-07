@@ -1,0 +1,9 @@
+{
+  "recordedAt": "2026-08-07T03:49:55.857Z",
+  "command": "node --version",
+  "version": "v24.15.0",
+  "execPath": "C:\\Program Files\\nodejs\\node.exe",
+  "npmVersion": "11.12.1",
+  "platform": "win32",
+  "arch": "x64"
+}

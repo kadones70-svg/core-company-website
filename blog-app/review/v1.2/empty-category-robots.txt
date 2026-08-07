@@ -1,0 +1,6 @@
+/blog/category/ai-adoption-cost/	noindex, follow
+/blog/category/ai-infrastructure-security/	noindex, follow
+/blog/category/automation-iot/	noindex, follow
+/blog/category/document-data-ai/	noindex, follow
+/blog/category/hospitality/	noindex, follow
+/blog/category/office/	noindex, follow

@@ -27,7 +27,7 @@ function transformCallout(node) {
     hName: 'aside',
     hProperties: {
       className: ['callout', config.className],
-      role: match[1] === 'INFO' ? 'note' : 'alert',
+      role: 'note',
       'aria-label': config.label
     }
   };

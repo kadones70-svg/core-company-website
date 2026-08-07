@@ -1,0 +1,260 @@
+
+> core-company-blog@1.0.0 test:e2e
+> playwright test
+
+[WebServer] npm notice run core-company-blog@1.0.0 build:review
+
+[WebServer] npm notice run npm run content:validate && cross-env INCLUDE_SAMPLES=true REVIEW_BUILD=true astro build && node scripts/pagefind-index.mjs
+
+[WebServer] npm notice run core-company-blog@1.0.0 content:validate
+
+[WebServer] npm notice run node scripts/content-validate.mjs
+
+[WebServer] 콘텐츠 검증: 3개 Markdown 파일
+
+[WebServer] - ai-infrastructure-security-checklist (draft:false sample:true)
+[WebServer] - office-document-ai-review (draft:false sample:true)
+[WebServer] - pension-self-checkin-guide (draft:false sample:true)
+[WebServer] 
+[WebServer] 상태 요약: draft 0개, sample 3개
+[WebServer] 검증 성공
+
+[WebServer] 12:50:15 [content] Syncing content
+
+[WebServer] 12:50:15 [content] Synced content
+
+[WebServer] 12:50:15 [types] Generated 502ms
+
+[WebServer] 12:50:15 [build] output: "static"
+
+[WebServer] 12:50:15 [build] mode: "static"
+[WebServer] 12:50:15 [build] directory: C:\Users\kadones\orca\projects\codex\blog-app\dist\
+[WebServer] 12:50:15 [build] Collecting build info...
+
+[WebServer] 12:50:15 [build] ✓ Completed in 542ms.
+
+[WebServer] 12:50:15 [build] Building static entrypoints...
+
+[WebServer] 12:50:15 [vite] ✓ built in 219ms
+
+[WebServer] 12:50:15 [vite] ✓ built in 28ms
+
+[WebServer] 12:50:15 [build] Rearranging server assets...
+
+[WebServer] 
+[WebServer]  generating static routes 
+
+[WebServer] 12:50:15   ├─ /404.html
+
+[WebServer]  (+12ms) 
+
+[WebServer] 12:50:15   ├─ /articles/office-document-ai-review/index.html
+
+[WebServer]  (+7ms) 
+
+[WebServer] 12:50:15   ├─ /articles/pension-self-checkin-guide/index.html
+
+[WebServer]  (+4ms) 
+
+[WebServer] 12:50:15   ├─ /articles/ai-infrastructure-security-checklist/index.html
+
+[WebServer]  (+3ms) 
+
+[WebServer] 12:50:15   ├─ /category/hospitality/index.html
+
+[WebServer]  (+3ms) 
+
+[WebServer] 12:50:15   ├─ /category/office/index.html
+
+[WebServer]  (+3ms) 
+
+[WebServer] 12:50:15   ├─ /category/document-data-ai/index.html
+
+[WebServer]  (+3ms) 
+
+[WebServer] 12:50:15   ├─ /category/ai-adoption-cost/index.html
+
+[WebServer]  (+13ms) 
+
+[WebServer] 12:50:15   ├─ /category/ai-infrastructure-security/index.html
+
+[WebServer]  (+3ms) 
+
+[WebServer] 12:50:15   ├─ /category/automation-iot/index.html
+
+[WebServer]  (+3ms) 
+
+[WebServer] 12:50:15   ├─ /editorial-policy/index.html
+
+[WebServer]  (+3ms) 
+
+[WebServer] 12:50:15   ├─ /robots.txt
+
+[WebServer]  (+3ms) 
+
+[WebServer] 12:50:15   ├─ /rss.xml
+
+[WebServer]  (+58ms) 
+
+[WebServer] 12:50:15   ├─ /search/index.html
+
+[WebServer]  (+5ms) 
+
+[WebServer] 12:50:15   ├─ /sitemap-0.xml
+
+[WebServer]  (+4ms) 
+
+[WebServer] 12:50:15   ├─ /sitemap-index.xml
+
+[WebServer]  (+2ms) 
+
+[WebServer] 12:50:15   ├─ /tag/rag/index.html
+
+[WebServer]  (+3ms) 
+
+[WebServer] 12:50:15   ├─ /tag/privacy/index.html
+
+[WebServer]  (+2ms) 
+
+[WebServer] 12:50:15   ├─ /tag/document-search/index.html
+
+[WebServer]  (+2ms) 
+
+[WebServer] 12:50:15   ├─ /tag/checklist/index.html
+
+[WebServer]  (+2ms) 
+
+[WebServer] 12:50:15   ├─ /tag/door-lock/index.html
+
+[WebServer]  (+2ms) 
+
+[WebServer] 12:50:15   ├─ /tag/operations-automation/index.html
+
+[WebServer]  (+2ms) 
+
+[WebServer] 12:50:15   ├─ /tag/on-premises/index.html
+
+[WebServer]  (+2ms) 
+
+[WebServer] 12:50:15   ├─ /tag/cloud/index.html
+
+[WebServer]  (+2ms) 
+
+[WebServer] 12:50:15   ├─ /tag/security/index.html
+
+[WebServer]  (+2ms) 
+
+[WebServer] 12:50:15   ├─ /index.html
+
+[WebServer]  (+5ms) 
+
+[WebServer] 12:50:15 ✓ Completed in 199ms.
+[WebServer] 
+
+[WebServer] 12:50:15 [build] ✓ Completed in 522ms.
+
+[WebServer] 12:50:15 [build] 22 page(s) built in 1.09s
+[WebServer] 12:50:15 [build] Complete!
+
+[WebServer] 
+[WebServer] Running Pagefind v1.5.2 (Extended)
+[WebServer] Running from: "C:\\Users\\kadones\\orca\\projects\\codex\\blog-app"
+[WebServer] Source:       "dist"
+[WebServer] Output:       "dist\\pagefind"
+[WebServer] 
+[WebServer] [Walking source directory]
+
+[WebServer] Found 22 files matching **/*.{html}
+[WebServer] 
+[WebServer] [Parsing files]
+
+[WebServer] Found a data-pagefind-body element on the site.
+[WebServer] ↳ Ignoring pages without this tag.
+[WebServer] 
+[WebServer] [Reading languages]
+
+[WebServer] Discovered 1 language: ko
+[WebServer] 
+[WebServer] [Building search indexes]
+
+[WebServer] Total: 
+[WebServer]   Indexed 1 language
+[WebServer]   Indexed 3 pages
+[WebServer]   Indexed 689 words
+[WebServer]   Indexed 2 filters
+[WebServer]   Indexed 0 sorts
+
+[WebServer] Note: Pagefind doesn't support stemming for the language ko. 
+[WebServer] Search will still work, but will not match across root words.
+[WebServer] Note: Pagefind doesn't support stemming for the language ko. 
+[WebServer] Search will still work, but will not match across root words.
+
+[WebServer] 
+[WebServer] Finished in 0.126 seconds
+
+[WebServer] npm notice run core-company-blog@1.0.0 preview
+
+[WebServer] npm notice run astro preview --host 127.0.0.1 --port 4331
+
+[WebServer]  astro  v7.1.6 ready in 41 ms
+[WebServer] ┃ Local    http://127.0.0.1:4331/blog/
+
+
+Running 54 tests using 8 workers
+
+[1/54] [chromium] › tests\e2e\analytics.spec.ts:21:1 › CTA click is forwarded to gtag exactly once and does not also use dataLayer
+[2/54] [chromium] › tests\e2e\analytics.spec.ts:83:1 › dataLayer fallback receives only allowlisted, sanitized operational data once
+[3/54] [chromium] › tests\e2e\analytics.spec.ts:230:1 › zero-result search sends count zero exactly once without the query
+[4/54] [chromium] › tests\e2e\analytics.spec.ts:142:1 › article_view is forwarded to gtag once per article page load
+[5/54] [chromium] › tests\e2e\accessibility.spec.ts:28:1 › search, editorial policy, and 404 have no automated WCAG A/AA violations
+[6/54] [chromium] › tests\e2e\accessibility.spec.ts:17:1 › main page has no automated WCAG A/AA violations
+[7/54] [chromium] › tests\e2e\analytics.spec.ts:181:1 › search with results sends count once and one result click sends one event
+[8/54] [chromium] › tests\e2e\accessibility.spec.ts:22:1 › article page has no automated WCAG A/AA violations
+[9/54] [chromium] › tests\e2e\analytics.spec.ts:259:1 › one related article click sends exactly one approved event
+[10/54] [chromium] › tests\e2e\archive-seo.spec.ts:34:1 › review archives index only archives backed by visible sample posts
+[11/54] [chromium] › tests\e2e\archive-seo.spec.ts:61:1 › review sitemap includes visible content and excludes empty or utility routes
+[12/54] [chromium] › tests\e2e\archive-seo.spec.ts:96:1 › article emits one Article, BreadcrumbList, and Organization without a role reviewer
+[13/54] [chromium] › tests\e2e\responsive-and-navigation.spec.ts:11:3 › 390px mobile behavior › main and article pages have no document-level horizontal overflow
+[14/54] [chromium] › tests\e2e\responsive-and-navigation.spec.ts:22:3 › 390px mobile behavior › mobile menu manages focus, aria-expanded, and Escape
+[15/54] [chromium] › tests\e2e\responsive-and-navigation.spec.ts:46:3 › 390px mobile behavior › mobile article table of contents is a closed details element
+[16/54] [chromium] › tests\e2e\responsive-and-navigation.spec.ts:61:1 › desktop TOC is sticky and matches the mobile TOC links
+[17/54] [chromium] › tests\e2e\responsive-and-navigation.spec.ts:97:1 › article tables and code blocks preserve columns with internal scrolling
+[18/54] [chromium] › tests\e2e\routes-and-seo.spec.ts:14:1 › main page exposes canonical, Organization JSON-LD, and the primary landmarks
+[19/54] [chromium] › tests\e2e\routes-and-seo.spec.ts:30:1 › article, category, tag, search, editorial policy, and 404 routes render
+[20/54] [chromium] › tests\e2e\routes-and-seo.spec.ts:53:1 › article publishes Article and BreadcrumbList structured data
+[21/54] [chromium] › tests\e2e\routes-and-seo.spec.ts:71:1 › article renders frontmatter sources exactly once with the configured labels and URLs
+[22/54] [chromium] › tests\e2e\routes-and-seo.spec.ts:92:1 › RSS, sitemap, robots, and Pagefind assets are served below /blog
+[23/54] [chromium] › tests\e2e\search-and-cta.spec.ts:4:1 › Pagefind asset loads and a Korean article term returns a result
+[24/54] [chromium] › tests\e2e\search-and-cta.spec.ts:22:1 › search renders an accessible no-results state
+[25/54] [chromium] › tests\e2e\search-and-cta.spec.ts:37:1 › contact CTAs carry source and position parameters
+[26/54] [chromium] › tests\e2e\search-and-cta.spec.ts:51:1 › article-bottom CTA identifies the article and category
+[27/54] [chromium] › tests\e2e\v1.2-regressions.spec.ts:40:3 › 320px keeps Korean heading words intact without horizontal overflow
+[28/54] [chromium] › tests\e2e\v1.2-regressions.spec.ts:40:3 › 390px keeps Korean heading words intact without horizontal overflow
+[29/54] [chromium] › tests\e2e\v1.2-regressions.spec.ts:56:1 › every review HTML route renders the shared banner exactly once
+[30/54] [chromium] › tests\e2e\v1.2-regressions.spec.ts:77:1 › 320px open mobile menu keeps each navigation label horizontal
+[31/54] [chromium] › tests\review\screenshots.spec.ts:128:5 › review screenshots › main-desktop-1440.png
+[32/54] [chromium] › tests\review\v1.2-screenshots.spec.ts:102:3 › V1.2 production evidence screenshot › production has no review banner
+[33/54] [chromium] › tests\review\v1.2-screenshots.spec.ts:35:5 › V1.2 review evidence screenshots › home 320px
+[34/54] [chromium] › tests\review\v1.2-screenshots.spec.ts:43:5 › V1.2 review evidence screenshots › article 320px
+[35/54] [chromium] › tests\review\screenshots.spec.ts:128:5 › review screenshots › main-tablet-1024.png
+[36/54] [chromium] › tests\review\v1.2-screenshots.spec.ts:35:5 › V1.2 review evidence screenshots › home 390px
+[37/54] [chromium] › tests\review\screenshots.spec.ts:128:5 › review screenshots › main-mobile-390.png
+[38/54] [chromium] › tests\review\v1.2-screenshots.spec.ts:43:5 › V1.2 review evidence screenshots › article 390px
+[39/54] [chromium] › tests\review\screenshots.spec.ts:128:5 › review screenshots › article-desktop-fold.png
+[40/54] [chromium] › tests\review\v1.2-screenshots.spec.ts:54:3 › V1.2 review evidence screenshots › category shared review banner
+[41/54] [chromium] › tests\review\v1.2-screenshots.spec.ts:61:3 › V1.2 review evidence screenshots › search results present
+[42/54] [chromium] › tests\review\screenshots.spec.ts:128:5 › review screenshots › article-desktop-full.png
+[43/54] [chromium] › tests\review\v1.2-screenshots.spec.ts:70:3 › V1.2 review evidence screenshots › search zero results
+[44/54] [chromium] › tests\review\screenshots.spec.ts:128:5 › review screenshots › article-mobile-fold.png
+[45/54] [chromium] › tests\review\v1.2-screenshots.spec.ts:78:3 › V1.2 review evidence screenshots › mobile menu open
+[46/54] [chromium] › tests\review\screenshots.spec.ts:128:5 › review screenshots › article-mobile-full.png
+[47/54] [chromium] › tests\review\v1.2-screenshots.spec.ts:87:3 › V1.2 review evidence screenshots › keyboard focus-visible
+[48/54] [chromium] › tests\review\screenshots.spec.ts:128:5 › review screenshots › category-desktop.png
+[49/54] [chromium] › tests\review\screenshots.spec.ts:128:5 › review screenshots › category-mobile.png
+[50/54] [chromium] › tests\review\screenshots.spec.ts:128:5 › review screenshots › empty-state-desktop.png
+[51/54] [chromium] › tests\review\screenshots.spec.ts:128:5 › review screenshots › search-desktop.png
+[52/54] [chromium] › tests\review\screenshots.spec.ts:128:5 › review screenshots › search-mobile.png
+[53/54] [chromium] › tests\review\screenshots.spec.ts:128:5 › review screenshots › editorial-policy-desktop.png
+[54/54] [chromium] › tests\review\screenshots.spec.ts:128:5 › review screenshots › 404-desktop.png
+  1 skipped
+  53 passed (19.5s)

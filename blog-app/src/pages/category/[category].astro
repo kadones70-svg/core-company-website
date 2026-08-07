@@ -16,7 +16,7 @@ const posts = (await getVisiblePosts()).filter((post) => post.data.category === 
 const tags = [...new Set(posts.flatMap((post) => post.data.tags))].slice(0, 12);
 ---
 
-<BaseLayout title={`${category.name} | Core Company Blog`} description={category.description} canonicalPath={withBase(`/category/${category.slug}/`)}>
+<BaseLayout title={`${category.name} | Core Company Blog`} description={category.description} canonicalPath={withBase(`/category/${category.slug}/`)} noindex={posts.length === 0}>
   <main id="main-content" data-pagefind-ignore>
     <header class="archive-header section-shell" style={`--archive-accent:${category.accent}`}>
       <Breadcrumbs items={[{ label: '블로그', href: withBase('/') }, { label: category.name }]} />

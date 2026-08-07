@@ -61,7 +61,9 @@ export function categoryPath(category: string): string {
 }
 
 export function tagPath(tag: string): string {
-  return `${SITE.basePath}/tag/${encodeURIComponent(tagToSlug(tag))}/`;
+  const slug = tagToSlug(tag);
+  if (!slug) throw new Error(`태그 "${tag}"은(는) URL 경로를 만들 수 없습니다.`);
+  return `${SITE.basePath}/tag/${encodeURIComponent(slug)}/`;
 }
 
 export function articlePath(slug: string): string {

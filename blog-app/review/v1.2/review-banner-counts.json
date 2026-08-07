@@ -1,0 +1,90 @@
+[
+  {
+    "route": "/blog/404.html",
+    "count": 1
+  },
+  {
+    "route": "/blog/articles/ai-infrastructure-security-checklist/",
+    "count": 1
+  },
+  {
+    "route": "/blog/articles/office-document-ai-review/",
+    "count": 1
+  },
+  {
+    "route": "/blog/articles/pension-self-checkin-guide/",
+    "count": 1
+  },
+  {
+    "route": "/blog/category/ai-adoption-cost/",
+    "count": 1
+  },
+  {
+    "route": "/blog/category/ai-infrastructure-security/",
+    "count": 1
+  },
+  {
+    "route": "/blog/category/automation-iot/",
+    "count": 1
+  },
+  {
+    "route": "/blog/category/document-data-ai/",
+    "count": 1
+  },
+  {
+    "route": "/blog/category/hospitality/",
+    "count": 1
+  },
+  {
+    "route": "/blog/category/office/",
+    "count": 1
+  },
+  {
+    "route": "/blog/editorial-policy/",
+    "count": 1
+  },
+  {
+    "route": "/blog/",
+    "count": 1
+  },
+  {
+    "route": "/blog/search/",
+    "count": 1
+  },
+  {
+    "route": "/blog/tag/checklist/",
+    "count": 1
+  },
+  {
+    "route": "/blog/tag/cloud/",
+    "count": 1
+  },
+  {
+    "route": "/blog/tag/document-search/",
+    "count": 1
+  },
+  {
+    "route": "/blog/tag/door-lock/",
+    "count": 1
+  },
+  {
+    "route": "/blog/tag/on-premises/",
+    "count": 1
+  },
+  {
+    "route": "/blog/tag/operations-automation/",
+    "count": 1
+  },
+  {
+    "route": "/blog/tag/privacy/",
+    "count": 1
+  },
+  {
+    "route": "/blog/tag/rag/",
+    "count": 1
+  },
+  {
+    "route": "/blog/tag/security/",
+    "count": 1
+  }
+]

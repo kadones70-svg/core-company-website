@@ -1,0 +1,13 @@
+1	EXIT=0	npm run content:validate	logs/01-content-validate.log
+2	EXIT=0	npm run check	logs/02-check.log
+3	EXIT=0	npm run test	logs/03-test.log
+4	EXIT=0	npm run build:review	logs/04-build-review.log
+5	EXIT=0	npm run test	logs/05-test.log
+6	EXIT=0	npm run test:e2e	logs/06-test-e2e.log
+7	EXIT=0	npm run lighthouse	logs/07-lighthouse.log
+8	EXIT=0	node scripts/collect-v1.2-evidence.mjs review	logs/08-collect-review.log
+9	EXIT=0	npm run build	logs/09-build.log
+10	EXIT=0	npm run test	logs/10-test.log
+11	EXIT=0	npm run review:screenshots:v1.2:production	logs/11-review-screenshots-v1.2-production.log
+12	EXIT=0	node scripts/collect-v1.2-evidence.mjs production	logs/12-collect-production.log
+13	EXIT=0	node scripts/collect-v1.2-evidence.mjs screenshots	logs/13-collect-screenshots.log

@@ -23,7 +23,11 @@ draft: false
 featured: false
 thumbnail: ""
 thumbnailAlt: ""
-sources: []
+sources:
+  - title: "공식 검증 자료"
+    url: "https://example.com/official"
+    checkedAt: "2026-08-06"
+    type: "공식 문서"
 changeLog:
   - date: "2026-08-06"
     description: "검증용 작성"
@@ -76,5 +80,98 @@ test('duplicate slugs are rejected across nested content folders', async () => {
 
     const result = await validateContent({ print: false, directory });
     assert.ok(result.errors.some((error: string) => error.includes('중복 slug가 2개 있습니다: same-slug')));
+  });
+});
+
+test('public content requires at least one source and one change log entry', async () => {
+  await withTemporaryPosts(async (directory) => {
+    const missingEvidence = validPost
+      .replace(
+        /sources:\n  - title:[\s\S]*?    type: "공식 문서"\n/,
+        'sources: []\n',
+      )
+      .replace(
+        /changeLog:\n  - date:[\s\S]*?    reviewer: "기술 책임자"\n/,
+        'changeLog: []\n',
+      );
+    await writeFile(path.join(directory, 'public-without-evidence.md'), missingEvidence, 'utf8');
+
+    const result = await validateContent({ print: false, directory });
+    assert.ok(
+      result.errors.some((error: string) =>
+        error.includes('공개 글에는 확인한 출처를 sources에 최소 1개 입력하세요.'),
+      ),
+    );
+    assert.ok(
+      result.errors.some((error: string) =>
+        error.includes('공개 글에는 작성·수정 기록을 changeLog에 최소 1개 입력하세요.'),
+      ),
+    );
+  });
+});
+
+test('public content with sources and change history passes evidence validation', async () => {
+  await withTemporaryPosts(async (directory) => {
+    await writeFile(path.join(directory, 'public-with-evidence.md'), validPost, 'utf8');
+    const result = await validateContent({ print: false, directory });
+    assert.deepEqual(result.errors, []);
+  });
+});
+
+test('draft and sample content may keep evidence arrays empty', async () => {
+  await withTemporaryPosts(async (directory) => {
+    const withoutEvidence = validPost
+      .replace(
+        /sources:\n  - title:[\s\S]*?    type: "공식 문서"\n/,
+        'sources: []\n',
+      )
+      .replace(
+        /changeLog:\n  - date:[\s\S]*?    reviewer: "기술 책임자"\n/,
+        'changeLog: []\n',
+      );
+    const draft = withoutEvidence.replace('draft: false', 'draft: true');
+    const sample = withoutEvidence
+      .replace('sample: false', 'sample: true')
+      .replace('## 문제 또는 배경', '실제 고객 사례가 아닙니다.\n\n## 문제 또는 배경');
+    await Promise.all([
+      writeFile(path.join(directory, 'draft-without-evidence.md'), draft, 'utf8'),
+      writeFile(path.join(directory, 'sample-without-evidence.md'), sample, 'utf8'),
+    ]);
+
+    const result = await validateContent({ print: false, directory });
+    assert.deepEqual(result.errors, []);
+  });
+});
+
+test('body source headings are rejected because frontmatter is the source of truth', async () => {
+  await withTemporaryPosts(async (directory) => {
+    await writeFile(
+      path.join(directory, 'duplicate-source-section.md'),
+      `${validPost}\n## 출처\n\n본문 출처를 중복으로 작성했습니다.\n`,
+      'utf8',
+    );
+    const result = await validateContent({ print: false, directory });
+    assert.ok(
+      result.errors.some((error: string) =>
+        error.includes('본문에 출처 heading을 만들지 말고 frontmatter sources만 사용하세요.'),
+      ),
+    );
+  });
+});
+
+test('tag route collisions across build-visible files fail content validation', async () => {
+  await withTemporaryPosts(async (directory) => {
+    const upper = validPost.replace('  - "체크리스트"', '  - "RAG"');
+    const lower = validPost.replace('  - "체크리스트"', '  - "rag"');
+    await Promise.all([
+      writeFile(path.join(directory, 'upper-tag.md'), upper, 'utf8'),
+      writeFile(path.join(directory, 'lower-tag.md'), lower, 'utf8'),
+    ]);
+
+    const result = await validateContent({ print: false, directory });
+    const message = result.errors.join('\n');
+    assert.match(message, /태그 slug 충돌 "rag"/);
+    assert.match(message, /"RAG" \(.+upper-tag\.md\)/);
+    assert.match(message, /"rag" \(.+lower-tag\.md\)/);
   });
 });

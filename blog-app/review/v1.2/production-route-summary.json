@@ -1,0 +1,20 @@
+{
+  "html": 10,
+  "articles": 0,
+  "categories": 6,
+  "tags": 0,
+  "sitemapUrls": 2,
+  "reviewMarkers": 0,
+  "routes": [
+    "/blog/404.html",
+    "/blog/category/ai-adoption-cost/",
+    "/blog/category/ai-infrastructure-security/",
+    "/blog/category/automation-iot/",
+    "/blog/category/document-data-ai/",
+    "/blog/category/hospitality/",
+    "/blog/category/office/",
+    "/blog/editorial-policy/",
+    "/blog/",
+    "/blog/search/"
+  ]
+}

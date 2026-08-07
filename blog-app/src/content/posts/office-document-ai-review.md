@@ -118,9 +118,3 @@ sample: true
 ## 정리
 
 문서 정리, 권한, 근거 표시가 준비된 뒤에 모델과 검색 방식을 비교하면 도입 범위를 설명하고 검수하기 쉬워집니다.
-
-## 출처
-
-- [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) — AI 위험 관리 검토를 위한 공식 안내
-- [개인정보보호위원회](https://www.pipc.go.kr/) — 개인정보 관련 최신 공식 안내 확인 경로
-

@@ -1,0 +1,120 @@
+{
+  "totals": {
+    "Organization": 22,
+    "Article": 3,
+    "BreadcrumbList": 20
+  },
+  "pages": [
+    {
+      "route": "/blog/404.html",
+      "Organization": 1
+    },
+    {
+      "route": "/blog/articles/ai-infrastructure-security-checklist/",
+      "Organization": 1,
+      "Article": 1,
+      "BreadcrumbList": 1
+    },
+    {
+      "route": "/blog/articles/office-document-ai-review/",
+      "Organization": 1,
+      "Article": 1,
+      "BreadcrumbList": 1
+    },
+    {
+      "route": "/blog/articles/pension-self-checkin-guide/",
+      "Organization": 1,
+      "Article": 1,
+      "BreadcrumbList": 1
+    },
+    {
+      "route": "/blog/category/ai-adoption-cost/",
+      "Organization": 1,
+      "BreadcrumbList": 1
+    },
+    {
+      "route": "/blog/category/ai-infrastructure-security/",
+      "Organization": 1,
+      "BreadcrumbList": 1
+    },
+    {
+      "route": "/blog/category/automation-iot/",
+      "Organization": 1,
+      "BreadcrumbList": 1
+    },
+    {
+      "route": "/blog/category/document-data-ai/",
+      "Organization": 1,
+      "BreadcrumbList": 1
+    },
+    {
+      "route": "/blog/category/hospitality/",
+      "Organization": 1,
+      "BreadcrumbList": 1
+    },
+    {
+      "route": "/blog/category/office/",
+      "Organization": 1,
+      "BreadcrumbList": 1
+    },
+    {
+      "route": "/blog/editorial-policy/",
+      "Organization": 1,
+      "BreadcrumbList": 1
+    },
+    {
+      "route": "/blog/",
+      "Organization": 1
+    },
+    {
+      "route": "/blog/search/",
+      "Organization": 1,
+      "BreadcrumbList": 1
+    },
+    {
+      "route": "/blog/tag/checklist/",
+      "Organization": 1,
+      "BreadcrumbList": 1
+    },
+    {
+      "route": "/blog/tag/cloud/",
+      "Organization": 1,
+      "BreadcrumbList": 1
+    },
+    {
+      "route": "/blog/tag/document-search/",
+      "Organization": 1,
+      "BreadcrumbList": 1
+    },
+    {
+      "route": "/blog/tag/door-lock/",
+      "Organization": 1,
+      "BreadcrumbList": 1
+    },
+    {
+      "route": "/blog/tag/on-premises/",
+      "Organization": 1,
+      "BreadcrumbList": 1
+    },
+    {
+      "route": "/blog/tag/operations-automation/",
+      "Organization": 1,
+      "BreadcrumbList": 1
+    },
+    {
+      "route": "/blog/tag/privacy/",
+      "Organization": 1,
+      "BreadcrumbList": 1
+    },
+    {
+      "route": "/blog/tag/rag/",
+      "Organization": 1,
+      "BreadcrumbList": 1
+    },
+    {
+      "route": "/blog/tag/security/",
+      "Organization": 1,
+      "BreadcrumbList": 1
+    }
+  ]
+}

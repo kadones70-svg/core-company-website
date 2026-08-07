@@ -1,0 +1,172 @@
+
+> core-company-blog@1.0.0 review:screenshots:v1.2:production
+> cross-env CAPTURE_PRODUCTION=true PLAYWRIGHT_BUILD_MODE=production PLAYWRIGHT_PORT=4332 playwright test tests/review/v1.2-screenshots.spec.ts --project=chromium
+
+[WebServer] npm notice run core-company-blog@1.0.0 prebuild
+
+[WebServer] npm notice run npm run content:validate
+
+[WebServer] npm notice run core-company-blog@1.0.0 content:validate
+
+[WebServer] npm notice run node scripts/content-validate.mjs
+
+[WebServer] 콘텐츠 검증: 3개 Markdown 파일
+
+[WebServer] - ai-infrastructure-security-checklist (draft:false sample:true)
+[WebServer] - office-document-ai-review (draft:false sample:true)
+[WebServer] - pension-self-checkin-guide (draft:false sample:true)
+[WebServer] 
+[WebServer] 상태 요약: draft 0개, sample 3개
+[WebServer] 검증 성공
+
+[WebServer] npm notice run core-company-blog@1.0.0 build
+
+[WebServer] npm notice run cross-env INCLUDE_SAMPLES=false REVIEW_BUILD=false astro build && node scripts/pagefind-index.mjs
+
+[WebServer] 12:51:14 [content] Syncing content
+
+[WebServer] 12:51:14 [content] Synced content
+
+[WebServer] 12:51:14 [types] Generated 560ms
+
+[WebServer] 12:51:14 [build] output: "static"
+
+[WebServer] 12:51:14 [build] mode: "static"
+[WebServer] 12:51:14 [build] directory: C:\Users\kadones\orca\projects\codex\blog-app\dist\
+[WebServer] 12:51:14 [build] Collecting build info...
+
+[WebServer] 12:51:14 [build] ✓ Completed in 604ms.
+
+[WebServer] 12:51:14 [build] Building static entrypoints...
+
+[WebServer] 12:51:14 [vite] ✓ built in 246ms
+
+[WebServer] 12:51:14 [vite] ✓ built in 29ms
+
+[WebServer] 12:51:14 [build] Rearranging server assets...
+
+[WebServer] 
+[WebServer]  generating static routes 
+
+[WebServer] 12:51:14   ├─ /404.html
+
+[WebServer]  (+12ms) 
+
+[WebServer] 12:51:14   ├─ /category/hospitality/index.html
+
+[WebServer]  (+4ms) 
+
+[WebServer] 12:51:14   ├─ /category/office/index.html
+
+[WebServer]  (+3ms) 
+
+[WebServer] 12:51:14   ├─ /category/document-data-ai/index.html
+
+[WebServer]  (+3ms) 
+
+[WebServer] 12:51:14   ├─ /category/ai-adoption-cost/index.html
+
+[WebServer]  (+2ms) 
+
+[WebServer] 12:51:14   ├─ /category/ai-infrastructure-security/index.html
+
+[WebServer]  (+3ms) 
+
+[WebServer] 12:51:14   ├─ /category/automation-iot/index.html
+
+[WebServer]  (+4ms) 
+
+[WebServer] 12:51:14   ├─ /editorial-policy/index.html
+
+[WebServer]  (+4ms) 
+
+[WebServer] 12:51:14   ├─ /robots.txt
+
+[WebServer]  (+3ms) 
+
+[WebServer] 12:51:14   ├─ /rss.xml
+
+[WebServer]  (+70ms) 
+
+[WebServer] 12:51:15   ├─ /search/index.html
+
+[WebServer]  (+4ms) 
+
+[WebServer] 12:51:15   ├─ /sitemap-0.xml
+
+[WebServer]  (+3ms) 
+
+[WebServer] 12:51:15   ├─ /sitemap-index.xml
+
+[WebServer]  (+3ms) 
+
+[WebServer] 12:51:15   ├─ /index.html
+
+[WebServer]  (+4ms) 
+
+[WebServer] 12:51:15 ✓ Completed in 162ms.
+[WebServer] 
+
+[WebServer] 12:51:15 [build] ✓ Completed in 495ms.
+
+[WebServer] 12:51:15 [build] 10 page(s) built in 1.12s
+
+[WebServer] 12:51:15 [build] Complete!
+
+[WebServer] 
+[WebServer] Running Pagefind v1.5.2 (Extended)
+[WebServer] Running from: "C:\\Users\\kadones\\orca\\projects\\codex\\blog-app"
+[WebServer] Source:       "dist"
+[WebServer] Output:       "dist\\pagefind"
+[WebServer] 
+[WebServer] [Walking source directory]
+
+[WebServer] Found 11 files matching **/*.{html}
+[WebServer] 
+[WebServer] [Parsing files]
+
+[WebServer] Found a data-pagefind-body element on the site.
+[WebServer] ↳ Ignoring pages without this tag.
+[WebServer] 
+[WebServer] [Reading languages]
+[WebServer] Discovered 1 language: ko
+[WebServer] 
+[WebServer] [Building search indexes]
+
+[WebServer] Note: Pagefind doesn't support stemming for the language ko. 
+[WebServer] Search will still work, but will not match across root words.
+[WebServer] Note: Pagefind doesn't support stemming for the language ko. 
+[WebServer] Search will still work, but will not match across root words.
+
+[WebServer] Total: 
+[WebServer]   Indexed 1 language
+[WebServer]   Indexed 1 page
+[WebServer]   Indexed 1 word
+[WebServer]   Indexed 0 filters
+[WebServer]   Indexed 0 sorts
+
+[WebServer] 
+[WebServer] Finished in 0.137 seconds
+
+[WebServer] npm notice run core-company-blog@1.0.0 preview
+
+[WebServer] npm notice run astro preview --host 127.0.0.1 --port 4332
+
+[WebServer]  astro  v7.1.6 ready in 40 ms
+[WebServer] ┃ Local    http://127.0.0.1:4332/blog/
+
+
+Running 10 tests using 2 workers
+
+[1/10] [chromium] › tests\review\v1.2-screenshots.spec.ts:35:5 › V1.2 review evidence screenshots › home 320px
+[2/10] [chromium] › tests\review\v1.2-screenshots.spec.ts:43:5 › V1.2 review evidence screenshots › article 320px
+[3/10] [chromium] › tests\review\v1.2-screenshots.spec.ts:35:5 › V1.2 review evidence screenshots › home 390px
+[4/10] [chromium] › tests\review\v1.2-screenshots.spec.ts:43:5 › V1.2 review evidence screenshots › article 390px
+[5/10] [chromium] › tests\review\v1.2-screenshots.spec.ts:54:3 › V1.2 review evidence screenshots › category shared review banner
+[6/10] [chromium] › tests\review\v1.2-screenshots.spec.ts:61:3 › V1.2 review evidence screenshots › search results present
+[7/10] [chromium] › tests\review\v1.2-screenshots.spec.ts:70:3 › V1.2 review evidence screenshots › search zero results
+[8/10] [chromium] › tests\review\v1.2-screenshots.spec.ts:78:3 › V1.2 review evidence screenshots › mobile menu open
+[9/10] [chromium] › tests\review\v1.2-screenshots.spec.ts:87:3 › V1.2 review evidence screenshots › keyboard focus-visible
+[10/10] [chromium] › tests\review\v1.2-screenshots.spec.ts:102:3 › V1.2 production evidence screenshot › production has no review banner
+  9 skipped
+  1 passed (8.1s)

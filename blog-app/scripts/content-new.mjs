@@ -25,6 +25,15 @@ function isRealIsoDate(value) {
   return !Number.isNaN(parsed.valueOf()) && parsed.toISOString().slice(0, 10) === value;
 }
 
+function isHttpUrl(value) {
+  try {
+    const url = new URL(value);
+    return url.protocol === 'http:' || url.protocol === 'https:';
+  } catch {
+    return false;
+  }
+}
+
 async function pathExists(target) {
   try {
     await access(target);
@@ -41,6 +50,16 @@ function yamlString(value) {
 function yamlList(values, indentation = '') {
   if (values.length === 0) return ' []';
   return `\n${values.map((value) => `${indentation}  - ${yamlString(value)}`).join('\n')}`;
+}
+
+function yamlSources(sources) {
+  if (sources.length === 0) return 'sources: []';
+  return `sources:\n${sources.map((source) => [
+    `  - title: ${yamlString(source.title)}`,
+    `    url: ${yamlString(source.url)}`,
+    `    checkedAt: ${yamlString(source.checkedAt)}`,
+    `    type: ${yamlString(source.type)}`,
+  ].join('\n')).join('\n')}`;
 }
 
 function parseBoolean(value, defaultValue) {
@@ -103,6 +122,7 @@ async function createFallbackSlug(date) {
 
 function renderMarkdown(values) {
   const tags = yamlList(values.tags);
+  const sources = yamlSources(values.sources);
 
   return `---
 title: ${yamlString(values.title)}
@@ -119,7 +139,7 @@ draft: ${values.draft}
 featured: ${values.featured}
 thumbnail: ${yamlString(values.thumbnail)}
 thumbnailAlt: ${yamlString(values.thumbnailAlt)}
-sources: []
+${sources}
 changeLog:
   - date: ${yamlString(values.publishedAt)}
     description: "초안 생성"
@@ -129,38 +149,34 @@ relatedPosts: []
 sample: false
 ---
 
-# 문제 또는 배경
+## 문제 또는 배경
 
 본문을 작성하세요.
 
-# 핵심 결론
+## 핵심 결론
 
 핵심 결론을 작성하세요.
 
-# 판단 기준
+## 판단 기준
 
 판단 기준을 작성하세요.
 
-# 비교 또는 실행 단계
+## 비교 또는 실행 단계
 
 비교 항목이나 실행 단계를 작성하세요.
 
-# 체크리스트
+## 체크리스트
 
 - [ ] 확인 항목을 작성하세요.
 
-# 주의사항
+## 주의사항
 
 > [!WARNING]
 > 주의할 내용을 작성하세요.
 
-# 정리
+## 정리
 
 글의 결론을 정리하세요.
-
-# 출처
-
-frontmatter의 sources에도 확인한 원문 URL과 확인 날짜를 입력하세요.
 `;
 }
 
@@ -200,6 +216,23 @@ async function main() {
     }
 
     const draft = await askBoolean(readline, '초안으로 저장', true);
+    const sources = [];
+    if (!draft) {
+      console.log('\n공개 글은 확인한 출처를 최소 1개 입력해야 합니다.');
+      const sourceTitle = await askRequired(readline, '출처명');
+      let sourceUrl = await askRequired(readline, '출처 원문 URL');
+      while (!isHttpUrl(sourceUrl)) {
+        console.log('http 또는 https로 시작하는 유효한 원문 URL을 입력해 주세요.');
+        sourceUrl = await askRequired(readline, '출처 원문 URL');
+      }
+      let checkedAt = await askRequired(readline, '출처 확인일 (YYYY-MM-DD)', publishedAt);
+      while (!isRealIsoDate(checkedAt)) {
+        console.log('YYYY-MM-DD 형식의 실제 날짜를 입력해 주세요.');
+        checkedAt = await askRequired(readline, '출처 확인일 (YYYY-MM-DD)', publishedAt);
+      }
+      const sourceType = await askRequired(readline, '자료 유형', '공식 문서');
+      sources.push({ title: sourceTitle, url: sourceUrl, checkedAt, type: sourceType });
+    }
     const featured = await askBoolean(readline, '대표 글로 표시', false);
     const thumbnail = (await readline.question('썸네일 경로 (없으면 빈 값): ')).trim();
     const thumbnailAlt = (await readline.question('썸네일 alt (썸네일이 없으면 빈 값): ')).trim();
@@ -233,6 +266,7 @@ async function main() {
       thumbnail,
       thumbnailAlt,
       aiDisclosure,
+      sources,
     });
 
     await writeFile(target, markdown, { encoding: 'utf8', flag: 'wx' });

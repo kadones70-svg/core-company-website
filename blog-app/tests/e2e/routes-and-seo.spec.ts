@@ -1,4 +1,7 @@
 import { expect, test } from '@playwright/test';
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
+import matter from 'gray-matter';
 import {
   BLOG_ROOT,
   discoverArticleAndTag,
@@ -63,6 +66,27 @@ test('article publishes Article and BreadcrumbList structured data', async ({ pa
   const nodes = await jsonLdNodes(page);
   expect(nodes.some((node) => nodeHasType(node, 'Article'))).toBe(true);
   expect(nodes.some((node) => nodeHasType(node, 'BreadcrumbList'))).toBe(true);
+});
+
+test('article renders frontmatter sources exactly once with the configured labels and URLs', async ({ page }) => {
+  const articleRoute = await discoverRoute(page, 'articles');
+  const slug = articleRoute.split('/').filter(Boolean).at(-1);
+  expect(slug).toBeTruthy();
+  const sourceFile = path.join(process.cwd(), 'src', 'content', 'posts', `${slug}.md`);
+  const frontmatter = matter(readFileSync(sourceFile, 'utf8')).data as {
+    sources: Array<{ title: string; url: string }>;
+  };
+
+  await gotoApp(page, articleRoute);
+  await expect(page.getByRole('heading', { name: '출처', exact: true })).toHaveCount(1);
+  await expect(page.getByTestId('article-sources')).toHaveCount(1);
+  const sourceLinks = page.getByTestId('article-sources').locator('ol > li > a');
+  await expect(sourceLinks).toHaveCount(frontmatter.sources.length);
+
+  for (const [index, source] of frontmatter.sources.entries()) {
+    await expect(sourceLinks.nth(index)).toHaveText(source.title);
+    await expect(sourceLinks.nth(index)).toHaveAttribute('href', source.url);
+  }
 });
 
 test('RSS, sitemap, robots, and Pagefind assets are served below /blog', async ({ request }) => {

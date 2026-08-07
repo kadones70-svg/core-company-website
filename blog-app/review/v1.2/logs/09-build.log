@@ -1,0 +1,79 @@
+
+> core-company-blog@1.0.0 prebuild
+> npm run content:validate
+
+npm notice run core-company-blog@1.0.0 content:validate
+npm notice run node scripts/content-validate.mjs
+콘텐츠 검증: 3개 Markdown 파일
+- ai-infrastructure-security-checklist (draft:false sample:true)
+- office-document-ai-review (draft:false sample:true)
+- pension-self-checkin-guide (draft:false sample:true)
+
+상태 요약: draft 0개, sample 3개
+검증 성공
+
+> core-company-blog@1.0.0 build
+> cross-env INCLUDE_SAMPLES=false REVIEW_BUILD=false astro build && node scripts/pagefind-index.mjs
+
+[2m12:51:08[22m [34m[content][39m Syncing content
+[2m12:51:08[22m [34m[content][39m Synced content
+[2m12:51:08[22m [34m[types][39m Generated [2m622ms[22m
+[2m12:51:08[22m [34m[build][39m output: [34m"static"[39m
+[2m12:51:08[22m [34m[build][39m mode: [34m"static"[39m
+[2m12:51:08[22m [34m[build][39m directory: [34mC:\Users\kadones\orca\projects\codex\blog-app\dist\[39m
+[2m12:51:08[22m [34m[build][39m Collecting build info...
+[2m12:51:08[22m [34m[build][39m [32m✓ Completed in 667ms.[39m
+[2m12:51:08[22m [34m[build][39m Building static entrypoints...
+[2m12:51:08[22m [34m[vite][39m [32m✓ built in 217ms[39m
+[2m12:51:08[22m [34m[vite][39m [32m✓ built in 28ms[39m
+[2m12:51:08[22m [34m[build][39m Rearranging server assets...
+
+[42m[30m generating static routes [39m[49m
+[2m12:51:08[22m   [34m├─[39m [2m/404.html[22m [2m(+12ms)[22m 
+[2m12:51:08[22m   [34m├─[39m [2m/category/hospitality/index.html[22m [2m(+4ms)[22m 
+[2m12:51:08[22m   [34m├─[39m [2m/category/office/index.html[22m [2m(+2ms)[22m 
+[2m12:51:08[22m   [34m├─[39m [2m/category/document-data-ai/index.html[22m [2m(+3ms)[22m 
+[2m12:51:08[22m   [34m├─[39m [2m/category/ai-adoption-cost/index.html[22m [2m(+2ms)[22m 
+[2m12:51:08[22m   [34m├─[39m [2m/category/ai-infrastructure-security/index.html[22m [2m(+2ms)[22m 
+[2m12:51:08[22m   [34m├─[39m [2m/category/automation-iot/index.html[22m [2m(+2ms)[22m 
+[2m12:51:08[22m   [34m├─[39m [2m/editorial-policy/index.html[22m [2m(+4ms)[22m 
+[2m12:51:08[22m   [34m├─[39m [2m/robots.txt[22m [2m(+3ms)[22m 
+[2m12:51:08[22m   [34m├─[39m [2m/rss.xml[22m [2m(+69ms)[22m 
+[2m12:51:08[22m   [34m├─[39m [2m/search/index.html[22m [2m(+4ms)[22m 
+[2m12:51:08[22m   [34m├─[39m [2m/sitemap-0.xml[22m [2m(+3ms)[22m 
+[2m12:51:08[22m   [34m├─[39m [2m/sitemap-index.xml[22m [2m(+2ms)[22m 
+[2m12:51:08[22m   [34m├─[39m [2m/index.html[22m [2m(+4ms)[22m 
+[2m12:51:08[22m [32m✓ Completed in 155ms.
+[39m
+[2m12:51:08[22m [34m[build][39m [32m✓ Completed in 481ms.[39m
+[2m12:51:08[22m [34m[build][39m 10 page(s) built in [1m1.17s[22m
+[2m12:51:08[22m [34m[build][39m [1mComplete![22m
+
+Running Pagefind v1.5.2 (Extended)
+Running from: "C:\\Users\\kadones\\orca\\projects\\codex\\blog-app"
+Source:       "dist"
+Output:       "dist\\pagefind"
+
+[Walking source directory]
+Found 11 files matching **/*.{html}
+
+[Parsing files]
+Found a data-pagefind-body element on the site.
+↳ Ignoring pages without this tag.
+
+[Reading languages]
+Discovered 1 language: ko
+
+[Building search indexes]
+Total: 
+  Indexed 1 language
+  Indexed 1 page
+  Indexed 1 word
+  Indexed 0 filters
+  Indexed 0 sorts
+Note: Pagefind doesn't support stemming for the language ko. 
+Search will still work, but will not match across root words.
+Note: Pagefind doesn't support stemming for the language ko. 
+Search will still work, but will not match across root words.
+
+Finished in 0.077 seconds

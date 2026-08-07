@@ -1,0 +1,92 @@
+{
+  "generatedAt": "2026-08-07T03:53:19.381Z",
+  "visualInspection": "완료 — Codex가 2026-08-07에 요청 화면 10개를 직접 확인함",
+  "requested": [
+    {
+      "file": "screenshots/home-mobile-320.png",
+      "width": 320,
+      "height": 844,
+      "bytes": 40382,
+      "sha256": "65c708934f7f536eaf917c4e16d5c1a963647be5107d325f655f9a4afe51280c"
+    },
+    {
+      "file": "screenshots/home-mobile-390.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 43996,
+      "sha256": "ff1b51310bf91cc660a49039427c66585755b94e74ce1952d80ccdb5aa883c46"
+    },
+    {
+      "file": "screenshots/article-mobile-320.png",
+      "width": 320,
+      "height": 844,
+      "bytes": 41501,
+      "sha256": "e537aa1cd606f5ea6a923d8eef05f10602af7f6530b404f1ebb303050b85dd0b"
+    },
+    {
+      "file": "screenshots/article-mobile-390.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 44011,
+      "sha256": "33fe1eb21c3d8abb0f2233a792500400abe10384816ecec5b99ec147a968f061"
+    },
+    {
+      "file": "screenshots/category-review-banner.png",
+      "width": 1440,
+      "height": 900,
+      "bytes": 65859,
+      "sha256": "81f5682890c7d2ec27dbd79fabe96fc85108553de589714c7d34fa1c734df874"
+    },
+    {
+      "file": "screenshots/search-results.png",
+      "width": 1440,
+      "height": 1609,
+      "bytes": 110706,
+      "sha256": "45dda090f6a01a40619aac3b6c6f91d454506025aea4607d6a9ea151e5e27728"
+    },
+    {
+      "file": "screenshots/search-zero-results.png",
+      "width": 390,
+      "height": 2325,
+      "bytes": 85538,
+      "sha256": "ca736643cfaf3b7d1eb04d8c1ac54fbde2d98ef963c9b2306f5525b88c01b4da"
+    },
+    {
+      "file": "screenshots/mobile-menu-open.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 29931,
+      "sha256": "08bca2d4a58ec6dd245fbe8309b7b8b4b97650109ca0d067f2e99c5aab16713d"
+    },
+    {
+      "file": "screenshots/keyboard-focus-visible.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 40848,
+      "sha256": "f1f2d094adefafca8c79a251ba4d39abf14931d86f01d738f559f6d73fd4f1f8"
+    },
+    {
+      "file": "screenshots/production-banner-absent.png",
+      "width": 1440,
+      "height": 900,
+      "bytes": 80055,
+      "sha256": "a6a35087ae2d0c0ca4fa8e0918679e95aef77cafe3905e94251ceff5ea292667"
+    }
+  ],
+  "regressionFiles": [
+    "404-desktop.png",
+    "article-desktop-fold.png",
+    "article-desktop-full.png",
+    "article-mobile-fold.png",
+    "article-mobile-full.png",
+    "category-desktop.png",
+    "category-mobile.png",
+    "editorial-policy-desktop.png",
+    "empty-state-desktop.png",
+    "main-desktop-1440.png",
+    "main-mobile-390.png",
+    "main-tablet-1024.png",
+    "search-desktop.png",
+    "search-mobile.png"
+  ]
+}

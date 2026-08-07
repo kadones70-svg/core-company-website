@@ -10,7 +10,6 @@ const posts = await getVisiblePosts();
 const featured = posts.find((post) => post.data.featured) ?? posts[0];
 const editorsPick = posts.find((post) => post.id !== featured?.id) ?? featured;
 const latest = posts.slice(0, 6);
-const isReview = process.env.REVIEW_BUILD === 'true';
 ---
 
 <BaseLayout
@@ -18,12 +17,11 @@ const isReview = process.env.REVIEW_BUILD === 'true';
   description="숙박·오피스·중소기업 운영자를 위한 AI, IoT, 자동화 도입 기준과 실무 가이드"
   canonicalPath="/blog/"
 >
-  {isReview && <div class="review-banner" role="status">REVIEW BUILD · 샘플 콘텐츠 포함 · 운영 배포 금지</div>}
   <main id="main-content" data-pagefind-ignore>
     <section class="hero section-shell" aria-labelledby="hero-title">
       <div class="hero__main">
         <p class="eyebrow">CORE COMPANY EDITORIAL / 2026</p>
-        <h1 id="hero-title">AI와 IoT를<br />현장에 적용하는 방법</h1>
+        <h1 id="hero-title">AI와 IoT를 현장에 적용하는 방법</h1>
         <p class="hero__description">숙박·오피스·중소기업 운영자가 기술을 도입하기 전에 확인해야 할 기준을, 실제 업무 흐름과 공간 관점에서 쉽게 정리합니다.</p>
       </div>
       <ol class="principles" aria-label="편집 원칙 요약">
@@ -110,7 +108,7 @@ const isReview = process.env.REVIEW_BUILD === 'true';
             </article>
           ))}
         </div>
-      ) : <div class="empty-state empty-state--bordered"><h3>공개된 글이 아직 없습니다.</h3><p>검수용 샘플은 <code>npm run build:review</code>에서만 표시됩니다.</p></div>}
+      ) : <div class="empty-state empty-state--bordered"><h3>공개된 글이 아직 없습니다.</h3><p>출처와 검수 이력이 확인된 글부터 순서대로 공개합니다.</p></div>}
     </section>
 
     <section class="section-shell section-block" aria-labelledby="topics-title">
@@ -129,7 +127,6 @@ const isReview = process.env.REVIEW_BUILD === 'true';
 </BaseLayout>
 
 <style>
-  .review-banner { padding: 10px 20px; text-align: center; font: 700 .75rem/1.4 var(--font-mono); letter-spacing: .08em; color: #fff; background: var(--color-coral); }
   .hero { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(280px, .7fr); gap: clamp(44px, 7vw, 108px); padding-top: clamp(72px, 9vw, 128px); padding-bottom: clamp(72px, 9vw, 124px); }
   .hero h1 { max-width: 900px; margin: 18px 0 28px; font-size: clamp(4.25rem, 6.2vw, 5.25rem); line-height: 1.05; letter-spacing: -.055em; }
   .hero__description { max-width: 710px; margin: 0; font-size: clamp(1.05rem, 1.4vw, 1.25rem); line-height: 1.75; color: var(--color-muted); }

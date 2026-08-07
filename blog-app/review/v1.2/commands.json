@@ -1,0 +1,119 @@
+[
+  {
+    "index": 1,
+    "label": "content-validate",
+    "command": "npm run content:validate",
+    "startedAt": "2026-08-07T03:49:55.860Z",
+    "finishedAt": "2026-08-07T03:49:56.365Z",
+    "exitCode": 0,
+    "logFile": "logs/01-content-validate.log"
+  },
+  {
+    "index": 2,
+    "label": "check",
+    "command": "npm run check",
+    "startedAt": "2026-08-07T03:49:56.367Z",
+    "finishedAt": "2026-08-07T03:50:05.750Z",
+    "exitCode": 0,
+    "logFile": "logs/02-check.log"
+  },
+  {
+    "index": 3,
+    "label": "test",
+    "command": "npm run test",
+    "startedAt": "2026-08-07T03:50:05.752Z",
+    "finishedAt": "2026-08-07T03:50:06.462Z",
+    "exitCode": 0,
+    "logFile": "logs/03-test.log"
+  },
+  {
+    "index": 4,
+    "label": "build-review",
+    "command": "npm run build:review",
+    "startedAt": "2026-08-07T03:50:06.464Z",
+    "finishedAt": "2026-08-07T03:50:10.533Z",
+    "exitCode": 0,
+    "logFile": "logs/04-build-review.log"
+  },
+  {
+    "index": 5,
+    "label": "test",
+    "command": "npm run test",
+    "startedAt": "2026-08-07T03:50:10.535Z",
+    "finishedAt": "2026-08-07T03:50:11.255Z",
+    "exitCode": 0,
+    "logFile": "logs/05-test.log"
+  },
+  {
+    "index": 6,
+    "label": "test-e2e",
+    "command": "npm run test:e2e",
+    "startedAt": "2026-08-07T03:50:11.257Z",
+    "finishedAt": "2026-08-07T03:50:31.576Z",
+    "exitCode": 0,
+    "logFile": "logs/06-test-e2e.log"
+  },
+  {
+    "index": 7,
+    "label": "lighthouse",
+    "command": "npm run lighthouse",
+    "startedAt": "2026-08-07T03:50:31.578Z",
+    "finishedAt": "2026-08-07T03:51:04.345Z",
+    "exitCode": 0,
+    "logFile": "logs/07-lighthouse.log"
+  },
+  {
+    "index": 8,
+    "label": "collect-review",
+    "command": "node scripts/collect-v1.2-evidence.mjs review",
+    "startedAt": "2026-08-07T03:51:04.347Z",
+    "finishedAt": "2026-08-07T03:51:04.541Z",
+    "exitCode": 0,
+    "logFile": "logs/08-collect-review.log"
+  },
+  {
+    "index": 9,
+    "label": "build",
+    "command": "npm run build",
+    "startedAt": "2026-08-07T03:51:04.543Z",
+    "finishedAt": "2026-08-07T03:51:09.142Z",
+    "exitCode": 0,
+    "logFile": "logs/09-build.log"
+  },
+  {
+    "index": 10,
+    "label": "test",
+    "command": "npm run test",
+    "startedAt": "2026-08-07T03:51:09.145Z",
+    "finishedAt": "2026-08-07T03:51:09.938Z",
+    "exitCode": 0,
+    "logFile": "logs/10-test.log"
+  },
+  {
+    "index": 11,
+    "label": "review-screenshots-v1.2-production",
+    "command": "npm run review:screenshots:v1.2:production",
+    "startedAt": "2026-08-07T03:51:09.940Z",
+    "finishedAt": "2026-08-07T03:51:19.016Z",
+    "exitCode": 0,
+    "logFile": "logs/11-review-screenshots-v1.2-production.log"
+  },
+  {
+    "index": 12,
+    "label": "collect-production",
+    "command": "node scripts/collect-v1.2-evidence.mjs production",
+    "startedAt": "2026-08-07T03:51:19.017Z",
+    "finishedAt": "2026-08-07T03:51:19.207Z",
+    "exitCode": 0,
+    "logFile": "logs/12-collect-production.log"
+  },
+  {
+    "index": 13,
+    "label": "collect-screenshots",
+    "command": "node scripts/collect-v1.2-evidence.mjs screenshots",
+    "startedAt": "2026-08-07T03:51:19.209Z",
+    "finishedAt": "2026-08-07T03:51:19.377Z",
+    "exitCode": 0,
+    "logFile": "logs/13-collect-screenshots.log"
+  }
+]

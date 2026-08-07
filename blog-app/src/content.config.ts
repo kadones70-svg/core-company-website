@@ -2,7 +2,7 @@ import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
 
-import { CATEGORY_NAMES, CONTENT_TYPES } from './config/content';
+import { CATEGORY_NAMES, CONTENT_TYPES, tagToSlug } from './config/content';
 
 const SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const ISO_DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/;
@@ -46,7 +46,13 @@ const postSchema = z
     summary: z.string().trim().min(1, '요약을 입력하세요.'),
     description: z.string().trim().min(1, '메타 설명을 입력하세요.'),
     category: z.enum(CATEGORY_NAMES),
-    tags: z.array(z.string().trim().min(1, '빈 태그는 사용할 수 없습니다.')),
+    tags: z.array(
+      z
+        .string()
+        .trim()
+        .min(1, '빈 태그는 사용할 수 없습니다.')
+        .refine((tag) => tagToSlug(tag).length > 0, '기호만으로 된 태그는 URL을 만들 수 없습니다.'),
+    ),
     contentType: z.enum(CONTENT_TYPES),
     author: z.string().trim().min(1, '작성자를 입력하세요.'),
     reviewer: z.string().trim().min(1, '검수자를 입력하세요.'),
@@ -85,6 +91,23 @@ const postSchema = z
   .refine(({ relatedPosts }) => new Set(relatedPosts).size === relatedPosts.length, {
     message: '중복 relatedPosts를 제거하세요.',
     path: ['relatedPosts'],
+  })
+  .superRefine(({ draft, sample, sources, changeLog }, context) => {
+    if (draft || sample) return;
+    if (sources.length === 0) {
+      context.addIssue({
+        code: 'custom',
+        message: '공개 글에는 확인한 출처를 sources에 최소 1개 입력하세요.',
+        path: ['sources'],
+      });
+    }
+    if (changeLog.length === 0) {
+      context.addIssue({
+        code: 'custom',
+        message: '공개 글에는 작성·수정 기록을 changeLog에 최소 1개 입력하세요.',
+        path: ['changeLog'],
+      });
+    }
   });
 
 const posts = defineCollection({

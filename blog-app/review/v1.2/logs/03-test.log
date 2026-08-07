@@ -1,0 +1,44 @@
+
+> core-company-blog@1.0.0 test
+> tsx --test tests/unit/*.test.ts
+
+✔ invalid frontmatter is rejected before a production build (10.5517ms)
+✔ duplicate slugs are rejected across nested content folders (16.1164ms)
+✔ public content requires at least one source and one change log entry (3.5702ms)
+✔ public content with sources and change history passes evidence validation (4.6194ms)
+✔ draft and sample content may keep evidence arrays empty (3.7403ms)
+✔ body source headings are rejected because frontmatter is the source of truth (3.9874ms)
+✔ tag route collisions across build-visible files fail content validation (5.6049ms)
+✔ Astro is locked to a static /blog build with the production site URL (2.1616ms)
+✔ the project consistently targets Node 24 LTS (0.5097ms)
+✔ the required local quality and content commands are exposed (0.4101ms)
+✔ review screenshot plan contains every approved output filename (0.992ms)
+✔ Lighthouse thresholds reflect the documented quality targets (1.1168ms)
+✔ built HTML uses a Core Company /blog canonical (9.2755ms)
+✔ production artifacts include Pagefind, RSS, sitemap, and 404 (0.529ms)
+✔ review banner appears once on every review HTML path and never in production (7.9999ms)
+✔ production build excludes sample articles and empty tag archives from HTML and sitemap (3.8424ms)
+✔ production HTML has no broken internal page links (28.8228ms)
+✔ production public text contains no review or spreadsheet error markers (13.5672ms)
+✔ normal tags produce unique shared routes (2.1681ms)
+✔ symbol-only tags fail with the original tag and file (0.5894ms)
+✔ case-only tag slug collisions fail with both names and files (0.5095ms)
+✔ punctuation tag slug collisions fail instead of merging paths (0.2128ms)
+✔ analytics rejects unsafe article value: 010-1234-5678 (2.7004ms)
+✔ analytics rejects unsafe article value: 01012345678 (0.1645ms)
+✔ analytics rejects unsafe article value: 0212345678 (0.0951ms)
+✔ analytics rejects unsafe article value: private@example.com (0.2602ms)
+✔ analytics rejects unsafe article value: https://example.com/private (0.2818ms)
+✔ analytics rejects unsafe article value: aaaaaaaaaaaaaaaaaaaaaaaaaaaa (0.0962ms)
+✔ analytics accepts a normal English and numeric article slug (0.2112ms)
+✔ analytics rejects unapproved category, CTA, and position values (0.1863ms)
+✔ analytics strips unknown payload keys and raw search text (0.3007ms)
+✔ contact tracking URL uses only approved operational values (0.6122ms)
+ℹ tests 32
+ℹ suites 0
+ℹ pass 32
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 343.238

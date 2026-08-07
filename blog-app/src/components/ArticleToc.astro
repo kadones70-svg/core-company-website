@@ -3,13 +3,14 @@ import type { MarkdownHeading } from 'astro';
 
 interface Props {
   headings: MarkdownHeading[];
+  variant: 'mobile' | 'desktop';
 }
 
-const items = Astro.props.headings.filter((heading) => heading.depth === 2 || heading.depth === 3);
+const { headings, variant } = Astro.props;
+const items = headings.filter((heading) => heading.depth === 2 || heading.depth === 3);
 ---
 
-{items.length > 0 && (
-  <>
+{items.length > 0 && variant === 'mobile' && (
     <details class="toc-mobile" data-testid="mobile-toc">
       <summary>이 글의 목차 <span aria-hidden="true">＋</span></summary>
       <nav aria-label="글 목차">
@@ -18,6 +19,8 @@ const items = Astro.props.headings.filter((heading) => heading.depth === 2 || he
         </ol>
       </nav>
     </details>
+)}
+{items.length > 0 && variant === 'desktop' && (
     <aside class="toc-desktop" aria-label="글 목차" data-testid="desktop-toc">
       <p>ON THIS PAGE</p>
       <nav>
@@ -26,13 +29,21 @@ const items = Astro.props.headings.filter((heading) => heading.depth === 2 || he
         </ol>
       </nav>
     </aside>
-  </>
 )}
 
 <script>
   const links = [...document.querySelectorAll<HTMLAnchorElement>('[data-toc-link]')];
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const targets = links.map((link) => document.querySelector<HTMLElement>(link.hash)).filter(Boolean) as HTMLElement[];
+  const targetForLink = (link: HTMLAnchorElement) => {
+    const href = link.getAttribute('href');
+    if (!href?.startsWith('#')) return null;
+    try {
+      return document.getElementById(decodeURIComponent(href.slice(1)));
+    } catch {
+      return null;
+    }
+  };
+  const targets = links.map(targetForLink).filter(Boolean) as HTMLElement[];
 
   if (targets.length && 'IntersectionObserver' in window) {
     const observer = new IntersectionObserver((entries) => {
@@ -48,7 +59,7 @@ const items = Astro.props.headings.filter((heading) => heading.depth === 2 || he
 
   document.querySelectorAll<HTMLAnchorElement>('.toc-mobile a, [data-toc-link]').forEach((link) => {
     link.addEventListener('click', (event) => {
-      const target = document.querySelector<HTMLElement>(link.hash);
+      const target = targetForLink(link);
       if (!target) return;
       event.preventDefault();
       target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });

@@ -16,6 +16,12 @@ test('Astro is locked to a static /blog build with the production site URL', () 
   assert.match(astroConfig, /trailingSlash:\s*['"]always['"]/);
 });
 
+test('the project consistently targets Node 24 LTS', () => {
+  const packageJson = JSON.parse(read('package.json')) as { engines?: { node?: string } };
+  assert.equal(packageJson.engines?.node, '24.x');
+  assert.equal(read('.nvmrc').trim(), '24.15.0');
+});
+
 test('the required local quality and content commands are exposed', () => {
   const packageJson = JSON.parse(read('package.json')) as {
     scripts: Record<string, string>;

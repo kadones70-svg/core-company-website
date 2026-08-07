@@ -1,0 +1,56 @@
+{
+  "totals": {
+    "Organization": 10,
+    "BreadcrumbList": 8
+  },
+  "pages": [
+    {
+      "route": "/blog/404.html",
+      "Organization": 1
+    },
+    {
+      "route": "/blog/category/ai-adoption-cost/",
+      "Organization": 1,
+      "BreadcrumbList": 1
+    },
+    {
+      "route": "/blog/category/ai-infrastructure-security/",
+      "Organization": 1,
+      "BreadcrumbList": 1
+    },
+    {
+      "route": "/blog/category/automation-iot/",
+      "Organization": 1,
+      "BreadcrumbList": 1
+    },
+    {
+      "route": "/blog/category/document-data-ai/",
+      "Organization": 1,
+      "BreadcrumbList": 1
+    },
+    {
+      "route": "/blog/category/hospitality/",
+      "Organization": 1,
+      "BreadcrumbList": 1
+    },
+    {
+      "route": "/blog/category/office/",
+      "Organization": 1,
+      "BreadcrumbList": 1
+    },
+    {
+      "route": "/blog/editorial-policy/",
+      "Organization": 1,
+      "BreadcrumbList": 1
+    },
+    {
+      "route": "/blog/",
+      "Organization": 1
+    },
+    {
+      "route": "/blog/search/",
+      "Organization": 1,
+      "BreadcrumbList": 1
+    }
+  ]
+}

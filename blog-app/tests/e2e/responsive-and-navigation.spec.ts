@@ -46,9 +46,10 @@ test.describe('390px mobile behavior', () => {
   test('mobile article table of contents is a closed details element', async ({ page }) => {
     const articleRoute = await discoverRoute(page, 'articles');
     await gotoApp(page, articleRoute);
-    const toc = page.locator(
-      'details[data-testid="mobile-toc"], details:has(summary:has-text("목차"))'
-    ).first();
+    const toc = page.getByTestId('mobile-toc');
+    await expect(toc).toHaveCount(1);
+    await expect(page.getByTestId('desktop-toc')).toHaveCount(1);
+    await expect(page.getByTestId('desktop-toc')).toBeHidden();
     await expect(toc).toBeVisible();
     await expect(toc).not.toHaveAttribute('open', '');
     await toc.locator('summary').click();
@@ -61,22 +62,36 @@ test('desktop TOC is sticky and matches the mobile TOC links', async ({ page }) 
   const articleRoute = await discoverRoute(page, 'articles');
   await gotoApp(page, articleRoute);
 
-  const desktopToc = page.locator(
-    'aside[data-testid="desktop-toc"], aside:has(a[href^="#"])'
-  ).first();
+  const desktopToc = page.getByTestId('desktop-toc');
+  const mobileToc = page.getByTestId('mobile-toc');
+  await expect(desktopToc).toHaveCount(1);
+  await expect(mobileToc).toHaveCount(1);
   await expect(desktopToc).toBeVisible();
+  await expect(mobileToc).toBeHidden();
   const position = await desktopToc.evaluate((element) => getComputedStyle(element).position);
   expect(position).toBe('sticky');
 
   const desktopLinks = await desktopToc.locator('a[href^="#"]').evaluateAll((links) =>
     links.map((link) => link.getAttribute('href'))
   );
-  const mobileLinks = await page
-    .locator('details[data-testid="mobile-toc"], details:has(summary:has-text("목차"))')
-    .first()
+  const mobileLinks = await mobileToc
     .locator('a[href^="#"]')
     .evaluateAll((links) => links.map((link) => link.getAttribute('href')));
   expect(desktopLinks).toEqual(mobileLinks);
+  expect(new Set(desktopLinks).size).toBe(desktopLinks.length);
+
+  for (const href of desktopLinks) {
+    expect(href).toMatch(/^#.+/);
+    await expect(page.locator(href!)).toHaveCount(1);
+  }
+
+  const articleGap = await page.locator('.article-content').evaluate((content) => {
+    const header = document.querySelector('.article-header');
+    if (!header) return Number.POSITIVE_INFINITY;
+    return Math.round(content.getBoundingClientRect().top - header.getBoundingClientRect().bottom);
+  });
+  expect(articleGap).toBeGreaterThanOrEqual(0);
+  expect(articleGap).toBeLessThanOrEqual(120);
 });
 
 test('article tables and code blocks preserve columns with internal scrolling', async ({ page }) => {

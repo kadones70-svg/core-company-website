@@ -12,6 +12,9 @@ export interface Props {
   image?: string;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
   noindex?: boolean;
+  nofollow?: boolean;
+  analyticsArticle?: string;
+  analyticsCategory?: string;
 }
 
 const {
@@ -21,7 +24,10 @@ const {
   type = 'website',
   image,
   jsonLd,
-  noindex = false
+  noindex = false,
+  nofollow = false,
+  analyticsArticle,
+  analyticsCategory
 } = Astro.props;
 
 const metaTitle = title.includes('Core Company') ? title : `${title} | Core Company 블로그`;
@@ -44,6 +50,7 @@ const pageJsonLd = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
 const jsonLdDocuments = [organizationJsonLd, ...pageJsonLd].map((document) =>
   JSON.stringify(document).replace(/</g, '\\u003c')
 );
+const isReviewBuild = process.env.REVIEW_BUILD === 'true';
 ---
 
 <!doctype html>
@@ -56,7 +63,7 @@ const jsonLdDocuments = [organizationJsonLd, ...pageJsonLd].map((document) =>
     <meta name="description" content={description} />
     <meta
       name="robots"
-      content={noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large'}
+      content={noindex ? `noindex, ${nofollow ? 'nofollow' : 'follow'}` : 'index, follow, max-image-preview:large'}
     />
     <link rel="canonical" href={canonicalUrl.toString()} />
     <link rel="icon" href={SITE.logoPath} type="image/webp" />
@@ -80,10 +87,23 @@ const jsonLdDocuments = [organizationJsonLd, ...pageJsonLd].map((document) =>
     ))}
     <slot name="head" />
   </head>
-  <body>
+  <body
+    data-analytics-page={analyticsArticle ? 'article' : undefined}
+    data-analytics-article={analyticsArticle}
+    data-analytics-category={analyticsCategory}
+  >
     <a class="skip-link" href="#main-content">본문 바로가기</a>
     <Header />
+    {isReviewBuild && (
+      <div class="review-banner" role="status" data-review-build-banner>
+        REVIEW BUILD · 샘플 콘텐츠 포함 · 운영 배포 금지
+      </div>
+    )}
     <slot />
     <Footer />
+    <script>
+      import { installAnalyticsBridge } from '../lib/tracking';
+      installAnalyticsBridge();
+    </script>
   </body>
 </html>

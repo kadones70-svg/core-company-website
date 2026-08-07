@@ -1,0 +1,139 @@
+CORE COMPANY BLOG CONTENT OPERATIONS GUIDE V1.1
+작성일: 2026-08-07
+
+이 문서는 기존 CONTENT_OPERATIONS_GUIDE.txt를 수정하지 않고 추가한 2차 QA 반영본입니다.
+
+1. 콘텐츠 위치
+
+- 게시글 Markdown: src/content/posts/<slug>.md
+- 게시글 이미지: public/images/posts/<slug>/
+- 공통 브랜드 자산: public/brand/
+- 실제 공개 글을 임의로 만들거나 sample:true를 해제하지 않습니다.
+
+2. 새 글 생성
+
+프로젝트 루트 blog-app/에서 다음 명령을 실행합니다.
+
+npm run content:new
+
+제목, slug, 요약, description, 카테고리, 태그, 콘텐츠 유형, 작성자, 검수자,
+게시일, 초안 여부, 대표 글 여부, 썸네일, alt, AI 활용 공개 문구를 입력합니다.
+
+- slug는 영문 소문자, 숫자, 하이픈만 사용합니다.
+- slug를 비워 두면 날짜 기반 안전한 slug를 생성합니다.
+- 중복 slug는 생성하지 않습니다.
+- 공개 글(draft:false, sample:false)을 생성할 때는 확인한 출처 1개 이상을 입력해야 합니다.
+- 공개 글에는 changeLog도 1개 이상 있어야 합니다. 생성 직후 frontmatter를 확인하십시오.
+
+3. 출처 단일 관리 규칙
+
+출처는 frontmatter의 sources만 단일 데이터 원본으로 사용합니다.
+본문에 "## 출처" 또는 같은 의미의 별도 출처 heading을 만들지 않습니다.
+글 상세 템플릿이 frontmatter sources를 이용해 출처 제목, 표시명, URL, 확인일, 자료 유형을 출력합니다.
+
+예시 구조:
+
+sources:
+  - title: "자료 표시명"
+    url: "https://example.com/original"
+    checkedAt: "2026-08-07"
+    type: "공식 문서"
+
+URL은 빈 값일 수 없고 http 또는 https 원문 주소를 사용합니다.
+
+4. 변경 이력 규칙
+
+공개 글에는 changeLog를 최소 1개 입력합니다.
+
+changeLog:
+  - date: "2026-08-07"
+    description: "초안 작성 및 출처 검수"
+    reviewer: "기술 책임자"
+
+draft:true 또는 sample:true 글은 작업 흐름상 sources와 changeLog가 비어 있을 수 있지만,
+공개 전에는 둘 다 채워야 합니다.
+
+5. 본문 heading 구조
+
+frontmatter title이 페이지 H1을 생성합니다. Markdown 본문에는 H1을 추가하지 않습니다.
+본문의 주요 절은 H2, 하위 절은 H3로 작성합니다.
+
+기본 골격:
+
+## 문제 또는 배경
+## 핵심 결론
+## 판단 기준
+## 비교 또는 실행 단계
+## 체크리스트
+## 주의사항
+## 정리
+
+출처 heading은 이 골격에 포함하지 않습니다.
+
+6. callout 문법
+
+> [!INFO]
+> 참고 내용
+
+> [!WARNING]
+> 주의 내용
+
+> [!DANGER]
+> 오류 또는 금지 내용
+
+정적인 안내이므로 접근성 트리에서는 note로 제공되고, 보이는 라벨과 색을 함께 사용합니다.
+
+7. draft와 sample
+
+- draft:true: production과 review 모두 기본 제외
+- sample:true: production 제외, build:review에 포함
+- 샘플 본문 상단에는 실제 고객 사례가 아님을 밝혀야 합니다.
+- 샘플을 공개 콘텐츠 수를 늘리기 위해 sample:false로 바꾸지 않습니다.
+
+8. 검증과 목록
+
+npm run content:validate
+npm run content:list
+
+content:validate는 frontmatter, 날짜, 카테고리, 태그 중복, 이미지 경로, alt,
+relatedPosts, 빈 출처 URL, 공개 글 근거 필드, heading 구조, 본문 출처 중복을 검사합니다.
+
+공개 글에서 다음 오류가 나면 해당 frontmatter를 채운 뒤 다시 검증합니다.
+
+- 공개 글에는 확인한 출처를 sources에 최소 1개 입력하세요.
+- 공개 글에는 작성·수정 기록을 changeLog에 최소 1개 입력하세요.
+
+9. 이미지
+
+- WebP 또는 AVIF 우선
+- 게시글별 public/images/posts/<slug>/ 사용
+- alt 필수
+- 원본을 삭제하지 않고 npm run image:optimize로 변환본을 생성
+
+10. 미리보기와 빌드
+
+개발 미리보기:
+npm run dev
+
+검수용 빌드:
+npm run build:review
+npm run preview
+
+운영 후보 빌드:
+npm run build
+
+배포에는 반드시 npm run build 결과의 dist/만 사용합니다.
+build:review 결과에는 REVIEW BUILD와 샘플 안내가 있으므로 절대 배포하지 않습니다.
+
+11. 공개 전 체크
+
+- draft:false, sample:false인지 의도 확인
+- sources 1개 이상과 URL/표시명/확인일/유형 확인
+- changeLog 1개 이상 확인
+- 관련 글 slug 존재 확인
+- thumbnail이 있으면 thumbnailAlt 확인
+- 본문에 별도 출처 heading이 없는지 확인
+- npm run content:validate 성공
+- npm run check 성공
+- npm run build 성공
+

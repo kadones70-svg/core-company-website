@@ -1,0 +1,42 @@
+[
+  {
+    "route": "/blog/404.html",
+    "count": 0
+  },
+  {
+    "route": "/blog/category/ai-adoption-cost/",
+    "count": 0
+  },
+  {
+    "route": "/blog/category/ai-infrastructure-security/",
+    "count": 0
+  },
+  {
+    "route": "/blog/category/automation-iot/",
+    "count": 0
+  },
+  {
+    "route": "/blog/category/document-data-ai/",
+    "count": 0
+  },
+  {
+    "route": "/blog/category/hospitality/",
+    "count": 0
+  },
+  {
+    "route": "/blog/category/office/",
+    "count": 0
+  },
+  {
+    "route": "/blog/editorial-policy/",
+    "count": 0
+  },
+  {
+    "route": "/blog/",
+    "count": 0
+  },
+  {
+    "route": "/blog/search/",
+    "count": 0
+  }
+]

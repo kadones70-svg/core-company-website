@@ -5,7 +5,7 @@ import { CATEGORIES } from '@/config/content';
 import { withBase } from '@/lib/paths';
 ---
 
-<BaseLayout title="검색 | Core Company Blog" description="Core Company 블로그의 AI, IoT, 자동화 실무 글 검색" canonicalPath={withBase('/search/')}>
+<BaseLayout title="검색 | Core Company Blog" description="Core Company 블로그의 AI, IoT, 자동화 실무 글 검색" canonicalPath={withBase('/search/')} noindex>
   <main id="main-content" data-pagefind-ignore>
     <header class="search-header section-shell">
       <Breadcrumbs items={[{ label: '블로그', href: withBase('/') }, { label: '검색' }]} />
@@ -55,7 +55,9 @@ import { withBase } from '@/lib/paths';
       const link = document.createElement('a');
       link.href = item.url.startsWith('/blog/') ? item.url : `/blog${item.url.startsWith('/') ? '' : '/'}${item.url}`;
       link.textContent = item.meta.title || item.url;
-      link.addEventListener('click', () => window.dispatchEvent(new CustomEvent('core:analytics', { detail: { event: 'search_result_click' } })));
+      link.dataset.analyticsEvent = 'search_result_click';
+      const articleMatch = new URL(link.href, location.href).pathname.match(/\/articles\/([a-z0-9]+(?:-[a-z0-9]+)*)\/?$/);
+      if (articleMatch) link.dataset.analyticsArticle = articleMatch[1];
       title.append(link);
       const excerpt = document.createElement('p');
       excerpt.className = 'search-result__excerpt';
@@ -76,6 +78,7 @@ import { withBase } from '@/lib/paths';
         ]);
         const items = (await Promise.all(response.results.map((result) => result.data())))
           .filter((item) => !item.url.includes('__pagefind-empty-index'));
+        window.dispatchEvent(new CustomEvent('core:analytics', { detail: { event: 'search', count: items.length } }));
         if (!items.length) {
           emptyNode.hidden = false;
           setStatus(`“${query}” 검색 결과가 없습니다.`);
@@ -85,7 +88,6 @@ import { withBase } from '@/lib/paths';
         items.forEach((item) => fragment.append(renderResult(item)));
         resultsNode.append(fragment);
         setStatus(`“${query}” 검색 결과 ${items.length}개`);
-        window.dispatchEvent(new CustomEvent('core:analytics', { detail: { event: 'search', count: items.length } }));
       } catch (error) {
         console.error(error);
         emptyNode.hidden = false;

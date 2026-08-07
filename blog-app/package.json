@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "engines": {
-    "node": ">=24 <27"
+    "node": "24.x"
   },
   "scripts": {
     "dev": "astro dev",
@@ -15,8 +15,10 @@
     "check": "astro check",
     "test": "tsx --test tests/unit/*.test.ts",
     "test:e2e": "playwright test",
-    "lighthouse": "npm run build && node scripts/lighthouse.mjs",
-    "review:screenshots": "playwright test tests/review/screenshots.spec.ts --project=chromium",
+    "lighthouse": "npm run build:review && node scripts/lighthouse.mjs",
+    "review:screenshots": "playwright test tests/review/screenshots.spec.ts tests/review/v1.2-screenshots.spec.ts --project=chromium",
+    "review:screenshots:v1.2:production": "cross-env CAPTURE_PRODUCTION=true PLAYWRIGHT_BUILD_MODE=production PLAYWRIGHT_PORT=4332 playwright test tests/review/v1.2-screenshots.spec.ts --project=chromium",
+    "verify:v1.2": "node scripts/run-v1.2-verification.mjs",
     "content:new": "node scripts/content-new.mjs",
     "content:validate": "node scripts/content-validate.mjs",
     "content:list": "node scripts/content-list.mjs",
@@ -25,7 +27,6 @@
   "dependencies": {
     "@astrojs/markdown-remark": "^7.2.2",
     "@astrojs/rss": "latest",
-    "@astrojs/sitemap": "latest",
     "astro": "7.1.6"
   },
   "devDependencies": {

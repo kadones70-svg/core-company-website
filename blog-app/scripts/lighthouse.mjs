@@ -7,12 +7,15 @@ import lighthouse from 'lighthouse';
 import { chromium } from '@playwright/test';
 
 const ROOT = process.cwd();
-const OUTPUT_DIR = path.join(ROOT, 'review', 'lighthouse');
+const OUTPUT_DIR = path.resolve(
+  process.env.LIGHTHOUSE_OUTPUT_DIR ?? path.join(ROOT, 'review', 'v1.2', 'lighthouse'),
+);
 const HOST = '127.0.0.1';
 const PREVIEW_PORT = 4322;
 const PAGES = [
   { name: 'home', url: `http://${HOST}:${PREVIEW_PORT}/blog/` },
   { name: 'editorial-policy', url: `http://${HOST}:${PREVIEW_PORT}/blog/editorial-policy/` },
+  { name: 'article-sample', url: `http://${HOST}:${PREVIEW_PORT}/blog/articles/pension-self-checkin-guide/` },
 ];
 
 function availablePort() {

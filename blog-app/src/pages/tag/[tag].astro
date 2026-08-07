@@ -3,14 +3,16 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import Breadcrumbs from '@/components/Breadcrumbs.astro';
 import ContactCta from '@/components/ContactCta.astro';
 import PostRows from '@/components/PostRows.astro';
-import { POPULAR_TAGS, tagToSlug } from '@/config/content';
+import { assertUniqueTagRoutes, tagToSlug } from '@/config/content';
 import { withBase } from '@/lib/paths';
 import { getVisiblePosts } from '@/lib/posts';
 
 export async function getStaticPaths() {
   const posts = await getVisiblePosts();
-  const tags = [...new Set([...POPULAR_TAGS, ...posts.flatMap((post) => post.data.tags)])];
-  return tags.map((tag) => ({ params: { tag: tagToSlug(tag) }, props: { tag } }));
+  const routes = assertUniqueTagRoutes(
+    posts.flatMap((post) => post.data.tags.map((tag) => ({ tag, source: `src/content/posts/${post.id}.md` }))),
+  );
+  return routes.map((route) => ({ params: { tag: route.slug }, props: { tag: route.tag } }));
 }
 
 const { tag } = Astro.props;

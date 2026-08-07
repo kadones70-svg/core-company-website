@@ -6,7 +6,7 @@
   --color-border: #d9d4cb;
   --color-orange: #e8620a;
   --color-orange-accessible: #9a3a00;
-  --color-purple: #7340c8;
+  --color-purple: #8b3ac8;
   --color-blue: #1e56c8;
   --color-green: #3a6d11;
   --color-amber: #b86a00;
@@ -112,6 +112,21 @@ h4 {
   line-height: 1.2;
   letter-spacing: -0.045em;
   text-wrap: balance;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+.review-banner {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 20px;
+  text-align: center;
+  font: 700 0.75rem/1.4 var(--font-mono);
+  letter-spacing: 0.08em;
+  color: #fff;
+  background: var(--color-coral);
+  word-break: keep-all;
+  overflow-wrap: anywhere;
 }
 
 .container {
@@ -798,6 +813,7 @@ h4 {
     right: 0;
     left: 0;
     display: none;
+    flex-direction: column;
     max-height: min(70vh, 35rem);
     align-items: stretch;
     padding: 1rem max(1.5rem, calc((100vw - var(--container)) / 2));
