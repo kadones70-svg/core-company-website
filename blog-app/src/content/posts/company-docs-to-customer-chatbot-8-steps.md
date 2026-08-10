@@ -14,9 +14,9 @@ contentType: "도입 가이드"
 author: "Core Company"
 reviewer: "기술 책임자"
 publishedAt: "2026-08-10"
-updatedAt: "2026-08-10"
+updatedAt: "2026-08-12"
 draft: false
-featured: false
+featured: true
 thumbnail: "/blog/images/posts/company-docs-to-customer-chatbot-8-steps/01_repeated_questions_problem_glassmorphism.png"
 thumbnailAlt: "반복 문의가 상담 담당자에게 몰리고 문서가 흩어진 상황"
 sources:
@@ -53,6 +53,9 @@ sources:
     checkedAt: "2026-08-10"
     type: "공식 문서"
 changeLog:
+  - date: "2026-08-10"
+    description: "홈 FEATURED 상단 노출 — featured 활성화 및 updatedAt 조정 (정렬 기준 반영)"
+    reviewer: "기술 책임자"
   - date: "2026-08-10"
     description: "V1 공개 배포 — 기술 책임자 승인, draft 해제 후 사이트 게시"
     reviewer: "기술 책임자"
