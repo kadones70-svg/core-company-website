@@ -1,6 +1,6 @@
 ---
 title: "회사 문서를 고객 안내 챗봇으로 바꾸는 8단계"
-summary: "문서 정리, RAG 검색, 로컬 LLM, 서버 연동, 평가·튜닝 순서로 자동 안내 챗봇을 만드는 8단계"
+summary: "문서 정리, RAG 검색, 로컬 LLM, 서버 연동, 평가·튜닝으로 자동 안내 챗봇 구축 8단계"
 description: "AI 자동 안내 챗봇을 문서 정리, RAG 검색, 로컬 LLM, 서버 연동, 평가와 튜닝 순서로 구축하는 과정을 쉽게 설명합니다."
 category: "AI 도입·비용"
 tags:
@@ -67,7 +67,10 @@ sources:
     type: "공식 문서"
 changeLog:
   - date: "2026-08-10"
-    description: "홈 FEATURED 히어로 curated 지정 — featuredOrder: 1 적용 (발행일과 무관하게 상단 고정)"
+    description: "V3: 배포 재검수 경미 사항 반영 — 변경 이력 내부 용어 정리, 요약문 조정"
+    reviewer: "기술 책임자"
+  - date: "2026-08-10"
+    description: "홈 화면 추천 글로 지정 (발행일과 무관하게 상단 고정)"
     reviewer: "기술 책임자"
   - date: "2026-08-10"
     description: "배포 검수 반영 — 발행일·수정일 2026-08-10 확정, AI 활용 문구 검토 완료형 변경, 데이터 잔류 문구에 구성 조건 추가, 모델 후보 공식 출처 보강"
