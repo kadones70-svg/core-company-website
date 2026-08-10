@@ -13,13 +13,25 @@ tags:
 contentType: "도입 가이드"
 author: "Core Company"
 reviewer: "기술 책임자"
-publishedAt: "2026-08-11"
-updatedAt: "2026-08-11"
+publishedAt: "2026-08-10"
+updatedAt: "2026-08-10"
 draft: false
 featured: true
 thumbnail: "/blog/images/posts/company-docs-to-customer-chatbot-8-steps/01_repeated_questions_problem_glassmorphism.png"
 thumbnailAlt: "반복 문의가 상담 담당자에게 몰리고 문서가 흩어진 상황"
 sources:
+  - title: "Qwen3-8B 공식 모델 카드"
+    url: "https://huggingface.co/Qwen/Qwen3-8B"
+    checkedAt: "2026-08-10"
+    type: "공식 문서"
+  - title: "Llama 3.1 8B Instruct 공식 모델 카드"
+    url: "https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct"
+    checkedAt: "2026-08-10"
+    type: "공식 문서"
+  - title: "BGE reranker v2-m3 공식 모델 카드"
+    url: "https://huggingface.co/BAAI/bge-reranker-v2-m3"
+    checkedAt: "2026-08-10"
+    type: "공식 문서"
   - title: "Qwen2.5-7B-Instruct 공식 모델 카드"
     url: "https://huggingface.co/Qwen/Qwen2.5-7B-Instruct"
     checkedAt: "2026-08-10"
@@ -54,7 +66,7 @@ sources:
     type: "공식 문서"
 changeLog:
   - date: "2026-08-10"
-    description: "홈 정렬 기준을 publishedAt으로 전환 — 발행일 2026-08-11 적용(상단 노출 유지), updatedAt 정렬 해제"
+    description: "배포 검수 반영 — 발행일·수정일 2026-08-10 확정, AI 활용 문구 검토 완료형 변경, 데이터 잔류 문구에 구성 조건 추가, 모델 후보 공식 출처 보강"
     reviewer: "기술 책임자"
   - date: "2026-08-10"
     description: "V1 공개 배포 — 기술 책임자 승인, draft 해제 후 사이트 게시"
@@ -62,7 +74,7 @@ changeLog:
   - date: "2026-08-10"
     description: "V1: 사이트 블로그 게시용 최종본 — 카탈로그 최종본을 blog-app 게시 형식으로 변환하고 이미지 경로를 사이트 규칙(/blog/images/posts/)으로 교체"
     reviewer: "기술 책임자"
-aiDisclosure: "초안의 구조와 문장 정리에 AI 보조를 사용했으며, 공개 전 기술 책임자가 사실·적용 조건·연락 수단을 검토해야 합니다."
+aiDisclosure: "초안의 구조와 문장 정리에 AI 보조를 사용했으며, 공개 전 기술 책임자가 사실·적용 조건·연락 수단을 검토했습니다."
 relatedPosts:
   - "rag-document-cleanup"
   - "ai-answer-source-citations"
@@ -172,10 +184,10 @@ RAG는 쉽게 말해 AI에게 이렇게 시키는 구조입니다.
 |---|---|
 | 장비 | Mac, 미니 PC, 개인 GPU 워크스테이션 |
 | 실행 환경 | Ollama, llama.cpp, MLX LM |
-| 모델 후보 | Qwen2.5-7B-Instruct, Qwen3-8B, Llama 8B급 후보 |
+| 모델 후보 | Qwen2.5-7B-Instruct, Qwen3-8B, Llama 3.1 8B Instruct 후보 |
 | 적합한 목적 | 내부 테스트, 데모, 문서 품질 점검 |
 
-상용 기본 후보 조합은 `Qwen2.5-7B-Instruct + BGE-M3 + BGE reranker v2-m3`입니다. Qwen2.5-7B-Instruct는 Apache-2.0 라이선스 모델이고, BGE-M3는 다국어 검색용 임베딩 모델 후보입니다. 다만 한국어 상담 품질과 실제 속도는 회사 문서 샘플로 실측해야 합니다.
+1차 검증 후보 조합은 `Qwen2.5-7B-Instruct + BGE-M3 + BGE reranker v2-m3`입니다. Qwen2.5-7B-Instruct는 Apache-2.0 라이선스 모델이고, BGE-M3는 다국어 검색용 임베딩 모델 후보입니다. 다만 한국어 상담 품질과 실제 속도는 회사 문서 샘플로 실측해야 합니다.
 
 ### 사무실 운영: GPU 서버 또는 워크스테이션
 
@@ -285,7 +297,7 @@ AI 자동 안내 챗봇은 멋진 채팅창 하나가 아닙니다. 회사 문�
 
 작게는 Mac이나 미니 PC에서 소형 LLM으로 검증할 수 있습니다. 운영 단계에서는 사무실 GPU 서버로 홈페이지와 출판 앱에 연결할 수 있습니다. 더 큰 규모에서는 DGX급 장비를 검토할 수 있습니다.
 
-온프레미스 방식이라면 고객 질문과 답변 로그가 사무실 안의 AI 서버에 머무릅니다. Core Company의 핵심 약속인 “당신의 데이터는 밖으로 나가지 않는다”는 바로 이 구조에서 지켜집니다.
+온프레미스 방식이라면, 외부 LLM API, 외부 분석 로그, 원격 백업을 사용하지 않도록 구성하고 네트워크 경로를 검증한 경우에 고객 질문과 답변 로그는 사무실 안의 AI 서버에 머무릅니다. Core Company의 핵심 약속인 “당신의 데이터는 밖으로 나가지 않는다”는 바로 이 구성에서 지켜집니다.
 
 중요한 것은 순서입니다.
 
