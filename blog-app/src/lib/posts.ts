@@ -14,8 +14,8 @@ export function isVisiblePost(post: PostEntry) {
 export async function getVisiblePosts() {
   const posts = await getCollection('posts', isVisiblePost);
   return posts.sort((a, b) => {
-    const aDate = new Date(a.data.updatedAt).getTime();
-    const bDate = new Date(b.data.updatedAt).getTime();
+    const aDate = new Date(a.data.publishedAt).getTime();
+    const bDate = new Date(b.data.publishedAt).getTime();
     return bDate - aDate || a.data.title.localeCompare(b.data.title, 'ko');
   });
 }
