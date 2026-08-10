@@ -60,6 +60,7 @@ const postSchema = z
     updatedAt: isoDate,
     draft: z.boolean(),
     featured: z.boolean(),
+    featuredOrder: z.number().int().positive().optional(),
     thumbnail: z
       .string()
       .trim()

@@ -17,6 +17,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: true
+featuredOrder: 1
 thumbnail: "/blog/images/posts/company-docs-to-customer-chatbot-8-steps/01_repeated_questions_problem_glassmorphism.png"
 thumbnailAlt: "반복 문의가 상담 담당자에게 몰리고 문서가 흩어진 상황"
 sources:
@@ -65,6 +66,9 @@ sources:
     checkedAt: "2026-08-10"
     type: "공식 문서"
 changeLog:
+  - date: "2026-08-10"
+    description: "홈 FEATURED 히어로 curated 지정 — featuredOrder: 1 적용 (발행일과 무관하게 상단 고정)"
+    reviewer: "기술 책임자"
   - date: "2026-08-10"
     description: "배포 검수 반영 — 발행일·수정일 2026-08-10 확정, AI 활용 문구 검토 완료형 변경, 데이터 잔류 문구에 구성 조건 추가, 모델 후보 공식 출처 보강"
     reviewer: "기술 책임자"

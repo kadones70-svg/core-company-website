@@ -7,7 +7,11 @@ import { articlePath, withBase } from '@/lib/paths';
 import { formatDate, getPostSlug, getVisiblePosts, isoDate, readingMinutes } from '@/lib/posts';
 
 const posts = await getVisiblePosts();
-const featured = posts.find((post) => post.data.featured) ?? posts[0];
+const featuredPosts = posts.filter((post) => post.data.featured);
+const curatedFeatured = featuredPosts
+  .filter((post) => post.data.featuredOrder != null)
+  .sort((a, b) => (a.data.featuredOrder ?? 0) - (b.data.featuredOrder ?? 0))[0];
+const featured = curatedFeatured ?? featuredPosts[0] ?? posts[0];
 const editorsPick = posts.find((post) => post.id !== featured?.id) ?? featured;
 const latest = posts.slice(0, 6);
 ---
