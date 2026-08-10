@@ -13,9 +13,9 @@ contentType: "뉴스 해설"
 author: "Core Company"
 reviewer: "사용자 검수 완료"
 publishedAt: "2026-08-10"
-updatedAt: "2026-08-10"
+updatedAt: "2026-08-11"
 draft: false
-featured: false
+featured: true
 thumbnail: "/blog/images/posts/gpt-5-6-luna-free-strategy/gpt-5-6-luna-platform-hero.png"
 thumbnailAlt: "개념 이미지: GPT-5.6 Luna 무료화가 사용자·개발자·API 생태계에 미치는 영향을 시각화한 이미지"
 sources:
@@ -32,6 +32,12 @@ sources:
     checkedAt: "2026-08-10"
     type: "해외 뉴스"
 changeLog:
+  - date: "2026-08-11"
+    description: "V3: updatedAt 2026-08-11 변경 — 기존 featured 4건과의 정렬 충돌 해소, 홈 FEATURED ARTICLE + 최신 6개 목록 최상단 노출"
+    reviewer: "사용자 승인"
+  - date: "2026-08-10"
+    description: "V2: featured:true 설정 — 홈 FEATURED ARTICLE 상단 고정 노출 (동일 날짜 글 다수로 제목순 정렬 밀림 문제 해결)"
+    reviewer: "사용자 승인"
   - date: "2026-08-10"
     description: "V1: ZDNet 루나 무료화 기사 기반 뉴스 해설 작성 — 사실/해석/검증불가 구분, 교차 보도 검증(Google News RSS), 이미지 2건 '개념 이미지' 캡션 적용"
     reviewer: "사용자 검수 완료"
