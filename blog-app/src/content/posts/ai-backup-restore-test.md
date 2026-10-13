@@ -15,7 +15,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/ai-backup-restore-test/ai-backup-restore-test.png"
+thumbnail: "/blog/images/posts/ai-backup-restore-test/ai-backup-restore-test.webp"
 thumbnailAlt: "백업 대상·주기·복구 시나리오·목표시간·결과·외부 사본을 점검하는 도식"
 sources:
   - title: "BMR/DR 운영 체크리스트 — 백업은 있는데 복구가 안 돼요 (ahtid)"
@@ -65,7 +65,7 @@ sample: false
 3. 서비스 기동 확인 — 모델이 로드되고 API가 응답하는가
 4. RTO·RPO 실측 — 목표 시간 대비 실제 시간
 
-![백업 대상·주기·복구 시나리오·목표시간·결과·외부 사본을 점검하는 도식](/blog/images/posts/ai-backup-restore-test/ai-backup-restore-test.png)
+![백업 대상·주기·복구 시나리오·목표시간·결과·외부 사본을 점검하는 도식](/blog/images/posts/ai-backup-restore-test/ai-backup-restore-test.webp)
 *개념 이미지: 백업 대상과 주기, 복구 시나리오와 목표 시간, 결과 기록을 점검하는 도식입니다.*
 
 ## 암호화 키는 백업본과 분리

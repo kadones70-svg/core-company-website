@@ -18,7 +18,7 @@ updatedAt: "2026-08-10"
 draft: false
 featured: true
 featuredOrder: 1
-thumbnail: "/blog/images/posts/company-docs-to-customer-chatbot-8-steps/01_repeated_questions_problem_glassmorphism.png"
+thumbnail: "/blog/images/posts/company-docs-to-customer-chatbot-8-steps/01_repeated_questions_problem_glassmorphism.webp"
 thumbnailAlt: "반복 문의가 상담 담당자에게 몰리고 문서가 흩어진 상황"
 sources:
   - title: "Qwen3-8B 공식 모델 카드"
@@ -98,7 +98,7 @@ sample: false
 
 담당자는 매번 비슷한 답을 다시 씁니다. 문제는 시간이 아니라 일관성입니다. 같은 회사 안에서도 사람마다 설명이 조금씩 달라지고, 오래된 가격표나 예전 안내문이 섞이면 고객은 더 헷갈립니다.
 
-![반복 문의가 상담 담당자에게 몰리고 문서가 흩어진 상황](/blog/images/posts/company-docs-to-customer-chatbot-8-steps/01_repeated_questions_problem_glassmorphism.png)
+![반복 문의가 상담 담당자에게 몰리고 문서가 흩어진 상황](/blog/images/posts/company-docs-to-customer-chatbot-8-steps/01_repeated_questions_problem_glassmorphism.webp)
 *반복 문의가 쌓이면 담당자의 시간이 줄어드는 것보다 먼저, 안내 기준이 흔들리기 시작합니다.*
 
 AI 자동 안내 챗봇은 이 문제를 줄이기 위한 시스템입니다. 다만 좋은 챗봇은 모델 하나를 설치한다고 만들어지지 않습니다. 먼저 회사 문서를 정리하고, 그 문서를 AI가 찾기 쉬운 형태로 바꾸고, 고객 질문이 들어오면 근거를 찾아 답하게 해야 합니다.
@@ -144,7 +144,7 @@ AI는 긴 PDF 한 덩어리보다 잘 나뉜 문단과 메타데이터를 더 �
 
 그래서 문서를 작은 단위로 나누고, 각 문단에 제목, 버전, 공개 범위, 담당 부서, 유효기간을 붙입니다. 고객에게 보여도 되는 문서와 내부 직원만 봐야 하는 문서를 구분하는 것도 이 단계에서 합니다.
 
-![흩어진 회사 문서가 정리되어 AI 지식베이스로 들어가는 과정](/blog/images/posts/company-docs-to-customer-chatbot-8-steps/02_documents_to_knowledge_base_glassmorphism.png)
+![흩어진 회사 문서가 정리되어 AI 지식베이스로 들어가는 과정](/blog/images/posts/company-docs-to-customer-chatbot-8-steps/02_documents_to_knowledge_base_glassmorphism.webp)
 *문서 수집의 목표는 파일을 많이 넣는 것이 아니라, AI가 근거로 사용할 수 있는 지식베이스를 만드는 것입니다.*
 
 실제 작업 흐름은 이렇습니다.
@@ -169,7 +169,7 @@ RAG는 쉽게 말해 AI에게 이렇게 시키는 구조입니다.
 
 고객이 홈페이지나 앱에서 질문하면, 시스템은 먼저 질문 의도를 확인합니다. 그다음 회사 문서에서 관련 문단을 찾고, 접근 권한을 확인한 뒤, LLM에게 그 근거를 넘깁니다. LLM은 전달받은 근거 안에서 답변을 만듭니다.
 
-![고객 질문이 문서 근거 검색을 거쳐 답변으로 이어지는 RAG 흐름](/blog/images/posts/company-docs-to-customer-chatbot-8-steps/03_rag_evidence_answer_flow_glassmorphism.png)
+![고객 질문이 문서 근거 검색을 거쳐 답변으로 이어지는 RAG 흐름](/blog/images/posts/company-docs-to-customer-chatbot-8-steps/03_rag_evidence_answer_flow_glassmorphism.webp)
 *RAG 구조에서는 답변보다 먼저 근거를 찾습니다. 그래야 고객 안내에 기준이 생깁니다.*
 
 이 구조의 장점은 답변의 기준이 생긴다는 점입니다. 고객에게 답할 때 “AI가 그렇게 말했습니다”가 아니라 “어떤 문서를 근거로 답했습니다”라고 설명할 수 있습니다.
@@ -178,7 +178,7 @@ RAG는 쉽게 말해 AI에게 이렇게 시키는 구조입니다.
 
 모델과 장비 선택은 처음부터 하나로 고정하지 않아도 됩니다. 카탈로그에서는 세 가지 선택지로 설명하는 것이 가장 이해하기 쉽습니다.
 
-![Mac과 미니 PC에서 시작해 GPU 서버와 DGX급 장비로 확장되는 선택지](/blog/images/posts/company-docs-to-customer-chatbot-8-steps/04_hardware_scale_options_glassmorphism.png)
+![Mac과 미니 PC에서 시작해 GPU 서버와 DGX급 장비로 확장되는 선택지](/blog/images/posts/company-docs-to-customer-chatbot-8-steps/04_hardware_scale_options_glassmorphism.webp)
 *처음부터 대형 장비를 고정하지 않습니다. 문서와 질문으로 검증한 뒤 필요한 만큼 확장합니다.*
 
 ### 작은 검증: Mac, 미니 PC, 개인 워크스테이션
@@ -231,7 +231,7 @@ DGX Spark는 NVIDIA 공식 기준 128GB 통합 시스템 메모리를 제공하�
 
 웹사이트 오른쪽 아래의 채팅창, 전자 카탈로그 안의 “질문하기” 버튼, 출판 앱의 도움말 화면처럼 자연스럽게 붙입니다. 사용자는 복잡한 AI 시스템을 볼 필요가 없습니다. 그냥 질문하고 답을 받으면 됩니다.
 
-![홈페이지와 출판 앱이 백엔드 API를 통해 내부 AI 서버와 연결되는 구조](/blog/images/posts/company-docs-to-customer-chatbot-8-steps/05_app_api_ai_server_connection_glassmorphism.png)
+![홈페이지와 출판 앱이 백엔드 API를 통해 내부 AI 서버와 연결되는 구조](/blog/images/posts/company-docs-to-customer-chatbot-8-steps/05_app_api_ai_server_connection_glassmorphism.webp)
 *고객은 채팅창만 보지만, 뒤에서는 문서 검색, 권한 확인, LLM 답변, 담당자 전환이 함께 움직입니다.*
 
 뒤에서는 다음 일이 일어납니다.
@@ -279,7 +279,7 @@ DGX Spark는 NVIDIA 공식 기준 128GB 통합 시스템 메모리를 제공하�
 
 좋은 자동 안내 시스템은 한 번 만들고 끝나지 않습니다. 고객 질문이 쌓이면, 어떤 문서가 부족한지 보입니다. 챗봇이 자주 틀리는 질문도 보입니다. 담당자에게 자주 넘어가는 질문도 보입니다.
 
-![질문 시험, 근거 확인, 권한 점검, 튜닝이 반복되는 운영 루프](/blog/images/posts/company-docs-to-customer-chatbot-8-steps/06_evaluation_tuning_loop_glassmorphism.png)
+![질문 시험, 근거 확인, 권한 점검, 튜닝이 반복되는 운영 루프](/blog/images/posts/company-docs-to-customer-chatbot-8-steps/06_evaluation_tuning_loop_glassmorphism.webp)
 *실제 질문으로 시험하고, 틀린 이유를 문서·검색·프롬프트·모델 선택으로 나누어 고칩니다.*
 
 이때 튜닝은 다섯 가지로 나눠 생각합니다.

@@ -14,7 +14,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/sensor-calibration-maintenance/sensor-calibration-maintenance.png"
+thumbnail: "/blog/images/posts/sensor-calibration-maintenance/sensor-calibration-maintenance.webp"
 thumbnailAlt: "센서는 설치보다 교정과 점검이 중요하다"
 sources:
   - title: "실무자를 위한 KOLAS 교정성적서 보는 법 (haiameng)"
@@ -85,7 +85,7 @@ sample: false
 - 배터리 잔량
 - 교정 기한초과 기기 수
 
-![교정 주기·기준값·배터리·통신·오염·드리프트를 함께 관리하는 센서 점검 도식](/blog/images/posts/sensor-calibration-maintenance/sensor-calibration-maintenance.png)
+![교정 주기·기준값·배터리·통신·오염·드리프트를 함께 관리하는 센서 점검 도식](/blog/images/posts/sensor-calibration-maintenance/sensor-calibration-maintenance.webp)
 *개념 이미지: 센서값 하나가 아니라 기준기 비교와 장치 상태를 함께 확인하는 예방 점검 항목입니다.*
 
 오늘 센서의 마지막 교정일을 확인해 보세요. Core Company는 교정 달력과 성적서 검토 절차를 설계해 드리겠습니다.

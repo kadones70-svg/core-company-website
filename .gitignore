@@ -1,1 +1,5 @@
 .wrangler/
+node_modules/
+blog-app/node_modules/
+dist/
+blog-app/dist/

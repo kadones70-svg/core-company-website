@@ -14,7 +14,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/ai-incident-first-thirty-minutes/ai-incident-thirty-minute-timeline-v10.png"
+thumbnail: "/blog/images/posts/ai-incident-first-thirty-minutes/ai-incident-thirty-minute-timeline-v10.webp"
 thumbnailAlt: "AI 서비스 장애가 났을 때 첫 30분 대응표"
 sources:
   - title: "정보보안기사 실기 — 실전 답안 요령과 최종 체크리스트 (seanney79)"
@@ -83,5 +83,5 @@ sample: false
 
 > 장애·유출 대응의 법적 의무(신고·통지)는 최신 법령을 확인하고, 구체적 사안은 전문가 검토가 필요합니다.
 
-![AI 서비스 장애 첫 30분을 0~5분·5~15분·15~30분으로 나눈 대응 타임라인](/blog/images/posts/ai-incident-first-thirty-minutes/ai-incident-thirty-minute-timeline-v10.png)
+![AI 서비스 장애 첫 30분을 0~5분·5~15분·15~30분으로 나눈 대응 타임라인](/blog/images/posts/ai-incident-first-thirty-minutes/ai-incident-thirty-minute-timeline-v10.webp)
 *개념 이미지: 첫 30분은 원인을 추측하는 시간이 아니라 영향 확인·변경 동결·증거 보존·복구 인계를 순서대로 완료하는 시간입니다.*

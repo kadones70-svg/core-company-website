@@ -14,8 +14,8 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/nas-folder-permission-reset/nas-folder-permission-reset.png"
-thumbnailAlt: "NAS 공유 폴더의 소유자·역할 그룹·예외·퇴사자 권한을 다시 정리하는 단계"
+thumbnail: "/blog/images/posts/nas-folder-permission-reset/nas-folder-permission-reset-cover.webp"
+thumbnailAlt: "NAS 폴더 권한 목록을 화면으로 확인하며 접근 권한을 정리하는 모습"
 sources:
   - title: "Synology NAS 사용자 및 그룹 생성, 공유폴더 생성, 권한부여 방법 (아이티존)"
     url: "https://m.blog.naver.com/itzone5678/221106959731"
@@ -62,7 +62,7 @@ IT 담당자는 시스템을 관리하지만, 모든 문서의 업무상 필요�
 
 거부(Deny) 권한은 허용보다 우선 적용되고, 상위 폴더 권한은 하위에 상속됩니다. 삭제 권한은 최소 인원에게만 주는 것이 기본입니다. 개인에게 직접 준 권한은 기간·사유·승인자를 남긴 **예외**로 분리합니다.
 
-![NAS 공유 폴더의 소유자·역할 그룹·예외·퇴사자 권한을 다시 정리하는 단계](/blog/images/posts/nas-folder-permission-reset/nas-folder-permission-reset.png)
+![NAS 공유 폴더의 소유자·역할 그룹·예외·퇴사자 권한을 다시 정리하는 단계](/blog/images/posts/nas-folder-permission-reset/nas-folder-permission-reset.webp)
 *개념 이미지: 폴더 소유자 지정부터 역할표, 퇴사자 제거, 공유 만료, 로그 점검까지 권한 재정비 순서를 보여 줍니다.*
 
 ## 4단계: 들어가야 할 사람과 못 들어가야 할 사람이 시험합니다

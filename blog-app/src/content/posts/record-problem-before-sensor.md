@@ -15,7 +15,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/record-problem-before-sensor/record-problem-before-sensor.png"
+thumbnail: "/blog/images/posts/record-problem-before-sensor/record-problem-before-sensor.webp"
 thumbnailAlt: "반복 문제·측정 질문·지표·센서 필요성·결정·중단 기준·예산을 잇는 도식"
 sources:
   - title: "데이터로거가 필요한 경우와 완벽한 계측 활용법 (haiameng)"
@@ -84,5 +84,5 @@ sample: false
 
 센서는 '산 다음'이 아니라 '무엇을 물을지 정한 다음' 사야 합니다. 오늘 반복되는 불편 하나를 관찰 문장으로 적고, 측정 질문으로 바꿔 보세요. Core Company는 그 질문에 답하기 위해 필요한 기록 장비와 시험 범위를 설계해 드리겠습니다.
 
-![반복 문제를 측정 질문과 시험 설치 결정으로 바꾸는 센서 도입 흐름](/blog/images/posts/record-problem-before-sensor/record-problem-before-sensor.png)
+![반복 문제를 측정 질문과 시험 설치 결정으로 바꾸는 센서 도입 흐름](/blog/images/posts/record-problem-before-sensor/record-problem-before-sensor.webp)
 *개념 이미지: 관찰한 문제를 측정 질문·후속 행동·중단 기준으로 바꾼 뒤에만 예산을 여는 순서입니다.*

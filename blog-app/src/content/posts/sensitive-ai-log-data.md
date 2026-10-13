@@ -14,7 +14,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/sensitive-ai-log-data/sensitive-ai-log-data.png"
+thumbnail: "/blog/images/posts/sensitive-ai-log-data/sensitive-ai-log-data.webp"
 thumbnailAlt: "AI 로그에 남기면 안 되는 정보"
 sources:
   - title: "OpenAI는 AI 해킹을 일주일 뒤에 알았나 — 허깅페이스·로그에 남은 흔적 (zzufam_log)"
@@ -54,7 +54,7 @@ AI 시스템이 프롬프트 원문을 통째로 로그에 남기면, 사용자�
 6. 위험 행동 시 자동 중단 장치
 7. 정기 정책 점검
 
-![AI 로그에 남기면 안 되는 정보](/blog/images/posts/sensitive-ai-log-data/sensitive-ai-log-data.png)
+![AI 로그에 남기면 안 되는 정보](/blog/images/posts/sensitive-ai-log-data/sensitive-ai-log-data.webp)
 *개념 이미지: 정상 로그와 과수집 로그를 나란히 비교해 민감 필드와 보관 기간을 점검하는 도식입니다.*
 
 ## 로그 저장과 실시간 감시는 다릅니다

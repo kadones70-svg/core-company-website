@@ -14,7 +14,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/hybrid-ai-data-boundary/hybrid-ai-data-boundary-v10.png"
+thumbnail: "/blog/images/posts/hybrid-ai-data-boundary/hybrid-ai-data-boundary-v10.webp"
 thumbnailAlt: "하이브리드 AI에서 데이터 경계를 정하는 법"
 sources:
   - title: "클라우드 데이터 보호를 위한 보안 팁 (3ice33)"
@@ -79,5 +79,5 @@ sample: false
 
 'VPN만 쓰면 안전', '클라우드 백업만 하면 안전' 같은 단순화는 위험합니다. 오늘 데이터를 세 등급으로 나누고, 외부로 나가는 경로를 허용 목록으로 정리해 보세요. Core Company는 등급별 라우팅 규칙과 승인 게이트를 설계해 드리겠습니다.
 
-![하이브리드 AI 요청을 데이터 민감도에 따라 로컬·최소 외부·승인 외부·차단으로 나눈 라우팅 도식](/blog/images/posts/hybrid-ai-data-boundary/hybrid-ai-data-boundary-v10.png)
+![하이브리드 AI 요청을 데이터 민감도에 따라 로컬·최소 외부·승인 외부·차단으로 나눈 라우팅 도식](/blog/images/posts/hybrid-ai-data-boundary/hybrid-ai-data-boundary-v10.webp)
 *개념 이미지: 한 문장 안에서도 민감 필드와 일반 질문을 나눠 처리하면 외부 전송량을 줄이면서 필요한 기능만 사용할 수 있습니다.*

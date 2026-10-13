@@ -14,7 +14,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/ai-maintenance-cost-scope/ai-maintenance-cost-scope-v10.png"
+thumbnail: "/blog/images/posts/ai-maintenance-cost-scope/ai-maintenance-cost-scope-v10.webp"
 thumbnailAlt: "AI 유지보수비가 무엇에 쓰이는지 하루·한 달·분기로 나눈 항목"
 sources:
   - title: "많은 기업이 놓치는 '계약 관리'의 민낯 (modusign)"
@@ -49,7 +49,7 @@ sample: false
 | 한 달 | 백업 검증, 패치 적용, 사용량 검토 |
 | 분기 | 복구 훈련, 권한 점검, 계약 범위 재확인 |
 
-![AI 유지보수비가 무엇에 쓰이는지 하루·한 달·분기로 나눈 항목](/blog/images/posts/ai-maintenance-cost-scope/ai-maintenance-cost-scope-v10.png)
+![AI 유지보수비가 무엇에 쓰이는지 하루·한 달·분기로 나눈 항목](/blog/images/posts/ai-maintenance-cost-scope/ai-maintenance-cost-scope-v10.webp)
 *개념 이미지: 유지보수 업무를 주기별로 나누고 책임자와 제외 사항을 명시하는 도식입니다.*
 
 ## 계약 리스크 프레임

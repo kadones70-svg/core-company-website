@@ -14,7 +14,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/cleaning-handover-checklist/cleaning-handover-checklist-v10-v2.png"
+thumbnail: "/blog/images/posts/cleaning-handover-checklist/cleaning-handover-checklist-v10-v2.webp"
 thumbnailAlt: "체크아웃 직후 상태 확인부터 판매 판정까지 이어지는 청소 인수인계 체크리스트"
 sources:
   - title: "제주 펜션 운영 객실 관리 체크리스트 — 체크인 준비·비품관리 (cleanwoos7)"
@@ -58,7 +58,7 @@ sample: false
 - **냄새** — 담배, 음식, 하수구, 곰팡이, 침구, 환기
 - **보고** — 파손, 분실물, 오염, 고장, 벌레, 흡연 흔적, 판매 보류
 
-![체크아웃 직후 상태 확인부터 판매 판정까지 이어지는 청소 인수인계 체크리스트](/blog/images/posts/cleaning-handover-checklist/cleaning-handover-checklist-v10-v2.png)
+![체크아웃 직후 상태 확인부터 판매 판정까지 이어지는 청소 인수인계 체크리스트](/blog/images/posts/cleaning-handover-checklist/cleaning-handover-checklist-v10-v2.webp)
 *개념 이미지: 상태 확인 → 청소 → 시설 점검 → 비품 세팅 → 사진 기록 → 판매 판정의 순서를 보여 주는 도식입니다.*
 
 ## 인수인계 기록은 한 줄로 남깁니다

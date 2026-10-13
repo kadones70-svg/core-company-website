@@ -14,7 +14,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/wired-vs-wireless-sensors/wired-vs-wireless-sensors-v10.png"
+thumbnail: "/blog/images/posts/wired-vs-wireless-sensors/wired-vs-wireless-sensors-v10.webp"
 thumbnailAlt: "유선과 무선 센서를 고를 때의 현실적인 기준"
 sources:
   - title: "환경 IoT 모니터링을 위한 최적의 무선통신 구축 솔루션 (smwmr0515)"
@@ -81,5 +81,5 @@ sample: false
 
 '무선이면 완벽하게 안전하다'는 표현은 쓰지 않습니다. 망분리·사설망 구성으로 리스크를 줄일 수 있습니다. 오늘 현장의 데이터 크기와 전원 조건을 한 장으로 정리해 보세요. Core Company는 그 조건에 맞는 유선·무선 구성을 설계해 드리겠습니다.
 
-![같은 측정 지점의 유선·무선 센서 경로를 전원·장애물·공사·정비 부담으로 비교한 도식](/blog/images/posts/wired-vs-wireless-sensors/wired-vs-wireless-sensors-v10.png)
+![같은 측정 지점의 유선·무선 센서 경로를 전원·장애물·공사·정비 부담으로 비교한 도식](/blog/images/posts/wired-vs-wireless-sensors/wired-vs-wireless-sensors-v10.webp)
 *개념 이미지: 유선은 초기 배선과 단선 접근을, 무선은 수신 음영과 연간 배터리 작업을 같은 현장 경로에서 비교해야 합니다.*

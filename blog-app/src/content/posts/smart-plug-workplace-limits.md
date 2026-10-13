@@ -14,7 +14,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/smart-plug-workplace-limits/smart-plug-workplace-limits.png"
+thumbnail: "/blog/images/posts/smart-plug-workplace-limits/smart-plug-workplace-limits.webp"
 thumbnailAlt: "스마트 플러그가 할 수 있는 일과 없는 일"
 sources:
   - title: "헤이홈 스마트플러그 Air 리뷰 (heung213)"
@@ -72,5 +72,5 @@ sample: false
 
 '전기세가 줄었다'는 수치를 붙이려면, 차단 전후 전력량을 직접 측정해 비교해야 합니다. 오늘 대기전력이 흐르는 기기 하나를 골라 스마트 플러그 활용 범위를 정해 보세요. Core Company는 전력·연결·측정 한계를 반영한 원격 전원 구성과 절감 측정법을 설계해 드리겠습니다.
 
-![기기 부하·플러그 정격·수동 버튼·앱 장애·정전 복귀를 점검하는 구매 검수 도식](/blog/images/posts/smart-plug-workplace-limits/smart-plug-workplace-limits.png)
+![기기 부하·플러그 정격·수동 버튼·앱 장애·정전 복귀를 점검하는 구매 검수 도식](/blog/images/posts/smart-plug-workplace-limits/smart-plug-workplace-limits.webp)
 *개념 이미지: 연결 기능보다 먼저 전기 조건과 연결이 끊긴 뒤의 동작을 확인하는 구매 전 점검표입니다.*

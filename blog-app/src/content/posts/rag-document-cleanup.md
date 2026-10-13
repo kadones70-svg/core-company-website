@@ -14,7 +14,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/rag-document-cleanup/rag-document-cleanup.png"
+thumbnail: "/blog/images/posts/rag-document-cleanup/rag-document-cleanup.webp"
 thumbnailAlt: "RAG 반입 전에 중복·만료·소유자·버전 규칙을 정리하는 순서"
 sources:
   - title: "RAG 구축 전 문서 정리, 담당자가 먼저 해야 할 6가지 (luventa_official)"
@@ -55,7 +55,7 @@ RAG는 검색 실패보다 **문서 충돌이 먼저** 나타납니다. 모델�
 - 대주제 → 소주제 폴더 구조, 깊이 3~4단계 제한
 - 공유 폴더 전체에 동일 규칙 적용
 
-![RAG 반입 전에 중복·만료·소유자·버전 규칙을 정리하는 순서](/blog/images/posts/rag-document-cleanup/rag-document-cleanup.png)
+![RAG 반입 전에 중복·만료·소유자·버전 규칙을 정리하는 순서](/blog/images/posts/rag-document-cleanup/rag-document-cleanup.webp)
 *개념 이미지: 중복 문서, 만료 문서, 소유자 없는 문서, 버전 규칙을 순서대로 정리하는 작업서입니다.*
 
 ## 테스트 질문은 세 종류를 함께

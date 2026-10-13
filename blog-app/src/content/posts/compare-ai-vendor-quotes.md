@@ -14,7 +14,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/compare-ai-vendor-quotes/compare-ai-vendor-quotes-v10.png"
+thumbnail: "/blog/images/posts/compare-ai-vendor-quotes/compare-ai-vendor-quotes-v10.webp"
 thumbnailAlt: "여러 AI 구축 견적을 같은 기준으로 재작성한 비교표"
 sources:
   - title: "AI 제품·서비스 확인제도 — 공공조달에서 무엇이 달라지나 (khk449)"
@@ -73,7 +73,7 @@ sample: false
 - 제외 항목 수 — 견적에서 빠진 항목
 - 응답시간 조건 — SLA 비교
 
-![서로 다른 세 AI 견적을 같은 36개월 행으로 정규화해 미정과 제외 항목을 비교한 표](/blog/images/posts/compare-ai-vendor-quotes/compare-ai-vendor-quotes-v10.png)
+![서로 다른 세 AI 견적을 같은 36개월 행으로 정규화해 미정과 제외 항목을 비교한 표](/blog/images/posts/compare-ai-vendor-quotes/compare-ai-vendor-quotes-v10.webp)
 *개념 이미지: 업체 총액을 그대로 비교하지 않고 같은 구성·기간·책임 행에 다시 써 빠진 범위를 찾습니다.*
 
 오늘 받은 견적서 세 개를 위 표의 같은 줄에 옮겨 보세요. Core Company는 포함·제외·SLA를 동일 단위로 정규화한 비교표를 만들어 드리겠습니다.

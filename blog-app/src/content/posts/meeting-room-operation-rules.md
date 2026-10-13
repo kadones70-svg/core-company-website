@@ -14,7 +14,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/meeting-room-operation-rules/meeting-room-operation-rules.png"
+thumbnail: "/blog/images/posts/meeting-room-operation-rules/meeting-room-operation-rules.webp"
 thumbnailAlt: "회의실 예약·노쇼·연장·장비 종료에 필요한 운영 규칙"
 sources:
   - title: "회의실예약시스템, 노쇼(No-Show) 회의실 때문에 고민이라면? (리브테크놀로지)"
@@ -59,7 +59,7 @@ sample: false
 
 이때 '몇 분을 기다릴지'는 보편 기준이 아니라 **현장 실험값**입니다. 임원 회의·외부 고객 회의처럼 예외가 필요한 유형도 함께 표시합니다.
 
-![회의실 예약·노쇼·연장·장비 종료에 필요한 운영 규칙](/blog/images/posts/meeting-room-operation-rules/meeting-room-operation-rules.png)
+![회의실 예약·노쇼·연장·장비 종료에 필요한 운영 규칙](/blog/images/posts/meeting-room-operation-rules/meeting-room-operation-rules.webp)
 *개념 이미지: 예약 생성부터 체크인, 노쇼 해제, 연장, 장비 종료까지 책임을 나누는 운영 항목입니다.*
 
 ## 안건 3: 연장과 충돌은 어떻게 처리하는가

@@ -14,7 +14,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/one-page-room-guide/one-page-room-guide.png"
+thumbnail: "/blog/images/posts/one-page-room-guide/one-page-room-guide.webp"
 thumbnailAlt: "예약 문자부터 체크아웃까지 객실 이용 안내를 한 장으로 구조화한 도식"
 sources:
   - title: "저스트스테이호텔 비대면 이용 안내 (justsleephotel)"
@@ -47,7 +47,7 @@ sample: false
 3. **객실 이용** — Wi-Fi, 비품, 분리배출, 금연, 취사·바비큐
 4. **체크아웃** — 키 반납, 체크아웃 절차, 퇴실 점검
 
-![예약 문자부터 체크아웃까지 객실 이용 안내를 한 장으로 구조화한 도식](/blog/images/posts/one-page-room-guide/one-page-room-guide.png)
+![예약 문자부터 체크아웃까지 객실 이용 안내를 한 장으로 구조화한 도식](/blog/images/posts/one-page-room-guide/one-page-room-guide.webp)
 *개념 이미지: 예약 → 출입 → 이용 → 체크아웃의 네 단계를 한 장에 담는 안내문 구조입니다.*
 
 ## 객실 안내문 필수 항목

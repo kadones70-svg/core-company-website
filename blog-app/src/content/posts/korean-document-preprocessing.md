@@ -14,7 +14,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/korean-document-preprocessing/korean-document-preprocessing-v10.png"
+thumbnail: "/blog/images/posts/korean-document-preprocessing/korean-document-preprocessing-v10.webp"
 thumbnailAlt: "한국어 사내 문서를 AI가 읽기 쉽게 준비하는 단계"
 sources:
   - title: "AI가 한글파일(HWP)을 못 읽습니다 — 30초에 해결하는 방법 (cmore_dev)"
@@ -50,7 +50,7 @@ sample: false
 
 계약서, 인사 문서, 개인정보가 포함된 한글 파일을 온라인 변환 사이트에 올리는 것은, 문서를 모르는 서버에 맡기는 것입니다. 민감 문서는 로컬·사내에서 해결하는 경로가 기본이어야 합니다.
 
-![한국어 사내 문서를 AI가 읽기 쉽게 준비하는 단계](/blog/images/posts/korean-document-preprocessing/korean-document-preprocessing-v10.png)
+![한국어 사내 문서를 AI가 읽기 쉽게 준비하는 단계](/blog/images/posts/korean-document-preprocessing/korean-document-preprocessing-v10.webp)
 *개념 이미지: HWP 문서를 변환 경로별로 준비하고 민감 문서는 외부 업로드를 피하는 처리 원칙입니다.*
 
 ## 준비 체크리스트

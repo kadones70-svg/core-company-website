@@ -14,7 +14,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/ninety-day-ai-adoption-plan/ninety-day-ai-adoption-plan-v10.png"
+thumbnail: "/blog/images/posts/ninety-day-ai-adoption-plan/ninety-day-ai-adoption-plan-v10.webp"
 thumbnailAlt: "90일을 준비·시험·판단으로 나눈 AI 도입 달력"
 sources:
   - title: "기업이 AX를 성공적으로 도입하기 위한 단계별 로드맵 (minbog70)"
@@ -90,5 +90,5 @@ AI 바우처·데이터 바우처·스마트공장 등 중소벤처기업부 지
 
 기간은 조직 규모·데이터 상태·과제 난이도에 따라 달라집니다. '90일이면 끝'이라는 확정 표현보다 '90일 동안 세 번의 판단을 내린다'가 정확합니다. 오늘 90일 달력에 30일 산출물 하나를 적어 보세요. Core Company는 준비→시험→판단의 각 관문 산출물을 함께 설계해 드리겠습니다.
 
-![30일 범위 확인서와 60일 시험 보고를 거쳐 90일 확장·수정·중단을 결정하는 달력](/blog/images/posts/ninety-day-ai-adoption-plan/ninety-day-ai-adoption-plan-v10.png)
+![30일 범위 확인서와 60일 시험 보고를 거쳐 90일 확장·수정·중단을 결정하는 달력](/blog/images/posts/ninety-day-ai-adoption-plan/ninety-day-ai-adoption-plan-v10.webp)
 *개념 이미지: 설치 일정이 아니라 30·60·90일마다 증거를 제출하고 다음 행동을 선택하는 세 게이트입니다.*

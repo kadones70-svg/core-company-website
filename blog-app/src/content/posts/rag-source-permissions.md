@@ -14,7 +14,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/rag-source-permissions/rag-source-permissions.png"
+thumbnail: "/blog/images/posts/rag-source-permissions/rag-source-permissions.webp"
 thumbnailAlt: "문서 색인 전에 접근 권한을 먼저 확인하는 점검 항목"
 sources:
   - title: "접근권한설정으로 안전하게 문서 관리하기 (cyberdigm_)"
@@ -52,7 +52,7 @@ sample: false
 
 아닙니다. 권한은 1차 방어선일 뿐입니다. 문서 유출 위험을 막으려면 권한 + 로깅 + 외부 전송 통제가 함께 있어야 합니다. '권한을 설정했으니 안전하다'는 프레임은 위험합니다.
 
-![문서 색인 전에 접근 권한을 먼저 확인하는 점검 항목](/blog/images/posts/rag-source-permissions/rag-source-permissions.png)
+![문서 색인 전에 접근 권한을 먼저 확인하는 점검 항목](/blog/images/posts/rag-source-permissions/rag-source-permissions.webp)
 *개념 이미지: 문서 권한 → 색인 → 검색 결과 → 답변 생성까지 권한이 이어지는 흐름을 확인하는 도식입니다.*
 
 ## 검색 누출을 가정한 시험

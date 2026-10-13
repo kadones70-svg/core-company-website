@@ -15,7 +15,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/sensor-placement-data-quality/sensor-placement-data-quality.png"
+thumbnail: "/blog/images/posts/sensor-placement-data-quality/sensor-placement-data-quality.webp"
 thumbnailAlt: "대표 지점·열원·고정 방식·동선·설치 방향·기준 데이터·이상값 원인을 점검하는 도식"
 sources:
   - title: "센서등, 설치 위치에 따라 작동이 영 다르더라고요 (top_electric)"
@@ -74,5 +74,5 @@ sample: false
 
 같은 센서 세 개를 이번 주에 놓아 보세요. Core Company는 2주 비교 데이터를 기준으로 대표 지점과 품질 지표를 판정해 드리겠습니다.
 
-![열원·바람·동선과 기준 데이터를 함께 확인하는 센서 배치 실험 도식](/blog/images/posts/sensor-placement-data-quality/sensor-placement-data-quality.png)
+![열원·바람·동선과 기준 데이터를 함께 확인하는 센서 배치 실험 도식](/blog/images/posts/sensor-placement-data-quality/sensor-placement-data-quality.webp)
 *개념 이미지: 대표 지점을 고르기 전에 열원·고정 방식·사람 동선·설치 방향·기준 데이터를 차례로 확인하는 실험 지도입니다.*

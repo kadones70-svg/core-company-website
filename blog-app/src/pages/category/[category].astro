@@ -20,6 +20,7 @@ const tags = [...new Set(posts.flatMap((post) => post.data.tags))].slice(0, 12);
   <main id="main-content" data-pagefind-ignore>
     <header class="archive-header section-shell" style={`--archive-accent:${category.accent}`}>
       <Breadcrumbs items={[{ label: '블로그', href: withBase('/') }, { label: category.name }]} />
+      <div class="archive-banner"><img src={category.image} alt={category.name} loading="lazy" decoding="async" /></div>
       <p class="archive-index">CATEGORY / {category.slug.toUpperCase()}</p>
       <h1>{category.name}</h1>
       <p>{category.description}</p>
@@ -35,7 +36,9 @@ const tags = [...new Set(posts.flatMap((post) => post.data.tags))].slice(0, 12);
 
 <style>
   .archive-header { padding-top: 32px; padding-bottom: 74px; border-bottom: 4px solid var(--archive-accent); }
-  .archive-index { margin: 62px 0 14px; font: 700 .78rem var(--font-mono); letter-spacing: .08em; color: var(--color-orange-accessible); }
+  .archive-banner { margin: 22px 0 0; aspect-ratio: 16 / 7; border-radius: var(--radius-card); overflow: hidden; background: var(--color-border); }
+  .archive-banner img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .archive-index { margin: 44px 0 14px; font: 700 .78rem var(--font-mono); letter-spacing: .08em; color: var(--color-orange-accessible); }
   .archive-header h1 { margin: 0; font-size: clamp(3.4rem, 6vw, 5rem); line-height: 1.08; letter-spacing: -.055em; }
   .archive-header > p:not(.archive-index) { max-width: 720px; margin: 24px 0 36px; font-size: 1.16rem; line-height: 1.75; color: var(--color-muted); }
   .archive-header dl { display: flex; flex-wrap: wrap; gap: 18px 42px; margin: 0; }
@@ -50,7 +53,8 @@ const tags = [...new Set(posts.flatMap((post) => post.data.tags))].slice(0, 12);
   .archive-heading nav a { display: inline-flex; min-height: 44px; align-items: center; padding: 0 12px; border: 1px solid var(--color-border); border-radius: 999px; color: var(--color-blue); font-size: .78rem; text-decoration: none; }
   @media (max-width: 700px) {
     .archive-header { padding-bottom: 54px; }
-    .archive-index { margin-top: 42px; }
+    .archive-index { margin-top: 36px; }
+    .archive-banner { aspect-ratio: 16 / 9; }
     .archive-header h1 { font-size: 2.7rem; }
     .archive-heading { align-items: start; flex-direction: column; }
     .archive-heading nav { justify-content: start; }

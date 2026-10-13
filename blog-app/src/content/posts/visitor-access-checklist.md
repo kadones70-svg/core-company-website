@@ -14,7 +14,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/visitor-access-checklist/visitor-access-checklist.png"
+thumbnail: "/blog/images/posts/visitor-access-checklist/visitor-access-checklist.webp"
 thumbnailAlt: "방문 예약부터 신원 확인·임시 출입·권한 만료까지의 점검 항목"
 sources:
   - title: "사무실 출입관리시스템 도어락, 방문자 관리를 효율적으로 하는 방법 (원퍼스트)"
@@ -62,7 +62,7 @@ sample: false
 
 OTP 방식은 물리적 카드를 만들 필요 없이 방문 당일 문자로 일회용 비밀번호를 보내고, 사용 후 만료되는 방식입니다. 도착 시간이 바뀌어도 재발급이 쉽다는 장점이 있습니다.
 
-![방문 예약부터 신원 확인·임시 출입·권한 만료까지의 점검 항목](/blog/images/posts/visitor-access-checklist/visitor-access-checklist.png)
+![방문 예약부터 신원 확인·임시 출입·권한 만료까지의 점검 항목](/blog/images/posts/visitor-access-checklist/visitor-access-checklist.webp)
 *개념 이미지: 방문 목적 확인, 담당자 승인, 제한된 구역·시간 권한, 반납과 기록 폐기까지 이어지는 절차입니다.*
 
 ## 출입권한은 직원과도 대칭으로 관리합니다

@@ -2,7 +2,7 @@ import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
 
-import { CATEGORY_NAMES, CONTENT_TYPES, tagToSlug } from './config/content';
+import { CATEGORY_NAMES, CONTENT_TYPES, TITLE_FONTS, tagToSlug } from './config/content';
 
 const SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const ISO_DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/;
@@ -61,6 +61,7 @@ const postSchema = z
     draft: z.boolean(),
     featured: z.boolean(),
     featuredOrder: z.number().int().positive().optional(),
+    titleFont: z.enum(TITLE_FONTS).optional(),
     thumbnail: z
       .string()
       .trim()

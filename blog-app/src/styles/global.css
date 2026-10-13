@@ -1,9 +1,17 @@
+@font-face {
+  font-family: 'Cafe24 Ssurround';
+  src: url('/blog/fonts/Cafe24Ssurround.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  --color-paper: #f8f7f4;
+  --color-paper: #fbf5ec;
   --color-surface: #ffffff;
-  --color-ink: #1a1917;
-  --color-muted: #6e6a63;
-  --color-border: #d9d4cb;
+  --color-ink: #2a2018;
+  --color-muted: #7c6d58;
+  --color-border: #e8dcc8;
   --color-orange: #e8620a;
   --color-orange-accessible: #9a3a00;
   --color-purple: #8b3ac8;
@@ -13,6 +21,7 @@
   --color-coral: #c43a1a;
   --color-code-background: #23211f;
   --font-sans: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", Arial, sans-serif;
+  --font-display: 'Cafe24 Ssurround', 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
   --font-mono: "DM Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
   --container: 75rem;
   --content: 45rem;
@@ -109,8 +118,10 @@ h1,
 h2,
 h3,
 h4 {
+  font-family: var(--title-font, var(--font-display));
+  font-weight: normal;
   line-height: 1.2;
-  letter-spacing: -0.045em;
+  letter-spacing: -0.01em;
   text-wrap: balance;
   word-break: keep-all;
   overflow-wrap: anywhere;
@@ -175,7 +186,7 @@ h4 {
   justify-content: center;
   padding: 0.75rem 1.25rem;
   border: 1px solid var(--color-ink);
-  border-radius: 0;
+  border-radius: 999px;
   background: var(--color-ink);
   color: var(--color-surface);
   font-weight: 700;
@@ -264,12 +275,12 @@ h4 {
   z-index: 100;
   top: 0;
   border-bottom: 1px solid var(--color-border);
-  background: rgb(248 247 244 / 96%);
+  background: rgb(251 245 236 / 96%);
 }
 
 @supports (backdrop-filter: blur(0.5rem)) {
   .site-header {
-    background: rgb(248 247 244 / 90%);
+    background: rgb(251 245 236 / 90%);
     backdrop-filter: blur(0.75rem);
   }
 }
@@ -760,7 +771,7 @@ h4 {
   max-width: 100%;
   padding: 1.25rem;
   overflow-x: auto;
-  border-radius: 0;
+  border-radius: 12px;
   background: var(--color-code-background);
   color: #f7f4ee;
   font: 0.875rem/1.7 var(--font-mono);
@@ -963,4 +974,18 @@ h4 {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
   }
+}
+
+/* ---- 미세 인터랙션(절제형, 접근성 존중) ---- */
+.reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; will-change: opacity, transform; }
+.reveal.is-visible { opacity: 1; transform: none; }
+img.img-fade { opacity: 0; transition: opacity .5s ease; }
+img.img-fade.is-loaded { opacity: 1; }
+.cat-card__media img, .pick-card__media img, .featured__media img { transition: transform .45s ease; }
+.cat-card:hover .cat-card__media img, .pick-card:hover .pick-card__media img { transform: scale(1.045); }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+  img.img-fade { opacity: 1 !important; transition: none !important; }
+  .cat-card__media img, .pick-card__media img, .featured__media img,
+  .cat-card:hover .cat-card__media img, .pick-card:hover .pick-card__media img { transition: none !important; transform: none !important; }
 }

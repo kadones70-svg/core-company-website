@@ -14,7 +14,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: true
-thumbnail: "/blog/images/posts/pension-self-checkin-checklist/pension-self-checkin-checklist.png"
+thumbnail: "/blog/images/posts/pension-self-checkin-checklist/pension-self-checkin-checklist.webp"
 thumbnailAlt: "예약 확인부터 비상 인계까지 무인 체크인의 일곱 통과 관문"
 sources:
   - title: "안면도 펜션 셀프체크인 키오스크 설치 — 무인 운영 (keypass1)"
@@ -50,7 +50,7 @@ sample: false
 6. **객실로 이동한다** — 안내가 끊기지 않는가
 7. **문제가 생기면 사람과 연결된다** — 장애·예외 시 원격/현장 대응 경로
 
-![예약 확인부터 비상 인계까지 무인 체크인의 일곱 통과 관문](/blog/images/posts/pension-self-checkin-checklist/pension-self-checkin-checklist.png)
+![예약 확인부터 비상 인계까지 무인 체크인의 일곱 통과 관문](/blog/images/posts/pension-self-checkin-checklist/pension-self-checkin-checklist.webp)
 *개념 이미지: 예약 찾기부터 비상 인계까지 고객이 통과해야 할 일곱 관문을 확인하는 도식입니다.*
 
 ## 관문마다 '멈춘 시간'을 잽니다

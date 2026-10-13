@@ -21,7 +21,7 @@ export const SITE = {
   contactUrl: 'https://corecompany.net/#contact',
   privacyUrl: 'https://corecompany.net/privacy',
   naverBlogUrl: 'https://blog.naver.com/corecompany0607',
-  logoPath: '/blog/brand/logo_color.webp',
+  logoPath: '/blog/brand/logo-vector.webp',
   logoSourcePath: '/blog/brand/logo_color.svg',
   organizationId: 'https://corecompany.net/#organization'
 } as const;

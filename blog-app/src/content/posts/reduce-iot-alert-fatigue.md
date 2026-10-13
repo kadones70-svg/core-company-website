@@ -14,7 +14,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/reduce-iot-alert-fatigue/reduce-iot-alert-fatigue-v10-v2.png"
+thumbnail: "/blog/images/posts/reduce-iot-alert-fatigue/reduce-iot-alert-fatigue-v10-v2.webp"
 thumbnailAlt: "알림이 너무 많으면 아무도 보지 않게 되는 이유"
 sources:
   - title: "CoAP 완전정리 — IoT 프로토콜 2편 (controlbit_xtiger)"
@@ -71,5 +71,5 @@ sample: false
 
 알림 건수가 줄면 '문제가 사라진 것'이 아니라 '문제가 보이게 된 것'입니다. 오늘 알림 목록을 세 등급으로 나눠 보세요. Core Company는 임계값과 재알림 규칙을 설계해 드리겠습니다.
 
-![반복 IoT 이벤트를 사건으로 묶되 안전 경보는 요약 단계를 우회해 바로 전달하는 알림 다이어트 도식](/blog/images/posts/reduce-iot-alert-fatigue/reduce-iot-alert-fatigue-v10-v2.png)
+![반복 IoT 이벤트를 사건으로 묶되 안전 경보는 요약 단계를 우회해 바로 전달하는 알림 다이어트 도식](/blog/images/posts/reduce-iot-alert-fatigue/reduce-iot-alert-fatigue-v10-v2.webp)
 *개념 이미지: 같은 원인의 반복값은 한 사건으로 묶되, 안전 경보는 요약을 거치지 않는 직통선으로 남깁니다. 임계값은 현장 기준선으로 정합니다.*

@@ -14,7 +14,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/small-lodging-automation-start/small-lodging-automation-start-v10-v2.png"
+thumbnail: "/blog/images/posts/small-lodging-automation-start/small-lodging-automation-start-v10-v2.webp"
 thumbnailAlt: "소규모 숙소 자동화를 예약 통합부터 단계적으로 도입하는 로드맵"
 sources:
   - title: "무인호텔이 늘어난 이유 — 프런트 없어도 안전한 숙박업소 운영법 (adtkorea77)"
@@ -63,7 +63,7 @@ sample: false
 4. **정산·매출 관리** — 일별·월간 마감
 5. **CCTV·화재 관제 연계** — 이상 상황 감지·신고
 
-![소규모 숙소 자동화를 예약 통합부터 단계적으로 도입하는 로드맵](/blog/images/posts/small-lodging-automation-start/small-lodging-automation-start-v10-v2.png)
+![소규모 숙소 자동화를 예약 통합부터 단계적으로 도입하는 로드맵](/blog/images/posts/small-lodging-automation-start/small-lodging-automation-start-v10-v2.webp)
 *개념 이미지: 예약 통합부터 출입·정산·관제까지 단계를 밟아 확장하는 자동화 로드맵입니다.*
 
 ## 4단계: 운영 체크리스트

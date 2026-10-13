@@ -14,7 +14,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/door-lock-code-lifecycle/door-lock-code-lifecycle.png"
+thumbnail: "/blog/images/posts/door-lock-code-lifecycle/door-lock-code-lifecycle.webp"
 thumbnailAlt: "객실 도어락 코드의 발급·전달·변경·만료 점검 항목"
 sources:
   - title: "에어비앤비 도어락 추천 — 비밀번호 자동변경 도어락 (charmnetplay)"
@@ -55,7 +55,7 @@ sample: false
 
 누가, 언제 문을 열었는지 기록이 남으면, 분실·오지급·분쟁이 생겼을 때 확인할 수 있습니다. 출입 이력은 필요한 기간만 보관하고, 열람 범위를 관리자로 제한합니다.
 
-![객실 도어락 코드의 발급·전달·변경·만료 점검 항목](/blog/images/posts/door-lock-code-lifecycle/door-lock-code-lifecycle.png)
+![객실 도어락 코드의 발급·전달·변경·만료 점검 항목](/blog/images/posts/door-lock-code-lifecycle/door-lock-code-lifecycle.webp)
 *개념 이미지: 예약·정비·출입의 세 시계를 맞춰 코드 수명주기를 관리하는 항목입니다.*
 
 ## 도입 전 체크리스트 일곱 가지
@@ -68,7 +68,7 @@ sample: false
 - A/S — 모티스·손잡이 부품 교체 조건
 - 비상 전원 — 배터리 방전 시 외부 전원(9V 등) 공급 지원 여부
 
-![예약·정비·출입의 세 시계를 맞추는 도어락 코드 관리 도식](/blog/images/posts/door-lock-code-lifecycle/door-lock-three-clocks-v10.png)
+![예약·정비·출입의 세 시계를 맞추는 도어락 코드 관리 도식](/blog/images/posts/door-lock-code-lifecycle/door-lock-three-clocks-v10.webp)
 *개념 이미지: 예약 시계, 정비 시계, 출입 시계가 어긋나면 코드가 너무 일찍 발급되거나 늦게 폐기됩니다.*
 
 ## 한 주간 코드 수명주기를 점검합니다

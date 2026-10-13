@@ -14,8 +14,8 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/find-repeatable-ai-work/find-repeatable-ai-work.png"
-thumbnailAlt: "반복 업무 후보를 데이터·위험·검토 비용으로 걸러 AI 실험을 고르는 단계"
+thumbnail: "/blog/images/posts/find-repeatable-ai-work/find-repeatable-ai-work-cover.webp"
+thumbnailAlt: "화이트보드에 포스트잇으로 반복 업무 후보를 정리하며 선별하는 모습"
 sources:
   - title: "AI 에이전트 업무자동화, 중소기업이 먼저 도입하는 이유 (hyeyanote)"
     url: "https://m.blog.naver.com/hyeyanote/224358832592"
@@ -56,7 +56,7 @@ sample: false
 
 초안 요약처럼 사람이 쉽게 고칠 수 있는 일과 결제·채용·계약처럼 오류 영향이 큰 일을 같은 점수로 보지 않습니다. 후자는 AI가 추천하더라도 책임자의 승인과 근거 확인이 필수이며, 첫 실험 대상에서 제외할 수 있습니다.
 
-![반복 업무 후보를 데이터·위험·검토 비용으로 걸러 AI 실험을 고르는 단계](/blog/images/posts/find-repeatable-ai-work/find-repeatable-ai-work.png)
+![반복 업무 후보를 데이터·위험·검토 비용으로 걸러 AI 실험을 고르는 단계](/blog/images/posts/find-repeatable-ai-work/find-repeatable-ai-work.webp)
 *개념 이미지: 반복성, 데이터 준비도, 오류 영향, 사람 검토, 도구 비용, 작은 시험 조건으로 후보를 줄입니다.*
 
 ## 준결승: 검토시간까지 포함해 점수를 냅니다

@@ -14,7 +14,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/admin-account-lifecycle/admin-account-lifecycle.png"
+thumbnail: "/blog/images/posts/admin-account-lifecycle/admin-account-lifecycle.webp"
 thumbnailAlt: "관리자 계정이 많아질수록 생기는 문제"
 sources:
   - title: "네트워크 장비 계정 관리 — 사용자 명령어별 권한 수준 설정 (hcuhoijererj)"
@@ -52,7 +52,7 @@ sample: false
 - 사용자별·명령어별 권한 분리
 - 권한은 차등 부여, 정기 점검·감사 필수
 
-![관리자 계정이 많아질수록 생기는 문제](/blog/images/posts/admin-account-lifecycle/admin-account-lifecycle.png)
+![관리자 계정이 많아질수록 생기는 문제](/blog/images/posts/admin-account-lifecycle/admin-account-lifecycle.webp)
 *개념 이미지: 계정 생성부터 말소까지 수명주기와 최소 권한 원칙을 보여 주는 도식입니다.*
 
 ## 클라우드 계정 체크포인트

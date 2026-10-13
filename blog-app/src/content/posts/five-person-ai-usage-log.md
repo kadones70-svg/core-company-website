@@ -14,7 +14,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/five-person-ai-usage-log/five-person-ai-usage-log.png"
+thumbnail: "/blog/images/posts/five-person-ai-usage-log/five-person-ai-usage-log.webp"
 thumbnailAlt: "5명이 2~4주 작성하는 AI 사용량 일지 항목"
 sources:
   - title: "AI 토큰 이코노미란? (iotspace)"
@@ -80,5 +80,5 @@ sample: false
 
 오늘부터 5명이 쓰는 AI 요청을 일지에 기록해 보세요. Core Company는 2주 일지를 월 비용 예측으로 환산하고, Outcome 지표 연결까지 설계해 드리겠습니다.
 
-![사용자와 업무별 요청·토큰을 2~4주 모아 예산과 도구 선택으로 연결하는 기록 흐름](/blog/images/posts/five-person-ai-usage-log/five-person-ai-usage-log.png)
+![사용자와 업무별 요청·토큰을 2~4주 모아 예산과 도구 선택으로 연결하는 기록 흐름](/blog/images/posts/five-person-ai-usage-log/five-person-ai-usage-log.webp)
 *개념 이미지: 사용자별 요청을 업무 유형과 토큰으로 묶어 2~4주 집계하고 계절 변동까지 예산에 반영하는 흐름입니다.*

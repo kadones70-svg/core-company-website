@@ -14,8 +14,8 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/hidden-ai-operation-costs/hidden-ai-operation-costs.png"
-thumbnailAlt: "견적서에 잘 보이지 않는 AI 운영비용 항목"
+thumbnail: "/blog/images/posts/hidden-ai-operation-costs/hidden-ai-operation-costs-cover.webp"
+thumbnailAlt: "청구서와 계산기를 앞에 두고 AI 도입 운영비용을 검토하는 모습"
 sources:
   - title: "서버 비용은 줄이고 성능은 올리는 인프라 구조 (lhjojh)"
     url: "https://m.blog.naver.com/lhjojh/224298826412"
@@ -56,7 +56,7 @@ sample: false
 
 구매비 · 상면 · 전력 · 냉각 · 회선 · 보안 · 백업 · 유지보수 · 장애 대응 · 인력 · 이전 · 확장
 
-![견적서에 잘 보이지 않는 AI 운영비용 항목](/blog/images/posts/hidden-ai-operation-costs/hidden-ai-operation-costs.png)
+![견적서에 잘 보이지 않는 AI 운영비용 항목](/blog/images/posts/hidden-ai-operation-costs/hidden-ai-operation-costs.webp)
 *개념 이미지: 장비값 뒤에 숨은 전력·냉각·인력·장애 대응 비용을 보여 주는 도식입니다.*
 
 ## 고정/변동 워크로드 분리 원칙

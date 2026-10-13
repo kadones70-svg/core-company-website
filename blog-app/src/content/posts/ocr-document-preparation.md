@@ -14,7 +14,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/ocr-document-preparation/ocr-document-preparation.png"
+thumbnail: "/blog/images/posts/ocr-document-preparation/ocr-document-preparation.webp"
 thumbnailAlt: "스캔 PDF와 이미지 문서를 검색 가능하게 만드는 준비 단계"
 sources:
   - title: "책스캔으로 OCR 가능 PDF 파일 만드는 방법 (dolldolle)"
@@ -47,7 +47,7 @@ sample: false
 5. **저장** — 검색 가능 PDF로 저장, 파일명 직관화·중앙 저장·백업
 6. **저작권 확인** — 개인소장용·업무용 한정
 
-![스캔 PDF와 이미지 문서를 검색 가능하게 만드는 준비 단계](/blog/images/posts/ocr-document-preparation/ocr-document-preparation.png)
+![스캔 PDF와 이미지 문서를 검색 가능하게 만드는 준비 단계](/blog/images/posts/ocr-document-preparation/ocr-document-preparation.webp)
 *개념 이미지: 스캔 → 품질 점검 → OCR → 검수 → 저장으로 이어지는 전처리 순서입니다.*
 
 ## 인식률을 높이는 요인

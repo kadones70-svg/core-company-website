@@ -14,7 +14,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: true
-thumbnail: "/blog/images/posts/office-document-version-basics/office-document-version-basics.png"
+thumbnail: "/blog/images/posts/office-document-version-basics/office-document-version-basics.webp"
 thumbnailAlt: "사내 문서의 소유자·상태·버전·위치를 이용해 최신본을 찾는 기준"
 sources:
   - title: "버전관리 없이 보고서를 작성한 신입사원 — 문서는 원래 움직이는 거야 (파수AI)"
@@ -64,7 +64,7 @@ sample: false
 - **버전 또는 승인일** — 변경의 기준점
 - **정본 위치** — 승인본을 찾는 단일 경로
 
-![사내 문서의 소유자·상태·버전·위치를 이용해 최신본을 찾는 기준](/blog/images/posts/office-document-version-basics/office-document-version-basics.png)
+![사내 문서의 소유자·상태·버전·위치를 이용해 최신본을 찾는 기준](/blog/images/posts/office-document-version-basics/office-document-version-basics.webp)
 *개념 이미지: 파일명만으로 최신본을 추측하지 않도록 소유자, 상태, 날짜, 보관 위치를 함께 확인하는 기준입니다.*
 
 ## 정본과 작업본이 만나는 규칙

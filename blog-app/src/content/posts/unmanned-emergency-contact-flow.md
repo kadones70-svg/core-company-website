@@ -14,7 +14,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/unmanned-emergency-contact-flow/unmanned-emergency-contact-flow.png"
+thumbnail: "/blog/images/posts/unmanned-emergency-contact-flow/unmanned-emergency-contact-flow.webp"
 thumbnailAlt: "정전·폭우·화재 시 무인 운영에서 사람에게 연결되는 비상 대응선"
 sources:
   - title: "여름철 집중호우 대비 — 해안가 기습 폭우 대응법 (cn8011)"
@@ -65,7 +65,7 @@ sample: false
 - 대피 시나리오·직원 훈련
 - 화재수신반·자동화재속보설비 상태 확인
 
-![정전·폭우·화재 시 무인 운영에서 사람에게 연결되는 비상 대응선](/blog/images/posts/unmanned-emergency-contact-flow/unmanned-emergency-contact-flow.png)
+![정전·폭우·화재 시 무인 운영에서 사람에게 연결되는 비상 대응선](/blog/images/posts/unmanned-emergency-contact-flow/unmanned-emergency-contact-flow.webp)
 *개념 이미지: 감지 → 안내 → 대응 → 복구로 이어지는 비상 연락망과 무인 장비의 로컬 동작을 확인하는 도식입니다.*
 
 ## 게스트용 비상 연락망

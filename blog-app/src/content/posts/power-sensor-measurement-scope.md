@@ -14,7 +14,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/power-sensor-measurement-scope/power-sensor-measurement-scope.png"
+thumbnail: "/blog/images/posts/power-sensor-measurement-scope/power-sensor-measurement-scope.webp"
 thumbnailAlt: "전력 센서로 한 설비의 기준값을 측정하고 조치 뒤 다시 비교하는 단계"
 sources:
   - title: "사무실 전력 절감 꿀팁! 전기요금 아끼는 가전 사용법 (리마켓)"
@@ -54,7 +54,7 @@ sample: false
 
 업무일·휴일, 실내외 온도, 가동시간, 생산·서버 부하 등 결과에 영향을 주는 조건을 함께 기록합니다. 측정 간격과 단위를 고정하고 누락·중복·센서 재부팅 시각을 표시합니다. 기준선(baseline)이 흔들리면 조치 후 비교가 의미를 잃습니다.
 
-![전력 센서로 한 설비의 기준값을 측정하고 조치 뒤 다시 비교하는 단계](/blog/images/posts/power-sensor-measurement-scope/power-sensor-measurement-scope.png)
+![전력 센서로 한 설비의 기준값을 측정하고 조치 뒤 다시 비교하는 단계](/blog/images/posts/power-sensor-measurement-scope/power-sensor-measurement-scope.webp)
 *개념 이미지: 측정 대상 선정, 기준 구간, 운영 조치, 재측정, 확대 판단으로 이어지는 실험 순서입니다.*
 
 ## 한 가지 운영 규칙만 바꿉니다

@@ -14,7 +14,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/ai-answer-source-citations/ai-answer-source-citations-v10.png"
+thumbnail: "/blog/images/posts/ai-answer-source-citations/ai-answer-source-citations-v10.webp"
 thumbnailAlt: "AI 답변에서 문서명·문단·링크로 근거를 추적하는 검증 동선"
 sources:
   - title: "[AI Shift 11] RAG란 무엇인가 (valuemade_kr)"
@@ -46,7 +46,7 @@ RAG 답변은 세 가지 오류가 가능합니다. 오래된 문서를 검색�
 2. **문단·링크** — 어느 부분을 근거로 썼는지 원문으로 연결
 3. **근거 없음 상태** — 근거를 찾지 못하면 '근거 없음'을 명시하고 답하지 않기
 
-![AI 답변에서 문서명·문단·링크로 근거를 추적하는 검증 동선](/blog/images/posts/ai-answer-source-citations/ai-answer-source-citations-v10.png)
+![AI 답변에서 문서명·문단·링크로 근거를 추적하는 검증 동선](/blog/images/posts/ai-answer-source-citations/ai-answer-source-citations-v10.webp)
 *개념 이미지: 답변 → 근거 문서 → 원문 문단으로 되돌아가는 검증 경로를 보여 주는 도식입니다.*
 
 ## 검증 동선: 답변에서 원문까지

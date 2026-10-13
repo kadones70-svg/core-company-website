@@ -14,7 +14,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/office-guest-wifi-separation/office-guest-wifi-separation.png"
+thumbnail: "/blog/images/posts/office-guest-wifi-separation/office-guest-wifi-separation.webp"
 thumbnailAlt: "사무실 방문객 Wi-Fi와 업무·관리 장비 네트워크를 분리하는 점검 항목"
 sources:
   - title: "안전하게 Wifi 공유하기! 게스트 Wi-Fi 네트워크 따로 만드는 법 (dailydigit)"
@@ -48,7 +48,7 @@ sample: false
 - **VLAN·서브넷 분리** — 게스트 트래픽을 업무망과 다른 네트워크 구역으로 격리
 - **방화벽 정책** — 게스트 구역에서 내부 서비스로 가는 접근을 차단
 
-![사무실 방문객 Wi-Fi와 업무·관리 장비 네트워크를 분리하는 점검 항목](/blog/images/posts/office-guest-wifi-separation/office-guest-wifi-separation.png)
+![사무실 방문객 Wi-Fi와 업무·관리 장비 네트워크를 분리하는 점검 항목](/blog/images/posts/office-guest-wifi-separation/office-guest-wifi-separation.webp)
 *개념 이미지: 방문객 SSID, 업무 단말, 관리 장비의 접근 범위와 비밀번호·로그·업데이트를 확인하는 항목입니다.*
 
 ## 회의실에서 세 번 접속해 봅니다
@@ -59,7 +59,7 @@ sample: false
 - **직원용 연결** — 업무망은 되지만 모든 직원이 네트워크 장비 관리 화면에 들어갈 이유는 없음
 - **관리용 연결** — 지정 단말과 관리자 계정으로 더 좁게 제한
 
-![파란 실선은 허용하고 빨간 점선은 차단한 방문객 Wi-Fi·업무망·관리망 구역도](/blog/images/posts/office-guest-wifi-separation/office-guest-wifi-three-zones-v10-v2.png)
+![파란 실선은 허용하고 빨간 점선은 차단한 방문객 Wi-Fi·업무망·관리망 구역도](/blog/images/posts/office-guest-wifi-separation/office-guest-wifi-three-zones-v10-v2.webp)
 *개념 이미지: SSID 이름만 나누지 않고 방문객, 직원, 관리자 단말의 실제 접근 범위를 분리한 구조입니다.*
 
 ## 설정 체크리스트 여섯 가지

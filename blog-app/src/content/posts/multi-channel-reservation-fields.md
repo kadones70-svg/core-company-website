@@ -14,7 +14,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/multi-channel-reservation-fields/multi-channel-reservation-fields.png"
+thumbnail: "/blog/images/posts/multi-channel-reservation-fields/multi-channel-reservation-fields.webp"
 thumbnailAlt: "여러 예약 채널의 정보를 한곳에서 보는 운영 기준"
 sources:
   - title: "예약 프로그램 활용 꿀팁 — 통합관리 (janda_dev)"
@@ -59,7 +59,7 @@ sample: false
 - **통계** — 주중·주말·시간대·체류 기간별 매출
 - **수수료 구조** — 판매 수수료 vs 구독료 비교
 
-![여러 예약 채널의 정보를 한곳에서 보는 운영 기준](/blog/images/posts/multi-channel-reservation-fields/multi-channel-reservation-fields.png)
+![여러 예약 채널의 정보를 한곳에서 보는 운영 기준](/blog/images/posts/multi-channel-reservation-fields/multi-channel-reservation-fields.webp)
 *개념 이미지: 전화·OTA·네이버·카카오·현장 예약이 하나의 예약 원장으로 합쳐지는 구조입니다.*
 
 ## 통합 후 데이터 활용

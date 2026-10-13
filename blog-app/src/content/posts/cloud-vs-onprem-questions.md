@@ -14,7 +14,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/cloud-vs-onprem-questions/cloud-vs-onprem-questions.png"
+thumbnail: "/blog/images/posts/cloud-vs-onprem-questions/cloud-vs-onprem-questions.webp"
 thumbnailAlt: "클라우드와 온프레미스를 비교할 때 물어볼 7가지"
 sources:
   - title: "AI 서버 구축, 온프레미스 vs 클라우드 vs 하이브리드 (hcltech)"
@@ -58,7 +58,7 @@ sample: false
 3. **확장성** — 사용량 변동이 큰가
 4. **운영 인력** — 인프라를 관리할 사람이 있는가
 
-![클라우드와 온프레미스를 비교할 때 물어볼 7가지](/blog/images/posts/cloud-vs-onprem-questions/cloud-vs-onprem-questions.png)
+![클라우드와 온프레미스를 비교할 때 물어볼 7가지](/blog/images/posts/cloud-vs-onprem-questions/cloud-vs-onprem-questions.webp)
 *개념 이미지: 사용량·민감도·운영 인력·장애 영향 네 축으로 배치를 판단하는 질문들입니다.*
 
 ## 흔한 오해

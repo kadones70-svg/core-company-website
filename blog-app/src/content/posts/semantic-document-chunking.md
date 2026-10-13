@@ -14,7 +14,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/semantic-document-chunking/semantic-document-chunking-v10.png"
+thumbnail: "/blog/images/posts/semantic-document-chunking/semantic-document-chunking-v10.webp"
 thumbnailAlt: "긴 문서를 페이지가 아니라 의미 단위로 나누는 기준"
 sources:
   - title: "RAG 청킹 전략: 7가지 방법, 검색 데이터로 순위 매기기 (irisdev)"
@@ -49,7 +49,7 @@ sample: false
 
 이 값은 절대 기준이 아니라 출발점입니다. 자체 평가 세트로 조정해야 합니다.
 
-![긴 문서를 페이지가 아니라 의미 단위로 나누는 기준](/blog/images/posts/semantic-document-chunking/semantic-document-chunking-v10.png)
+![긴 문서를 페이지가 아니라 의미 단위로 나누는 기준](/blog/images/posts/semantic-document-chunking/semantic-document-chunking-v10.webp)
 *개념 이미지: 페이지 번호가 아니라 제목·절·표를 보존한 의미 단위로 문서를 나누는 기준입니다.*
 
 ## 분할 방식의 트레이드오프

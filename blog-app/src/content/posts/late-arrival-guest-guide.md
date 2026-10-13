@@ -14,7 +14,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/late-arrival-guest-guide/late-arrival-guest-guide.png"
+thumbnail: "/blog/images/posts/late-arrival-guest-guide/late-arrival-guest-guide.webp"
 thumbnailAlt: "늦은 밤 도착 고객이 확인할 입실 마감·키 수령·주차·비상 연락 항목"
 sources:
   - title: "합천 고스트파크 숙소 추천 — 심야 체크인 총정리 (zoom_7630)"
@@ -55,7 +55,7 @@ sample: false
 7. 취소 규정은 어떻게 되는가 (캡처·문자로 보관 권장)
 8. 비상 시 연락할 번호는 무엇인가
 
-![늦은 밤 도착 고객이 확인할 입실 마감·키 수령·주차·비상 연락 항목](/blog/images/posts/late-arrival-guest-guide/late-arrival-guest-guide.png)
+![늦은 밤 도착 고객이 확인할 입실 마감·키 수령·주차·비상 연락 항목](/blog/images/posts/late-arrival-guest-guide/late-arrival-guest-guide.webp)
 *개념 이미지: 예약 확정부터 자정 이후 도착까지 고객에게 안내할 항목과 확인 질문을 보여 주는 도식입니다.*
 
 ## 무인 입실 체계를 만들 때

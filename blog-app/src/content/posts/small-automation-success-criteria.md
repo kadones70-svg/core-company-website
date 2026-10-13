@@ -14,7 +14,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/small-automation-success-criteria/small-automation-success-criteria.png"
+thumbnail: "/blog/images/posts/small-automation-success-criteria/small-automation-success-criteria.webp"
 thumbnailAlt: "자동화 실증의 성공 기준을 현장 지속 가능한 수치로 정의하는 법"
 sources:
   - title: "LAM(제조 AI 에이전트) 실증 참여, 이 5가지를 꼭 확인하세요 (canvas210413)"
@@ -84,5 +84,5 @@ sample: false
 
 정부 실증사업을 참고할 때는 신청 기간과 조건을 최신 공고(K-Startup 등)에서 확인해야 합니다. 오늘 실증 KPI를 품질·운영·안전·권리 네 칸으로 나눠 보세요. Core Company는 현장 지속 가능한 KPI와 중단 조건, 합의 메모를 함께 설계해 드리겠습니다.
 
-![실증 대상·기준선·성과·안전과 확장·수정·중단 판정을 잇는 자동화 평가 도식](/blog/images/posts/small-automation-success-criteria/small-automation-success-criteria.png)
+![실증 대상·기준선·성과·안전과 확장·수정·중단 판정을 잇는 자동화 평가 도식](/blog/images/posts/small-automation-success-criteria/small-automation-success-criteria.webp)
 *개념 이미지: 실증을 시작하기 전에 기준선과 통과·중단 조건을 잠그고, 결과를 세 갈래 결정으로 연결하는 판정 흐름입니다.*

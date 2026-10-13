@@ -14,7 +14,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/employee-onboarding-assets/employee-onboarding-assets.png"
+thumbnail: "/blog/images/posts/employee-onboarding-assets/employee-onboarding-assets.webp"
 thumbnailAlt: "신입 직원의 계정·장비·문서 권한을 발급하고 회수하는 준비 항목"
 sources:
   - title: "신입사원 온보딩 프로그램 설계 방법 — 입사 후 90일 온보딩 체크리스트 (클래스101)"
@@ -68,7 +68,7 @@ HR 점검용으로 확인할 다섯 가지 질문이 있습니다.
 
 노트북, 모니터, 휴대전화, 출입카드에는 지급일과 예상 반납 조건을 함께 기록합니다. 자산번호, 일련번호, 상태, 구성품, 사용자를 남기고 당사자가 확인합니다. 공유 장비는 개인에게 억지로 배정하지 말고 위치와 관리 역할을 둡니다.
 
-![신입 직원의 계정·장비·문서 권한을 발급하고 회수하는 준비 항목](/blog/images/posts/employee-onboarding-assets/employee-onboarding-assets.png)
+![신입 직원의 계정·장비·문서 권한을 발급하고 회수하는 준비 항목](/blog/images/posts/employee-onboarding-assets/employee-onboarding-assets.webp)
 *개념 이미지: 입사 전 준비, 첫날 확인, 직무 변경, 퇴사 회수까지 계정과 자산을 같은 수명주기로 관리합니다.*
 
 ## 입사 서류는 '서명'과 '수집'을 분리합니다
@@ -89,7 +89,7 @@ HR 점검용으로 확인할 다섯 가지 질문이 있습니다.
 | 출입카드 발급 | 카드 회수·권한 만료 |
 | 서명 문서 수령 | 보존·파기 기준 적용 |
 
-![입사 때 발급한 계정·장비·문서·출입 권한이 이동과 퇴사 때 회수되는 대칭 장부](/blog/images/posts/employee-onboarding-assets/employee-onboarding-offboarding-v10.png)
+![입사 때 발급한 계정·장비·문서·출입 권한이 이동과 퇴사 때 회수되는 대칭 장부](/blog/images/posts/employee-onboarding-assets/employee-onboarding-offboarding-v10.webp)
 *개념 이미지: 발급 항목마다 회수·비활성화·소유권 이전 동작을 한 쌍으로 관리하는 구조입니다.*
 
 OnPress에서 HR 정보에 따라 계정·장비·문서 작업을 생성하려면 HR 시스템, IdP, 자산관리, 저장소가 공식 API·웹훅 또는 자동화 인터페이스를 지원해야 합니다. 역할 변경, 입사 취소, 퇴사일 변경을 포함한 PoC에서 **생성뿐 아니라 비활성화·회수가 반영되는지** 검증합니다. 연결되지 않는 시스템은 담당자 확인 칸을 유지합니다.

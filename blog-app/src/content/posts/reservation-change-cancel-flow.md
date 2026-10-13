@@ -14,7 +14,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/reservation-change-cancel-flow/reservation-change-cancel-flow.png"
+thumbnail: "/blog/images/posts/reservation-change-cancel-flow/reservation-change-cancel-flow.webp"
 thumbnailAlt: "예약 변경·취소가 생겼을 때 게스트 확인 항목과 운영자 규정을 잇는 흐름"
 sources:
   - title: "펜션 예약 취소와 변경을 당황하지 않고 대처하는 실전 요령 (kcmjbxbc8m)"
@@ -53,7 +53,7 @@ sample: false
 - **요청 기록 보존** — 전화·문자·채널별 요청을 한곳에 남긴다
 - **날짜 변경 처리 방식** — 재예약으로 처리할지, 변경으로 처리할지를 게스트에게 명시
 
-![예약 변경·취소가 생겼을 때 게스트 확인 항목과 운영자 규정을 잇는 흐름](/blog/images/posts/reservation-change-cancel-flow/reservation-change-cancel-flow.png)
+![예약 변경·취소가 생겼을 때 게스트 확인 항목과 운영자 규정을 잇는 흐름](/blog/images/posts/reservation-change-cancel-flow/reservation-change-cancel-flow.webp)
 *개념 이미지: 예약 확정부터 변경·취소·환불까지 게스트와 운영자가 확인할 항목을 나란히 보여 주는 도식입니다.*
 
 ## 취소 정책을 화면에 두면 분쟁이 줄어듭니다

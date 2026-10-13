@@ -14,7 +14,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/ai-network-segmentation/ai-network-segmentation-v10-v2.png"
+thumbnail: "/blog/images/posts/ai-network-segmentation/ai-network-segmentation-v10-v2.webp"
 thumbnailAlt: "AI 서버 네트워크를 분리할 때 확인할 것"
 sources:
   - title: "2PC 방식의 물리적 망분리 환경 (techonvision)"
@@ -60,7 +60,7 @@ AI 서버를 네트워크에 그냥 연결하면, 모든 직원의 PC가 모델 
 6. 물리적 보호 조치
 7. 정기 점검·갱신
 
-![AI 서버 네트워크를 분리할 때 확인할 것](/blog/images/posts/ai-network-segmentation/ai-network-segmentation-v10-v2.png)
+![AI 서버 네트워크를 분리할 때 확인할 것](/blog/images/posts/ai-network-segmentation/ai-network-segmentation-v10-v2.webp)
 *개념 이미지: 사용자·관리·업데이트 구간을 VLAN·방화벽으로 분리하고 허용 목록을 관리하는 구조입니다.*
 
 ## 업데이트는 단방향으로

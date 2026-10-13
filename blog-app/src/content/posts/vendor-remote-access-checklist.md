@@ -14,7 +14,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/vendor-remote-access-checklist/vendor-remote-access-checklist.png"
+thumbnail: "/blog/images/posts/vendor-remote-access-checklist/vendor-remote-access-checklist.webp"
 thumbnailAlt: "외부 업체의 원격 접속을 허용하기 전 체크리스트"
 sources:
   - title: "외부 유지보수 업체 원격접속을 관리하기 위한 원격지원 프로그램 감사 기준 (getscreenme)"
@@ -76,7 +76,7 @@ N2SF(국가 망 보안체계) 방식처럼 데이터를 등급으로 나눕니�
 - 로그 누락 건수
 - 권한 회수 지연 — 작업 종료 후 권한이 살아 있던 시간
 
-![원격 접속 목적·기간·승인·인증·작업 로그·권한 회수·정기 검토 도식](/blog/images/posts/vendor-remote-access-checklist/vendor-remote-access-checklist.png)
+![원격 접속 목적·기간·승인·인증·작업 로그·권한 회수·정기 검토 도식](/blog/images/posts/vendor-remote-access-checklist/vendor-remote-access-checklist.webp)
 *개념 이미지: 외부 작업자가 들어오기 전부터 계정과 기록을 닫을 때까지의 일회용 출입 절차입니다.*
 
 오늘 외부업체 접속 절차를 세 단계(전·중·후)로 정리해 보세요. Core Company는 1회성 권한 발급과 세션 기록, 즉시 회수를 묶은 체크리스트를 설계해 드리겠습니다.

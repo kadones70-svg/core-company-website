@@ -14,7 +14,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/safe-ai-update-process/safe-ai-update-process.png"
+thumbnail: "/blog/images/posts/safe-ai-update-process/safe-ai-update-process.webp"
 thumbnailAlt: "모델과 프로그램 업데이트를 안전하게 적용하는 절차"
 sources:
   - title: "Rocky Linux 9 — DNF 패키지 관리 완벽 가이드 (todayops)"
@@ -65,7 +65,7 @@ sample: false
 - 실패율(%)
 - 패치 지연일 — 업데이트가 늦어진 일수
 
-![시험환경·승인·백업·무결성·롤백·변경일지·업데이트 주기를 잇는 도식](/blog/images/posts/safe-ai-update-process/safe-ai-update-process.png)
+![시험환경·승인·백업·무결성·롤백·변경일지·업데이트 주기를 잇는 도식](/blog/images/posts/safe-ai-update-process/safe-ai-update-process.webp)
 *개념 이미지: 새 파일의 입고부터 되돌림 준비와 변경 기록까지 이어지는 업데이트 검수선입니다.*
 
 오늘 모델 파일 하나가 '어디서 와서, 어떻게 검증되고, 실패하면 어떻게 돌아가는지'를 한 장으로 그려 보세요. Core Company는 스테이징·서명 검증·롤백 경로를 포함한 업데이트 절차를 설계해 드리겠습니다.

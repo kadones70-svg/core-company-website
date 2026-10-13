@@ -14,7 +14,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/ai-answer-feedback-loop/ai-answer-feedback-loop.png"
+thumbnail: "/blog/images/posts/ai-answer-feedback-loop/ai-answer-feedback-loop.webp"
 thumbnailAlt: "오답 한 건이 문서·검색·생성·질문 유형으로 분류되어 개선되는 티켓 흐름"
 sources:
   - title: "AI 엔지니어링에서 '루프(Loop)'란 무엇인가 (cloudnetworks)"
@@ -60,7 +60,7 @@ sample: false
 
 피드백이 다음 사이클로 되돌아가지 않는 구조는 루프가 아니라 파이프라인입니다. 개선이 반복되려면 **종료 신호**를 정의해야 합니다. 문서 검색 AI의 종료 신호는 테스트·평가·오답 라벨입니다. 신호가 배선되지 않으면 루프는 수렴하지 않고 그냥 돕니다.
 
-![오답 한 건이 문서·검색·생성·질문 유형으로 분류되어 개선되는 티켓 흐름](/blog/images/posts/ai-answer-feedback-loop/ai-answer-feedback-loop.png)
+![오답 한 건이 문서·검색·생성·질문 유형으로 분류되어 개선되는 티켓 흐름](/blog/images/posts/ai-answer-feedback-loop/ai-answer-feedback-loop.webp)
 *개념 이미지: 오답 접수 → 유형 분류 → 담당자 배정 → 수정 → 재시험 → 재발 방지로 이어지는 티켓 흐름입니다.*
 
 ## 티켓 흐름

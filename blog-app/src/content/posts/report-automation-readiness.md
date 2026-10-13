@@ -14,7 +14,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/report-automation-readiness/report-automation-readiness.png"
+thumbnail: "/blog/images/posts/report-automation-readiness/report-automation-readiness.webp"
 thumbnailAlt: "반복 보고서에서 자동화할 단계와 사람 검토·중단 지점을 구분한 항목"
 sources:
   - title: "업무 자동화 프롬프트 모음 — 메일·보고서·엑셀 자동화 (kkh16633)"
@@ -56,7 +56,7 @@ sample: false
 
 초록 단계도 원본 구조가 매주 바뀌면 자동화가 자주 깨집니다. 데이터 소유자와 마감 시각, 열 이름, 단위부터 고정합니다.
 
-![반복 보고서에서 자동화할 단계와 사람 검토·중단 지점을 구분한 항목](/blog/images/posts/report-automation-readiness/report-automation-readiness.png)
+![반복 보고서에서 자동화할 단계와 사람 검토·중단 지점을 구분한 항목](/blog/images/posts/report-automation-readiness/report-automation-readiness.webp)
 *개념 이미지: 원본 수집부터 집계, 초안, 검토, 승인, 배포까지 자동화 경계와 되돌리기 지점을 확인합니다.*
 
 ## 실패하면 어디에서 멈출지 정합니다

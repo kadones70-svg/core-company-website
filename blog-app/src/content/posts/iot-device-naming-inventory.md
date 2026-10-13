@@ -14,7 +14,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/iot-device-naming-inventory/iot-device-naming-inventory.png"
+thumbnail: "/blog/images/posts/iot-device-naming-inventory/iot-device-naming-inventory.webp"
 thumbnailAlt: "IoT 기기 이름과 목록을 표준화하는 방법"
 sources:
   - title: "IoT 기기 관리를 위한 효율적인 솔루션 (sbrjsghk03063)"
@@ -76,7 +76,7 @@ sample: false
 - 위치 확인시간 — 이름만으로 위치를 찾는 데 걸린 시간
 - 미패치 기기 수
 
-![기기명·고유 ID·위치·펌웨어와 추가·폐기를 연결한 IoT 원장 도식](/blog/images/posts/iot-device-naming-inventory/iot-device-naming-inventory.png)
+![기기명·고유 ID·위치·펌웨어와 추가·폐기를 연결한 IoT 원장 도식](/blog/images/posts/iot-device-naming-inventory/iot-device-naming-inventory.webp)
 *개념 이미지: 기기 이름과 원장 정보가 설치부터 폐기까지 함께 움직여야 한다는 수명주기 도식입니다.*
 
 오늘 IoT 기기 목록을 열어 '이름만으로 위치와 용도를 알 수 있는지' 확인해 보세요. Core Company는 명명 규칙과 기기 원장, 점검 주기를 설계해 드리겠습니다.

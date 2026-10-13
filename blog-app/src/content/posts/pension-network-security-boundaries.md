@@ -15,7 +15,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/pension-network-security-boundaries/pension-network-security-boundaries.png"
+thumbnail: "/blog/images/posts/pension-network-security-boundaries/pension-network-security-boundaries.webp"
 thumbnailAlt: "펜션 게스트·운영·IoT 네트워크 구역을 분리하는 경계 점검 항목"
 sources:
   - title: "공항 와이파이 보안 경보 — 휴가지 개인정보 보호 7가지 수칙 (serioso27)"
@@ -47,7 +47,7 @@ sample: false
 2. **운영망** — 키오스크·PMS·정산 장비, 관리자만 접근
 3. **IoT 구역** — CCTV·도어락, 별도 VLAN으로 분리
 
-![펜션 게스트·운영·IoT 네트워크 구역을 분리하는 경계 점검 항목](/blog/images/posts/pension-network-security-boundaries/pension-network-security-boundaries.png)
+![펜션 게스트·운영·IoT 네트워크 구역을 분리하는 경계 점검 항목](/blog/images/posts/pension-network-security-boundaries/pension-network-security-boundaries.webp)
 *개념 이미지: 게스트 Wi-Fi와 운영 장비, CCTV·도어락이 서로 다른 통신 구역에 있어야 하는 구조입니다.*
 
 ## 게스트 Wi-Fi 운영 체크리스트
@@ -70,7 +70,7 @@ sample: false
 - 게스트 일회성 권한 / 직원·외주 구역별 권한 / 임시 권한은 유효시간 설정
 - 출입 이력 보관
 
-![파란 실선은 허용, 빨간 점선은 차단한 펜션 네트워크 구역도](/blog/images/posts/pension-network-security-boundaries/pension-network-four-zones-v10-v2.png)
+![파란 실선은 허용, 빨간 점선은 차단한 펜션 네트워크 구역도](/blog/images/posts/pension-network-security-boundaries/pension-network-four-zones-v10-v2.webp)
 *개념 이미지: 게스트·운영·IoT·외부망 사이의 허용·차단 경로를 표시한 구역도입니다.*
 
 ## 게스트에게 알려 줄 보안 수칙 7가지

@@ -14,7 +14,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/model-file-supply-chain/model-file-supply-chain.png"
+thumbnail: "/blog/images/posts/model-file-supply-chain/model-file-supply-chain.webp"
 thumbnailAlt: "내려받은 모델 파일도 공급망 점검이 필요한 이유"
 sources:
   - title: "LLM 모델 보안 위협 — 데이터 유출 앱 속출에 따른 완벽 대비 가이드 (hunihub)"
@@ -70,5 +70,5 @@ sample: false
 
 '로컬이면 무조건 안전'도 아닙니다. 로컬 모델도 파일 무결성과 라이선스 검증이 필요합니다. 오늘 모델 파일 하나의 출처·해시·라이선스를 확인해 보세요. Core Company는 공급망 검증 절차와 재검증 주기를 설계해 드리겠습니다.
 
-![모델 다운로드 채널·버전·해시·라이선스·원본 계보·재검증·사용기록 도식](/blog/images/posts/model-file-supply-chain/model-file-supply-chain.png)
+![모델 다운로드 채널·버전·해시·라이선스·원본 계보·재검증·사용기록 도식](/blog/images/posts/model-file-supply-chain/model-file-supply-chain.webp)
 *개념 이미지: 모델 파일을 운영망에 들이기 전 송장처럼 확인할 입고 검수 항목입니다.*

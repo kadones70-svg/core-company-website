@@ -14,7 +14,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/rag-evaluation-questions/rag-evaluation-questions-v10.png"
+thumbnail: "/blog/images/posts/rag-evaluation-questions/rag-evaluation-questions-v10.webp"
 thumbnailAlt: "실제 질문·근거 문서·부정 질문으로 구성한 20문항 시험지 설계"
 sources:
   - title: "RAG 성능이 안 나온다면 원인은 데이터 전처리 — 정답률 실험 (testworks_mktg)"
@@ -60,7 +60,7 @@ sample: false
 - 검수자 간 일치율(%) = 같은 판정을 내린 질문 수 ÷ 전체 질문 수 × 100
 - 오답 버전 선택 횟수, 출처 미발견 횟수, 사람 재확인 사유 기록
 
-![실제 질문·근거 문서·부정 질문으로 구성한 20문항 시험지 설계](/blog/images/posts/rag-evaluation-questions/rag-evaluation-questions-v10.png)
+![실제 질문·근거 문서·부정 질문으로 구성한 20문항 시험지 설계](/blog/images/posts/rag-evaluation-questions/rag-evaluation-questions-v10.webp)
 *개념 이미지: 질문 유형별로 정답 문서와 채점 기준을 연결한 시험지 설계 도식입니다.*
 
 ## 전처리가 채점 결과를 바꿉니다

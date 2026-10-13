@@ -14,7 +14,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/document-version-expiration/document-version-expiration-v10.png"
+thumbnail: "/blog/images/posts/document-version-expiration/document-version-expiration-v10.webp"
 thumbnailAlt: "버전·유효일·상태·확정자를 메타데이터로 강제하는 문서 관리 도식"
 sources:
   - title: "브루스의 만료된 템플릿 — 디지털 시대의 문서 관리 전략 (vraindramaa82)"
@@ -53,7 +53,7 @@ sample: false
 - 롤백 대상 버전 지정
 - 실패 사례를 테스트 세트에 추가
 
-![버전·유효일·상태·확정자를 메타데이터로 강제하는 문서 관리 도식](/blog/images/posts/document-version-expiration/document-version-expiration-v10.png)
+![버전·유효일·상태·확정자를 메타데이터로 강제하는 문서 관리 도식](/blog/images/posts/document-version-expiration/document-version-expiration-v10.webp)
 *개념 이미지: 문서명 옆에 버전·유효일·상태·확정자를 붙여 검색 결과가 책임을 갖게 하는 구조입니다.*
 
 ## 버전 관리의 한계를 알아야 합니다

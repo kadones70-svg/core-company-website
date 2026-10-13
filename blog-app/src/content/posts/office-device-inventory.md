@@ -14,7 +14,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/office-device-inventory/office-device-inventory.png"
+thumbnail: "/blog/images/posts/office-device-inventory/office-device-inventory.webp"
 thumbnailAlt: "사무실 기기의 일련번호·사용자·위치·전원·버전·폐기 상태를 기록하는 항목"
 sources:
   - title: "기업 사무실 최신 IT 장비, 똑 부러지게 자산관리 하는 법 (유버스)"
@@ -69,7 +69,7 @@ IT 자산 관리(ITAM)의 표준 라이프사이클은 다음과 같습니다.
 
 재무 관점에서는 구매일·금액·구매자, 계약·리스·라이선스, 감가상각, 서비스 종료(EOS) 일정을 함께 봅니다. 비밀번호나 복구키는 자산표에 원문으로 적지 않습니다. 승인된 보안 저장소의 참조 위치와 접근 담당자만 기록합니다. 폐기 장비는 저장매체 처리와 인계 증빙을 별도 절차로 관리합니다.
 
-![사무실 기기의 일련번호·사용자·위치·전원·버전·폐기 상태를 기록하는 항목](/blog/images/posts/office-device-inventory/office-device-inventory.png)
+![사무실 기기의 일련번호·사용자·위치·전원·버전·폐기 상태를 기록하는 항목](/blog/images/posts/office-device-inventory/office-device-inventory.webp)
 *개념 이미지: 구매 기록에 머물지 않고 운영·교체·폐기까지 장비의 현재 상태를 확인하는 자산 항목입니다.*
 
 ## 장부가 살아 있는지는 다음 순회에서 드러납니다

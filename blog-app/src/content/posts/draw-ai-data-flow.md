@@ -14,7 +14,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/draw-ai-data-flow/draw-ai-data-flow.png"
+thumbnail: "/blog/images/posts/draw-ai-data-flow/draw-ai-data-flow.webp"
 thumbnailAlt: "AI 데이터 흐름을 한 장으로 그리는 방법"
 sources:
   - title: "AI 보다 먼저, CRM부터 정리하자 — 데이터 클리닝의 시작 (hndgt)"
@@ -41,7 +41,7 @@ sample: false
 3. **흐름도 작성** — 원천 → 정제 → 저장 → AI 처리 → 소비
 4. **권한·보존 정책 연계** — 각 단계에서 누가 접근하는지
 
-![AI 데이터 흐름을 한 장으로 그리는 방법](/blog/images/posts/draw-ai-data-flow/draw-ai-data-flow.png)
+![AI 데이터 흐름을 한 장으로 그리는 방법](/blog/images/posts/draw-ai-data-flow/draw-ai-data-flow.webp)
 *개념 이미지: 데이터 원천부터 소비까지 이동 경로와 권한·암호화 지점을 표시한 흐름도입니다.*
 
 ## 흐름도에 표시할 것

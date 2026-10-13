@@ -16,7 +16,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-11"
 draft: false
 featured: true
-thumbnail: "/blog/images/posts/gpt-5-6-luna-free-strategy/gpt-5-6-luna-platform-hero.png"
+thumbnail: "/blog/images/posts/gpt-5-6-luna-free-strategy/gpt-5-6-luna-platform-hero.webp"
 thumbnailAlt: "개념 이미지: GPT-5.6 Luna 무료화가 사용자·개발자·API 생태계에 미치는 영향을 시각화한 이미지"
 sources:
   - title: "오픈AI는 왜 '루나'를 무료로 풀었을까 (ZDNet Korea · AMEET)"
@@ -54,7 +54,7 @@ sample: false
 - 파일 업로드·이미지 생성 등 일부 도구는 기존처럼 별도 이용 한도가 유지됩니다. "무제한"은 텍스트 대화에 한정됩니다.
 - 유료(Plus·Pro) 이용자에게는 고성능 모델 GPT-5.6 솔(Sol) 업데이트와 추론 강도 조절 기능이 추가됩니다. 무료만 커진 것이 아니라, 유료의 가치도 함께 재편된 것입니다.
 
-![개념 이미지: GPT-5.6 Luna 무료화가 사용자·개발자·API 생태계에 미치는 영향을 시각화한 이미지](/blog/images/posts/gpt-5-6-luna-free-strategy/gpt-5-6-luna-platform-hero.png)
+![개념 이미지: GPT-5.6 Luna 무료화가 사용자·개발자·API 생태계에 미치는 영향을 시각화한 이미지](/blog/images/posts/gpt-5-6-luna-free-strategy/gpt-5-6-luna-platform-hero.webp)
 
 *개념 이미지: GPT-5.6 Luna 무료화가 사용자·개발자·API 생태계에 미치는 영향을 시각화한 이미지입니다.*
 
@@ -62,7 +62,7 @@ sample: false
 
 ## 무료화의 진짜 목적은 무엇일까?
 
-![개념 이미지: 무료 AI 모델이 사용자 확산에서 생태계 장악으로 이어지는 구조](/blog/images/posts/gpt-5-6-luna-free-strategy/gpt-5-6-luna-free-ai-strategy-flow.png)
+![개념 이미지: 무료 AI 모델이 사용자 확산에서 생태계 장악으로 이어지는 구조](/blog/images/posts/gpt-5-6-luna-free-strategy/gpt-5-6-luna-free-ai-strategy-flow.webp)
 
 *개념 이미지: 무료 AI 모델이 사용자 확산에서 생태계 장악으로 이어지는 구조입니다.*
 

@@ -14,7 +14,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/small-ai-pilot-scope/small-ai-pilot-scope.png"
+thumbnail: "/blog/images/posts/small-ai-pilot-scope/small-ai-pilot-scope.webp"
 thumbnailAlt: "AI 파일럿 후보를 데이터·판정자·위험·기간으로 심사하는 과정"
 sources:
   - title: "AI 파일럿의 95%, 성과 없이 사라졌다 (kbumbum3838)"
@@ -53,7 +53,7 @@ sample: false
 2. **먼저 쓸 2~3명부터** — 전사가 아니라 사용자 소수로 시작
 3. **데이터 준비를 도구 선택보다 먼저** — AI보다 원본 정리가 우선
 
-![AI 파일럿 후보를 데이터·판정자·위험·기간으로 심사하는 과정](/blog/images/posts/small-ai-pilot-scope/small-ai-pilot-scope.png)
+![AI 파일럿 후보를 데이터·판정자·위험·기간으로 심사하는 과정](/blog/images/posts/small-ai-pilot-scope/small-ai-pilot-scope.webp)
 *개념 이미지: 여러 후보를 심사 기준으로 걸러 첫 파일럿 하나를 고르는 과정입니다.*
 
 ## 파일럿 검증 절차

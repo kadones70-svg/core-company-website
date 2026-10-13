@@ -14,7 +14,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/offline-first-iot-operation/offline-first-iot-operation.png"
+thumbnail: "/blog/images/posts/offline-first-iot-operation/offline-first-iot-operation.webp"
 thumbnailAlt: "인터넷이 끊겨도 현장이 멈추지 않게 하는 설계"
 sources:
   - title: "공유기 보안 점검 5가지 — IoT 시대 필수 (goghdev)"
@@ -72,8 +72,8 @@ sample: false
 
 '인터넷이 끊기면 안 되겠지'가 아니라 '끊기면 어떻게 할지'를 설계해야 합니다. 오늘 핵심 제어 목록을 로컬·클라우드·수동 세 칸으로 나눠 보세요. Core Company는 로컬 우선 구조와 단절 훈련 절차를 설계해 드리겠습니다.
 
-![인터넷 단절 때 계속·대기·안전 정지 기능과 로컬 버퍼·재동기화를 나눈 세 차선 도식](/blog/images/posts/offline-first-iot-operation/offline-first-three-lanes-v10.png)
+![인터넷 단절 때 계속·대기·안전 정지 기능과 로컬 버퍼·재동기화를 나눈 세 차선 도식](/blog/images/posts/offline-first-iot-operation/offline-first-three-lanes-v10.webp)
 *개념 이미지: 기능을 세 차선으로 나누고 단절 중 데이터가 로컬 버퍼에 쌓였다가 검증 후 재동기화되는 관계입니다.*
 
-![인터넷 단절 때 로컬 동작·수동 조작·복구 경로를 확인하는 운영 도식](/blog/images/posts/offline-first-iot-operation/offline-first-iot-operation.png)
+![인터넷 단절 때 로컬 동작·수동 조작·복구 경로를 확인하는 운영 도식](/blog/images/posts/offline-first-iot-operation/offline-first-iot-operation.webp)
 *개념 이미지: 기존 기능의 의존성을 찾는 점검도입니다. 실제 설계에서는 ‘계속·대기·안전 정지’ 세 차선과 버퍼·재동기화 관계를 별도로 그려야 합니다.*

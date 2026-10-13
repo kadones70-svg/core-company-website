@@ -14,7 +14,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/verify-ai-roi-calculation/verify-ai-roi-calculation-formulas-v10-v3.png"
+thumbnail: "/blog/images/posts/verify-ai-roi-calculation/verify-ai-roi-calculation-formulas-v10-v3.webp"
 thumbnailAlt: "ROI 계산식의 분자와 분모를 정의하고 측정하는 4단계"
 sources:
   - title: "기업 AI 투자, ROI 증명은 7%뿐인데 94%가 계속 돈을 쓰는 이유 (balckworldcup)"
@@ -79,7 +79,7 @@ sample: false
 - 가정 ±20% 변동 시 ROI가 어떻게 바뀌는지
 - 회수 가능성(실현된 절감)과 잠재 절감 구분
 
-![정확 계산 기준 공식 비교비율 약 1889퍼센트와 투자비 차감형 ROI 약 1789퍼센트의 계산식 비교](/blog/images/posts/verify-ai-roi-calculation/verify-ai-roi-calculation-formulas-v10-v3.png)
+![정확 계산 기준 공식 비교비율 약 1889퍼센트와 투자비 차감형 ROI 약 1789퍼센트의 계산식 비교](/blog/images/posts/verify-ai-roi-calculation/verify-ai-roi-calculation-formulas-v10-v3.webp)
 *개념 이미지: 같은 비용 차이를 사용해도 초기 구축비를 분자에서 차감하는지에 따라 두 비율은 100퍼센트포인트 달라집니다.*
 
 오늘 제안서의 ROI 숫자를 4단계로 분해해 보세요. Core Company는 완료 정의부터 장기 추적까지 ROI 측정 체계를 설계해 드리겠습니다.

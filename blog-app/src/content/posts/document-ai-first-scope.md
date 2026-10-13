@@ -14,7 +14,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: true
-thumbnail: "/blog/images/posts/document-ai-first-scope/document-ai-first-scope-v10.png"
+thumbnail: "/blog/images/posts/document-ai-first-scope/document-ai-first-scope-v10.webp"
 thumbnailAlt: "세 문서 후보를 준비도와 검수시간으로 비교해 첫 AI 범위 하나를 고르는 의사결정표"
 sources:
   - title: "RAG(검색 증강 생성)란? 생성형 AI 도입 기업이 놓치기 쉬운 보안 리스크 (ksign13936)"
@@ -77,7 +77,7 @@ sample: false
 
 반드시 도입 전 기준선과 비교합니다. 정확도가 좋아도 검색 속도가 느리거나 권한이 뚫리면 실패입니다. '환각을 완전히 막는다'는 표현은 쓰지 않습니다. RAG도 오답이 가능하며, 그 오답을 발견하는 검수 설계가 함께 있어야 합니다.
 
-![세 문서 후보를 10점 준비도와 검수시간으로 비교해 첫 AI 범위 하나를 고르는 의사결정표](/blog/images/posts/document-ai-first-scope/document-ai-first-scope-v10.png)
+![세 문서 후보를 10점 준비도와 검수시간으로 비교해 첫 AI 범위 하나를 고르는 의사결정표](/blog/images/posts/document-ai-first-scope/document-ai-first-scope-v10.webp)
 *개념 이미지: 파일 수가 아니라 정답 판정자·문서 상태·질문 기록·권한·검수 여력으로 첫 범위를 고릅니다.*
 
 오늘 가장 자주 묻는 업무 하나를 골라, 그 문서 묶음에 정답이 있는지 확인해 보세요. Core Company는 그 묶음의 준비도와 검수자를 기준으로 첫 AI 범위를 설계해 드리겠습니다.

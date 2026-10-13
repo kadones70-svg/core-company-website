@@ -14,7 +14,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/ai-cost-components/ai-cost-components-v10-v2.png"
+thumbnail: "/blog/images/posts/ai-cost-components/ai-cost-components-v10-v2.webp"
 thumbnailAlt: "AI 도입비용을 구축·운영·교육·검수·백업·장애 대응으로 나눈 비용 항목"
 sources:
   - title: "생성형 AI 비용 청구서 폭탄 현실 점검 — 우리 회사 AI 도입 비용 (economy_plan)"
@@ -56,7 +56,7 @@ AI 도입 견적서 첫 장에는 구축비 총액이 큼지막하게 적혀 있
 - **API 연동형** — 종량제, 사용량에 비례
 - **온프레미스·프라이빗** — 초기 자본비용, 내부 통제
 
-![AI 도입비용을 구축·운영·교육·검수·백업·장애 대응으로 나눈 비용 항목](/blog/images/posts/ai-cost-components/ai-cost-components-v10-v2.png)
+![AI 도입비용을 구축·운영·교육·검수·백업·장애 대응으로 나눈 비용 항목](/blog/images/posts/ai-cost-components/ai-cost-components-v10-v2.webp)
 *개념 이미지: 견적 총액을 발생 시점별로 해체해 3년 비용원장을 만드는 구조입니다.*
 
 ## 사용량 기반 비용 산정 예시

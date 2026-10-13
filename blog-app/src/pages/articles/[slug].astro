@@ -5,7 +5,7 @@ import ArticleToc from '@/components/ArticleToc.astro';
 import Breadcrumbs from '@/components/Breadcrumbs.astro';
 import ContactCta from '@/components/ContactCta.astro';
 import EditorialDiagram from '@/components/EditorialDiagram.astro';
-import { categoryToSlug, tagToSlug } from '@/config/content';
+import { categoryToSlug, TITLE_FONT_STACKS, tagToSlug } from '@/config/content';
 import { SITE } from '@/config/site';
 import { articlePath, withBase } from '@/lib/paths';
 import { formatDate, getPostSlug, getVisiblePosts, isoDate, readingMinutes, type PostEntry } from '@/lib/posts';
@@ -20,6 +20,7 @@ const { post, allPosts } = Astro.props as {
   allPosts: PostEntry[];
 };
 const slug = getPostSlug(post);
+const titleFontStack = post.data.titleFont ? TITLE_FONT_STACKS[post.data.titleFont] : undefined;
 const { Content, headings } = await render(post);
 const related = post.data.relatedPosts
   .map((relatedSlug) => allPosts.find((candidate) => getPostSlug(candidate) === relatedSlug))
@@ -54,7 +55,7 @@ const articleJsonLd = {
       <Breadcrumbs items={[{ label: '블로그', href: withBase('/') }, { label: post.data.category, href: withBase(`/category/${categoryToSlug(post.data.category)}/`) }, { label: post.data.title }]} />
       {post.data.sample && <p class="sample-notice"><strong>검수용 샘플</strong> 실제 고객 사례가 아니며 운영 배포에서 제외됩니다.</p>}
       <p class="article-category" data-pagefind-filter="category" data-pagefind-meta="category">{post.data.category} / {post.data.contentType}</p>
-      <h1 data-pagefind-meta="title">{post.data.title}</h1>
+      <h1 data-pagefind-meta="title" style={titleFontStack ? `--title-font: ${titleFontStack}` : undefined}>{post.data.title}</h1>
       <p class="article-summary" data-pagefind-meta="summary">{post.data.summary}</p>
       <dl class="article-meta">
         <div><dt>게시</dt><dd><time datetime={isoDate(post.data.publishedAt)}>{formatDate(post.data.publishedAt)}</time></dd></div>
@@ -66,6 +67,11 @@ const articleJsonLd = {
       <ul class="tag-list" aria-label="태그">
         {post.data.tags.map((tag) => <li><a href={withBase(`/tag/${tagToSlug(tag)}/`)} data-pagefind-filter="tag">#{tag}</a></li>)}
       </ul>
+      {post.data.thumbnail && (
+        <div class="article-hero">
+          <div class="article-hero__frame"><img src={post.data.thumbnail} alt={post.data.thumbnailAlt} loading="lazy" decoding="async" width="1280" height="720" /></div>
+        </div>
+      )}
       <ArticleToc headings={tocHeadings} variant="mobile" />
     </header>
 
@@ -125,6 +131,9 @@ const articleJsonLd = {
   .tag-list a { display: inline-flex; min-height: 44px; align-items: center; padding: 0 12px; border: 1px solid var(--color-border); border-radius: 999px; color: var(--color-blue); font-size: .82rem; text-decoration: none; }
   .article-layout { display: grid; grid-template-columns: minmax(0, 720px) minmax(220px, 280px); justify-content: center; gap: clamp(60px, 8vw, 110px); padding-top: 54px; }
   .article-content { min-width: 0; font-size: 1.0625rem; line-height: 1.82; }
+  .article-hero { margin-top: 36px; }
+  .article-hero__frame { aspect-ratio: 16 / 9; overflow: hidden; border-radius: var(--radius-card); background: var(--color-border); }
+  .article-hero img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .article-lead-diagram { margin-bottom: 56px; }
   .article-content :global(h2) { margin: 74px 0 22px; scroll-margin-top: 120px; font-size: clamp(1.9rem, 3vw, 2.45rem); line-height: 1.28; letter-spacing: -.035em; }
   .article-content :global(h3) { margin: 44px 0 16px; scroll-margin-top: 120px; font-size: 1.48rem; line-height: 1.4; }

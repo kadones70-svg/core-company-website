@@ -5,6 +5,7 @@ export const CATEGORIES = [
     short: '숙박',
     description: '예약부터 입실, 안내와 비상 대응까지 숙박 운영 흐름을 살펴봅니다.',
     accent: '#8B3AC8',
+    image: '/blog/images/categories/hospitality.webp',
   },
   {
     name: '오피스·사무실 운영',
@@ -12,6 +13,7 @@ export const CATEGORIES = [
     short: '오피스',
     description: '문서, 출입, 공간과 반복 업무를 안정적으로 운영하는 기준을 다룹니다.',
     accent: '#1E56C8',
+    image: '/blog/images/categories/office.webp',
   },
   {
     name: '문서·데이터 AI',
@@ -19,6 +21,7 @@ export const CATEGORIES = [
     short: '문서 AI',
     description: 'RAG, 문서 검색과 데이터 활용을 실제 업무에 연결하는 방법입니다.',
     accent: '#3A6D11',
+    image: '/blog/images/categories/document-data-ai.webp',
   },
   {
     name: 'AI 도입·비용',
@@ -26,6 +29,7 @@ export const CATEGORIES = [
     short: 'AI 도입·비용',
     description: '도입 범위, 비용과 검증 기준을 과장 없이 비교하도록 정리합니다.',
     accent: '#B86A00',
+    image: '/blog/images/categories/ai-adoption-cost.webp',
   },
   {
     name: 'AI 인프라·보안',
@@ -33,6 +37,7 @@ export const CATEGORIES = [
     short: 'AI 인프라·보안',
     description: '클라우드와 온프레미스, 개인정보와 접근 통제를 함께 검토합니다.',
     accent: '#C43A1A',
+    image: '/blog/images/categories/ai-infrastructure-security.webp',
   },
   {
     name: '자동화·IoT',
@@ -40,6 +45,7 @@ export const CATEGORIES = [
     short: 'IoT·자동화',
     description: '센서, 도어락과 기기 연동을 운영 절차와 함께 설계하는 기준입니다.',
     accent: '#E8620A',
+    image: '/blog/images/categories/automation-iot.webp',
   },
 ] as const;
 
@@ -62,6 +68,12 @@ export const CONTENT_TYPES = [
   'FAQ',
   '뉴스 해설',
 ] as const;
+
+export const TITLE_FONTS = ['ssurround'] as const;
+export type TitleFont = (typeof TITLE_FONTS)[number];
+export const TITLE_FONT_STACKS: Record<TitleFont, string> = {
+  ssurround: "'Cafe24 Ssurround', 'Noto Sans KR', sans-serif",
+};
 
 export const POPULAR_TAGS = [
   '제조',

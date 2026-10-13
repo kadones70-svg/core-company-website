@@ -14,7 +14,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/workload-before-gpu-specs/workload-before-gpu-specs.png"
+thumbnail: "/blog/images/posts/workload-before-gpu-specs/workload-before-gpu-specs.webp"
 thumbnailAlt: "GPU 사양보다 먼저 정해야 할 업무 조건 항목"
 sources:
   - title: "NVIDIA GPU 서버, 기존 서버실에 설치할 수 있을까? — 전력·냉각·랙 (bninc3355)"
@@ -65,7 +65,7 @@ sample: false
 
 공랭·액체 냉각은 제품의 공식 구성에 따라 결정되며 임의로 선택할 수 없습니다.
 
-![GPU 사양보다 먼저 정해야 할 업무 조건 항목](/blog/images/posts/workload-before-gpu-specs/workload-before-gpu-specs.png)
+![GPU 사양보다 먼저 정해야 할 업무 조건 항목](/blog/images/posts/workload-before-gpu-specs/workload-before-gpu-specs.webp)
 *개념 이미지: 모델·문서량·동시성·응답시간을 확정한 뒤 전력·냉각·랙을 검토하는 순서입니다.*
 
 ## 사양 검토 지표

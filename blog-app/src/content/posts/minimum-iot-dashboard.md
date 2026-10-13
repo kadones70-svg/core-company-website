@@ -14,7 +14,7 @@ publishedAt: "2026-08-10"
 updatedAt: "2026-08-10"
 draft: false
 featured: false
-thumbnail: "/blog/images/posts/minimum-iot-dashboard/minimum-iot-dashboard.png"
+thumbnail: "/blog/images/posts/minimum-iot-dashboard/minimum-iot-dashboard.webp"
 thumbnailAlt: "IoT 운영 대시보드를 최소한의 화면으로 줄이는 이유"
 sources:
   - title: "Django+Bootstrap 기반 GIS·IoT 대시보드 개발 (caetoday)"
@@ -66,7 +66,7 @@ sample: false
 - 알림 연계율(%) = 알림으로 연결된 상태 항목 비율
 - 역할별 노출 정확도 — 권한 밖 정보가 보이는지
 
-![사용자와 결정에서 출발해 상태 카드·상세 화면·주간 제거로 이어지는 최소 대시보드 도식](/blog/images/posts/minimum-iot-dashboard/minimum-iot-dashboard.png)
+![사용자와 결정에서 출발해 상태 카드·상세 화면·주간 제거로 이어지는 최소 대시보드 도식](/blog/images/posts/minimum-iot-dashboard/minimum-iot-dashboard.webp)
 *개념 이미지: 첫 화면을 늘리기 전에 사용자·결정·상태 기준·상세 경로를 연결하는 최소 구성입니다.*
 
 오늘 대시보드 목록을 열어 '한 달간 열지 않은 화면'을 찾아 보세요. Core Company는 최소한의 KPI 화면과 역할별 노출, 알림 연계를 설계해 드리겠습니다.
