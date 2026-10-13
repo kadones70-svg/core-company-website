@@ -55,6 +55,8 @@ form input,form select,form textarea,select,input[type=text],input[type=email],i
 .sector:hover,.catalog-card:hover,.arch-card:hover{transform:translateY(-10px);box-shadow:0 22px 48px rgba(40,32,24,.18)}
 .sector-media img,.catalog-media img{transition:transform .5s ease}
 .sector:hover .sector-media img,.catalog-card:hover .catalog-media img{transform:scale(1.08)}
+.sector-vid{display:block;width:100%;height:auto;transition:transform .5s ease}
+.sector:hover .sector-vid{transform:scale(1.06)}
 .rv{opacity:0;transform:translateY(32px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
 .rv.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){
@@ -149,35 +151,35 @@ form input,form select,form textarea,select,input[type=text],input[type=email],i
 </div>
 <div class="sectors">
 <article class="sector">
-<div class="sector-media"><img src="assets/images/space-manufacturing-v2.png" alt="정밀 제조 설비와 작업 흐름을 표현한 3D 렌더링" loading="lazy"></div>
+<div class="sector-media"><video class="sector-vid" autoplay loop muted playsinline preload="auto" poster="assets/images/space-manufacturing-v2.png"><source src="assets/video/space/manufacturing.mp4" type="video/mp4"><img src="assets/images/space-manufacturing-v2.png" alt="정밀 제조 설비와 작업 흐름을 표현한 3D 렌더링" loading="lazy"></video></div>
 <div class="sector-body"><p class="num">SPACE 01</p>
 <h3>제조 현장</h3>
 <p>공정, 설비, 센서와 작업 데이터를 연결할 수 있는 범위를 검토합니다.</p>
 <span>공정 · 품질 · 안전</span></div>
 </article>
 <article class="sector">
-<div class="sector-media"><img src="assets/images/space-office-v2.png" alt="업무와 회의 공간을 표현한 3D 렌더링" loading="lazy"></div>
+<div class="sector-media"><video class="sector-vid" autoplay loop muted playsinline preload="auto" poster="assets/images/space-office-v2.png"><source src="assets/video/space/office.mp4" type="video/mp4"><img src="assets/images/space-office-v2.png" alt="업무와 회의 공간을 표현한 3D 렌더링" loading="lazy"></video></div>
 <div class="sector-body"><p class="num">SPACE 02</p>
 <h3>스마트 오피스</h3>
 <p>업무 공간의 문서, 출입, 환경과 운영 흐름을 함께 살펴봅니다.</p>
 <span>업무 · 접근 · 공간 운영</span></div>
 </article>
 <article class="sector">
-<div class="sector-media"><img src="assets/images/space-hospitality-v2.png" alt="숙박 공간과 시설 운영을 표현한 3D 렌더링" loading="lazy"></div>
+<div class="sector-media"><video class="sector-vid" autoplay loop muted playsinline preload="auto" poster="assets/images/space-hospitality-v2.png"><source src="assets/video/space/hospitality.mp4" type="video/mp4"><img src="assets/images/space-hospitality-v2.png" alt="숙박 공간과 시설 운영을 표현한 3D 렌더링" loading="lazy"></video></div>
 <div class="sector-body"><p class="num">SPACE 03</p>
 <h3>숙박·민박</h3>
 <p>고객 경험과 시설 운영의 접점을 공간 조건에 맞춰 검토합니다.</p>
 <span>시설 · 안내 · 운영</span></div>
 </article>
 <article class="sector">
-<div class="sector-media"><img src="assets/images/space-residential-v2.png" alt="주거 환경을 표현한 3D 렌더링" loading="lazy"></div>
+<div class="sector-media"><video class="sector-vid" autoplay loop muted playsinline preload="auto" poster="assets/images/space-residential-v2.png"><source src="assets/video/space/residential.mp4" type="video/mp4"><img src="assets/images/space-residential-v2.png" alt="주거 환경을 표현한 3D 렌더링" loading="lazy"></video></div>
 <div class="sector-body"><p class="num">SPACE 04</p>
 <h3>주거</h3>
 <p>생활 환경과 기기 연동을 사용자와 공간의 조건에서 검토합니다.</p>
 <span>생활 · 환경 · 접근</span></div>
 </article>
 <article class="sector">
-<div class="sector-media"><img src="assets/images/space-smartfarm-v2.png" alt="생육 환경과 설비 흐름을 표현한 3D 렌더링" loading="lazy"></div>
+<div class="sector-media"><video class="sector-vid" autoplay loop muted playsinline preload="auto" poster="assets/images/space-smartfarm-v2.png"><source src="assets/video/space/smartfarm.mp4" type="video/mp4"><img src="assets/images/space-smartfarm-v2.png" alt="생육 환경과 설비 흐름을 표현한 3D 렌더링" loading="lazy"></video></div>
 <div class="sector-body"><p class="num">SPACE 05</p>
 <h3>스마트팜</h3>
 <p>생육 환경과 설비 데이터를 관찰하고 운영 기준을 확인합니다.</p>
@@ -482,6 +484,7 @@ form input,form select,form textarea,select,input[type=text],input[type=email],i
 <script>
 (function(){
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) { document.querySelectorAll('video.sector-vid').forEach(function(v){ try{ v.pause(); v.removeAttribute('autoplay'); v.load(); }catch(e){} }); }
   var cards = document.querySelectorAll('.sector, .catalog-card, .arch-card, .step, .node');
   cards.forEach(function(c){ c.classList.add('rv'); });
   if (reduce || !('IntersectionObserver' in window)) { cards.forEach(function(c){ c.classList.add('in'); }); return; }
