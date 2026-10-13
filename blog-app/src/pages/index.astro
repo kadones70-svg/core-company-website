@@ -32,6 +32,10 @@ const featuredTitleFontStack = featured?.data.titleFont ? TITLE_FONT_STACKS[feat
           <span class="chip">기술보다 운영 문제를 먼저</span>
           <span class="chip">출처·수정 이력을 공개</span>
         </div>
+        <form role="search" class="hero-search" action={withBase('/search/')} method="get" aria-label="블로그 글 검색">
+          <input class="hero-search__input" name="q" type="search" placeholder="글 검색: 무인 체크인, 문서 AI, 구축 비용…" autocomplete="off" aria-label="블로그 검색어" />
+          <button class="hero-search__btn" type="submit">검색</button>
+        </form>
       </div>
       <figure class="hero__visual">
         <img src="/blog/images/hero/hero.webp" alt="AI와 IoT가 적용된 소규모 사업장 공간" loading="eager" decoding="async" width="1600" height="1200" />

@@ -1388,3 +1388,55 @@ img.img-fade.is-loaded { opacity: 1; }
   .cat-card__media img, .pick-card__media img, .featured__media img,
   .cat-card:hover .cat-card__media img, .pick-card:hover .pick-card__media img { transition: none !important; transform: none !important; }
 }
+
+/* 홈 히어로 검색바 — 글 검색 진입점 */
+.hero-search {
+  display: flex;
+  gap: 0;
+  width: 100%;
+  max-width: 540px;
+  margin-top: 22px;
+}
+.hero-search__input {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 58px;
+  padding: 0 20px;
+  font: inherit;
+  font-size: 1.02rem;
+  color: var(--color-ink, #2a2018);
+  background: #fff;
+  border: 2px solid var(--color-ink, #2a2018);
+  border-right: 0;
+  border-radius: 999px 0 0 999px;
+}
+.hero-search__input::placeholder { color: var(--color-muted, #7c6d58); }
+.hero-search__input:focus {
+  outline: none;
+  border-color: var(--color-accent, #e8620a);
+}
+.hero-search__btn {
+  flex: 0 0 auto;
+  height: 58px;
+  padding: 0 28px;
+  font: inherit;
+  font-weight: 800;
+  font-size: 1.02rem;
+  color: #fff;
+  background: var(--color-ink, #2a2018);
+  border: 2px solid var(--color-ink, #2a2018);
+  border-radius: 0 999px 999px 0;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.hero-search__btn:hover,
+.hero-search__btn:focus-visible {
+  background: var(--color-accent, #e8620a);
+  border-color: var(--color-accent, #e8620a);
+}
+.hero-search:focus-within .hero-search__input { border-color: var(--color-accent, #e8620a); }
+@media (max-width: 40rem) {
+  .hero-search { max-width: 100%; }
+  .hero-search__btn { padding: 0 20px; }
+}

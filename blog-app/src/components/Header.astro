@@ -21,9 +21,10 @@ const navigation = [
   ...categoryNames.map((name) => {
     const category = CATEGORY_DEFINITIONS.find((item) => item.name === name)!;
     return { label: category.shortLabel, href: categoryPath(category.name) };
-  }),
-  { label: '검색', href: `${SITE.basePath}/search/` }
+  })
 ];
+
+const searchHref = `${SITE.basePath}/search/`;
 
 const normalizePath = (path: string) => (path.endsWith('/') ? path : `${path}/`);
 const currentPath = normalizePath(activePath);
@@ -82,6 +83,18 @@ const isCurrent = (href: string) => {
           </li>
         ))}
       </ul>
+      <a
+        class="site-nav__search"
+        href={searchHref}
+        aria-current={isCurrent(searchHref) ? 'page' : undefined}
+        aria-label="블로그 글 검색"
+      >
+        <svg class="site-nav__search-icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+          <circle cx="9" cy="9" r="6" fill="none" stroke="currentColor" stroke-width="2" />
+          <line x1="13.5" y1="13.5" x2="18" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </svg>
+        <span>검색</span>
+      </a>
       <a
         class="button button--small site-nav__contact"
         href={buildContactUrl({ cta: 'header' })}
@@ -160,3 +173,40 @@ const isCurrent = (href: string) => {
     window.addEventListener('pageshow', () => setOpen(false, false));
   })();
 </script>
+
+<style>
+  .site-nav__search {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 999px;
+    border: 2px solid var(--color-accent, #e8620a);
+    background: var(--color-paper, #fbf5ec);
+    color: var(--color-accent, #e8620a);
+    font-weight: 800;
+    font-size: 1rem;
+    line-height: 1;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  .site-nav__search:hover,
+  .site-nav__search:focus-visible {
+    background: var(--color-accent, #e8620a);
+    color: #fff;
+  }
+  .site-nav__search-icon {
+    width: 20px;
+    height: 20px;
+    flex: none;
+  }
+  @media (max-width: 70rem) {
+    .site-nav__search {
+      width: 100%;
+      justify-content: center;
+      padding: 14px 20px;
+      font-size: 1.05rem;
+    }
+  }
+</style>
