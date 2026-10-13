@@ -35,6 +35,34 @@ body.modal-open{overflow:hidden}
 @media(max-width:560px){.video-modal{padding:0}.video-modal-dialog{width:100%;border:0}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"어떤 공간에 적용할 수 있나요?","acceptedAnswer":{"@type":"Answer","text":"제조 현장, 오피스, 숙박·민박, 주거, 스마트팜 등 공간별 조건과 운영 목적을 진단한 뒤 적합성을 검토합니다."}},{"@type":"Question","name":"PoC에서는 무엇을 검증하나요?","acceptedAnswer":{"@type":"Answer","text":"한 공정 또는 한 업무에 범위를 한정하고 기간·데이터·책임·성공 기준을 사전에 합의합니다. 생산성·품질·안전·에너지·서비스 운영 중 고객이 선택한 기준을 비교합니다."}},{"@type":"Question","name":"정부지원은 어떻게 확인하나요?","acceptedAnswer":{"@type":"Answer","text":"지원사업은 보조 수단입니다. 공고별 자격·일정·자부담·Pool 등록·인정비목을 확인한 뒤 해당 시 적합성을 검토합니다. 선정이나 지원금은 사전에 약속하지 않습니다."}}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+<style>
+/* 블로그와 통일: 글씨체 + 둥근 모서리 + 모션 (2026-10) */
+@font-face{font-family:'Cafe24 Ssurround';src:url('/blog/fonts/Cafe24Ssurround.woff') format('woff');font-weight:400 900;font-display:swap}
+body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif}
+h1,h2,h3,.hero-copy h1,.sector-body h3,.catalog-body h3,.arch-card h3{font-family:'Cafe24 Ssurround','Noto Sans KR',sans-serif;letter-spacing:-.01em}
+.brand img{width:54px;height:54px;border-radius:14px;background:#fff;padding:5px;box-shadow:0 3px 10px rgba(40,32,24,.1);transition:transform .25s ease}
+.brand:hover img{transform:scale(1.06) rotate(-2deg)}
+.brand span{font-weight:800}
+.sector,.catalog-card,.arch-card,.node,.step{border-radius:22px;overflow:hidden}
+.sector-media,.catalog-media{overflow:hidden}
+.sector-media img,.catalog-media img,.hero-art img,.hero-image img,.hero-image,figure.hero-image,main figure img{border-radius:18px}
+form input,form select,form textarea,select,input[type=text],input[type=email],input[type=tel],textarea{border-radius:12px !important}
+.btn,button.menu{border-radius:999px}
+.sector,.catalog-card,.arch-card{transition:transform .32s cubic-bezier(.2,.7,.2,1),box-shadow .32s ease}
+.sector:hover,.catalog-card:hover,.arch-card:hover{transform:translateY(-10px);box-shadow:0 22px 48px rgba(40,32,24,.18)}
+.sector-media img,.catalog-media img{transition:transform .5s ease}
+.sector:hover .sector-media img,.catalog-card:hover .catalog-media img{transform:scale(1.08)}
+.rv{opacity:0;transform:translateY(32px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .rv{opacity:1 !important;transform:none !important}
+  .sector,.catalog-card,.arch-card,.sector-media img,.catalog-media img,.brand img{transition:none !important}
+  .sector:hover,.catalog-card:hover,.arch-card:hover{transform:none}
+}
+</style>
 </head>
 <body>
 <a class="skip" href="#main">본문으로 건너뛰기</a>
@@ -451,6 +479,18 @@ body.modal-open{overflow:hidden}
   </div>
 </div>
 <script>(function(){var t=document.getElementById('introVideoTrigger'),m=document.getElementById('introVideoModal'),v=document.getElementById('introVideo'),l=null;function openM(){l=document.activeElement;m.classList.add('open');document.body.classList.add('modal-open');var d=m.querySelector('.video-modal-dialog');if(d)d.focus()}function closeM(){m.classList.remove('open');document.body.classList.remove('modal-open');if(v)v.pause();if(l)l.focus()}if(t)t.addEventListener('click',function(e){e.preventDefault();openM()});m.addEventListener('click',function(e){if(e.target.closest('[data-video-close]'))closeM()});m.addEventListener('keydown',function(e){if(e.key==='Escape'){closeM();return}if(e.key!=='Tab')return;var f=m.querySelectorAll('button,[href],video,[tabindex]:not([tabindex="-1"])');if(!f.length)return;var a=f[0],z=f[f.length-1];if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus()}else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus()}})})();</script>
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var cards = document.querySelectorAll('.sector, .catalog-card, .arch-card, .step, .node');
+  cards.forEach(function(c){ c.classList.add('rv'); });
+  if (reduce || !('IntersectionObserver' in window)) { cards.forEach(function(c){ c.classList.add('in'); }); return; }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  cards.forEach(function(c){ io.observe(c); });
+})();
+</script>
 </body>
 </html>
 
