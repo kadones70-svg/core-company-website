@@ -756,7 +756,7 @@ h4 {
   align-items: center;
   padding-inline: 0.625rem;
   color: #4f4b45;
-  font-size: 0.8125rem;
+  font-size:0.875rem;
   font-weight: 650;
   text-decoration: none;
 }
@@ -827,7 +827,7 @@ h4 {
 }
 
 .menu-toggle__label {
-  font-size: 0.75rem;
+  font-size:0.875rem;
   font-weight: 700;
 }
 
@@ -851,7 +851,7 @@ h4 {
   display: flex;
   align-items: center;
   color: var(--color-muted);
-  font-size: 0.8125rem;
+  font-size:0.875rem;
 }
 
 .breadcrumbs li + li::before {
@@ -1125,7 +1125,7 @@ h4 {
 .prose figure figcaption {
   margin-top: 0.75rem;
   color: var(--color-muted);
-  font-size: 0.8125rem;
+  font-size:0.875rem;
   text-align: center;
 }
 
@@ -1281,11 +1281,11 @@ h4 {
   }
 
   .site-brand__wordmark strong {
-    font-size: 0.8125rem;
+    font-size:0.875rem;
   }
 
   .site-brand__wordmark span {
-    font-size: 0.6875rem;
+    font-size:0.75rem;
   }
 
   .article-list__item article {
