@@ -106,13 +106,12 @@ label{font-size:14px}
 @media(max-width:560px){.sectors{grid-template-columns:1fr;gap:16px}.sector:nth-child(5){grid-column:auto}.sector-media{height:210px}.sector-body{padding:22px 22px 26px}.sector p{font-size:15px}}
 .navlinks>a:not(.btn),.catalog-nav>button{font-size:15px;color:#3D3832;font-weight:500}
 .nav-ico{width:16px;height:16px;vertical-align:-3px;margin-right:6px;color:#4A443D;flex:none}
-/* V26 히어로 이미지: 둥근 모서리, 천천히 움직이는 모션, 캡션 빛 효과 */
+/* V26 히어로 이미지: 둥근 모서리, 루프 영상, 캡션 빛 효과 */
 .space-map.hero-art{border-radius:28px;overflow:hidden;box-shadow:0 24px 60px rgba(26,25,23,.22)}
-.hero-art>.hero-image{border-radius:28px;animation:heroDrift 22s ease-in-out infinite;will-change:transform}
+.hero-art>.hero-image{border-radius:28px;object-fit:cover}
 .hero-art>.hero-image-caption{border-radius:14px;animation:captionGlow 4s ease-in-out infinite}
-@keyframes heroDrift{0%,100%{transform:scale(1.02) translate3d(0,0,0)}50%{transform:scale(1.07) translate3d(-1%,-0.8%,0)}}
 @keyframes captionGlow{0%,100%{box-shadow:0 0 0 rgba(232,98,10,0)}50%{box-shadow:0 0 18px rgba(232,98,10,.45)}}
-@media (prefers-reduced-motion: reduce){.hero-art>.hero-image,.hero-art>.hero-image-caption{animation:none}}
+@media (prefers-reduced-motion: reduce){.hero-art>.hero-image-caption{animation:none}}
 </style>
 </head>
 <body>
@@ -149,7 +148,7 @@ label{font-size:14px}
 <p class="hero-note">적용 범위, 기술 구성, 비용과 계약은 각 공간의 조건을 바탕으로 개별 검토합니다.</p>
 </div>
 <figure class="space-map hero-art" aria-label="제조, 오피스, 숙박, 주거, 스마트팜을 하나의 공간 통합 체계로 연결하는 건축적 비주얼">
-<img class="hero-image" src="assets/images/space-integration-hero-v2.png" alt="제조·오피스·숙박·주거·스마트팜을 연결한 3D 공간 통합 렌더링">
+<video class="hero-image" autoplay loop muted playsinline preload="auto" poster="assets/images/space-integration-hero-v2.png" aria-hidden="true"><source src="assets/video/hero/hero.mp4" type="video/mp4"><img src="assets/images/space-integration-hero-v2.png" alt="제조·오피스·숙박·주거·스마트팜을 연결한 3D 공간 통합 렌더링"></video>
 <figcaption class="hero-image-caption">
 <b>PHYSICAL AI</b>
 <br>SPACE · DATA · OPERATION
@@ -543,6 +542,7 @@ label{font-size:14px}
   cards.forEach(function(c){ io.observe(c); });
 })();
 </script>
+<script>(function(){var v=document.querySelector(".hero-art>video.hero-image");if(v&&window.matchMedia("(prefers-reduced-motion: reduce)").matches){v.removeAttribute("autoplay");v.pause();}})();</script>
 </body>
 </html>
 
