@@ -65,6 +65,46 @@ form input,form select,form textarea,select,input[type=text],input[type=email],i
   .sector:hover,.catalog-card:hover,.arch-card:hover{transform:none}
 }
 </style>
+<style id="v26-readability">
+/* V26 가독성 개선: 3+2 배치, 설명 16px, 라벨·태그 글꼴 확대 */
+.sectors{grid-template-columns:repeat(6,1fr);gap:20px;border-top:0}
+.sector{border:1px solid var(--line);background:#fff;box-shadow:0 1px 2px rgba(26,25,23,.05)}
+.sector:last-child{border-right:1px solid var(--line)}
+.sector:nth-child(-n+3){grid-column:span 2}
+.sector:nth-child(n+4){grid-column:span 3}
+.sector-media{height:220px}
+.sector-vid{height:100%;object-fit:cover}
+.sector-body{min-height:0;padding:26px 28px 30px;flex:1}
+.sector .num{font:600 15px 'Cafe24 Ssurround','Noto Sans KR',sans-serif;color:#4A443D;letter-spacing:.04em}
+.sector h3{margin-top:14px;font-size:24px;line-height:1.25;color:var(--ink)}
+.sector p{margin-top:14px;color:#2F2B26;font-size:16px;line-height:1.7}
+.sector span{margin-top:auto;padding-top:18px;color:#3D3832;font:500 14px var(--sans)}
+.hero-note,.catalog-note,.formnote,.deliver,.catalog-emphasis,.catalog-caution{font-size:14px}
+.catalog-emphasis,.catalog-caution{line-height:1.65}
+.catalog-card p{font-size:15px;color:#2F2B26;line-height:1.7}
+.catalog-top .num{font:600 14px 'Cafe24 Ssurround','Noto Sans KR',sans-serif;color:#4A443D}
+.stack{font:500 12px/1.55 var(--mono);color:#3D3832}
+.catalog-tags span{font:500 13px var(--sans);color:#3D3832;padding:6px 10px}
+.flow-item small{font:500 12px var(--mono);color:#4A443D}
+.flow-item p{font-size:15px;color:#2F2B26;line-height:1.65}
+.foundation-item b{font:500 12px var(--mono)}
+.foundation-item p{font-size:15px;color:#ECE8E1;line-height:1.65}
+.arch-note{font-size:15px;color:#ECE8E1}
+.arch-card small{font:500 12px var(--mono);color:#e4ded5}
+.footlinks{font-size:14px;color:#ECE8E1}
+.footbrand small{font:500 12px var(--mono);color:#d7d1c8}
+.brand small{font:500 11px var(--mono)}
+.navlinks>a:not(.btn){font-size:14px}
+.status{font-size:14px}
+label{font-size:14px}
+.node{font-size:13px}
+.node small{font:500 11px var(--mono);color:#ECE8E1}
+.map-head{font:500 12px var(--mono);color:#ECE8E1}
+.map-foot{font:500 11px var(--mono);color:#ECE8E1}
+.core{font:500 12px/1.55 var(--mono)}
+@media(max-width:1000px){.sectors{grid-template-columns:repeat(2,1fr)}.sector:nth-child(n){grid-column:auto;border-right:1px solid var(--line)}.sector:nth-child(5){grid-column:1 / -1}.sector-media{height:200px}.sector-body{padding:24px 24px 28px}}
+@media(max-width:560px){.sectors{grid-template-columns:1fr;gap:16px}.sector:nth-child(5){grid-column:auto}.sector-media{height:210px}.sector-body{padding:22px 22px 26px}.sector p{font-size:15px}}
+</style>
 </head>
 <body>
 <a class="skip" href="#main">본문으로 건너뛰기</a>
