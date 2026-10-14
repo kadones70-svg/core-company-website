@@ -111,7 +111,6 @@ label{font-size:14px}
 .hero-art>.hero-image{border-radius:28px;object-fit:cover}
 .hero-art>.hero-image-caption{border-radius:14px;animation:captionGlow 4s ease-in-out infinite}
 @keyframes captionGlow{0%,100%{box-shadow:0 0 0 rgba(232,98,10,0)}50%{box-shadow:0 0 18px rgba(232,98,10,.45)}}
-@media (prefers-reduced-motion: reduce){.hero-art>.hero-image-caption{animation:none}}
 </style>
 </head>
 <body>
@@ -542,7 +541,6 @@ label{font-size:14px}
   cards.forEach(function(c){ io.observe(c); });
 })();
 </script>
-<script>(function(){var v=document.querySelector(".hero-art>video.hero-image");if(v&&window.matchMedia("(prefers-reduced-motion: reduce)").matches){v.removeAttribute("autoplay");v.pause();}})();</script>
 </body>
 </html>
 
