@@ -104,6 +104,8 @@ label{font-size:14px}
 .core{font:500 12px/1.55 var(--mono)}
 @media(max-width:1000px){.sectors{grid-template-columns:repeat(2,1fr)}.sector:nth-child(n){grid-column:auto;border-right:1px solid var(--line)}.sector:nth-child(5){grid-column:1 / -1}.sector-media{height:200px}.sector-body{padding:24px 24px 28px}}
 @media(max-width:560px){.sectors{grid-template-columns:1fr;gap:16px}.sector:nth-child(5){grid-column:auto}.sector-media{height:210px}.sector-body{padding:22px 22px 26px}.sector p{font-size:15px}}
+.navlinks>a:not(.btn),.catalog-nav>button{font-size:15px;color:#3D3832;font-weight:500}
+.nav-ico{width:16px;height:16px;vertical-align:-3px;margin-right:6px;color:#4A443D;flex:none}
 </style>
 </head>
 <body>
@@ -117,12 +119,12 @@ label{font-size:14px}
 </a>
 <button class="menu" type="button" aria-label="메뉴 열기" aria-expanded="false">☰</button>
 <nav class="navlinks" aria-label="주요 메뉴">
-<a href="#spaces">적용 공간</a>
-<div class="catalog-nav"><button type="button" aria-haspopup="true">카탈로그 ▾</button><div class="catalog-submenu"><a href="#catalog">로컬 AI 카탈로그</a><a href="catalog-office.html">오피스</a><a href="catalog-hospitality.html">숙박·펜션</a><a href="catalog-home.html">스마트홈</a><a href="catalog-farm.html">스마트팜</a><a href="catalog-manufacturing.html">제조</a></div></div>
-<a href="#method">진행 방식</a>
-<a href="#architecture">아키텍처</a>
-<a href="#faq">FAQ</a>
-<a href="https://corecompany.net/blog/">블로그</a>
+<a href="#spaces"><svg class="nav-ico" aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14"/><path d="M9 10h2M13 10h2M9 14h2M13 14h2M9 18h2M13 18h2"/></svg>적용 공간</a>
+<div class="catalog-nav"><button type="button" aria-haspopup="true"><svg class="nav-ico" aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>카탈로그 ▾</button><div class="catalog-submenu"><a href="#catalog">로컬 AI 카탈로그</a><a href="catalog-office.html">오피스</a><a href="catalog-hospitality.html">숙박·펜션</a><a href="catalog-home.html">스마트홈</a><a href="catalog-farm.html">스마트팜</a><a href="catalog-manufacturing.html">제조</a></div></div>
+<a href="#method"><svg class="nav-ico" aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="18" r="2"/><path d="M7 6h5l0 4M14 12h3l0 4"/></svg>진행 방식</a>
+<a href="#architecture"><svg class="nav-ico" aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg>아키텍처</a>
+<a href="#faq"><svg class="nav-ico" aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6M12 17h.01"/></svg>FAQ</a>
+<a href="https://corecompany.net/blog/"><svg class="nav-ico" aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/></svg>블로그</a>
 <a class="btn" href="#contact">도입 진단 문의</a>
 </nav>
 </div>
