@@ -1,12 +1,12 @@
 (function(){
   const k=document.body.dataset.catalog||'office';
-  const heroMap={office:'catalog-office-v1.png',hospitality:'catalog-hospitality-v1.png',home:'catalog-home-v1.png',farm:'catalog-farm-v1.png',manufacturing:'catalog-manufacturing-v1.png'};
+  const heroMap={office:'catalog-office-v1.webp',hospitality:'catalog-hospitality-v1.webp',home:'catalog-home-v1.webp',farm:'catalog-farm-v1.webp',manufacturing:'catalog-manufacturing-v1.webp'};
   const setMap={
-    office:'catalog-office-cards-v1.png',
-    hospitality:'catalog-hospitality-cards-v1.png',
-    home:'catalog-home-cards-v1.png',
-    farm:'catalog-farm-cards-v1.png',
-    manufacturing:'catalog-manufacturing-cards-v1.png'
+    office:'catalog-office-cards-v1.webp',
+    hospitality:'catalog-hospitality-cards-v1.webp',
+    home:'catalog-home-cards-v1.webp',
+    farm:'catalog-farm-cards-v1.webp',
+    manufacturing:'catalog-manufacturing-cards-v1.webp'
   };
   const hero='assets/images/'+heroMap[k];
   const set=setMap[k]?'assets/images/'+setMap[k]:hero;
